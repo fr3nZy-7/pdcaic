@@ -1,5 +1,11 @@
 const BookAppointmentButton = ({ onClick }: { onClick?: () => void }) => {
   return (
+        <div
+      className="
+        p-[2px] rounded-full
+        bg-gradient-to-r from-[#007099] via-[#02739D] to-[#00ABDA]
+      "
+    >
     <button
       onClick={onClick}
       className="
@@ -24,6 +30,7 @@ const BookAppointmentButton = ({ onClick }: { onClick?: () => void }) => {
       />
       Book Appointment
     </button>
+    </div>
   );
 };
 
