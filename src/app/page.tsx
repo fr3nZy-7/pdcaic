@@ -1,12 +1,12 @@
-import Hero from "@/components/sections/Hero";
-import BookAppointmentButton from "@/components/common/BookAppointmentButton";
-import WhatsAppUsButton from "@/components/common/WhatsAppUsButton";
+// import Header from "@/components/common/Header";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen">
-      <Hero />
-
+      
+      <div className="pt-20 text-center">
+        <h1>Homepage Content</h1>
+      </div>
     </main>
   );
 }
