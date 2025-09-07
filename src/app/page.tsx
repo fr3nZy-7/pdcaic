@@ -6,10 +6,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <Hero />
-<p> lore40m ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
 
-      <BookAppointmentButton />
-          <WhatsAppUsButton />
     </main>
   );
 }
