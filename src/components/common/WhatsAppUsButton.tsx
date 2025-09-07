@@ -2,18 +2,13 @@ interface WhatsAppButtonProps {
   onClick?: () => void;
 }
 
-const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
+const WhatsAppUsButton = ({ onClick }: WhatsAppButtonProps) => {
   return (
-    <div
-      className="
-        p-[2px] rounded-full
-        bg-gradient-to-r from-[#007099] via-[#02739D] to-[#00ABDA]
-      "
-    >
+    
       <button
         onClick={onClick}
         className="
-          flex items-center gap-2
+          flex items-center justify-center gap-2
           rounded-full font-semibold
           bg-white shadow-md transition-all duration-200
           
@@ -33,8 +28,8 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
         />
         WhatsApp Us!
       </button>
-    </div>
+    
   );
 };
 
-export default WhatsAppButton;
+export default WhatsAppUsButton;
