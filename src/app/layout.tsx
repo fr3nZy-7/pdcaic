@@ -41,6 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${raleway.variable}`}>
+      
       <body className="font-poppins antialiased bg-white text-gray-900">
         <Header />
         <main className="pt-20">

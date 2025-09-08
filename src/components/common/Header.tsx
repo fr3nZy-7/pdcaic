@@ -139,9 +139,10 @@ const Header: React.FC = () => {
         }
 
         .navLink {
-          color: var(--teal);
-          text-decoration: none;
+          color: var(--teal);!important
+          text-decoration: none; !important
           transition: color 0.18s ease;
+          font-weight: 500;
         }
 
         .navLink:hover {
@@ -181,7 +182,7 @@ const Header: React.FC = () => {
 
         /* Mobile dropdown (hidden on desktop via media query) */
         .mobileDropdown {
-          display: block; /* default hidden for desktop */
+          display: none; /* default hidden for desktop */
         }
 
         /* ========== Responsive rules ========== */
@@ -202,7 +203,10 @@ const Header: React.FC = () => {
 
           /* mobile dropdown will be display:block and animated via max-height */
           .mobileDropdown {
-            display: block;
+            display: flex;
+            font-family: "Poppins", sans-serif;
+            align-items: flex-start;
+            flex-direction: column;
             position: absolute;
             top: var(--header-h);
             left: 0;
@@ -216,22 +220,25 @@ const Header: React.FC = () => {
             transition: max-height 260ms ease-in-out, opacity 180ms ease;
             opacity: 0;
             z-index: 49;
+            
           }
 
           .mobileDropdown.open {
             max-height: 400px; /* enough for links */
             opacity: 1;
+            flex-direction: column;
           }
 
           .mobileNavLink {
             display: block;
             width: 100%;
             padding: 10px 8px;
-            color: var(--teal);
-            text-decoration: none;
+            color: var(--teal); !important
+            text-decoration: none; !important
             border-radius: 8px;
             font-weight: 500;
             transition: background 0.12s ease, color 0.12s ease;
+            flex-direction: column;
           }
 
           .mobileNavLink:hover {
