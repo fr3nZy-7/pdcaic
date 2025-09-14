@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,10 +52,13 @@ const Header = () => {
 
           {/* Logo - Centered */}
           <Link to="/" className="flex items-center">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.69 2 6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
+            <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <img
+              src={logo}
+              alt="Modern dental clinic interior"
+              className="w-full h-full object-cover"
+            />
+              
             </div>
           </Link>
 

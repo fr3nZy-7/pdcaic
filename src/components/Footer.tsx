@@ -47,14 +47,14 @@ const Footer = () => {
                 <Phone className="h-5 w-5 opacity-80" />
                 <div className="text-sm">
                   <div className="font-medium">Phone</div>
-                  <div className="opacity-80">+91 9999999999</div>
+                  <div className="opacity-80">+91 7507 32 55 39</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 opacity-80" />
                 <div className="text-sm">
                   <div className="font-medium">Email</div>
-                  <div className="opacity-80">hello@padmanaabhclinic.com</div>
+                  <div className="opacity-80">nehaendo2019@gmail.com</div>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="opacity-80">Monday - Friday</span>
-                <span>9:00 AM - 6:00 PM</span>
+                <span>10:00 AM - 8:00 PM</span>
               </div>
               <div className="flex justify-between">
                 <span className="opacity-80">Saturday</span>

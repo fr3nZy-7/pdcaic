@@ -23,6 +23,7 @@ import {
 import heroImage from "@/assets/hero-dental-clinic.jpg";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import happyPatientsImage from "@/assets/happy-patients.jpg";
+import logo from "@/assets/logo.svg";
 
 const Index = () => {
   const services = [
@@ -124,9 +125,12 @@ const Index = () => {
                 <div className="mb-8">
                   <div className="flex items-center mb-4">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                      <svg className="w-10 h-10 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.69 2 6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
+                      <img
+                        src={logo}
+                        alt="Modern dental clinic interior"
+                        className="w-full h-full object-cover"
+                      />
+                     
                     </div>
                     <div>
                       <h2 className="text-2xl font-bold text-primary">PADMANAABH</h2>
@@ -186,7 +190,7 @@ const Index = () => {
                   </div>
                   <div className="flex items-center text-white/80">
                     <Phone className="h-5 w-5 mr-3" />
-                    <span>+91-9999999999 / +91-9999999999</span>
+                    <span>+91-7507 32 55 39</span>
                   </div>
                 </div>
 
@@ -324,14 +328,14 @@ const Index = () => {
                   <Phone className="h-6 w-6 text-primary" />
                   <div>
                     <div className="font-semibold">Phone</div>
-                    <div className="text-muted-foreground">+91 9999999999</div>
+                    <div className="text-muted-foreground">+91 7507 32 55 39</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Clock className="h-6 w-6 text-primary" />
                   <div>
                     <div className="font-semibold">Hours</div>
-                    <div className="text-muted-foreground">Mon-Sat: 9:00 AM - 8:00 PM</div>
+                    <div className="text-muted-foreground">Mon-Sat: 10:00 AM - 8:00 PM</div>
                   </div>
                 </div>
               </div>
