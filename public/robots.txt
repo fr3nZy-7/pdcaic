@@ -1,14 +1,19 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Dental clinic pages
+Allow: /services
+Allow: /about
+Allow: /gallery
+Allow: /blog
+Allow: /faq
+Allow: /contact
+
+# Important pages
+Allow: /sitemap.xml
+
+# Disallow admin areas (if any in the future)
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://padmanaabhclinic.com/sitemap.xml
