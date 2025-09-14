@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
+import GlassmorphismCard from "@/components/GlassmorphismCard";
+import FloatingActionButtons from "@/components/FloatingActionButtons";
 import { 
   Stethoscope, 
   Zap, 
@@ -102,41 +104,109 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-light to-primary overflow-hidden">
-        <div className="container mx-auto px-4 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-primary-foreground animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Your Smile is Our 
-                <span className="block text-accent">Priority</span>
-              </h1>
-              <p className="text-lg md:text-xl mb-8 opacity-90 leading-relaxed">
-                Experience exceptional dental care at Padmanaabh Dental Clinic. 
-                We provide comprehensive dental services with advanced technology 
-                and a gentle touch in Lohegaon, Pune.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-                  Book Appointment
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                >
-                  Call Now: +91 9999999999
-                </Button>
-              </div>
+      <section className="relative min-h-screen bg-gradient-to-br from-primary to-primary-dark overflow-hidden">
+        {/* Background dental chair image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Modern dental clinic interior"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/60"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+            {/* Left side - Glassmorphism Card */}
+            <div className="animate-fade-in">
+              <GlassmorphismCard className="p-8 lg:p-12">
+                {/* Logo and Header */}
+                <div className="mb-8">
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
+                      <svg className="w-10 h-10 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.69 2 6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-primary">PADMANAABH</h2>
+                      <p className="text-primary/80">Dental Clinic and Implant Center</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center mb-2">
+                    <MapPin className="h-4 w-4 text-primary mr-2" />
+                    <span className="text-primary/80 underline">Lohegaon, Pune.</span>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <span className="text-primary/80 mr-2">Top rated in Pune</span>
+                    <span className="font-bold text-primary mr-2">4.5/5</span>
+                    <div className="flex text-yellow-400">
+                      {"★★★★☆".split("").map((star, i) => (
+                        <span key={i}>{star}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main heading */}
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                  Your Smile, Our Passion
+                  <span className="block">– Book Today!</span>
+                </h1>
+                
+                <p className="text-lg text-white/90 mb-8">
+                  Experience compassionate care and advanced treatments 
+                  tailored just for you.
+                </p>
+
+                {/* Features */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center text-primary">
+                    <CheckCircle className="h-5 w-5 mr-3" />
+                    <span className="font-medium">Shortest Waiting Time !</span>
+                  </div>
+                  <div className="flex items-center text-primary">
+                    <CheckCircle className="h-5 w-5 mr-3" />
+                    <span className="font-medium">Painless Treatment !</span>
+                  </div>
+                  <div className="flex items-center text-primary">
+                    <CheckCircle className="h-5 w-5 mr-3" />
+                    <span className="font-medium">Affordable Prices !</span>
+                  </div>
+                </div>
+
+                {/* Contact Info */}
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-white/80">
+                    <Clock className="h-5 w-5 mr-3" />
+                    <span>Open Today ! 10:00 AM - 09:00 PM</span>
+                    <span className="text-primary underline ml-2">Check Timings</span>
+                  </div>
+                  <div className="flex items-center text-white/80">
+                    <Phone className="h-5 w-5 mr-3" />
+                    <span>+91-9999999999 / +91-9999999999</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button 
+                    variant="outline" 
+                    className="bg-white/20 border-white text-white hover:bg-white hover:text-primary px-6 py-3"
+                  >
+                    📱 Whatsapp Us
+                  </Button>
+                  <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3">
+                    📅 Book Appointment
+                  </Button>
+                </div>
+              </GlassmorphismCard>
             </div>
-            <div className="relative animate-slide-up">
-              <img
-                src={heroImage}
-                alt="Modern dental clinic interior"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
-            </div>
+            
+            {/* Right side - Keep space for the dental chair image */}
+            <div className="hidden lg:block"></div>
           </div>
         </div>
       </section>
@@ -286,6 +356,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };

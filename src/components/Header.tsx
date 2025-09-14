@@ -9,73 +9,59 @@ const Header = () => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
+    { name: "Services", href: "/services", hasDropdown: true },
+    { name: "Dental Tourism", href: "/dental-tourism" },
     { name: "About Us", href: "/about" },
-    { name: "Gallery", href: "/gallery" },
     { name: "Blog", href: "/blog" },
     { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="container mx-auto px-4">
-        {/* Top bar with contact info */}
-        <div className="hidden md:flex items-center justify-between py-2 text-sm text-muted-foreground border-b">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <MapPin className="h-4 w-4 text-primary" />
-              <span>Lohegaon, Pune, Maharashtra</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Phone className="h-4 w-4 text-primary" />
-              <span>+91 9999999999</span>
-            </div>
-          </div>
-          <div className="text-primary font-medium">
-            Open Today: 10:00 AM - 08:00 PM
-          </div>
-        </div>
-
         {/* Main navigation */}
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <div className="text-primary-foreground font-bold text-lg">P</div>
-            </div>
-            <div>
-              <div className="font-bold text-lg text-foreground">PADMANAABH</div>
-              <div className="text-sm text-muted-foreground">Dental Clinic and Implant Centre</div>
-            </div>
-          </Link>
-
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`relative transition-colors hover:text-primary ${
-                  isActive(item.href)
-                    ? "text-primary font-medium"
-                    : "text-foreground"
-                }`}
-              >
-                {item.name}
+              <div key={item.name} className="relative">
+                <Link
+                  to={item.href}
+                  className={`relative transition-colors hover:text-primary flex items-center ${
+                    isActive(item.href)
+                      ? "text-primary font-medium"
+                      : "text-foreground"
+                  }`}
+                >
+                  {item.name}
+                  {item.hasDropdown && (
+                    <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </Link>
                 {isActive(item.href) && (
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
                 )}
-              </Link>
+              </div>
             ))}
           </nav>
 
+          {/* Logo - Centered */}
+          <Link to="/" className="flex items-center">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.69 2 6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+          </Link>
+
           {/* Book Appointment Button */}
-          <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary-dark text-primary-foreground">
-              Book Appointment
+          <div className="hidden lg:block">
+            <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full">
+              📅 Book Appointment
             </Button>
           </div>
 
@@ -110,8 +96,8 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="bg-primary hover:bg-primary-dark text-primary-foreground mt-4">
-                Book Appointment
+              <Button className="bg-primary hover:bg-primary/90 text-white mt-4">
+                📅 Book Appointment
               </Button>
             </nav>
           </div>
