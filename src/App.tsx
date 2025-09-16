@@ -12,7 +12,6 @@ import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import RootCanal from "./pages/services/root-canal";
 import ServicePage from "./pages/ServicePage";
 
 const queryClient = new QueryClient();
