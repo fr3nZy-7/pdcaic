@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
@@ -16,6 +17,7 @@ import {
   Award
 } from "lucide-react";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
+import path from "path";
 
 const Services = () => {
   const allServices = [
@@ -42,6 +44,7 @@ const Services = () => {
       description: "Advanced endodontic therapy to save infected or damaged teeth while eliminating pain and preserving natural teeth.",
       icon: <Shield className="h-8 w-8" />,
       features: ["Single Visit RCT", "Retreatment", "Apicoectomy", "Pulp Therapy"],
+      path: "/services/root-canal"
     },
     {
       title: "Orthodontics",
@@ -174,12 +177,14 @@ const Services = () => {
                       </div>
                     ))}
                   </div>
+                  <Link to={service.path}>
                   <Button 
                     variant="outline" 
                     className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     Learn More
                   </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -233,7 +238,7 @@ const Services = () => {
               variant="outline" 
               className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
             >
-              Call: +91 9999999999
+              Call: +91 7507 325 539
             </Button>
           </div>
         </div>

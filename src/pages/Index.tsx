@@ -125,9 +125,9 @@ const Index = () => {
             <div className="animate-fade-in">
               <GlassmorphismCard className="p-8 lg:p-12">
                 {/* Logo and Header */}
-                <div className="mb-8">
-                  <div className="flex items-center mb-4">
-                    <div className="w-25 h-25 bg-white rounded-full flex items-center justify-center mr-4">
+                <div className="mb-6">
+                  <div className="flex items-center mb-3">
+                    <div className="w-22 h-22 bg-white rounded-full flex items-center justify-center mr-4">
                       
                       <img
                       src={shortLogo}
