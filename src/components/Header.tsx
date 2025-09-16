@@ -50,7 +50,7 @@ const Header = () => {
           {/* Logo - Centered */}
           <Link to="/" className="flex items-center">
             
-              <img className="w-32 h-16 rounded-md flex items-center justify-center" src="src/assets/short-logo-wo-name.svg"/>
+              <img className="w-32 h-16 rounded-md flex items-center justify-center" src="src/assets/short-logo-wo-name.svg" alt="Clinic Logo"/>
               
             
           </Link>
