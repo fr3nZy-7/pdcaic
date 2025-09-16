@@ -128,7 +128,7 @@ const Index = () => {
                   <div className="flex items-center mb-4">
                     <div className="w-25 h-25 bg-white rounded-full flex items-center justify-center mr-4">
                       
-                        <img src="src/assets/short-logo-wo-name.svg" alt="Clinic Logo" />
+                        <img src="/src/assets/short-logo-wo-name.svg" alt="Clinic Logo" />
                       
                     </div>
                     <div>
