@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.svg";
 import BookAppointmentButton from "./BookAppointmentButton";
+import ShortLogo from "@/assets/short-logo-wo-name.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const Header = () => {
           {/* Logo - Centered */}
           <Link to="/" className="flex items-center">
             
-              <img className="w-32 h-16 rounded-md flex items-center justify-center" src="/src/assets/short-logo-wo-name.svg" alt="Clinic Logo"/>
+              <img className="w-32 h-16 rounded-md flex items-center justify-center" src={ShortLogo} alt="Clinic Logo"/>
               
             
           </Link>

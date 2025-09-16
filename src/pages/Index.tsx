@@ -26,6 +26,7 @@ import heroImage from "@/assets/hero-dental-clinic.jpg";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import happyPatientsImage from "@/assets/happy-patients.jpg";
 import logo from "@/assets/logo.svg";
+import shortLogo from "@/assets/short-logo-wo-name.svg";
 
 const Index = () => {
   const services = [
@@ -128,7 +129,11 @@ const Index = () => {
                   <div className="flex items-center mb-4">
                     <div className="w-25 h-25 bg-white rounded-full flex items-center justify-center mr-4">
                       
-                        <img src="/src/assets/short-logo-wo-name.svg" alt="Clinic Logo" />
+                      <img
+                      src={shortLogo}
+                      alt="clinic logo"
+                      />
+                    
                       
                     </div>
                     <div>
