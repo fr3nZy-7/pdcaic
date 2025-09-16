@@ -9,7 +9,8 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: "Home Services", href: "/services" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
     { name: "Dental Tourism", href: "/dental-tourism", hasDropdown: true },
     { name: "About Us", href: "/about" },
     { name: "Gallery", href: "/gallery" },
@@ -21,7 +22,7 @@ const Header = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <header className="sticky  top-0 z-50 w-full bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main navigation */}
         <div className="flex items-center justify-between h-18">
@@ -48,9 +49,10 @@ const Header = () => {
 
           {/* Logo - Centered */}
           <Link to="/" className="flex items-center">
-            <div className="w-32 h-12 bg-primary rounded-md flex items-center justify-center">
-              <span className="text-white font-heading font-bold text-sm">LOGO PLACEHOLDER</span>
-            </div>
+            
+              <img className="w-32 h-16 rounded-md flex items-center justify-center" src="src/assets/short-logo-wo-name.svg"/>
+              
+            
           </Link>
 
           {/* Book Appointment Button */}

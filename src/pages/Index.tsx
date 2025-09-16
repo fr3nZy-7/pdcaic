@@ -115,7 +115,7 @@ const Index = () => {
             alt="Modern dental clinic interior"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/60"></div>
+          <div className="absolute inset-0"></div>
         </div>
         
         <div className="container mx-auto px-4 py-20 relative z-10">
@@ -126,10 +126,10 @@ const Index = () => {
                 {/* Logo and Header */}
                 <div className="mb-8">
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                      <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                        <span className="text-white font-heading font-bold text-xs">LOGO</span>
-                      </div>
+                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4">
+                      
+                        <img src="src/assets/short-logo-wo-name.svg" alt="Clinic Logo" />
+                      
                     </div>
                     <div>
                       <h2 className="text-2xl font-bold text-shade font-heading">PADMANAABH</h2>
