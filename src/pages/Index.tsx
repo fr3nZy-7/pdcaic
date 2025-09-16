@@ -126,25 +126,25 @@ const Index = () => {
                 {/* Logo and Header */}
                 <div className="mb-8">
                   <div className="flex items-center mb-4">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4">
+                    <div className="w-25 h-25 bg-white rounded-full flex items-center justify-center mr-4">
                       
                         <img src="src/assets/short-logo-wo-name.svg" alt="Clinic Logo" />
                       
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-shade font-heading">PADMANAABH</h2>
-                      <p className="text-shade/80 font-heading">Dental Clinic and Implant Centre</p>
+                      <h2 className="text-5xl font-bold text-shade font-heading">PADMANAABH</h2>
+                      <p className="text-2xl font-bold text-shade/80 font-heading">Dental Clinic and Implant Centre</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center mb-2">
-                    <MapPin className="h-4 w-4 text-primary mr-2" />
-                    <span className="text-primary/80 underline">Lohegaon, Pune.</span>
+                    <MapPin className="h-4 w-4 text-primary-dark mr-2" />
+                    <span className="text-primary-dark underline">Lohegaon, Pune.</span>
                   </div>
                   
                   <div className="flex items-center">
-                    <span className="text-primary/80 mr-2">Top rated in Pune</span>
-                    <span className="font-bold text-primary mr-2">4.5/5</span>
+                    <span className="text-primary-dark mr-2">Top rated in Pune</span>
+                    <span className="font-bold text-primary-dark mr-2">4.7/5</span>
                     <div className="flex text-yellow-400">
                       {"★★★★☆".split("").map((star, i) => (
                         <span key={i}>{star}</span>
@@ -166,15 +166,15 @@ const Index = () => {
 
                 {/* Features */}
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-center text-primary">
+                  <div className="flex items-center text-primary-dark">
                     <CheckCircle className="h-5 w-5 mr-3" />
                     <span className="font-medium">Shortest Waiting Time !</span>
                   </div>
-                  <div className="flex items-center text-primary">
+                  <div className="flex items-center text-primary-dark">
                     <CheckCircle className="h-5 w-5 mr-3" />
                     <span className="font-medium">Painless Treatment !</span>
                   </div>
-                  <div className="flex items-center text-primary">
+                  <div className="flex items-center text-primary-dark">
                     <CheckCircle className="h-5 w-5 mr-3" />
                     <span className="font-medium">Affordable Prices !</span>
                   </div>
@@ -185,7 +185,9 @@ const Index = () => {
                   <div className="flex items-center text-white/80">
                     <Clock className="h-5 w-5 mr-3" />
                     <span>Open Today ! 10:00 AM - 09:00 PM</span>
-                    <span className="text-primary underline ml-2">Check Timings</span>
+                    <a href="/contact" className="ml-2 text-primary-dark underline">
+                    <span className="text-primary-dark underline ml-2">Check Timings</span>
+                    </a>
                   </div>
                   <div className="flex items-center text-white/80">
                     <Phone className="h-5 w-5 mr-3" />
