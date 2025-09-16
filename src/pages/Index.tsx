@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import GlassmorphismCard from "@/components/GlassmorphismCard";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
+import BookAppointmentButton from "@/components/BookAppointmentButton";
+import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import { 
   Stethoscope, 
   Zap, 
@@ -125,16 +127,13 @@ const Index = () => {
                 <div className="mb-8">
                   <div className="flex items-center mb-4">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                      <img
-                        src={logo}
-                        alt="Modern dental clinic interior"
-                        className="w-full h-full object-cover"
-                      />
-                     
+                      <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                        <span className="text-white font-heading font-bold text-xs">LOGO</span>
+                      </div>
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-primary">PADMANAABH</h2>
-                      <p className="text-primary/80">Dental Clinic and Implant Center</p>
+                      <h2 className="text-2xl font-bold text-shade font-heading">PADMANAABH</h2>
+                      <p className="text-shade/80 font-heading">Dental Clinic and Implant Centre</p>
                     </div>
                   </div>
                   
@@ -155,7 +154,7 @@ const Index = () => {
                 </div>
 
                 {/* Main heading */}
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-heading">
                   Your Smile, Our Passion
                   <span className="block">– Book Today!</span>
                 </h1>
@@ -196,15 +195,10 @@ const Index = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    variant="outline" 
-                    className="bg-white/20 border-white text-white hover:bg-white hover:text-primary px-6 py-3"
-                  >
-                    📱 Whatsapp Us
-                  </Button>
-                  <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3">
-                    📅 Book Appointment
-                  </Button>
+                  <WhatsAppUsButton 
+                    onClick={() => window.open('https://wa.me/917507325539', '_blank')}
+                  />
+                  <BookAppointmentButton />
                 </div>
               </GlassmorphismCard>
             </div>

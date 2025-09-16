@@ -17,11 +17,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Dental clinic teal theme */
-    --primary: 174 70% 41%;
+    /* Dental clinic color palette */
+    --primary: 187 82% 42%;        /* #23AAB9 - Main brand color */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 174 70% 85%;
-    --primary-dark: 174 70% 25%;
+    --primary-light: 187 82% 75%;   /* Lighter version */
+    --primary-dark: 187 82% 25%;    /* Darker version */
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -29,25 +29,28 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 174 70% 85%;
-    --accent-foreground: 174 70% 15%;
+    --accent: 194 98% 38%;         /* #0194C1 - Accent color */
+    --accent-foreground: 0 0% 100%;
+    --shade: 193 100% 26%;         /* #007286 - Darker shade */
+    --shade-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 174 70% 41%;
+    --ring: 187 82% 42%;
 
     --radius: 0.5rem;
 
     /* Dental clinic specific colors */
-    --dental-teal: 174 70% 41%;
-    --dental-teal-light: 174 70% 85%;
-    --dental-teal-dark: 174 70% 25%;
+    --dental-primary: 187 82% 42%;     /* #23AAB9 */
+    --dental-accent: 194 98% 38%;      /* #0194C1 */
+    --dental-shade: 193 100% 26%;      /* #007286 */
     --dental-blue: 200 100% 85%;
     --dental-pink: 330 100% 95%;
-    --dental-gradient: linear-gradient(135deg, hsl(174 70% 85%), hsl(174 70% 41%));
+    --dental-gradient: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    --dental-button-gradient: linear-gradient(to bottom, #00ABDA, #02739D, #00ABDA);
 
     /* Shadows and effects */
     --shadow-dental: 0 10px 30px -10px hsl(174 70% 41% / 0.3);
@@ -76,10 +79,10 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 174 70% 41%;
+    --primary: 187 82% 42%;        /* Keep same primary in dark mode */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 174 70% 25%;
-    --primary-dark: 174 70% 55%;
+    --primary-light: 187 82% 25%;
+    --primary-dark: 187 82% 55%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -87,15 +90,17 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 174 70% 25%;
-    --accent-foreground: 174 70% 85%;
+    --accent: 194 98% 38%;         /* Keep same accent in dark mode */
+    --accent-foreground: 0 0% 100%;
+    --shade: 193 100% 26%;         /* Keep same shade in dark mode */
+    --shade-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 174 70% 41%;
+    --ring: 187 82% 42%;
 
     --dental-teal: 174 70% 41%;
     --dental-teal-light: 174 70% 25%;

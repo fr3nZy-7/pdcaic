@@ -41,6 +41,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        shade: {
+          DEFAULT: "hsl(var(--shade))",
+          foreground: "hsl(var(--shade-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -50,9 +54,9 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         dental: {
-          teal: "hsl(var(--dental-teal))",
-          "teal-light": "hsl(var(--dental-teal-light))",
-          "teal-dark": "hsl(var(--dental-teal-dark))",
+          primary: "hsl(var(--dental-primary))",
+          accent: "hsl(var(--dental-accent))",
+          shade: "hsl(var(--dental-shade))",
           blue: "hsl(var(--dental-blue))",
           pink: "hsl(var(--dental-pink))",
         },
@@ -66,6 +70,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+        heading: ["Raleway", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

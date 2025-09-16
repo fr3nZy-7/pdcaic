@@ -20,7 +20,11 @@ const FloatingActionButtons = () => {
         className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200 group"
         aria-label="WhatsApp us"
       >
-        <MessageCircle className="h-6 w-6 text-white" />
+        <img
+          src="/images/common/1xwhatsapp-icon.svg"
+          alt="WhatsApp icon"
+          className="w-6 h-6"
+        />
       </a>
     </div>
   );
