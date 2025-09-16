@@ -15,7 +15,7 @@ const BookAppointmentButton = ({ onClick, className = "" }: BookAppointmentButto
         
         px-4 py-2 text-sm           /* base (mobile) */
         sm:px-6 sm:py-3 sm:text-base /* small screens and up */
-        md:px-8 md:py-4 md:text-lg   /* medium screens and up */
+        md:px-7 md:py-3 md:text-md   /* medium screens and up */
         
         hover:from-[#007EAC] hover:via-[#014761] hover:to-[#007EAC]
         active:from-[#26B9EF] active:via-[#1A92BE] active:to-[#2DBDF2]
