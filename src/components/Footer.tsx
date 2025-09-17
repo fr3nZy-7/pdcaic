@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import FullLogo from "@/assets/full-logo-w-name.svg";
 
 const Footer = () => {
@@ -34,7 +34,7 @@ const Footer = () => {
               <img
                 src={FullLogo}
                 alt="Padmanaabh Dental Clinic & Implant Centre"
-                className="h-16 w-auto filter brightness-0 invert"
+                className="h-18 w-auto filter brightness-0 invert"
                 onError={(e) => {
                   const target = e.currentTarget as HTMLImageElement;
                   target.style.display = 'none';
@@ -134,6 +134,49 @@ const Footer = () => {
                 <Link to="/dental-tourism" className="text-white/80 hover:text-accent transition-colors text-sm">
                   Dental Tourism
                 </Link>
+              </div>
+            </div>
+
+            {/* Follow Us Section */}
+            <div>
+              <h3 className="font-heading font-semibold text-lg text-white mb-4">Follow Us</h3>
+              <div className="flex space-x-4">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  aria-label="Follow us on YouTube"
+                >
+                  <Youtube className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
