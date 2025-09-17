@@ -10,6 +10,7 @@ import GlassmorphismCard from "@/components/GlassmorphismCard";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
+import FooterCTA from "@/components/FooterCTA";
 
 const ServicePage = () => {
   const { slug } = useParams();
@@ -334,6 +335,7 @@ const ServicePage = () => {
       </section>
 
       <FloatingActionButtons />
+      <FooterCTA/>
       <Footer />
     </>
   );
