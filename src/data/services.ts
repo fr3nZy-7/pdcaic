@@ -29,26 +29,14 @@ export type Service = {
   }[];
 
   // Before/After images - reference to gallery system
-      beforeAfterCategory: "root-canal", // will filter gallery images by this category
+  beforeAfterCategory: string; // will filter gallery images by this category
     
-    // Mock data for development (until gallery system is ready)
-    mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/rct-before-1.jpg",
-        after: "/images/before-after/rct-after-1.jpg",
-        description: "Successful root canal treatment with excellent results"
-      },
-      {
-        before: "/images/before-after/rct-before-2.jpg", 
-        after: "/images/before-after/rct-after-2.jpg",
-        description: "Complete restoration preserving natural tooth"
-      },
-      {
-        before: "/images/before-after/rct-before-3.jpg",
-        after: "/images/before-after/rct-after-3.jpg", 
-        description: "Pain-free treatment with lasting results"
-      }
-    ],
+  // Mock data for development (until gallery system is ready)
+  mockBeforeAfterImages: {
+      before: string;
+      after: string;
+      description: string;
+    }[],
 
   // Detailed content sections (replaces simple longDescription)
   detailedContent: {
@@ -89,6 +77,8 @@ export const services: Service[] = [
         "endodontist Pune",
       ],
     },
+
+    beforeAfterCategory: "root-canal",
 
     // NEW EXTENDED DATA:
     features: [
@@ -132,7 +122,7 @@ export const services: Service[] = [
       }
     ],
 
-    beforeAfterImages: [
+    mockBeforeAfterImages: [
       {
         before: "/images/before-after/rct-before-1.jpg",
         after: "/images/before-after/rct-after-1.jpg",
