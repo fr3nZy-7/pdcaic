@@ -88,85 +88,7 @@ const ServicePage = () => {
         </div>
       </section>
 
-      {/* Treatment Results Section */}
-      {beforeAfterImages.length > 0 && (
-        <section className="py-16 bg-gradient-to-b from-[#E0F7FA] to-white relative overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute top-10 right-10 opacity-20">
-            <img src="/images/common/placeholder.svg" alt="" className="w-32 h-32" />
-          </div>
-          
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                Treatment Results
-              </h2>
-              <p className="text-lg text-gray-600">
-                Successful {service.title.toLowerCase()} with excellent results
-              </p>
-            </div>
-
-            {/* Before/After Carousel */}
-            <div className="relative">
-              <div className="flex justify-center">
-                <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Before Image */}
-                    <div className="text-center">
-                      <img
-                        src={beforeAfterImages[currentImageIndex]?.before || '/images/common/placeholder.svg'}
-                        alt="Before treatment"
-                        className="w-full h-64 object-cover rounded-xl mb-4"
-                      />
-                      <h3 className="text-xl font-semibold text-gray-800">Before</h3>
-                    </div>
-                    
-                    {/* After Image */}
-                    <div className="text-center">
-                      <img
-                        src={beforeAfterImages[currentImageIndex]?.after || '/images/common/placeholder.svg'}
-                        alt="After treatment"
-                        className="w-full h-64 object-cover rounded-xl mb-4"
-                      />
-                      <h3 className="text-xl font-semibold text-gray-800">After</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
-              >
-                <ChevronLeft className="w-6 h-6 text-[#00ABDA]" />
-              </button>
-              
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
-              >
-                <ChevronRight className="w-6 h-6 text-[#00ABDA]" />
-              </button>
-            </div>
-
-            {/* Dot Indicators */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {beforeAfterImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentImageIndex 
-                      ? 'bg-[#00ABDA]' 
-                      : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      
 
       {/* Service Features Section */}
       <section className="py-16 bg-white">
@@ -214,9 +136,7 @@ const ServicePage = () => {
       {/* What To Expect Section */}
       <section className="py-16 bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] relative overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute bottom-10 left-10 opacity-30">
-          <img src="/images/common/placeholder.svg" alt="" className="w-40 h-40" />
-        </div>
+     
 
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
@@ -297,6 +217,86 @@ const ServicePage = () => {
         </section>
       )}
 
+      {/* Treatment Results Section */}
+      {beforeAfterImages.length > 0 && (
+        <section className="py-16 bg-gradient-to-b from-[#E0F7FA] to-white relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute top-10 right-10 opacity-20">
+            <img src="/images/common/placeholder.svg" alt="" className="w-32 h-32" />
+          </div>
+          
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Treatment Results
+              </h2>
+              <p className="text-lg text-gray-600">
+                Successful {service.title.toLowerCase()} with excellent results
+              </p>
+            </div>
+
+            {/* Before/After Carousel */}
+            <div className="relative">
+              <div className="flex justify-center">
+                <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Before Image */}
+                    <div className="text-center">
+                      <img
+                        src={beforeAfterImages[currentImageIndex]?.before || '/images/common/placeholder.svg'}
+                        alt="Before treatment"
+                        className="w-full h-64 object-cover rounded-xl mb-4"
+                      />
+                      <h3 className="text-xl font-semibold text-gray-800">Before</h3>
+                    </div>
+                    
+                    {/* After Image */}
+                    <div className="text-center">
+                      <img
+                        src={beforeAfterImages[currentImageIndex]?.after || '/images/common/placeholder.svg'}
+                        alt="After treatment"
+                        className="w-full h-64 object-cover rounded-xl mb-4"
+                      />
+                      <h3 className="text-xl font-semibold text-gray-800">After</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <ChevronLeft className="w-6 h-6 text-[#00ABDA]" />
+              </button>
+              
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <ChevronRight className="w-6 h-6 text-[#00ABDA]" />
+              </button>
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {beforeAfterImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentImageIndex 
+                      ? 'bg-[#00ABDA]' 
+                      : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Explore Services CTA Section */}
       <section className="py-16 bg-gradient-to-r from-pink-50 to-blue-50">
         <div className="max-w-6xl mx-auto px-4">
@@ -323,7 +323,7 @@ const ServicePage = () => {
               {/* Image */}
               <div className="relative h-80 lg:h-full">
                 <img
-                  src="/images/common/placeholder.svg"
+                  src="/images/common/happy-girl.jpg"
                   alt="Happy patient pointing to smile"
                   className="w-full h-full object-cover"
                 />

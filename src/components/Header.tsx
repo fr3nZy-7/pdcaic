@@ -31,7 +31,7 @@ const Header = () => {
       hasDropdown: true,
       children: [
         { name: "Root Canal", href: "/services/root-canal" },
-        { name: "Braces", href: "/services/braces" },
+        { name: "Orthodontics", href: "/services/orthodontics" },
         { name: "Dental Implants", href: "/services/dental-implants" },
       ],
     },

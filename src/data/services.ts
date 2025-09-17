@@ -74,7 +74,7 @@ export const services: Service[] = [
     title: "Root Canal Treatment",
     shortDescription: "Advanced endodontic therapy to save infected or damaged teeth while eliminating pain and preserving natural teeth.",
     longDescription: "Root Canal Treatment (RCT) is a highly effective way to save a natural tooth that has been infected or damaged. At our clinic, we use modern techniques and advanced technology to make the procedure as pain-free and efficient as possible. Whether it's a single-visit RCT or a retreatment, our focus is always on patient comfort and preserving natural teeth.",
-    heroImage: "/images/services/root-canal-hero.jpg",
+    heroImage: "/images/services/endo-motor-rct-hero.jpg",
     infographicImages: [
       "/images/services/root-canal-info1.png",
       "/images/services/root-canal-info2.png",
@@ -93,7 +93,7 @@ export const services: Service[] = [
     // NEW EXTENDED DATA:
     features: [
       {
-        icon: "/images/icons/pain-free.svg",
+        icon: "/images/icons/pain-free-treatment.svg",
         title: "Pain Free Procedure",
         description: "Advanced anesthesia techniques ensure comfortable treatment"
       },
@@ -103,12 +103,12 @@ export const services: Service[] = [
         description: "Complete treatment in one appointment when possible"
       },
       {
-        icon: "/images/icons/technology.svg",
+        icon: "/images/icons/latest-tech.svg",
         title: "Latest Technology",
         description: "State-of-the-art equipment for precise treatment"
       },
       {
-        icon: "/images/icons/specialist.svg",
+        icon: "/images/icons/expert-specialist.svg",
         title: "Expert Specialist",
         description: "Experienced endodontist with proven track record"
       }
@@ -153,21 +153,123 @@ export const services: Service[] = [
     detailedContent: {
       mainTitle: "Save Your Natural Tooth!",
       mainDescription: "Our state-of-the-art root canal therapy saves your natural tooth and eliminates pain. Using advanced technology and techniques, we ensure a comfortable, efficient procedure with lasting results.",
-      heroContentImage: "/images/services/root-canal-detailed.jpg",
+      heroContentImage: "/images/services/subhero.jpg",
       additionalSections: [
         {
           title: "What is Root Canal?",
           content: "Root canal treatment is a dental procedure used to treat infected or severely decayed teeth. During the procedure, the infected or damaged pulp inside the tooth is removed, the root canals are cleaned and disinfected, and then sealed to prevent further infection.",
-          image: "/images/services/root-canal-explanation.jpg",
+          image: "/images/services/rct.jpg",
           subsections: [
             {
               subtitle: "Common Symptoms",
               text: "Severe toothache when chewing or applying pressure, prolonged sensitivity to hot or cold temperatures, discoloration of the tooth, swelling and tenderness in nearby gums, or a persistent or recurring pimple on the gums.",
-              image: "/images/services/root-canal-symptoms.jpg"
+              image: "/images/services/rct-patient.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    slug: "orthodontics",
+    title: "Orthodontic Treatment",
+    shortDescription: "Braces and aligners to straighten teeth, improve bite, and enhance your smile.",
+    longDescription: "Orthodontic treatments help align teeth, correct bite issues, and improve overall dental health. At our clinic, we offer both traditional braces and modern clear aligners to suit patient needs and lifestyles.",
+    heroImage: "/images/services/clear-aligners.jpg",
+    infographicImages: [
+      "/images/services/orthodontics-info1.png",
+      "/images/services/orthodontics-info2.png",
+    ],
+    seo: {
+      title: "Orthodontic Treatment in Pune | Braces & Aligners",
+      description: "Achieve a perfect smile with braces or clear aligners in Pune. Customized orthodontic care for children, teens, and adults.",
+      keywords: [
+        "orthodontics Pune",
+        "braces Pune",
+        "clear aligners Pune",
+        "invisible braces Pune",
+      ],
+    },
+
+    features: [
+      {
+        icon: "/images/icons/clear-aligners.svg",
+        title: "Clear Aligners",
+        description: "Discreet and removable aligners for modern orthodontic care"
+      },
+      {
+        icon: "/images/icons/braces.svg",
+        title: "Traditional Braces",
+        description: "Reliable and effective treatment for complex cases"
+      },
+      {
+        icon: "/images/icons/smile.svg",
+        title: "Smile Enhancement",
+        description: "Improves both function and aesthetics of your smile"
+      },
+      {
+        icon: "/images/icons/age-friendly.svg",
+        title: "For All Ages",
+        description: "Orthodontic solutions for children, teens, and adults"
+      }
+    ],
+
+    processSteps: [
+      {
+        stepNumber: 1,
+        title: "Consultation and Diagnosis",
+        description: "Comprehensive evaluation including X-rays and dental impressions"
+      },
+      {
+        stepNumber: 2,
+        title: "Treatment Planning",
+        description: "Customized plan for braces or aligners based on your needs"
+      },
+      {
+        stepNumber: 3,
+        title: "Active Treatment",
+        description: "Regular adjustments and monitoring for optimal results"
+      },
+      {
+        stepNumber: 4,
+        title: "Retention Phase",
+        description: "Use of retainers to maintain your beautiful new smile"
+      }
+    ],
+
+    beforeAfterCategory: "orthodontics",
+    mockBeforeAfterImages: [
+      {
+        before: "/images/before-after/ortho-before-1.jpg",
+        after: "/images/before-after/ortho-after-1.jpg",
+        description: "Crowded teeth aligned with clear aligners"
+      },
+      {
+        before: "/images/before-after/ortho-before-2.jpg",
+        after: "/images/before-after/ortho-after-2.jpg",
+        description: "Improved bite and smile with braces"
+      }
+    ],
+
+    detailedContent: {
+      mainTitle: "Transform Your Smile with Orthodontics",
+      mainDescription: "Orthodontic treatment not only enhances your appearance but also improves oral health and function. Our customized plans ensure the best outcome for each patient.",
+      heroContentImage: "/images/services/subhero-ortho.jpg",
+      additionalSections: [
+        {
+          title: "Why Orthodontics?",
+          content: "Properly aligned teeth are easier to clean, reduce risk of cavities and gum disease, and contribute to better overall health. A beautiful smile also boosts confidence and self-esteem.",
+          image: "/images/services/subhero-ortho1.jpg",
+          subsections: [
+            {
+              subtitle: "Treatment Options",
+              text: "We offer traditional braces, ceramic braces, and clear aligners like Invisalign. Each has its own benefits depending on your case.",
+              image: "/images/services/ortho-options.jpg"
             }
           ]
         }
       ]
     }
   }
+
 ];
