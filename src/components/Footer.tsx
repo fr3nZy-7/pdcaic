@@ -4,7 +4,7 @@ import FullLogo from "@/assets/full-logo-w-name.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary/20 text-white relative overflow-hidden">
+    <footer className="bg-primary/00 text-white relative overflow-hidden">
       {/* Background Design Pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg 
@@ -145,7 +145,7 @@ const Footer = () => {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="h-7 w-7" />
@@ -154,7 +154,7 @@ const Footer = () => {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="h-7 w-7" />
@@ -163,7 +163,7 @@ const Footer = () => {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on LinkedIn"
                 >
                   <Linkedin className="h-7 w-7" />
@@ -172,7 +172,7 @@ const Footer = () => {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
+                  className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on YouTube"
                 >
                   <Youtube className="h-7 w-7" />
