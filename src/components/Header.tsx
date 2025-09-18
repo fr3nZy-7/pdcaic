@@ -59,6 +59,13 @@ const Header = () => {
         <div className="flex items-center justify-between h-18">
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
+          <Link to="/" className="flex items-center">
+            <img
+              className="w-32 h-20 rounded-md"
+              src={ShortLogo}
+              alt="Clinic Logo"
+            />
+          </Link>
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -68,7 +75,7 @@ const Header = () => {
               >
                 <Link
                   to={item.href}
-                  className={`relative transition-colors flex items-center text-sm font-medium font-heading ${
+                  className={`relative transition-colors flex items-center text-md font-medium font-heading ${
                     isActive(item.href)
                       ? "text-shade font-semibold"
                       : "text-gray-700 hover:text-primary"
@@ -114,14 +121,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Logo - Centered */}
-          <Link to="/" className="flex items-center">
-            <img
-              className="w-32 h-16 rounded-md"
-              src={ShortLogo}
-              alt="Clinic Logo"
-            />
-          </Link>
+          
+          
 
           {/* Book Appointment Button */}
           <div className="hidden lg:block">
