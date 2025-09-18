@@ -26,18 +26,21 @@ const Services = () => {
       description: "Comprehensive dental care including cleanings, fillings, extractions, and preventive treatments for optimal oral health.",
       icon: <Stethoscope className="h-8 w-8" />,
       features: ["Regular Cleanings", "Dental Fillings", "Tooth Extractions", "Fluoride Treatments"],
+      path: "/services/general-dentistry"
     },
     {
       title: "Dental Implants",
       description: "Permanent tooth replacement solutions that look, feel, and function like natural teeth with titanium implants.",
       icon: <Zap className="h-8 w-8" />,
       features: ["Single Tooth Implants", "Multiple Implants", "Full Mouth Reconstruction", "Implant-Supported Dentures"],
+      path: "/services/dental-implants"
     },
     {
       title: "Cosmetic Dentistry",
       description: "Enhance your smile with professional teeth whitening, veneers, bonding, and complete smile makeovers.",
       icon: <Star className="h-8 w-8" />,
       features: ["Teeth Whitening", "Porcelain Veneers", "Dental Bonding", "Smile Makeovers"],
+      path: "/services/cosmetic-dentistry"
     },
     {
       title: "Root Canal Treatment",
@@ -51,30 +54,35 @@ const Services = () => {
       description: "Straighten teeth and correct bite issues with traditional braces, clear aligners, and modern orthodontic solutions.",
       icon: <Smile className="h-8 w-8" />,
       features: ["Metal Braces", "Ceramic Braces", "Clear Aligners", "Retainers"],
+      path: "/services/orthodontics"
     },
     {
       title: "Oral Surgery",
       description: "Surgical procedures including wisdom tooth removal, corrective jaw surgery, and advanced oral surgical treatments.",
       icon: <Heart className="h-8 w-8" />,
       features: ["Wisdom Tooth Removal", "Jaw Surgery", "Bone Grafting", "Soft Tissue Surgery"],
+      path: "/services/oral-surgery"
     },
     {
       title: "Periodontal Treatment",
       description: "Treatment of gum disease and maintenance of healthy gums through scaling, root planing, and surgical interventions.",
       icon: <Users className="h-8 w-8" />,
       features: ["Deep Cleaning", "Gum Surgery", "Pocket Reduction", "Tissue Regeneration"],
+      path: "/services/periodontal-treatment"
     },
     {
       title: "Pediatric Dentistry",
       description: "Specialized dental care for children and teenagers in a comfortable, child-friendly environment.",
       icon: <Award className="h-8 w-8" />,
       features: ["Children's Cleanings", "Dental Sealants", "Fluoride Treatments", "Early Orthodontics"],
+      path: "/services/pediatric-dentistry"
     },
     {
       title: "Emergency Dental Care",
       description: "Immediate dental care for urgent situations including severe pain, trauma, and dental emergencies.",
       icon: <Shield className="h-8 w-8" />,
       features: ["24/7 Emergency Care", "Pain Relief", "Trauma Treatment", "Urgent Repairs"],
+      path : "/services/emergency-dental-care"
     },
   ];
 
