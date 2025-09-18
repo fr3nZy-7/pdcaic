@@ -41,16 +41,16 @@ const ServiceCard = ({ title, description, iconPath, image, className = "", feat
             className="w-10 h-10 invert"
           />
         </div>
-        <CardTitle className="text-xl font-semibold text-white">{title}</CardTitle>
-        <CardDescription className="text-white/80 leading-relaxed">{description}</CardDescription>
+        <CardTitle className="text-2xl font-semibold text-shade">{title}</CardTitle>
+        <CardDescription className="text-shade text-md leading-relaxed">{description}</CardDescription>
       </CardHeader>
       <CardContent className="pb-6">
         {features && features.length > 0 && (
           <div className="space-y-2 mb-6">
             {features.map((feature, idx) => (
               <div key={idx} className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-white flex-shrink-0" />
-                <span className="text-white text-sm">{feature.title}</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-black/80 text-md">{feature.title}</span>
               </div>
             ))}
           </div>
@@ -58,12 +58,10 @@ const ServiceCard = ({ title, description, iconPath, image, className = "", feat
 
         {path ? (
           <Link to={path}>
-            <Button
-              variant="outline"
-              className="w-full border-white/50 bg-white/10 text-white hover:bg-white/20"
-            >
-              Learn More
-            </Button>
+            <Button type="submit" size="lg" className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
+                    Learn More
+              
+                  </Button>
           </Link>
         ) : (
           <Button

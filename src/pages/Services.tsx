@@ -24,80 +24,17 @@ import GlassmorphismCard from "@/components/GlassmorphismCard";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
 import FooterCTA from "@/components/FooterCTA";
+import allservicegrid from "/images/common/allservicegrid.jpg";
 
 const servicesHeroData = {
   title: "Comprehensive Dental Services",
   shortDescription: "From routine cleanings to complex procedures, we offer complete dental care using the latest technology and techniques to ensure optimal oral health.",
   heroImage: "/images/services/services.jpg",
-  subHeroImage: "/images/services/all-service-grid.jpg"
+  subHeroImage: "/images/common/allservicegrid.jpg"
 };
 
 const Services = () => {
-  const allServices = [
-    {
-      title: "General Dentistry",
-      description: "Comprehensive dental care including cleanings, fillings, extractions, and preventive treatments for optimal oral health.",
-      icon: <Stethoscope className="h-8 w-8" />,
-      features: ["Regular Cleanings", "Dental Fillings", "Tooth Extractions", "Fluoride Treatments"],
-      path: "/services/general-dentistry"
-    },
-    {
-      title: "Dental Implants",
-      description: "Permanent tooth replacement solutions that look, feel, and function like natural teeth with titanium implants.",
-      icon: <Zap className="h-8 w-8" />,
-      features: ["Single Tooth Implants", "Multiple Implants", "Full Mouth Reconstruction", "Implant-Supported Dentures"],
-      path: "/services/dental-implants"
-    },
-    {
-      title: "Cosmetic Dentistry",
-      description: "Enhance your smile with professional teeth whitening, veneers, bonding, and complete smile makeovers.",
-      icon: <Star className="h-8 w-8" />,
-      features: ["Teeth Whitening", "Porcelain Veneers", "Dental Bonding", "Smile Makeovers"],
-      path: "/services/cosmetic-dentistry"
-    },
-    {
-      title: "Root Canal Treatment",
-      description: "Advanced endodontic therapy to save infected or damaged teeth while eliminating pain and preserving natural teeth.",
-      icon: <Shield className="h-8 w-8" />,
-      features: ["Single Visit RCT", "Retreatment", "Apicoectomy", "Pulp Therapy"],
-      path: "/services/root-canal"
-    },
-    {
-      title: "Orthodontics",
-      description: "Straighten teeth and correct bite issues with traditional braces, clear aligners, and modern orthodontic solutions.",
-      icon: <Smile className="h-8 w-8" />,
-      features: ["Metal Braces", "Ceramic Braces", "Clear Aligners", "Retainers"],
-      path: "/services/orthodontics"
-    },
-    {
-      title: "Oral Surgery",
-      description: "Surgical procedures including wisdom tooth removal, corrective jaw surgery, and advanced oral surgical treatments.",
-      icon: <Heart className="h-8 w-8" />,
-      features: ["Wisdom Tooth Removal", "Jaw Surgery", "Bone Grafting", "Soft Tissue Surgery"],
-      path: "/services/oral-surgery"
-    },
-    {
-      title: "Periodontal Treatment",
-      description: "Treatment of gum disease and maintenance of healthy gums through scaling, root planing, and surgical interventions.",
-      icon: <Users className="h-8 w-8" />,
-      features: ["Deep Cleaning", "Gum Surgery", "Pocket Reduction", "Tissue Regeneration"],
-      path: "/services/periodontal-treatment"
-    },
-    {
-      title: "Pediatric Dentistry",
-      description: "Specialized dental care for children and teenagers in a comfortable, child-friendly environment.",
-      icon: <Award className="h-8 w-8" />,
-      features: ["Children's Cleanings", "Dental Sealants", "Fluoride Treatments", "Early Orthodontics"],
-      path: "/services/pediatric-dentistry"
-    },
-    {
-      title: "Emergency Dental Care",
-      description: "Immediate dental care for urgent situations including severe pain, trauma, and dental emergencies.",
-      icon: <Shield className="h-8 w-8" />,
-      features: ["24/7 Emergency Care", "Pain Relief", "Trauma Treatment", "Urgent Repairs"],
-      path : "/services/emergency-dental-care"
-    },
-  ];
+  
 
   const treatmentProcess = [
     {
@@ -138,7 +75,7 @@ const Services = () => {
         }}
       >
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9]/20 to-[#0194C1]/20"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           {/* Breadcrumb */}
@@ -153,10 +90,10 @@ const Services = () => {
           {/* Hero Content  */}
           <div className="max-w-3xl mx-auto text-center ">
             <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-shade/80 mb-6">
                 {servicesHeroData.title}
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
                 {servicesHeroData.shortDescription}
               </p>
               {/* Action Buttons */}
@@ -174,31 +111,39 @@ const Services = () => {
 
       {/* All Services Grid */}
       <section
-      className="py-20 relative inset-0 bg-gradient-to-br from-blue-900 to-cyan-500/50"
+      className="py-20 text-shade/90 bg-white/20"
       style={{
         backgroundImage: `url(${servicesHeroData.subHeroImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundBlendMode: 'overlay',
+        backgroundBlendMode: 'overlay'
+        
       }}
     >
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-3 gap-12">
         {/* Ensure you have exactly 9 service items for a 3x3 grid */}
         {services.map((service) => (
+          <GlassmorphismCard
+          className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow "
+          >
           <ServiceCard 
-            key={service.slug}
+            
             title={service.title}
             description={service.shortDescription}
             iconPath={service.iconPath}
             features={service.features}
             path={`/services/${service.slug}`}
           />
+        </GlassmorphismCard>
         ))}
       </div>
     </section>
 
+
+    
+
       {/* Treatment Process */}
-      <section className="py-20 bg-gradient-to-r from-purple-200/70 to-cyan-100/70">
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">Our Treatment Process</h2>

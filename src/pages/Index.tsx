@@ -245,9 +245,9 @@ const showNextButton = totalSlides > slidesPerPage;
         </div>
       </section>
 
+      
       {/* Services Section */}
-      {/* Services Section */}
-<section className="py-20 bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1]">
+<section className="py-20 bg-gradient-to-br from-primary/60 to-primary-dark/30">
   <div className="container mx-auto relative px-4">
     {/* Header */}
     <div className="text-center mb-16">
@@ -276,7 +276,9 @@ const showNextButton = totalSlides > slidesPerPage;
               style={{ width: `${100 / services.length}%` }}
               className="px-4 box-border"
             >
-              <GlassmorphismCard>
+              <GlassmorphismCard
+              className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow "
+              >
                 <ServiceCard
                   title={service.title}
                   description={service.shortDescription}
@@ -311,7 +313,8 @@ const showNextButton = totalSlides > slidesPerPage;
 
     {/* CTA */}
     <div className="text-center mt-12">
-      <Button size="lg" className="px-8 py-3">
+      
+      <Button type="submit" size="lg" className=" inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
         View All Services
         <ArrowRight className="ml-2 h-5 w-5" />
       </Button>
