@@ -3,6 +3,7 @@ export type Service = {
   slug: string;
   title: string;
   shortDescription: string;
+  iconPath: string; 
   longDescription: string;
   heroImage: string;
   infographicImages: string[]; // keeping existing for backward compatibility
@@ -61,6 +62,7 @@ export const services: Service[] = [
     slug: "root-canal",
     title: "Root Canal Treatment",
     shortDescription: "Advanced endodontic therapy to save infected or damaged teeth while eliminating pain and preserving natural teeth.",
+    iconPath:"/images/icons/root-canal.svg",
     longDescription: "Root Canal Treatment (RCT) is a highly effective way to save a natural tooth that has been infected or damaged. At our clinic, we use modern techniques and advanced technology to make the procedure as pain-free and efficient as possible. Whether it's a single-visit RCT or a retreatment, our focus is always on patient comfort and preserving natural teeth.",
     heroImage: "/images/services/endo-motor-rct-hero.jpg",
     infographicImages: [
@@ -163,6 +165,7 @@ export const services: Service[] = [
     slug: "orthodontics",
     title: "Orthodontic Treatment",
     shortDescription: "Braces and aligners to straighten teeth, improve bite, and enhance your smile.",
+    iconPath:"/images/icons/orthodontics.svg",
     longDescription: "Orthodontic treatments help align teeth, correct bite issues, and improve overall dental health. At our clinic, we offer both traditional braces and modern clear aligners to suit patient needs and lifestyles.",
     heroImage: "/images/services/clear-aligners.jpg",
     infographicImages: [
@@ -264,6 +267,7 @@ export const services: Service[] = [
     slug: "dental-implants",
     title: "Dental Implants",
     shortDescription: "A durable and natural-looking solution for missing teeth, restoring your smile's aesthetics and functionality.",
+    iconPath:"/images/icons/dental-implants.svg",
     longDescription: "Dental implants are a revolutionary way to replace missing teeth, providing a strong foundation for a fixed or removable replacement tooth. Our clinic specializes in using high-quality materials and precise surgical techniques to ensure a seamless fit and long-lasting results. Whether it's a single tooth or a full arch, dental implants offer a permanent solution that looks and feels like your natural teeth.",
     heroImage: "/images/services/dental-implants-hero.jpg",
     infographicImages: [
@@ -362,6 +366,7 @@ export const services: Service[] = [
   slug: "general-dentistry",
   title: "General Dentistry",
   shortDescription: "Comprehensive dental care for the entire family, focusing on prevention, diagnosis, and treatment of common oral health issues.",
+  iconPath:"/images/icons/general-dentistry.svg",
   longDescription: "General Dentistry is the foundation of a healthy smile. Our practice offers a full range of general dental services, from routine check-ups and cleanings to fillings and extractions. We focus on preventive care to help you maintain optimal oral health and catch potential issues early. Our goal is to provide a comfortable and welcoming environment for patients of all ages, ensuring a positive dental experience every time you visit.",
   heroImage: "/images/services/general-dentistry-hero.jpg",
   infographicImages: [
@@ -460,6 +465,7 @@ export const services: Service[] = [
   slug: "cosmetic-dentistry",
   title: "Cosmetic Dentistry",
   shortDescription: "Transform your smile with a range of aesthetic treatments, including teeth whitening, veneers, and smile makeovers.",
+  iconPath:"/images/icons/cosmetic-dentistry.svg",
   longDescription: "Cosmetic dentistry is all about enhancing the appearance of your teeth and smile. Whether you want to fix a single discolored tooth or completely redesign your smile, our clinic offers a variety of advanced cosmetic procedures. We combine artistry with modern dental techniques to create a beautiful, natural-looking smile that boosts your confidence and reflects your personality.",
   heroImage: "/images/services/cosmetic-dentistry-hero.jpg",
   infographicImages: [
@@ -558,6 +564,7 @@ export const services: Service[] = [
   slug: "oral-surgery",
   title: "Oral Surgery",
   shortDescription: "Expert surgical procedures for complex dental issues, including wisdom tooth removal and jaw-related treatments.",
+  iconPath:"/images/icons/oral-surgery.svg",
   longDescription: "Oral surgery encompasses a range of specialized procedures to treat diseases, injuries, and defects in the head, neck, face, and jaw. Our team is highly experienced in performing various surgical treatments, from routine wisdom tooth extractions to more complex bone grafting. We prioritize patient comfort and safety, using advanced techniques and a gentle approach to ensure a smooth and effective procedure with minimal recovery time.",
   heroImage: "/images/services/oral-surgery-hero.jpg",
   infographicImages: [
@@ -656,6 +663,7 @@ export const services: Service[] = [
   slug: "periodontal-treatment",
   title: "Periodontal Treatment",
   shortDescription: "Specialized care for gum disease, from non-surgical deep cleaning to surgical interventions to restore gum health.",
+  iconPath:"/images/icons/periodontal-treatment.svg",
   longDescription: "Periodontal treatment focuses on the health of your gums and the supporting structures of your teeth. Gum disease, or periodontitis, can lead to tooth loss if left untreated. Our clinic provides a full spectrum of periodontal services, including non-surgical deep cleaning (scaling and root planing) and advanced surgical procedures. We aim to halt the progression of gum disease, restore the health of your gums, and help you maintain a strong foundation for a healthy smile.",
   heroImage: "/images/services/periodontal-treatment-hero.jpg",
   infographicImages: [
@@ -754,6 +762,7 @@ export const services: Service[] = [
   slug: "pediatric-dentistry",
   title: "Pediatric Dentistry",
   shortDescription: "Specialized dental care for infants, children, and adolescents, creating a positive and comfortable experience for young patients.",
+  iconPath :"/images/icons/pediatric-dentistry.svg",
   longDescription: "Pediatric dentistry focuses on the unique oral health needs of children from infancy through their teenage years. Our clinic provides a child-friendly environment where we use gentle techniques to ensure a positive and anxiety-free visit. We offer a full range of services, including preventive care, cavity treatment, and education for both children and parents on proper oral hygiene. Our goal is to set the foundation for a lifetime of healthy smiles.",
   heroImage: "/images/services/pediatric-dentistry-hero.jpg",
   infographicImages: [
@@ -852,6 +861,7 @@ export const services: Service[] = [
   slug: "emergency-dental-care",
   title: "Emergency Dental Care",
   shortDescription: "Immediate and responsive care for unexpected dental problems, including severe pain, trauma, or broken teeth.",
+  iconPath:"/images/icons/emergency-dental-care.svg",
   longDescription: "Dental emergencies can happen at any time, causing severe pain and stress. Our clinic provides prompt and compassionate emergency dental care to address your urgent needs. Whether it's a knocked-out tooth, a fractured tooth, or an abscess causing unbearable pain, we're equipped to provide immediate diagnosis and treatment. We understand the urgency of these situations and aim to see you as quickly as possible to relieve your pain and prevent further complications.",
   heroImage: "/images/services/emergency-dental-care-hero.jpg",
   infographicImages: [

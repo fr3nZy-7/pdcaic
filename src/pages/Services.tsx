@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import path from "path";
+import { services } from "@/data/services";
 
 const Services = () => {
   const allServices = [
@@ -153,50 +154,18 @@ const Services = () => {
       </section>
 
       {/* All Services Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Dental Services</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We provide a comprehensive range of dental services to meet all your oral health needs 
-              with the highest standards of care and comfort.
-            </p>
-          </div>
+          <section className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allServices.map((service, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
-                    <div className="text-primary group-hover:text-primary-foreground transition-colors">
-                      {service.icon}
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl font-semibold">{service.title}</CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Link to={service.path}>
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                  >
-                    Learn More
-                  </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {services.map((service) => (
+            <ServiceCard 
+              key={service.slug}
+              title={service.title}
+              description={service.shortDescription}
+              iconPath={service.iconPath} // Pass the icon path
+              features={service.features}
+              path={`/services/${service.slug}`}
+            />
+          ))}
         </div>
       </section>
 

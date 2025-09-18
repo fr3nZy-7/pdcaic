@@ -1,18 +1,25 @@
-import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: ReactNode;
+  iconPath: string; // The icon prop is now a string path
   image?: string;
   className?: string;
+  features?: {
+    icon: string;
+    title: string;
+    description?: string;
+  }[]; 
+  path?: string; 
 }
 
-const ServiceCard = ({ title, description, icon, image, className = "" }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, iconPath, image, className = "", features, path }: ServiceCardProps) => {
   return (
-    <Card className={`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${className}`}>
+    <Card className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${className}`}>
       {image && (
         <div className="aspect-video overflow-hidden rounded-t-lg">
           <img
@@ -24,22 +31,46 @@ const ServiceCard = ({ title, description, icon, image, className = "" }: Servic
       )}
       <CardHeader className="text-center">
         <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
-          <div className="text-primary group-hover:text-primary-foreground transition-colors">
-            {icon}
-          </div>
+          <img
+            src={iconPath} // Use the iconPath from props
+            alt={`${title} icon`}
+            className="w-10 h-10 group-hover:invert transition-colors"
+          />
         </div>
-        <CardTitle className="text-lg font-semibold">{title}</CardTitle>
+        <CardTitle className="text-xl font-semibold">{title}</CardTitle>
         <CardDescription className="text-sm text-muted-foreground">
           {description}
         </CardDescription>
       </CardHeader>
-      <CardContent className="text-center pb-6">
-        <Button 
-          variant="outline" 
-          className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-        >
-          Learn More
-        </Button>
+      <CardContent className="pb-6">
+        {features && features.length > 0 && (
+          <div className="space-y-2 mb-6">
+            {features.map((feature, idx) => (
+              <div key={idx} className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                <span className="text-sm">{feature.title}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {path ? (
+          <Link to={path}>
+            <Button 
+              variant="outline" 
+              className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              Learn More
+            </Button>
+          </Link>
+        ) : (
+          <Button 
+            variant="outline" 
+            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+          >
+            Learn More
+          </Button>
+        )}
       </CardContent>
     </Card>
   );

@@ -28,41 +28,42 @@ import happyPatientsImage from "@/assets/happy-patients.jpg";
 import logo from "@/assets/logo.svg";
 import shortLogo from "@/assets/short-logo-wo-name.svg";
 import FooterCTA from "@/components/FooterCTA";
-
+import { services } from "@/data/services";
 
 const Index = () => {
-  const services = [
-    {
-      title: "General Dentistry",
-      description: "Comprehensive dental care including cleanings, fillings, and preventive treatments",
-      icon: <Stethoscope className="h-8 w-8" />,
-    },
-    {
-      title: "Dental Implants",
-      description: "Permanent tooth replacement solutions for missing teeth with natural appearance",
-      icon: <Zap className="h-8 w-8" />,
-    },
-    {
-      title: "Cosmetic Dentistry",
-      description: "Teeth whitening, veneers, and smile makeovers to enhance your appearance",
-      icon: <Star className="h-8 w-8" />,
-    },
-    {
-      title: "Root Canal Treatment",
-      description: "Advanced endodontic therapy to save infected or damaged teeth",
-      icon: <Shield className="h-8 w-8" />,
-    },
-    {
-      title: "Orthodontics",
-      description: "Braces and aligners to straighten teeth and correct bite issues",
-      icon: <Smile className="h-8 w-8" />,
-    },
-    {
-      title: "Oral Surgery",
-      description: "Surgical procedures including extractions and corrective jaw surgery",
-      icon: <Heart className="h-8 w-8" />,
-    },
-  ];
+  // const services = [
+  //   {
+  //     title: "General Dentistry",
+  //     description: "Comprehensive dental care including cleanings, fillings, and preventive treatments",
+  //     icon: <Stethoscope className="h-8 w-8" />,
+  //   },
+  //   {
+  //     title: "Dental Implants",
+  //     description: "Permanent tooth replacement solutions for missing teeth with natural appearance",
+  //     icon: <Zap className="h-8 w-8" />,
+  //   },
+  //   {
+  //     title: "Cosmetic Dentistry",
+  //     description: "Teeth whitening, veneers, and smile makeovers to enhance your appearance",
+  //     icon: <Star className="h-8 w-8" />,
+  //   },
+  //   {
+  //     title: "Root Canal Treatment",
+  //     description: "Advanced endodontic therapy to save infected or damaged teeth",
+  //     icon: <Shield className="h-8 w-8" />,
+  //   },
+  //   {
+  //     title: "Orthodontics",
+  //     description: "Braces and aligners to straighten teeth and correct bite issues",
+  //     icon: <Smile className="h-8 w-8" />,
+  //   },
+  //   {
+  //     title: "Oral Surgery",
+  //     description: "Surgical procedures including extractions and corrective jaw surgery",
+  //     icon: <Heart className="h-8 w-8" />,
+  //   },
+  // ];
+  const featuredServices = services.slice(0, 3);
 
   const features = [
     {
@@ -246,33 +247,18 @@ const Index = () => {
 
       {/* Services Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Explore Our Comprehensive Services
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From routine cleanings to complex procedures, we offer a full range of 
-              dental services to keep your smile healthy and beautiful.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-              />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button size="lg" className="px-8 py-3">
-              View All Services
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredServices.map((service) => (
+        <ServiceCard
+          key={service.slug}
+          title={service.title}
+          description={service.shortDescription}
+          iconPath={service.iconPath} // Pass the icon path
+          features={service.features}
+          path={`/services/${service.slug}`}
+        />
+      ))}
+    </div>
       </section>
 
       {/* Patient Testimonials */}
