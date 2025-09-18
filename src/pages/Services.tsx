@@ -198,10 +198,10 @@ const Services = () => {
     </section>
 
       {/* Treatment Process */}
-      <section className="py-20 bg-gradient-to-r from-pink-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-r from-purple-200/70 to-cyan-100/70">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Treatment Process</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">Our Treatment Process</h2>
             <p className="text-lg text-black/80 max-w-3xl mx-auto">
               We follow a systematic approach to ensure you receive the best possible dental care 
               with comfort and peace of mind throughout your treatment journey.
