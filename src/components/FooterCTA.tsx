@@ -65,7 +65,7 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
             <div className="mt-6 w-full md:w-auto">
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
                 <div className="w-full sm:w-auto">
-                  <WhatsAppUsButton className="w-full" />
+                  <WhatsAppUsButton className="w-full" onClick={() => window.open('https://wa.me/917507325539', '_blank')}/>
                 </div>
                 <div className="w-full sm:w-auto">
                   <BookAppointmentButton className="w-full" />

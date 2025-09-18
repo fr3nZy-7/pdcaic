@@ -324,7 +324,7 @@ const Contact = () => {
                 <CardContent className="space-y-4">
                   
                   <BookAppointmentButton className="w-full justify-center"/>
-                  <WhatsAppUsButton className="w-full justify-center"/>
+                  <WhatsAppUsButton className="w-full justify-center" onClick={() => window.open('https://wa.me/917507325539', '_blank')}/>
                   <div className="bg-muted/30 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Emergency Dental Care</h4>
                     <p className="text-sm text-muted-foreground mb-2">
