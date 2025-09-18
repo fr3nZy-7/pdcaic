@@ -24,7 +24,8 @@ import GlassmorphismCard from "@/components/GlassmorphismCard";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
 import FooterCTA from "@/components/FooterCTA";
-import allservicegrid from "/images/common/allservicegrid.jpg";
+import FloatingActionButtons from "@/components/FloatingActionButtons";
+
 
 const servicesHeroData = {
   title: "Comprehensive Dental Services",
@@ -170,7 +171,7 @@ const Services = () => {
         </div>
       </section>
 
-      
+      <FloatingActionButtons />
       <FooterCTA />
       <Footer />
     </div>
