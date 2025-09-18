@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -20,7 +21,9 @@ import {
   ArrowRight,
   CheckCircle,
   MapPin,
-  Phone
+  Phone,
+  ChevronLeft, 
+  ChevronRight
 } from "lucide-react";
 import heroImage from "@/assets/hero-dental-clinic.jpg";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
@@ -30,40 +33,37 @@ import shortLogo from "@/assets/short-logo-wo-name.svg";
 import FooterCTA from "@/components/FooterCTA";
 import { services } from "@/data/services";
 
+
+
+
+
 const Index = () => {
-  // const services = [
-  //   {
-  //     title: "General Dentistry",
-  //     description: "Comprehensive dental care including cleanings, fillings, and preventive treatments",
-  //     icon: <Stethoscope className="h-8 w-8" />,
-  //   },
-  //   {
-  //     title: "Dental Implants",
-  //     description: "Permanent tooth replacement solutions for missing teeth with natural appearance",
-  //     icon: <Zap className="h-8 w-8" />,
-  //   },
-  //   {
-  //     title: "Cosmetic Dentistry",
-  //     description: "Teeth whitening, veneers, and smile makeovers to enhance your appearance",
-  //     icon: <Star className="h-8 w-8" />,
-  //   },
-  //   {
-  //     title: "Root Canal Treatment",
-  //     description: "Advanced endodontic therapy to save infected or damaged teeth",
-  //     icon: <Shield className="h-8 w-8" />,
-  //   },
-  //   {
-  //     title: "Orthodontics",
-  //     description: "Braces and aligners to straighten teeth and correct bite issues",
-  //     icon: <Smile className="h-8 w-8" />,
-  //   },
-  //   {
-  //     title: "Oral Surgery",
-  //     description: "Surgical procedures including extractions and corrective jaw surgery",
-  //     icon: <Heart className="h-8 w-8" />,
-  //   },
-  // ];
-  const featuredServices = services.slice(0, 3);
+  
+  
+  
+const [currentIndex, setCurrentIndex] = useState(0);
+const totalSlides = services.length;
+const slidesPerPage = 3;
+
+// Go back by one "page"
+const handlePrev = () => {
+  setCurrentIndex((prevIndex) => {
+    const newIndex = prevIndex - 1;
+    return newIndex < 0 ? Math.ceil(totalSlides / slidesPerPage) - 1 : newIndex;
+  });
+};
+
+// Go forward by one "page"
+const handleNext = () => {
+  setCurrentIndex((prevIndex) => {
+    const newIndex = prevIndex + 1;
+    return newIndex >= Math.ceil(totalSlides / slidesPerPage) ? 0 : newIndex;
+  });
+};
+
+const showPrevButton = totalSlides > slidesPerPage;
+const showNextButton = totalSlides > slidesPerPage;
+  // const featuredServices = services.slice(0, 3);
 
   const features = [
     {
@@ -246,20 +246,79 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {featuredServices.map((service) => (
-        <ServiceCard
-          key={service.slug}
-          title={service.title}
-          description={service.shortDescription}
-          iconPath={service.iconPath} // Pass the icon path
-          features={service.features}
-          path={`/services/${service.slug}`}
-        />
-      ))}
+      {/* Services Section */}
+<section className="py-20 bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1]">
+  <div className="container mx-auto relative px-4">
+    {/* Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+        Explore Our Comprehensive Services
+      </h2>
+      <p className="text-lg text-white/80 max-w-3xl mx-auto">
+        From routine cleanings to complex procedures, we offer a full range of
+        dental services to keep your smile healthy and beautiful.
+      </p>
     </div>
-      </section>
+
+    {/* Carousel */}
+    <div className="relative">
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${currentIndex * (100 / slidesPerPage)}%)`,
+            width: `${(100 / slidesPerPage) * services.length}%`,
+          }}
+        >
+          {services.map((service, index) => (
+            <div
+              key={index}
+              style={{ width: `${100 / services.length}%` }}
+              className="px-4 box-border"
+            >
+              <GlassmorphismCard>
+                <ServiceCard
+                  title={service.title}
+                  description={service.shortDescription}
+                  iconPath={service.iconPath}
+                  features={service.features}
+                  path={`/services/${service.slug}`}
+                />
+              </GlassmorphismCard>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation */}
+      {showPrevButton && (
+        <button
+          onClick={handlePrev}
+          className="absolute -left-10 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-md"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+      )}
+      {showNextButton && (
+        <button
+          onClick={handleNext}
+          className="absolute -right-10 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-md"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+      )}
+    </div>
+
+    {/* CTA */}
+    <div className="text-center mt-12">
+      <Button size="lg" className="px-8 py-3">
+        View All Services
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </Button>
+    </div>
+  </div>
+</section>
+
 
       {/* Patient Testimonials */}
       <section className="py-20 bg-white text-primary">

@@ -1,25 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// Note: We remove the GlassmorphismCard import here.
+// This component should NOT have its own card wrapper.
+// It will be wrapped by GlassmorphismCard in index.tsx.
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  iconPath: string; // The icon prop is now a string path
+  iconPath: string;
   image?: string;
   className?: string;
   features?: {
     icon: string;
     title: string;
     description?: string;
-  }[]; 
-  path?: string; 
+  }[];
+  path?: string;
 }
 
 const ServiceCard = ({ title, description, iconPath, image, className = "", features, path }: ServiceCardProps) => {
   return (
-    <Card className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${className}`}>
+    <> {/* We are removing the Card component from here */}
       {image && (
         <div className="aspect-video overflow-hidden rounded-t-lg">
           <img
@@ -30,49 +34,47 @@ const ServiceCard = ({ title, description, iconPath, image, className = "", feat
         </div>
       )}
       <CardHeader className="text-center">
-        <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
+        <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
           <img
-            src={iconPath} // Use the iconPath from props
+            src={iconPath}
             alt={`${title} icon`}
-            className="w-10 h-10 group-hover:invert transition-colors"
+            className="w-10 h-10 invert"
           />
         </div>
-        <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">
-          {description}
-        </CardDescription>
+        <CardTitle className="text-xl font-semibold text-white">{title}</CardTitle>
+        <CardDescription className="text-white/80 leading-relaxed">{description}</CardDescription>
       </CardHeader>
       <CardContent className="pb-6">
         {features && features.length > 0 && (
           <div className="space-y-2 mb-6">
             {features.map((feature, idx) => (
               <div key={idx} className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-sm">{feature.title}</span>
+                <CheckCircle className="h-4 w-4 text-white flex-shrink-0" />
+                <span className="text-white text-sm">{feature.title}</span>
               </div>
             ))}
           </div>
         )}
-        
+
         {path ? (
           <Link to={path}>
-            <Button 
-              variant="outline" 
-              className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            <Button
+              variant="outline"
+              className="w-full border-white/50 bg-white/10 text-white hover:bg-white/20"
             >
               Learn More
             </Button>
           </Link>
         ) : (
-          <Button 
-            variant="outline" 
-            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+          <Button
+            variant="outline"
+            className="w-full border-white/50 bg-white/10 text-white hover:bg-white/20"
           >
             Learn More
-          </Button>
+            </Button>
         )}
       </CardContent>
-    </Card>
+    </>
   );
 };
 
