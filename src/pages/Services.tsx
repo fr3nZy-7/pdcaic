@@ -27,7 +27,7 @@ import BookAppointmentButton from "@/components/BookAppointmentButton";
 const servicesHeroData = {
   title: "Comprehensive Dental Services",
   shortDescription: "From routine cleanings to complex procedures, we offer complete dental care using the latest technology and techniques to ensure optimal oral health.",
-  heroImage: "/images/services/services.jpeg",
+  heroImage: "/images/services/services.jpg",
 };
 
 const Services = () => {
@@ -136,7 +136,7 @@ const Services = () => {
         }}
       >
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/10"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           {/* Breadcrumb */}
