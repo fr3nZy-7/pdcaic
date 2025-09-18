@@ -332,7 +332,7 @@ const Contact = () => {
                   
                   <BookAppointmentButton className="w-full justify-center"/>
                   <WhatsAppUsButton className="w-full justify-center" onClick={() => window.open('https://wa.me/917507325539', '_blank')}/>
-                  <div className="bg-muted/30 p-4 rounded-lg">
+                  <div className="bg-white/40 backdrop-blur-2xl p-4 rounded-lg">
                     <h4 className="font-semibold mb-2 text-lg text-shade">Emergency Dental Care</h4>
                     <p className=" text-shade text-lg mb-2">
                       For dental emergencies outside business hours, please call our emergency line.
@@ -342,7 +342,7 @@ const Contact = () => {
                         href="tel:+919423581305"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-300 to-red-400 text-shade/90 font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
+                        className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-300 to-red-400 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
                     >
                         <Phone className="h-5 w-5 mr-2" />
                         <span>Emergency: +91 9423 581 305</span>
