@@ -116,7 +116,7 @@ const FAQ = () => {
       
       {/* Hero Section */}
       <section
-        className="relative bg-gradient-to-r from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
+        className="relative bg-gradient-to-br from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
         style={{
           backgroundImage: `url(${faqHeroData.heroImage})`,
           backgroundSize: 'cover',
@@ -125,7 +125,7 @@ const FAQ = () => {
         }}
       >
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#23AAB9] to-[#0194C1]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           {/* Breadcrumb */}
