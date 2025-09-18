@@ -94,7 +94,7 @@ const Contact = () => {
 
           {/* Hero Content */}
           <div className="max-w-3xl mx-auto text-center">
-            <GlassmorphismCard className="p-8 md:p-12">
+            <GlassmorphismCard className="p-8 md:p-12 backdrop-blur-2xl bg-white/20">
               <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6">
                 {contactHeroData.title}
               </h1>
@@ -121,7 +121,7 @@ const Contact = () => {
         }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+          <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <MapPin className="h-8 w-8 text-shade" />
@@ -140,7 +140,7 @@ const Contact = () => {
             
             
 
-                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <Phone className="h-8 w-8 text-shade" />
@@ -157,7 +157,7 @@ const Contact = () => {
                     </CardContent>
                 </GlassmorphismCard>
 
-                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <Mail className="h-8 w-8 text-shade" />
@@ -171,7 +171,7 @@ const Contact = () => {
                     </CardContent>
                 </GlassmorphismCard>
 
-                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <Clock className="h-8 w-8 text-shade" />
@@ -200,7 +200,7 @@ const Contact = () => {
           {/* Contact Form and Map */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+            <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
               <CardHeader>
                 <CardTitle className="text-3xl text-shade">Send us a Message</CardTitle>
                 <p className="text-shade text-xl">
@@ -286,7 +286,7 @@ const Contact = () => {
             {/* Map and Quick Actions */}
             <div className="space-y-6">
               {/* Map Placeholder */}
-              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
                 <CardHeader>
                   <CardTitle className="text-primary text-shade text-3xl">Find Us</CardTitle>
                 </CardHeader>
@@ -324,7 +324,7 @@ const Contact = () => {
 
               
                 
-              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/20">
                 <CardHeader>
                   <CardTitle className="text-shade text-3xl">Quick Actions</CardTitle>
                 </CardHeader>
