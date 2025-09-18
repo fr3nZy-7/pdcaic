@@ -23,11 +23,13 @@ import { services } from "@/data/services";
 import GlassmorphismCard from "@/components/GlassmorphismCard";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
+import FooterCTA from "@/components/FooterCTA";
 
 const servicesHeroData = {
   title: "Comprehensive Dental Services",
   shortDescription: "From routine cleanings to complex procedures, we offer complete dental care using the latest technology and techniques to ensure optimal oral health.",
   heroImage: "/images/services/services.jpg",
+  subHeroImage: "/images/services/all-service-grid.jpg"
 };
 
 const Services = () => {
@@ -171,73 +173,60 @@ const Services = () => {
     
 
       {/* All Services Grid */}
-          <section className="py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <ServiceCard 
-              key={service.slug}
-              title={service.title}
-              description={service.shortDescription}
-              iconPath={service.iconPath} // Pass the icon path
-              features={service.features}
-              path={`/services/${service.slug}`}
-            />
-          ))}
-        </div>
-      </section>
+      <section
+      className="py-20 relative inset-0 bg-gradient-to-br from-blue-900 to-cyan-500/50"
+      style={{
+        backgroundImage: `url(${servicesHeroData.subHeroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundBlendMode: 'overlay',
+      }}
+    >
+      <div className="grid grid-cols-3 gap-8">
+        {/* Ensure you have exactly 9 service items for a 3x3 grid */}
+        {services.map((service) => (
+          <ServiceCard 
+            key={service.slug}
+            title={service.title}
+            description={service.shortDescription}
+            iconPath={service.iconPath}
+            features={service.features}
+            path={`/services/${service.slug}`}
+          />
+        ))}
+      </div>
+    </section>
 
       {/* Treatment Process */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-r from-pink-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Treatment Process</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Treatment Process</h2>
+            <p className="text-lg text-black/80 max-w-3xl mx-auto">
               We follow a systematic approach to ensure you receive the best possible dental care 
               with comfort and peace of mind throughout your treatment journey.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {treatmentProcess.map((process, index) => (
-              <Card key={index} className="text-center">
+              
+              <Card key={index} className="text-center  bg-primary/30 backdrop-blur-2xl shadow-lg">
                 <CardHeader>
-                  <div className="mx-auto mb-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold text-xl">{process.step}</span>
+                  <div className="mx-auto mb-4 w-16 h-16 bg-primary/30 rounded-full flex items-center justify-center">
+                    <span className="text-shade font-bold text-xl">{process.step}</span>
                   </div>
-                  <CardTitle className="text-lg">{process.title}</CardTitle>
-                  <CardDescription>{process.description}</CardDescription>
+                  <CardTitle className="text-lg text-shade">{process.title}</CardTitle>
+                  <CardDescription className="text-black/80">{process.description}</CardDescription>
                 </CardHeader>
               </Card>
+              
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Smile?
-          </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Don't wait to get the dental care you deserve. Schedule your consultation today 
-            and take the first step towards optimal oral health.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-              Book Appointment Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
-              Call: +91 7507 325 539
-            </Button>
-          </div>
-        </div>
-      </section>
-
+      
+      <FooterCTA />
       <Footer />
     </div>
   );
