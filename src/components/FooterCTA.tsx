@@ -28,7 +28,7 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
   return (
     <section
       aria-labelledby="footer-cta-heading"
-      className="bg-white/30 dark:bg-slate-900/80 backdrop-blur-sm"
+      className="bg-primary/50 dark:bg-slate-900/80 backdrop-blur-sm"
       style={{
         backgroundImage: '/images/common/footer-cta-bg.jpg',
         backgroundSize: 'cover',
