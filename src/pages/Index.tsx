@@ -126,7 +126,7 @@ const showNextButton = totalSlides > slidesPerPage;
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
             {/* Left side - Glassmorphism Card */}
             <div className="animate-fade-in">
-              <GlassmorphismCard className="p-8 lg:p-12">
+              <GlassmorphismCard className="p-8 lg:p-12 bg-white/30 backdrop-blur-2xl shadow-lg">
                 {/* Logo and Header */}
                 <div className="mb-6">
                   <div className="flex items-center mb-3">
