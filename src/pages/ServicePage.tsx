@@ -127,7 +127,7 @@ const ServicePage = () => {
               <img
                 src={service.detailedContent.heroContentImage || '/images/common/placeholder.svg'}
                 alt={service.title}
-                className="w-full h-96 object-cover rounded-2xl shadow-lg"
+                className="w-full object-cover rounded-2xl shadow-lg"
               />
             </div>
           </div>
@@ -208,7 +208,7 @@ const ServicePage = () => {
                     <img
                       src={section.image || '/images/common/placeholder.svg'}
                       alt={section.title}
-                      className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                      className="w-full object-cover rounded-2xl shadow-lg"
                     />
                   </div>
                 </div>
