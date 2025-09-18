@@ -314,7 +314,7 @@ const ServicePage = () => {
                 
                 <button
                   onClick={() => navigate('/services')}
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00ABDA] to-[#4DD0E1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   View All Services
                   <ChevronRight className="ml-2 w-5 h-5" />
