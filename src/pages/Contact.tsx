@@ -26,7 +26,8 @@ import FloatingActionButtons from "@/components/FloatingActionButtons";
 const contactHeroData = {
   title: "Contact Us",
   shortDescription: "We're here to help you with all your dental needs. Reach out to us and we'll be happy to assist you in scheduling an appointment or answering any questions you may have.",
-  heroImage: "/images/common/contact-us.jpg", // You'll need to provide an image for this path
+  heroImage: "/images/common/contact-us.jpg", 
+  pageBackground: "/images/common/contact-section.jpg", 
 };
 
 const Contact = () => {
@@ -68,7 +69,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section - UPDATED */}
+      {/* Hero Section - UPDATED bg-gradient-to-br from-[#00ABDA]/80 to-[#4DD0E1]/60*/}
       <section
         className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
         style={{
@@ -79,7 +80,7 @@ const Contact = () => {
         }}
       >
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#00ABDA]/80 to-[#4DD0E1]/60"></div>
+        <div className="absolute inset-0 "></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           {/* Breadcrumb */}
@@ -94,10 +95,10 @@ const Contact = () => {
           {/* Hero Content */}
           <div className="max-w-3xl mx-auto text-center">
             <GlassmorphismCard className="p-8 md:p-12">
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6">
                 {contactHeroData.title}
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-shade/90 mb-8 leading-relaxed">
                 {contactHeroData.shortDescription}
               </p>
               
@@ -112,98 +113,104 @@ const Contact = () => {
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-20">
+      <section className="py-20" style={{
+          backgroundImage: `url(${contactHeroData.pageBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay'
+        }}>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center">
-                  <MapPin className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Address</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  Padmanaabh Dental Clinic and Implant Centre<br />
-                  Lane No. 1 Sainik Colony<br />
-                  Pathare Wasti, Lohegaon<br />
-                  Pune, Maharashtra, India
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                    <CardHeader className="pb-2">
+                        <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
+                            <MapPin className="h-8 w-8 text-shade" />
+                        </div>
+                        <CardTitle className="text-lg text-shade">Address</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-2">
+                        <p className="text-white text-md">
+                            Padmanaabh Dental Clinic and Implant Centre<br />
+                            Lane No. 1 Sainik Colony<br />
+                            Pathare Wasti, Lohegaon<br />
+                            Pune, Maharashtra, India
+                        </p>
+                    </CardContent>
+                </GlassmorphismCard>
+            
+            
 
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center">
-                  <Phone className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Phone</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-2">
-                  Primary: +91 7507 32 55 39
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Emergency: +91 9423 58 13 05
-                </p>
-              </CardContent>
-            </Card>
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                    <CardHeader className="pb-2">
+                        <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
+                            <Phone className="h-8 w-8 text-shade" />
+                        </div>
+                        <CardTitle className="text-lg text-shade">Phone</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-2">
+                        <p className="text-white text-md mb-2">
+                            Primary: +91 7507 32 55 39
+                        </p>
+                        <p className="text-white text-md">
+                            Emergency: +91 9423 58 13 05
+                        </p>
+                    </CardContent>
+                </GlassmorphismCard>
 
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center">
-                  <Mail className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Email</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-2">
-                  nehaendo2019@gmail.com
-                </p>
-                
-              </CardContent>
-            </Card>
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                    <CardHeader className="pb-2">
+                        <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
+                            <Mail className="h-8 w-8 text-shade" />
+                        </div>
+                        <CardTitle className="text-lg text-shade">Email</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-2">
+                        <p className="text-white text-lg">
+                            nehaendo2019@gmail.com
+                        </p>
+                    </CardContent>
+                </GlassmorphismCard>
 
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center">
-                  <Clock className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Hours</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-muted-foreground text-sm space-y-1">
-                  <div className="flex justify-between">
-                    <span>Mon-Fri:</span>
-                    <span>10:00 AM - 8:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday:</span>
-                    <span>10:00 AM - 8:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday:</span>
-                    <span>By Appointment</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
+                    <CardHeader className="pb-2">
+                        <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
+                            <Clock className="h-8 w-8 text-shade" />
+                        </div>
+                        <CardTitle className="text-lg text-shade">Hours</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-2">
+                        <div className="text-white text-md space-y-1">
+                            <div className="flex justify-between">
+                                <span>Mon-Fri:</span>
+                                <span>10:00 AM - 8:00 PM</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>Saturday:</span>
+                                <span>10:00 AM - 8:00 PM</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>Sunday:</span>
+                                <span>By Appointment</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </GlassmorphismCard>
           </div>
 
           {/* Contact Form and Map */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card>
+            <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
               <CardHeader>
-                <CardTitle className="text-2xl">Send us a Message</CardTitle>
-                <p className="text-muted-foreground">
+                <CardTitle className="text-3xl text-shade">Send us a Message</CardTitle>
+                <p className="text-shade text-xl">
                   Fill out the form below and we'll get back to you as soon as possible.
                 </p>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-shade text-lg">
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
                         id="name"
@@ -215,7 +222,7 @@ const Contact = () => {
                         placeholder="Your full name"
                       />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-shade text-lg">
                       <Label htmlFor="email">Email *</Label>
                       <Input
                         id="email"
@@ -230,7 +237,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-shade text-lg">
                       <Label htmlFor="phone">Phone Number</Label>
                       <Input
                         id="phone"
@@ -241,7 +248,7 @@ const Contact = () => {
                         placeholder="+91 9999999999"
                       />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-shade text-lg">
                       <Label htmlFor="subject">Subject *</Label>
                       <Input
                         id="subject"
@@ -255,7 +262,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-shade text-2xl">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
                       id="message"
@@ -274,14 +281,14 @@ const Contact = () => {
                   </Button>
                 </form>
               </CardContent>
-            </Card>
+            </GlassmorphismCard>
 
             {/* Map and Quick Actions */}
             <div className="space-y-6">
               {/* Map Placeholder */}
-              <Card>
+              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
                 <CardHeader>
-                  <CardTitle className="text-primary">Find Us</CardTitle>
+                  <CardTitle className="text-primary text-shade text-3xl">Find Us</CardTitle>
                 </CardHeader>
                 <CardContent>
                      {/* Google Maps Embed */}
@@ -311,23 +318,23 @@ const Contact = () => {
                 </a>
 
                 </CardContent>
-              </Card>
+              </GlassmorphismCard>
 
               {/* Quick Actions */}
 
               
                 
-              <Card>
+              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-xl">
                 <CardHeader>
-                  <CardTitle className="text-primary">Quick Actions</CardTitle>
+                  <CardTitle className="text-shade text-3xl">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   
                   <BookAppointmentButton className="w-full justify-center"/>
                   <WhatsAppUsButton className="w-full justify-center" onClick={() => window.open('https://wa.me/917507325539', '_blank')}/>
                   <div className="bg-muted/30 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Emergency Dental Care</h4>
-                    <p className="text-sm text-muted-foreground mb-2">
+                    <h4 className="font-semibold mb-2 text-lg text-shade">Emergency Dental Care</h4>
+                    <p className=" text-white text-lg mb-2">
                       For dental emergencies outside business hours, please call our emergency line.
                     </p>
                     
@@ -342,19 +349,19 @@ const Contact = () => {
                     </a>
                   </div>
                 </CardContent>
-              </Card>
+              </GlassmorphismCard>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-16 bg-gradient-to-r from-pink-50 to-blue-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-shade">
             Have Questions?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground/80 mb-8 max-w-2xl mx-auto">
             Check out our frequently asked questions for quick answers to common inquiries.
           </p>
           <a
