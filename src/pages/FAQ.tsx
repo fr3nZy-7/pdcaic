@@ -138,8 +138,8 @@ const FAQ = () => {
           </Link>
 
           {/* Hero Content  */}
-          <div className="max-w-3xl mx-auto text-center bg-white/10">
-            <GlassmorphismCard className="p-8 md:p-12 ">
+          <div className="max-w-3xl mx-auto text-center ">
+            <GlassmorphismCard className="p-8 md:p-12 bg-white/20 backdrop-blur-md shadow-lg">
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 {faqHeroData.title}
               </h1>
