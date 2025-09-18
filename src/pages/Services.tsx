@@ -14,11 +14,21 @@ import {
   ArrowRight,
   CheckCircle,
   Users,
-  Award
+  Award,
+  ChevronLeft
 } from "lucide-react";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import path from "path";
 import { services } from "@/data/services";
+import GlassmorphismCard from "@/components/GlassmorphismCard";
+import WhatsAppUsButton from "@/components/WhatsAppUsButton";
+import BookAppointmentButton from "@/components/BookAppointmentButton";
+
+const servicesHeroData = {
+  title: "Comprehensive Dental Services",
+  shortDescription: "From routine cleanings to complex procedures, we offer complete dental care using the latest technology and techniques to ensure optimal oral health.",
+  heroImage: "/images/services/services.jpeg",
+};
 
 const Services = () => {
   const allServices = [
@@ -115,43 +125,50 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-light to-primary overflow-hidden py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-primary-foreground">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Comprehensive 
-                <span className="block text-accent">Dental Services</span>
+
+      <section
+        className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
+        style={{
+          backgroundImage: `url(${servicesHeroData.heroImage})`,
+          backgroundSize: '100%',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay'
+        }}
+      >
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+          {/* Breadcrumb */}
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 mr-1" />
+            Home
+          </Link>
+
+          {/* Hero Content  */}
+          <div className="max-w-3xl mx-auto text-center ">
+            <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                {servicesHeroData.title}
               </h1>
-              <p className="text-lg md:text-xl mb-8 opacity-90 leading-relaxed">
-                From routine cleanings to complex procedures, we offer complete dental care 
-                using the latest technology and techniques to ensure optimal oral health.
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                {servicesHeroData.shortDescription}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-                  Book Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                >
-                  Emergency Care
-                </Button>
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <WhatsAppUsButton />
+                <BookAppointmentButton />
               </div>
-            </div>
-            <div className="relative">
-              <img
-                src={dentalImplantImage}
-                alt="Dental treatment services"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
-            </div>
+            </GlassmorphismCard>
           </div>
         </div>
       </section>
+
+
+    
 
       {/* All Services Grid */}
           <section className="py-20">
