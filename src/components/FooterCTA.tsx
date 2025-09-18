@@ -28,7 +28,7 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
   return (
     <section
       aria-labelledby="footer-cta-heading"
-      className="bg-primary/50 dark:bg-slate-900/80 backdrop-blur-sm"
+      className="py-16 bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] relative overflow-hidden"
       style={{
         backgroundImage: '/images/common/footer-cta-bg.jpg',
         backgroundSize: 'cover',
@@ -42,14 +42,14 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
           <div>
             <h2
               id="footer-cta-heading"
-              className="text-2xl md:text-4xl font-semibold text-teal-700"
+              className="text-2xl md:text-4xl font-semibold text-white"
             >
               {heading}
             </h2>
 
             
-            <div className="mt-6 text-sm text-gray-600 dark:text-gray-400 space-y-1">
-              <div className="font-medium text-gray-800 dark:text-gray-100">
+            <div className="mt-6 text-sm text-white dark:text-gray-400 space-y-1">
+              <div className="font-medium text-shade">
                 Open today 10:00 am – 08:00 pm
               </div>
               <ul className="mt-2 space-y-0.5">
@@ -62,7 +62,7 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
 
           {/* Right: supporting text + CTA buttons */}
           <div className="flex flex-col items-start md:items-end">
-            <p className="hidden md:block md:text-right text-gray-700 dark:text-gray-300 max-w-md">
+            <p className="hidden md:block md:text-right text-white dark:text-gray-300 max-w-md">
               Experience exceptional dental care in a comfortable environment.
               Our dedicated team is here to ensure your smile shines bright.
             </p>
