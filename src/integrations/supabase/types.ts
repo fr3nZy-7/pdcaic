@@ -14,16 +14,511 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analytics: {
+        Row: {
+          created_at: string
+          event_data: Json | null
+          event_type: string
+          id: string
+          ip_address: unknown | null
+          page_url: string | null
+          session_id: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_data?: Json | null
+          event_type: string
+          id?: string
+          ip_address?: unknown | null
+          page_url?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_data?: Json | null
+          event_type?: string
+          id?: string
+          ip_address?: unknown | null
+          page_url?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      appointments: {
+        Row: {
+          admin_notes: string | null
+          assigned_to: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          patient_email: string
+          patient_name: string
+          patient_phone: string
+          preferred_date: string
+          preferred_time: string
+          service_id: string | null
+          status: Database["public"]["Enums"]["appointment_status"]
+          updated_at: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          assigned_to?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          patient_email: string
+          patient_name: string
+          patient_phone: string
+          preferred_date: string
+          preferred_time: string
+          service_id?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          updated_at?: string
+        }
+        Update: {
+          admin_notes?: string | null
+          assigned_to?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          patient_email?: string
+          patient_name?: string
+          patient_phone?: string
+          preferred_date?: string
+          preferred_time?: string
+          service_id?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      blog_posts: {
+        Row: {
+          author_id: string | null
+          category_id: string | null
+          content: string | null
+          created_at: string
+          excerpt: string | null
+          featured_image_url: string | null
+          id: string
+          is_featured: boolean
+          published_at: string | null
+          reading_time: number | null
+          seo_description: string | null
+          seo_keywords: string[] | null
+          seo_title: string | null
+          slug: string
+          status: Database["public"]["Enums"]["post_status"]
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          category_id?: string | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          is_featured?: boolean
+          published_at?: string | null
+          reading_time?: number | null
+          seo_description?: string | null
+          seo_keywords?: string[] | null
+          seo_title?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["post_status"]
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          category_id?: string | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          is_featured?: boolean
+          published_at?: string | null
+          reading_time?: number | null
+          seo_description?: string | null
+          seo_keywords?: string[] | null
+          seo_title?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["post_status"]
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "blog_posts_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          name: string
+          parent_id: string | null
+          slug: string
+          sort_order: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          parent_id?: string | null
+          slug: string
+          sort_order?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          parent_id?: string | null
+          slug?: string
+          sort_order?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "categories_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      gallery: {
+        Row: {
+          alt_text: string | null
+          category_id: string | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          is_featured: boolean
+          media_type: Database["public"]["Enums"]["media_type"]
+          media_url: string
+          service_id: string | null
+          sort_order: number | null
+          tags: string[] | null
+          thumbnail_url: string | null
+          title: string
+          updated_at: string
+          uploaded_by: string | null
+        }
+        Insert: {
+          alt_text?: string | null
+          category_id?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          is_featured?: boolean
+          media_type?: Database["public"]["Enums"]["media_type"]
+          media_url: string
+          service_id?: string | null
+          sort_order?: number | null
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title: string
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Update: {
+          alt_text?: string | null
+          category_id?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          is_featured?: boolean
+          media_type?: Database["public"]["Enums"]["media_type"]
+          media_url?: string
+          service_id?: string | null
+          sort_order?: number | null
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title?: string
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gallery_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "gallery_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "gallery_uploaded_by_fkey"
+            columns: ["uploaded_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      inquiries: {
+        Row: {
+          admin_response: string | null
+          assigned_to: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          status: Database["public"]["Enums"]["inquiry_status"]
+          subject: string | null
+          updated_at: string
+        }
+        Insert: {
+          admin_response?: string | null
+          assigned_to?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          status?: Database["public"]["Enums"]["inquiry_status"]
+          subject?: string | null
+          updated_at?: string
+        }
+        Update: {
+          admin_response?: string | null
+          assigned_to?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          status?: Database["public"]["Enums"]["inquiry_status"]
+          subject?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inquiries_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      seo_settings: {
+        Row: {
+          canonical_url: string | null
+          created_at: string
+          id: string
+          meta_description: string | null
+          meta_keywords: string[] | null
+          meta_title: string | null
+          og_description: string | null
+          og_image: string | null
+          og_title: string | null
+          page_identifier: string | null
+          page_type: string
+          schema_markup: Json | null
+          updated_at: string
+        }
+        Insert: {
+          canonical_url?: string | null
+          created_at?: string
+          id?: string
+          meta_description?: string | null
+          meta_keywords?: string[] | null
+          meta_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
+          page_identifier?: string | null
+          page_type: string
+          schema_markup?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          canonical_url?: string | null
+          created_at?: string
+          id?: string
+          meta_description?: string | null
+          meta_keywords?: string[] | null
+          meta_title?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
+          page_identifier?: string | null
+          page_type?: string
+          schema_markup?: Json | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          created_at: string
+          description: string | null
+          duration_minutes: number | null
+          features: string[] | null
+          gallery_images: string[] | null
+          id: string
+          image_url: string | null
+          is_active: boolean
+          price_range: string | null
+          seo_description: string | null
+          seo_keywords: string[] | null
+          seo_title: string | null
+          short_description: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          features?: string[] | null
+          gallery_images?: string[] | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          price_range?: string | null
+          seo_description?: string | null
+          seo_keywords?: string[] | null
+          seo_title?: string | null
+          short_description?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          features?: string[] | null
+          gallery_images?: string[] | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          price_range?: string | null
+          seo_description?: string | null
+          seo_keywords?: string[] | null
+          seo_title?: string | null
+          short_description?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_role: {
+        Args: { user_id: string }
+        Returns: Database["public"]["Enums"]["user_role"]
+      }
+      is_admin: {
+        Args: { user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      appointment_status: "pending" | "confirmed" | "completed" | "cancelled"
+      inquiry_status: "new" | "in_progress" | "resolved" | "closed"
+      media_type: "image" | "video"
+      post_status: "draft" | "published" | "archived"
+      user_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +645,12 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      appointment_status: ["pending", "confirmed", "completed", "cancelled"],
+      inquiry_status: ["new", "in_progress", "resolved", "closed"],
+      media_type: ["image", "video"],
+      post_status: ["draft", "published", "archived"],
+      user_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
