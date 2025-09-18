@@ -27,6 +27,8 @@ import dentalImplantImage from "@/assets/dental-implant.jpg";
 import happyPatientsImage from "@/assets/happy-patients.jpg";
 import logo from "@/assets/logo.svg";
 import shortLogo from "@/assets/short-logo-wo-name.svg";
+import FooterCTA from "@/components/FooterCTA";
+
 
 const Index = () => {
   const services = [
@@ -274,25 +276,25 @@ const Index = () => {
       </section>
 
       {/* Patient Testimonials */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-white text-primary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Patient Testimonials</h2>
-            <p className="text-lg opacity-90 max-w-3xl mx-auto">
+            <p className="text-lg  max-w-3xl mx-auto">
               Don't just take our word for it. Hear what our satisfied patients 
               have to say about their experience at our clinic.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20">
+              <Card key={index} className="bg-black-foreground/30 border-primary-foreground/60">
                 <CardContent className="p-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-primary-foreground/90 mb-4 italic">
+                  <p className="text-primary mb-4 italic">
                     "{testimonial.review}"
                   </p>
                   <p className="font-semibold">{testimonial.name}</p>
@@ -303,63 +305,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Schedule Your Visit?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Take the first step towards better oral health. Our friendly team 
-                is ready to welcome you to our modern dental clinic in Lohegaon, Pune.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-6 w-6 text-primary" />
-                  <div>
-                    <div className="font-semibold">Location</div>
-                    <div className="text-muted-foreground">
-                      Lane No. 1 Sainik Colony, Pathore Wasti, Lohegaon, Pune
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="h-6 w-6 text-primary" />
-                  <div>
-                    <div className="font-semibold">Phone</div>
-                    <div className="text-muted-foreground">+91 7507 32 55 39</div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="h-6 w-6 text-primary" />
-                  <div>
-                    <div className="font-semibold">Hours</div>
-                    <div className="text-muted-foreground">Mon-Sat: 10:00 AM - 8:00 PM</div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="px-8 py-3">
-                  Book Appointment
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 py-3">
-                  Call Now
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src={happyPatientsImage}
-                alt="Happy patients at dental clinic"
-                className="rounded-2xl shadow-xl w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+      <FooterCTA />
       <Footer />
       <FloatingActionButtons />
     </div>
