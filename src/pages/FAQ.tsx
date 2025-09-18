@@ -116,7 +116,7 @@ const FAQ = () => {
       
       {/* Hero Section */}
       <section
-        className="relative bg-gradient-to-br from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
+        className="relative bg-gradient-to-r from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
         style={{
           backgroundImage: `url(${faqHeroData.heroImage})`,
           backgroundSize: 'cover',
@@ -125,7 +125,7 @@ const FAQ = () => {
         }}
       >
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#23AAB9] to-[#0194C1]"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           {/* Breadcrumb */}
@@ -139,7 +139,7 @@ const FAQ = () => {
 
           {/* Hero Content  */}
           <div className="max-w-3xl mx-auto text-center ">
-            <GlassmorphismCard className="p-8 md:p-12 bg-white/20 backdrop-blur-md shadow-lg">
+            <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 {faqHeroData.title}
               </h1>
