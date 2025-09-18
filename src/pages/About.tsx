@@ -14,6 +14,8 @@ import {
   MapPin
 } from "lucide-react";
 import happyPatientsImage from "@/assets/happy-patients.jpg";
+import FloatingActionButtons from "@/components/FloatingActionButtons";
+import FooterCTA from "@/components/FooterCTA";
 
 const About = () => {
   const teamMembers = [
@@ -244,61 +246,9 @@ const About = () => {
         </div>
       </section>
 
-      {/* Location & Contact */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Visit Our Clinic</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Located in the heart of Lohegaon, our modern clinic is easily accessible 
-                and designed to provide a comfortable, welcoming environment for all our patients.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold">Address</h3>
-                    <p className="text-muted-foreground">
-                      Padmanaabh Dental Clinic, Lane No. 1 Sainik Colony,<br />
-                      Pathore Wasti, Lohegaon, Pune, Maharashtra, India
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Clock className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold">Hours</h3>
-                    <p className="text-muted-foreground">
-                      Monday-Friday: 9:00 AM - 6:00 PM<br />
-                      Saturday: 10:00 AM - 8:00 PM<br />
-                      Sunday: By Appointment Only
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="px-8 py-3">
-                  Book Appointment
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 py-3">
-                  Get Directions
-                </Button>
-              </div>
-            </div>
-            <div className="bg-muted/50 rounded-2xl p-8 h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Interactive Map</p>
-                <p className="text-sm text-muted-foreground">
-                  Google Maps integration would be placed here
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+      <FloatingActionButtons />
+      <FooterCTA/>
       <Footer />
     </div>
   );

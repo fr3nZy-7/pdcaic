@@ -29,12 +29,7 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
     <section
       aria-labelledby="footer-cta-heading"
       className="py-16 bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] relative overflow-hidden"
-      style={{
-        backgroundImage: '/images/common/footer-cta-bg.jpg',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'overlay'
-      }}
+      
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

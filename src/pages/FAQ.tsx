@@ -16,7 +16,7 @@ import FooterCTA from '@/components/FooterCTA';
 const faqHeroData = {
   title: "Frequently Asked Questions",
   shortDescription: "Find answers to common queries that patients have about dental care, treatments, and our clinic.",
-  heroImage: "/images/faq-hero-bg.jpg",
+  heroImage: "/images/services/faq.jpg",
 };
 
 const FAQ = () => {
@@ -58,6 +58,50 @@ const FAQ = () => {
     {
       question: "What if I feel nervous or anxious during treatment?",
       answer: "We completely understand dental anxiety and offer several options to help you feel comfortable. These include detailed explanations of procedures, relaxation techniques, sedation options when appropriate, and a calming environment. Our team is trained to work with anxious patients.",
+    },
+    {
+      question: "My gums bleed when I brush. Is this normal?",
+      answer: "No, bleeding gums are a sign of inflammation, often caused by gum disease (gingivitis). It's a common misconception that this is normal. When caught early, gingivitis is easily reversible with a professional cleaning and improved home care. Don't ignore it—addressing it promptly can prevent more serious issues like periodontitis.",
+    },
+    {
+      question: "How often should I visit the dentist?",
+      answer: "For most people, we recommend a dental check-up and cleaning every six months. Regular visits are crucial for preventing cavities and gum disease, as they allow us to detect minor issues before they become major problems. However, if you have a history of dental problems, we may suggest more frequent appointments.",
+    },
+    {
+      question: "Is teeth whitening safe for my teeth?",
+      answer: "Yes, professional teeth whitening is a safe and effective way to brighten your smile. We use dentist-approved products and techniques that minimize sensitivity and protect your tooth enamel. Unlike DIY kits, our professional treatments are tailored to your needs and supervised by a dental expert for optimal results.",
+    },
+    {
+      question: "Why are my teeth sensitive to hot and cold?",
+      answer: "Tooth sensitivity can be caused by several factors, including cavities, worn-down enamel, gum recession, or a cracked tooth. It's not a condition to be ignored. A dental exam can pinpoint the exact cause, and we can recommend treatments like desensitizing toothpaste, fillings, or fluoride applications to provide lasting relief.",
+    },
+    {
+      question: "I only have a small cavity. Do I really need a filling?",
+      answer: "Yes, even small cavities should be treated. A cavity is a progressive disease that will continue to grow, destroying more of your tooth's structure. Filling it early is a simple, quick, and cost-effective way to prevent the decay from reaching the nerve, which would require a more complex and expensive root canal.",
+    },
+    {
+      question: "Are dental X-rays safe?",
+      answer: "Yes, modern dental X-rays are extremely safe. We use digital X-ray technology that emits a very low dose of radiation—significantly less than what you're exposed to from everyday sources like sunlight. They are a vital diagnostic tool that allows us to see what's happening beneath the surface and identify issues invisible to the naked eye.",
+    },
+    {
+      question: "What's the best way to brush my teeth?",
+      answer: "The key is to brush gently but thoroughly. Use a soft-bristled toothbrush and brush in small, circular motions at a 45-degree angle to the gumline. Brush for at least two minutes, covering all surfaces of your teeth and your tongue. Remember to floss daily as well—it's just as important!",
+    },
+    {
+      question: "Do I need to replace my missing tooth?",
+      answer: "We strongly recommend replacing a missing tooth, even if it's not a front tooth. A missing tooth can cause the surrounding teeth to shift, affecting your bite and leading to jaw pain and more tooth loss. Options like dental implants or bridges can restore your smile, function, and oral health.",
+    },
+    {
+      question: "Are dental implants a permanent solution?",
+      answer: "Yes, dental implants are considered a permanent and highly durable solution for missing teeth. The implant fuses with your jawbone, creating a stable foundation that can last a lifetime with proper oral hygiene and regular dental check-ups.",
+    },
+    {
+      question: "Can my child get a cavity even if they don't eat many sweets?",
+      answer: "Unfortunately, yes. While sugar is a major culprit, any food containing carbohydrates can contribute to cavities. Good oral hygiene, including regular brushing and flossing, is the most important factor. Dental sealants and fluoride treatments are also highly effective at protecting children's teeth from decay.",
+    },
+    {
+      question: "Is bad breath always a sign of a dental problem?",
+      answer: "Persistent bad breath (halitosis) is often a sign of a dental issue, such as gum disease, cavities, or bacteria on the tongue. In some cases, it can be related to a medical condition. A professional dental exam can help us identify the cause and provide a solution to get your breath fresh and healthy again.",
     },
   ];
 
@@ -129,7 +173,7 @@ const FAQ = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-primary-light/10 rounded-lg border border-primary/20 px-6"
+                className="bg-primary-light/30 rounded-lg border border-primary/20 px-6"
               >
                 <AccordionTrigger className="text-left hover:no-underline py-6">
                   <span className="font-semibold text-lg pr-4">
