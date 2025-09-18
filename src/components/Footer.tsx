@@ -148,7 +148,7 @@ const Footer = () => {
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on Instagram"
                 >
-                  <Instagram className="h-7 w-7" />
+                  <Instagram className="h-9 w-9" />
                 </a>
                 <a
                   href="https://www.facebook.com/DrNehaDeshpande"
@@ -157,7 +157,7 @@ const Footer = () => {
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on Facebook"
                 >
-                  <Facebook className="h-7 w-7" />
+                  <Facebook className="h-9 w-9" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/dr-neha-deshpande/"
@@ -166,7 +166,7 @@ const Footer = () => {
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on LinkedIn"
                 >
-                  <Linkedin className="h-7 w-7" />
+                  <Linkedin className="h-9 w-9" />
                 </a>
                 <a
                   href="https://www.youtube.com/@Padmanaabh_Dental_Clinic"
@@ -175,7 +175,7 @@ const Footer = () => {
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
                   aria-label="Follow us on YouTube"
                 >
-                  <Youtube className="h-7 w-7" />
+                  <Youtube className="h-9 w-9" />
                 </a>
               </div>
             </div>
