@@ -69,7 +69,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section - UPDATED bg-gradient-to-br from-[#00ABDA]/80 to-[#4DD0E1]/60*/}
+      {/* Hero Section - UPDATED */}
       <section
         className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
         style={{
@@ -121,7 +121,7 @@ const Contact = () => {
         }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
+          <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40 hover:scale-105">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <MapPin className="h-8 w-8 text-shade" />
@@ -129,7 +129,7 @@ const Contact = () => {
                         <CardTitle className="text-lg text-shade">Address</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-2">
-                        <p className="text-muted-foreground text-md">
+                        <p className="text-black/90 text-md">
                             Padmanaabh Dental Clinic and Implant Centre<br />
                             Lane No. 1 Sainik Colony<br />
                             Pathare Wasti, Lohegaon<br />
@@ -140,7 +140,7 @@ const Contact = () => {
             
             
 
-                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40 hover:scale-105">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <Phone className="h-8 w-8 text-shade" />
@@ -148,16 +148,16 @@ const Contact = () => {
                         <CardTitle className="text-lg text-shade">Phone</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-2">
-                        <p className="text-muted-foreground text-md mb-2">
+                        <p className="text-black/90 text-md mb-2">
                             Primary: +91 7507 325 539
                         </p>
-                        <p className="text-muted-foreground text-md">
+                        <p className="text-black/90 text-md">
                             Emergency: +91 9423 581 305
                         </p>
                     </CardContent>
                 </GlassmorphismCard>
 
-                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40 hover:scale-105">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <Mail className="h-8 w-8 text-shade" />
@@ -165,13 +165,13 @@ const Contact = () => {
                         <CardTitle className="text-lg text-shade">Email</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-2">
-                        <p className="text-muted-foreground text-lg">
+                        <p className="text-black/90 text-lg">
                             nehaendo2019@gmail.com
                         </p>
                     </CardContent>
                 </GlassmorphismCard>
 
-                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
+                <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40 hover:scale-105">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <Clock className="h-8 w-8 text-shade" />
@@ -179,7 +179,7 @@ const Contact = () => {
                         <CardTitle className="text-lg text-shade">Hours</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-2">
-                        <div className="text-muted-foreground text-md space-y-1">
+                        <div className="text-black/90 text-md space-y-1">
                             <div className="flex justify-between">
                                 <span>Mon-Fri:</span>
                                 <span>10:00 AM - 8:00 PM</span>
