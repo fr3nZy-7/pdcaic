@@ -331,9 +331,15 @@ const Contact = () => {
                       For dental emergencies outside business hours, please call our emergency line.
                     </p>
                     
-                    <Button variant="destructive" size="sm">
-                      Emergency: +91 9423 58 13 05
-                    </Button>
+                    <a
+                        href="tel:+919423581305"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-800 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
+                    >
+                        <Phone className="h-5 w-5 mr-2" />
+                        <span>Emergency: +91 9423 58 13 05</span>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
