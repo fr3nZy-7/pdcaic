@@ -6,15 +6,28 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  MapPin,
+  Phone,
+  Mail,
   Clock,
   Send,
-  MessageCircle
+  MessageCircle,
+  ChevronLeft
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
+import GlassmorphismCard from '@/components/GlassmorphismCard';
+import WhatsAppUsButton from '@/components/WhatsAppUsButton';
+import BookAppointmentButton from '@/components/BookAppointmentButton';
+import FloatingActionButtons from "@/components/FloatingActionButtons";
+
+
+const contactHeroData = {
+  title: "Contact Us",
+  shortDescription: "We're here to help you with all your dental needs. Reach out to us and we'll be happy to assist you in scheduling an appointment or answering any questions you may have.",
+  heroImage: "/images/common/contact-us.jpg", // You'll need to provide an image for this path
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -26,7 +39,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -34,7 +47,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
     toast({
@@ -55,17 +68,46 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-light to-primary overflow-hidden py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground leading-tight">
-            Contact Us
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto">
-            We're here to help you with all your dental needs. Reach out to us 
-            and we'll be happy to assist you in scheduling an appointment or 
-            answering any questions you may have.
-          </p>
+      {/* Hero Section - UPDATED */}
+      <section
+        className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
+        style={{
+          backgroundImage: `url(${contactHeroData.heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay'
+        }}
+      >
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#00ABDA]/80 to-[#4DD0E1]/60"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+          {/* Breadcrumb */}
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 mr-1" />
+            Home
+          </Link>
+
+          {/* Hero Content */}
+          <div className="max-w-3xl mx-auto text-center">
+            <GlassmorphismCard className="p-8 md:p-12">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                {contactHeroData.title}
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                {contactHeroData.shortDescription}
+              </p>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <WhatsAppUsButton />
+                <BookAppointmentButton />
+              </div>
+            </GlassmorphismCard>
+          </div>
         </div>
       </section>
 
@@ -82,9 +124,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
-                  Padmanaabh Dental Clinic<br />
+                  Padmanaabh Dental Clinic and Implant Centre<br />
                   Lane No. 1 Sainik Colony<br />
-                  Pathore Wasti, Lohegaon<br />
+                  Pathare Wasti, Lohegaon<br />
                   Pune, Maharashtra, India
                 </p>
               </CardContent>
@@ -99,10 +141,10 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-2">
-                  Primary: +91 9999999999
+                  Primary: +91 7507 32 55 39
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  Emergency: +91 9999999999
+                  Emergency: +91 9423 58 13 05
                 </p>
               </CardContent>
             </Card>
@@ -116,11 +158,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-2">
-                  hello@padmanaabhclinic.com
+                  nehaendo2019@gmail.com
                 </p>
-                <p className="text-muted-foreground text-sm">
-                  appointments@padmanaabhclinic.com
-                </p>
+                
               </CardContent>
             </Card>
 
@@ -135,7 +175,7 @@ const Contact = () => {
                 <div className="text-muted-foreground text-sm space-y-1">
                   <div className="flex justify-between">
                     <span>Mon-Fri:</span>
-                    <span>9:00 AM - 6:00 PM</span>
+                    <span>10:00 AM - 8:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday:</span>
@@ -228,7 +268,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button type="submit" size="lg" className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00ABDA] to-[#4DD0E1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
                     Send Message
                     <Send className="ml-2 h-5 w-5" />
                   </Button>
@@ -241,45 +281,58 @@ const Contact = () => {
               {/* Map Placeholder */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Find Us</CardTitle>
+                  <CardTitle className="text-primary">Find Us</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-muted/50 rounded-lg h-64 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                      <p className="text-muted-foreground">Interactive Map</p>
-                      <p className="text-sm text-muted-foreground">
-                        Google Maps integration would be placed here
-                      </p>
-                    </div>
+                     {/* Google Maps Embed */}
+                  <div className="relative w-full h-80 lg:h-96 rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.0963574982745!2d73.93091212485284!3d18.601984287134454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7808313ef37%3A0x853c2d5523f36605!2sPadmanaabh%20Dental%20Clinic%26Implant%20Centre%3A%20Best%20Dentist%20In%20Lohegaon-Best%20Rootcanal%20RCT%20Doctor%20Dental%20clinic%20In%20Lohegaon!5e0!3m2!1sen!2sin!4v1709234567890!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Padmanaabh Dental Clinic Location"
+                      className="absolute inset-0"
+                    />
                   </div>
-                  <Button variant="outline" className="w-full mt-4">
-                    Get Directions
-                  </Button>
+                  
+                  {/* Directions Button */}
+                  <a
+                  href="https://www.google.com/maps/place/Padmanaabh+Dental+Clinic%26Implant+Centre:+Best+Dentist+In+Lohegaon-Best+Rootcanal+RCT+Doctor+Dental+clinic+In+Lohegaon/@18.601987,73.930912,17z/data=!4m6!3m5!1s0x3bc2c7808313ef37:0x853c2d5523f36605!8m2!3d18.6019842!4d73.9335108!16s%2Fg%2F11rjz2t54r?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00ABDA] to-[#4DD0E1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
+                  >
+                  <MapPin className="h-5 w-5" />
+                  <span>Get Directions</span>
+                </a>
+
                 </CardContent>
               </Card>
 
               {/* Quick Actions */}
+
+              
+                
               <Card>
                 <CardHeader>
-                  <CardTitle>Quick Actions</CardTitle>
+                  <CardTitle className="text-primary">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button className="w-full" size="lg">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Now: +91 9999999999
-                  </Button>
-                  <Button variant="outline" className="w-full" size="lg">
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    WhatsApp Us
-                  </Button>
+                  
+                  <BookAppointmentButton className="w-full justify-center"/>
+                  <WhatsAppUsButton className="w-full justify-center"/>
                   <div className="bg-muted/30 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Emergency Dental Care</h4>
                     <p className="text-sm text-muted-foreground mb-2">
                       For dental emergencies outside business hours, please call our emergency line.
                     </p>
+                    
                     <Button variant="destructive" size="sm">
-                      Emergency: +91 9999999999
+                      Emergency: +91 9423 58 13 05
                     </Button>
                   </div>
                 </CardContent>
@@ -298,13 +351,19 @@ const Contact = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Check out our frequently asked questions for quick answers to common inquiries.
           </p>
-          <Button size="lg" variant="outline">
-            View FAQ
-          </Button>
+          <a
+                  href="/faq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00ABDA] to-[#4DD0E1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
+                  >
+                  <MapPin className="h-5 w-5" />
+                  <span>View FAQs</span>
+                </a>
         </div>
       </section>
 
-      <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };
