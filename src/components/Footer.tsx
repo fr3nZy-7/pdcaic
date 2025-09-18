@@ -142,7 +142,7 @@ const Footer = () => {
               <h3 className="font-heading font-semibold text-lg text-black mb-4">Follow Us</h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/dr.nehadeshpandetambe/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
@@ -151,7 +151,7 @@ const Footer = () => {
                   <Instagram className="h-7 w-7" />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/DrNehaDeshpande"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
@@ -160,7 +160,7 @@ const Footer = () => {
                   <Facebook className="h-7 w-7" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/dr-neha-deshpande/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
@@ -169,7 +169,7 @@ const Footer = () => {
                   <Linkedin className="h-7 w-7" />
                 </a>
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@Padmanaabh_Dental_Clinic"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-shade/80 hover:text-accent transition-colors p-2 rounded-full hover:bg-white/10"
