@@ -5,8 +5,19 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, MessageCircle, Phone, ArrowLeft } from "lucide-react";
+import { Search, MessageCircle, Phone, ArrowLeft, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import GlassmorphismCard from '@/components/GlassmorphismCard';
+import WhatsAppUsButton from '@/components/WhatsAppUsButton';
+import BookAppointmentButton from '@/components/BookAppointmentButton';
+import FloatingActionButtons from '@/components/FloatingActionButtons';
+import FooterCTA from '@/components/FooterCTA';
+
+const faqHeroData = {
+  title: "Frequently Asked Questions",
+  shortDescription: "Find answers to common queries that patients have about dental care, treatments, and our clinic.",
+  heroImage: "/images/faq-hero-bg.jpg",
+};
 
 const FAQ = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -59,34 +70,57 @@ const FAQ = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Back Navigation */}
-      <div className="container mx-auto px-4 py-6">
-        <Link to="/" className="inline-flex items-center text-primary hover:text-primary-dark transition-colors">
-          <ArrowLeft className="h-5 w-5 mr-2" />
-          Back
-        </Link>
-      </div>
+      {/* Hero Section */}
+      <section
+        className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
+        style={{
+          backgroundImage: `url(${faqHeroData.heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay'
+        }}
+      >
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#00ABDA]/80 to-[#4DD0E1]/60"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+          {/* Breadcrumb */}
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 mr-1" />
+            Home
+          </Link>
 
-      {/* Header Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-light/20 to-primary/5">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Find answers to common queries that patients have
-          </p>
-          
-          {/* Search Bar */}
-          <div className="max-w-lg mx-auto relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-            <Input
-              type="text"
-              placeholder="Search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 py-3 text-lg rounded-full border-primary/20 focus:border-primary"
-            />
+          {/* Hero Content */}
+          <div className="max-w-3xl mx-auto text-center">
+            <GlassmorphismCard className="p-8 md:p-12">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                {faqHeroData.title}
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                {faqHeroData.shortDescription}
+              </p>
+              
+              {/* Search Bar */}
+              <div className="relative max-w-lg mx-auto mb-8">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-6 w-6" />
+                <Input
+                  type="text"
+                  placeholder="Search for an answer..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-12 pr-6 py-4 text-lg rounded-full border-2 border-primary/40 bg-white shadow-xl text-black placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/50 transition-colors"
+                />
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <WhatsAppUsButton />
+                <BookAppointmentButton />
+              </div>
+            </GlassmorphismCard>
           </div>
         </div>
       </section>
@@ -125,83 +159,9 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* Still Have Questions Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Still have questions?
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-background p-6 rounded-lg shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2">Open today 10:00 am – 08:00 pm</h3>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <div className="flex justify-between">
-                      <span>Monday to Friday</span>
-                      <span>9:00am to 6:00pm</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday</span>
-                      <span>10:00am to 08:00pm</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sunday</span>
-                      <span>By Appointments Only</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground">
-                  Experience exceptional dental care in a comfortable environment. 
-                  Our dedicated team is here to ensure your smile shines bright.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="flex items-center justify-center space-x-2">
-                    <MessageCircle className="h-5 w-5" />
-                    <span>WhatsApp Us</span>
-                  </Button>
-                  <Button variant="outline" className="flex items-center justify-center space-x-2">
-                    <Phone className="h-5 w-5" />
-                    <span>Book Appointment</span>
-                  </Button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <Card className="bg-primary text-primary-foreground">
-                <CardContent className="p-8">
-                  <h3 className="font-bold text-2xl mb-4">Contact Information</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold mb-2">Location</h4>
-                      <p className="opacity-90">
-                        Padmanaabh Dental Clinic, Lane No. 1 Sainik Colony, 
-                        Pathore Wasti, Lohegaon, Pune, Maharashtra, India
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Phone</h4>
-                      <p className="opacity-90">+91 9999999999</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Email</h4>
-                      <p className="opacity-90">hello@padmanaabhclinic.com</p>
-                    </div>
-                  </div>
-                  <Button 
-                    variant="secondary" 
-                    className="mt-6 w-full"
-                  >
-                    Get Directions
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+      <FloatingActionButtons />
+      <FooterCTA/>
       <Footer />
     </div>
   );
