@@ -49,18 +49,14 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Clinic Description */}
-            <p className="font-body text-black/80 leading-relaxed max-w-md">
-              Experience exceptional dental care with state-of-the-art technology and 
-              personalized treatment plans. Your smile is our passion, your comfort is our priority.
-            </p>
+            
 
             {/* Contact Information */}
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" />
                 <div className="font-body">
-                  <div className="font-medium text-black">Our Location</div>
+                  <div className="font-medium text-shade">Our Location</div>
                   <div className="text-black/80 text-sm leading-relaxed">
                     Lane No. 1 Sainik Colony, Pathore Wasti,<br />
                     Lohegaon, Pune, Maharashtra 411047
@@ -71,7 +67,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
                 <div className="font-body">
-                  <div className="font-medium text-black">Call Us</div>
+                  <div className="font-medium text-shade">Call Us</div>
                   <a 
                     href="tel:+917507325539" 
                     className="text-black/80 text-sm hover:text-accent transition-colors"
@@ -84,7 +80,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
                 <div className="font-body">
-                  <div className="font-medium text-black">Email Us</div>
+                  <div className="font-medium text-shade">Email Us</div>
                   <a 
                     href="mailto:nehaendo2019@gmail.com" 
                     className="text-black/80 text-sm hover:text-accent transition-colors"
@@ -94,21 +90,12 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3">
-                <Clock className="h-5 w-5 text-accent flex-shrink-0" />
-                <div className="font-body">
-                  <div className="font-medium text-black">Working Hours</div>
-                  <div className="text-black/80 text-sm">
-                    Mon-Sat: 10:00 AM - 8:00 PM<br />
-                    Sun: By Appointment Only
-                  </div>
-                </div>
-              </div>
+              
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-heading font-semibold text-lg text-black mb-4">Quick Links</h3>
+              <h3 className="font-heading font-bold text-lg text-shade mb-4">Quick Links</h3>
               <div className="grid grid-cols-2 gap-2 font-body">
                 <Link to="/" className="text-black/80 hover:text-accent transition-colors text-sm">
                   Home
@@ -139,7 +126,7 @@ const Footer = () => {
 
             {/* Follow Us Section */}
             <div>
-              <h3 className="font-heading font-semibold text-lg text-black mb-4">Follow Us</h3>
+              <h3 className="font-heading font-bold text-lg text-shade mb-4">Follow Us</h3>
               <div className="flex space-x-4">
                 <a
                   href="https://www.instagram.com/dr.nehadeshpandetambe/"
