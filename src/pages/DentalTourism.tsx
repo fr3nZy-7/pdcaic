@@ -44,22 +44,22 @@ const dentalTourismHeroData = {
     },
     features: [
         {
-            icon: "/images/common/icons/expert-specialist.svg",
+            icon: "/images/icons/expert-specialist.svg",
             title: "Expert and Quality Care",
             description: "Top-notch dental services with international standards."
         },
         {
-            icon: "/icons/affordable-prices.svg",
+            icon: "/images/icons/flight-international.svg",
             title: "International Patient Care",
             description: "Dedicated English-speaking staff and personalized assistance."
         },
         {
-            icon: "/icons/expert-dentists.svg",
+            icon: "/images/icons/card-pricing.svg",
             title: "Transparent Pricing",
             description: "Clear cost breakdown with no hidden charges/fees."
         },
         {
-            icon: "/icons/modern-facilities.svg",
+            icon: "/images/icons/bx_clinic-facility.svg",
             title: "Modern Facilities",
             description: "State-of-the-art clinic equipped with the latest technology and modern sterilization protocol."
         }
@@ -99,7 +99,7 @@ const priceComparisonData = [
 
 const treatmentJourneySteps = [
     {
-        icon: Monitor,
+        icon: "/images/icons/virtual-consult.svg",
         title: "Virtual Consultation",
         step: 1
     },
