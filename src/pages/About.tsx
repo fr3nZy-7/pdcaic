@@ -105,7 +105,7 @@ const About = () => {
       <Header />
       
       
-
+    {/* Hero sction*/}
     <HeroSection
       breadcrumbLink="/"
       breadcrumbLabel="Home"

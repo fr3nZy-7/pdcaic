@@ -9,10 +9,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import heroImage from "@/assets/hero-dental-clinic.jpg";
+import HeroSection from "@/components/HeroSection";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const blogHeroData = {
+    title: "Knowledge Center",
+    shortDescription: "Your Trusted Source for Dental Health Insights and Tips",
+    heroImage: heroImage,
+  };
 
   const categories = [
     { id: "all", name: "All Posts" },
@@ -112,19 +119,21 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-light to-primary overflow-hidden py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground leading-tight">
-            Dental Health Blog
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto">
-            Stay informed about the latest in dental health, treatment options, 
-            and oral care tips from our experienced dental professionals.
-          </p>
-          
-          {/* Search Bar */}
-          <div className="max-w-lg mx-auto relative">
+      {/* Hero sction*/}
+    <HeroSection
+      breadcrumbLink="/"
+      breadcrumbLabel="Home"
+      title={blogHeroData.title}
+      description={blogHeroData.shortDescription}
+      backgroundImage={blogHeroData.heroImage}
+      overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/20"
+      titleColor="text-shade"
+      descriptionColor="text-black/70"
+      align="left"
+    >
+      <>
+        {/* Search Bar */}
+        <div className="w-full mx-auto relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
             <Input
               type="text"
@@ -134,8 +143,11 @@ const Blog = () => {
               className="pl-10 py-3 text-lg rounded-full bg-background/90"
             />
           </div>
-        </div>
-      </section>
+      </>
+    </HeroSection>
+
+
+      
 
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
