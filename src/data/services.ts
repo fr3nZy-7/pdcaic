@@ -164,7 +164,7 @@ export const services: Service[] = [
   {
     slug: "orthodontics",
     title: "Orthodontic Treatment",
-    shortDescription: "Braces and aligners to straighten teeth, improve bite, and enhance your smile.",
+    shortDescription: "Braces and aligners to fix misaligned teeth, improve your bite, enhance your smile, and/or facial features.",
     iconPath:"/images/icons/orthodontics.svg",
     longDescription: "Orthodontic treatments help align teeth, correct bite issues, and improve overall dental health. At our clinic, we offer both traditional braces and modern clear aligners to suit patient needs and lifestyles.",
     heroImage: "/images/services/clear-aligners.jpg",
