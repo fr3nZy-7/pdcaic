@@ -8,6 +8,7 @@ Allow: /gallery
 Allow: /blog
 Allow: /faq
 Allow: /contact
+Allow: /dental-tourism
 
 # Service pages
 Allow: /services/root-canal
