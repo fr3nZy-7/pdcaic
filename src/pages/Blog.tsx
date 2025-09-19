@@ -10,6 +10,7 @@ import { useState } from "react";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import heroImage from "@/assets/hero-dental-clinic.jpg";
 import HeroSection from "@/components/HeroSection";
+import FooterCTA from "@/components/FooterCTA";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -213,14 +214,23 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={selectedCategory === category.id ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category.id)}
-                className="px-6 py-2"
-              >
-                {category.name}
-              </Button>
+             
+            <Button
+            key={category.id}
+            onClick={() => setSelectedCategory(category.id)}
+            className={`inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 mt-4 justify-center
+              ${
+                selectedCategory === category.id
+                  ? "bg-purple-600 text-white hover:bg-purple-700" // selected
+                  : "bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white hover:opacity-90"
+              }
+              hover:scale-105 hover:shadow-lg
+            `}
+          >
+            {category.name}
+          </Button>
+
+
             ))}
           </div>
 
@@ -284,29 +294,8 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Newsletter Subscription */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Stay Updated with Our Latest Articles
-          </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter and get the latest dental health tips 
-            and insights delivered directly to your inbox.
-          </p>
-          <div className="max-w-md mx-auto flex gap-4">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
-            />
-            <Button variant="secondary" size="lg">
-              Subscribe
-            </Button>
-          </div>
-        </div>
-      </section>
-
+      
+      <FooterCTA />
       <Footer />
     </div>
   );
