@@ -141,7 +141,7 @@ const dentalTourismHeroData = {
             </div>
 
             {/* Hero Image */}
-            <div className="relative h-80 lg:h-full bg-primary/10 rounded-2xl shadow-lg overflow-hidden">
+            <div className="relative h-80 lg:h-full bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] rounded-2xl shadow-lg overflow-hidden">
               <img
                 src={dentalTourismHeroData.detailedContent.heroContentImage || '/images/common/placeholder.svg'}
                 alt={dentalTourismHeroData.title}
