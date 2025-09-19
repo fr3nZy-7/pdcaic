@@ -17,7 +17,7 @@ const getHeadingFromPath = (path: string, override?: string) => {
   if (p.startsWith("/blog") || p.includes("dental") || p.startsWith("/about"))
     return "Start your treatment journey today!";
   if (p.startsWith("/faq")) return "Still have questions?";
-
+  if (p.startsWith("/gallery")) return "Ready to Join our Happy Patients?";
   return "Ready to schedule your treatment?";
 };
 

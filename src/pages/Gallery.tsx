@@ -8,6 +8,12 @@ import { X, Play } from "lucide-react";
 import heroImage from "@/assets/hero-dental-clinic.jpg";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
 import happyPatientsImage from "@/assets/happy-patients.jpg";
+import FooterCTA from "@/components/FooterCTA";
+import FloatingActionButtons from "@/components/FloatingActionButtons";
+import { Link } from "react-router-dom";
+import GlassmorphismCard from "@/components/GlassmorphismCard";
+
+import { ChevronLeft } from "lucide-react";
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -105,33 +111,65 @@ const Gallery = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-light to-primary overflow-hidden py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground leading-tight">
-            Our Gallery
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto">
-            Take a visual journey through our modern dental clinic, see our 
-            advanced treatments in action, and meet our dedicated team of professionals.
-          </p>
-        </div>
-      </section>
+<section
+  className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
+  style={{
+    backgroundImage: `url(/images/common/gallery-bg.jpg)`, // replace with actual image import/URL
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundBlendMode: "overlay",
+  }}
+>
+  {/* Background overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+    {/* Breadcrumb */}
+    <Link
+      to="/"
+      className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+    >
+      <ChevronLeft className="w-5 h-5 mr-1" />
+      Home
+    </Link>
+
+    {/* Hero Content */}
+    <div className="max-w-3xl mx-auto text-center">
+      <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
+        <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6 leading-tight">
+          Our Gallery
+        </h1>
+        <p className="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
+          Take a visual journey through our modern dental clinic, see our 
+          advanced treatments in action, and meet our dedicated team of professionals.
+        </p>
+      </GlassmorphismCard>
+    </div>
+  </div>
+</section>
+
 
       {/* Gallery Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-r from-blue-200/40 to-pink-100/70">
         <div className="container mx-auto px-4">
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={selectedCategory === category.id ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category.id)}
-                className="px-6 py-2"
-              >
-                {category.name}
-              </Button>
-            ))}
+           {categories.map((category) => (
+            <Button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 mt-4 justify-center
+                ${
+                  selectedCategory === category.id
+                    ? "bg-purple-600 text-white hover:bg-purple-700" // selected
+                    : "bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white hover:opacity-90"
+                }
+                hover:scale-105 hover:shadow-lg
+              `}
+            >
+              {category.name}
+            </Button>
+          ))}
           </div>
 
           {/* Gallery Grid */}
@@ -181,7 +219,7 @@ const Gallery = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 "
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-4xl max-h-full">
@@ -203,7 +241,7 @@ const Gallery = () => {
       )}
 
       {/* Video Testimonials Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-r from-blue-200/40 to-pink-100/70">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Video Testimonials</h2>
@@ -239,31 +277,9 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Join Our Happy Patients?
-          </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Experience the same exceptional care and results that our patients rave about. 
-            Schedule your consultation today and start your journey to a healthier smile.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-              Book Appointment
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
-              Call: +91 9999999999
-            </Button>
-          </div>
-        </div>
-      </section>
-
+     
+      <FooterCTA />
+      <FloatingActionButtons />
       <Footer />
     </div>
   );
