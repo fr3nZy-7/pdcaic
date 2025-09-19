@@ -9,11 +9,23 @@ Allow: /blog
 Allow: /faq
 Allow: /contact
 
+# Service pages
+Allow: /services/root-canal
+Allow: /services/orthodontics
+Allow: /services/dental-implants
+Allow: /services/general-dentistry
+Allow: /services/cosmetic-dentistry
+Allow: /services/oral-surgery
+Allow: /services/periodontal-treatment
+Allow: /services/pediatric-dentistry
+Allow: /services/emergency-dental-care
+
 # Important pages
 Allow: /sitemap.xml
 
-# Disallow admin areas (if any in the future)
+# Disallow admin areas
 Disallow: /admin/
+Disallow: /admin
 Disallow: /private/
 
 Sitemap: https://padmanaabhclinic.com/sitemap.xml
