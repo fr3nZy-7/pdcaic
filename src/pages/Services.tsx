@@ -110,25 +110,24 @@ const Services = () => {
 
     
 
-      {/* All Services Grid */}
-      <section
-      className="py-20 text-shade/90 bg-white/20"
-      style={{
-        backgroundImage: `url(${servicesHeroData.subHeroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'overlay'
-        
-      }}
-    >
-      <div className="grid grid-cols-3 gap-12">
-        {/* Ensure you have exactly 9 service items for a 3x3 grid */}
-        {services.map((service) => (
-          <GlassmorphismCard
-          className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow "
-          >
-          <ServiceCard 
-            
+ {/* All Services Grid */}
+<section
+  className="py-16 text-shade/90 bg-white/20"
+  style={{
+    backgroundImage: `url(${servicesHeroData.subHeroImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundBlendMode: "overlay",
+  }}
+>
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <GlassmorphismCard
+          key={service.slug}
+          className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow h-full"
+        >
+          <ServiceCard
             title={service.title}
             description={service.shortDescription}
             iconPath={service.iconPath}
@@ -136,10 +135,10 @@ const Services = () => {
             path={`/services/${service.slug}`}
           />
         </GlassmorphismCard>
-        ))}
-      </div>
-    </section>
-
+      ))}
+    </div>
+  </div>
+</section>
 
     
 
