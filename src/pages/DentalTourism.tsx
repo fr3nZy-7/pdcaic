@@ -44,7 +44,7 @@ const dentalTourismHeroData = {
     },
     features: [
         {
-            icon: "/icons/quality-care.svg",
+            icon: "/images/common/icons/expert-specialist.svg",
             title: "Expert and Quality Care",
             description: "Top-notch dental services with international standards."
         },
