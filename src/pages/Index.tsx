@@ -32,6 +32,8 @@ import logo from "@/assets/logo.svg";
 import shortLogo from "@/assets/short-logo-wo-name.svg";
 import FooterCTA from "@/components/FooterCTA";
 import { services } from "@/data/services";
+import ReviewsSection from '@/components/ReviewsSection';
+
 
 
 
@@ -329,33 +331,12 @@ const showNextButton = totalSlides > slidesPerPage;
 
 
       {/* Patient Testimonials */}
-      <section className="py-20 bg-white text-primary">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Patient Testimonials</h2>
-            <p className="text-lg  max-w-3xl mx-auto">
-              Don't just take our word for it. Hear what our satisfied patients 
-              have to say about their experience at our clinic.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-black-foreground/30 border-primary-foreground/60">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-primary mb-4 italic">
-                    "{testimonial.review}"
-                  </p>
-                  <p className="font-semibold">{testimonial.name}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+      <section className=" bg-white text-primary">
+        
+          
+        <ReviewsSection/>
+
+        
       </section>
 
       
