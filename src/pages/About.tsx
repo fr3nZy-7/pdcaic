@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,37 +7,41 @@ import {
   Users, 
   Heart, 
   Star,
-  ArrowRight,
-  CheckCircle,
+  
   Stethoscope,
-  Clock,
-  MapPin
+  
+  ChevronLeft
 } from "lucide-react";
-import happyPatientsImage from "@/assets/happy-patients.jpg";
+import drnehaImage from "@/assets/dr-neha.jpg";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import FooterCTA from "@/components/FooterCTA";
+import GlassmorphismCard from "@/components/GlassmorphismCard";
+import { Link } from "react-router-dom";
+import WhatsAppUsButton from "@/components/WhatsAppUsButton";
+import BookAppointmentButton from "@/components/BookAppointmentButton";
 
 const About = () => {
   const teamMembers = [
+    
     {
-      name: "Dr. Padmanaabh",
-      role: "Lead Dentist & Founder",
-      specialization: "Implantology & Oral Surgery",
-      experience: "15+ years",
-      image: "/placeholder-doctor.jpg", // Replace with actual image
-    },
-    {
-      name: "Dr. Priya Sharma",
-      role: "Cosmetic Dentist",
-      specialization: "Cosmetic & Restorative Dentistry",
+      name: "Dr. Meenakshi Gavankar",
+      role: "Orthodontist",
+      specialization: "Orthodontics",
       experience: "10+ years",
       image: "/placeholder-doctor.jpg", // Replace with actual image
     },
     {
-      name: "Dr. Rajesh Kumar",
-      role: "Orthodontist",
-      specialization: "Orthodontics & Pediatric Dentistry",
-      experience: "8+ years",
+      name: "Dr. Neha Deshpande Tambe",
+      role: "Lead Dentist & Founder",
+      specialization: "Endodontics, Conservative and Aesthetic Dentistry",
+      experience: "10+ years",
+      image: "/placeholder-doctor.jpg", // Replace with actual image
+    },
+    {
+      name: "Dr. Swapnil Sabnis",
+      role: "Oral Surgeon",
+      specialization: "Oral Surgery and Dental Implants",
+      experience: "10+ years",
       image: "/placeholder-doctor.jpg", // Replace with actual image
     },
   ];
@@ -93,51 +97,58 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-light to-primary overflow-hidden py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-primary-foreground">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                About 
-                <span className="block text-accent">Padmanaabh Dental Clinic</span>
-              </h1>
-              <p className="text-lg md:text-xl mb-8 opacity-90 leading-relaxed">
-                Dedicated to providing exceptional dental care with a personal touch. 
-                Our experienced team combines advanced technology with compassionate care 
-                to deliver the best possible outcomes for our patients.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-                  Meet Our Team
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="text-lg px-8 py-3 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                >
-                  Our Services
-                </Button>
+<section
+  className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
+  style={{
+    backgroundImage: `url(${drnehaImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "top",
+    backgroundBlendMode: "overlay",
+  }}
+>
+  {/* Background overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9]/20 to-[#0194C1]/20"></div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+    {/* Breadcrumb */}
+    <Link
+      to="/"
+      className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+    >
+      <ChevronLeft className="w-5 h-5 mr-1" />
+      Home
+    </Link>
+
+    {/* Hero Content */}
+    <div className="max-w-3xl mx-auto text-center">
+      <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
+        <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6 leading-tight">
+          We are{" "}
+          
+          <span className="block">Padmanaabh Dental Clinic and Implant Centre</span>
+        </h1>
+        <p className="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
+          Dedicated to providing exceptional dental care with a personal touch.
+          Our experienced team combines advanced technology with compassionate
+          care to deliver the best possible outcomes for our patients.
+        </p>
+
+       {/* Action Buttons */}
+       <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <WhatsAppUsButton />
+                <BookAppointmentButton />
               </div>
-            </div>
-            <div className="relative">
-              <img
-                src={happyPatientsImage}
-                alt="About Padmanaabh Dental Clinic"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </GlassmorphismCard>
+    </div>
+  </div>
+</section>
 
       {/* Our Story Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Story</h2>
-            <div className="prose prose-lg mx-auto text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-shade">Our Story</h2>
+            <div className="prose prose-lg mx-auto text-black/80">
               <p className="mb-6">
                 Founded with a vision to transform dental care in Lohegaon, Pune, 
                 Padmanaabh Dental Clinic has been serving the community for over 15 years. 
@@ -161,90 +172,143 @@ const About = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Achievements</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Years of dedication and commitment to excellence have earned us the trust 
-              and recognition of our community.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <Card key={index} className="text-center">
-                <CardHeader>
-                  <div className="mx-auto mb-4 w-16 h-16 bg-primary-light rounded-full flex items-center justify-center">
-                    <div className="text-primary">{achievement.icon}</div>
-                  </div>
-                  <div className="text-3xl font-bold text-primary">{achievement.number}</div>
-                  <p className="text-muted-foreground">{achievement.label}</p>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+<section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
+  <div className="container mx-auto px-4">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">
+        Our Achievements
+      </h2>
+      <p className="text-lg text-black/80 max-w-3xl mx-auto">
+        Years of dedication and commitment to excellence have earned us the trust 
+        and recognition of our community.
+      </p>
+    </div>
 
-      {/* Our Values Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              These core values guide everything we do and shape the experience 
-              we provide to our patients every day.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                      <div className="text-primary">{value.icon}</div>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
-                      <p className="text-muted-foreground">{value.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Achievements Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {achievements.map((achievement, index) => (
+        <GlassmorphismCard 
+          key={index} 
+          className="p-8 text-center bg-[#00ABDA]/30 backdrop-blur-2xl shadow-lg hover:scale-105 transition-transform"
+        >
+          <CardHeader>
+            {/* Icon Circle */}
+            <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="text-primary text-2xl">{achievement.icon}</div>
+            </div>
+
+            {/* Numbers + Labels */}
+            <div className="text-3xl font-bold text-shade mb-2">
+              {achievement.number}
+            </div>
+            <p className="text-black/80">{achievement.label}</p>
+          </CardHeader>
+        </GlassmorphismCard>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Our Values Section */}
+<section className="relative bg-gradient-to-br from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
+ style={{
+  backgroundImage: `url(/images/common/section-bg.jpg)`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundBlendMode: "overlay",
+}}
+>
+
+
+
+  <div className="container mx-auto px-4">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">
+        Our Values
+      </h2>
+      <p className="text-lg text-black/80 max-w-3xl mx-auto">
+        These core values guide everything we do and shape the experience 
+        we provide to our patients every day.
+      </p>
+    </div>
+    
+
+    {/* Values Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {values.map((value, index) => (
+        <GlassmorphismCard
+          key={index}
+          className="p-6 bg-white/40 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
+        >
+          <CardContent className="flex items-start space-x-4">
+            {/* Icon */}
+            <div className="w-12 h-12 bg-white/50 rounded-lg  backdrop-blur-3xl flex items-center justify-center flex-shrink-0 shadow-md">
+              <div className="text-primary text-xl">{value.icon}</div>
+            </div>
+            {/* Text */}
+            <div>
+              <h3 className="font-semibold text-lg text-shade mb-2">{value.title}</h3>
+              <p className="text-black/80">{value.description}</p>
+            </div>
+          </CardContent>
+        </GlassmorphismCard>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Our Team Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Meet our experienced and dedicated dental professionals who are committed 
-              to providing you with the highest quality care.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-32 h-32 mx-auto mb-4 bg-muted rounded-full overflow-hidden">
-                    <div className="w-full h-full bg-primary-light flex items-center justify-center">
-                      <Users className="h-16 w-16 text-primary" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <p className="text-primary font-medium">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.specialization}</p>
-                  <p className="text-sm font-medium">{member.experience}</p>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
+    <div className="container mx-auto px-4">
+      {/* Section Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">
+          Our Team
+        </h2>
+        <p className="text-lg text-black/80 max-w-3xl mx-auto">
+          Meet our experienced and dedicated dental professionals who are committed 
+          to providing you with the highest quality care.
+        </p>
+      </div>
+
+    {/* Team Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {teamMembers.map((member, index) => (
+        <GlassmorphismCard 
+          key={index} 
+          className="p-8 text-center bg-[#00ABDA]/30 backdrop-blur-2xl shadow-lg hover:scale-105 transition-transform"
+        >
+          <CardHeader>
+            {/* Profile Image or Placeholder */}
+            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-md">
+              {member.image ? (
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-white/40 backdrop-blur-2xl flex items-center justify-center">
+                  <Users className="h-16 w-16 text-primary" />
+                </div>
+              )}
+            </div>
+
+            {/* Name & Role */}
+            <CardTitle className="text-xl text-shade">{member.name}</CardTitle>
+            <p className="text-primary text-xl font-bold">{member.role}</p>
+
+            {/* Details */}
+            <p className="text-md text-black/90">{member.specialization}</p>
+            <p className="text-md font-bold text-black/80">{member.experience}</p>
+          </CardHeader>
+        </GlassmorphismCard>
+      ))}
+    </div>
+  </div>
+</section>
 
       
       <FloatingActionButtons />
