@@ -16,6 +16,7 @@ import ServicePage from "./pages/ServicePage";
 import Admin from "./pages/Admin";
 import ScrollToTop from "./components/ScrollToTop";
 import DentalTourism from "./pages/DentalTourism";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/dental-tourism" element={<DentalTourism />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

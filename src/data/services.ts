@@ -185,22 +185,22 @@ export const services: Service[] = [
 
     features: [
       {
-        icon: "/images/icons/clear-aligners.svg",
-        title: "Clear Aligners",
+        icon: "/images/icons/teeth.svg",
+        title: "Invisible Aligners",
         description: "Discreet and removable aligners for modern orthodontic care"
       },
       {
-        icon: "/images/icons/braces.svg",
+        icon: "/images/icons/dental-braces.svg",
         title: "Traditional Braces",
         description: "Reliable and effective treatment for complex cases"
       },
       {
-        icon: "/images/icons/smile.svg",
+        icon: "/images/icons/smile-plus.svg",
         title: "Smile Enhancement",
         description: "Improves both function and aesthetics of your smile"
       },
       {
-        icon: "/images/icons/age-friendly.svg",
+        icon: "/images/icons/for-all.svg",
         title: "For All Ages",
         description: "Orthodontic solutions for children, teens, and adults"
       }

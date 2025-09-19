@@ -33,7 +33,6 @@ const Header = () => {
         { name: "Root Canal", href: "/services/root-canal" },
         { name: "Orthodontics", href: "/services/orthodontics" },
         { name: "Dental Implants", href: "/services/dental-implants" },
-        { name: "Dental Implants", href: "/services/dental-implants" },
         { name: "General Dentistry", href: "/services/general-dentistry" },
         { name: "Cosmetic Dentistry", href: "/services/cosmetic-dentistry" },
         { name: "Oral Surgery", href: "/services/oral-surgery" },
