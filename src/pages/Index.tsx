@@ -255,10 +255,10 @@ const showNextButton = totalSlides > slidesPerPage;
   <div className="container mx-auto relative px-4">
     {/* Header */}
     <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">
         Explore Our Comprehensive Services
       </h2>
-      <p className="text-lg text-white/80 max-w-3xl mx-auto">
+      <p className="text-lg text-black/80 max-w-3xl mx-auto">
         From routine cleanings to complex procedures, we offer a full range of
         dental services to keep your smile healthy and beautiful.
       </p>

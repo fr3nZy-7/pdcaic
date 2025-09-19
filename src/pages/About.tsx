@@ -171,7 +171,7 @@ const About = () => {
       {achievements.map((achievement, index) => (
         <GlassmorphismCard 
           key={index} 
-          className="p-8 text-center bg-[#00ABDA]/30 backdrop-blur-2xl shadow-lg hover:scale-105 transition-transform"
+          className="p-8 text-center bg-primary/40 backdrop-blur-2xl shadow-lg hover:scale-105 transition-transform"
         >
           <CardHeader>
             {/* Icon Circle */}
@@ -221,16 +221,16 @@ const About = () => {
       {values.map((value, index) => (
         <GlassmorphismCard
           key={index}
-          className="p-6 bg-white/40 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
+          className="p-6 bg-shade/30 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
         >
           <CardContent className="flex items-start space-x-4">
             {/* Icon */}
             <div className="w-12 h-12 bg-white/50 rounded-lg  backdrop-blur-3xl flex items-center justify-center flex-shrink-0 shadow-md">
-              <div className="text-primary text-xl">{value.icon}</div>
+              <div className="text-shade text-xl">{value.icon}</div>
             </div>
             {/* Text */}
             <div>
-              <h3 className="font-semibold text-lg text-shade mb-2">{value.title}</h3>
+              <h3 className="font-bold text-lg text-shade mb-2">{value.title}</h3>
               <p className="text-black/80">{value.description}</p>
             </div>
           </CardContent>
@@ -259,7 +259,7 @@ const About = () => {
       {teamMembers.map((member, index) => (
         <GlassmorphismCard 
           key={index} 
-          className="p-8 text-center bg-[#00ABDA]/30 backdrop-blur-2xl shadow-lg hover:scale-105 transition-transform"
+          className="p-8 text-center bg-primary/40 backdrop-blur-2xl shadow-lg hover:scale-105 transition-transform"
         >
           <CardHeader>
             {/* Profile Image or Placeholder */}
@@ -278,7 +278,7 @@ const About = () => {
             </div>
 
             {/* Name & Role */}
-            <CardTitle className="text-xl text-shade">{member.name}</CardTitle>
+            <CardTitle className="text-xl font-bold text-shade">{member.name}</CardTitle>
             <p className="text-primary text-xl font-bold">{member.role}</p>
 
             {/* Details */}
