@@ -32,7 +32,7 @@ const dentalTourismHeroData = {
     detailedContent: {
         mainTitle: "Why Choose us in India?",
         mainDescription: "Experience world-class dental care combined with the opportunity to explore beautiful destinations. Our dental tourism services offer high-quality treatments at affordable prices, all while enjoying a memorable travel experience.",
-        heroContentImage: "/images/services/dental-tourism-2.jpg"
+        heroContentImage: "/images/services/dental-tourism-2.png"
     },
     features: [
         {
@@ -141,11 +141,11 @@ const dentalTourismHeroData = {
             </div>
 
             {/* Hero Image */}
-            <div className="relative">
+            <div className="relative h-80 lg:h-full bg-primary/10 rounded-2xl shadow-lg overflow-hidden">
               <img
                 src={dentalTourismHeroData.detailedContent.heroContentImage || '/images/common/placeholder.svg'}
                 alt={dentalTourismHeroData.title}
-                className="w-full object-cover rounded-2xl shadow-lg"
+                className="h-full object-cover rounded-2xl shadow-lg"
               />
             </div>
           </div>
