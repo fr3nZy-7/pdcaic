@@ -313,11 +313,12 @@ const showNextButton = totalSlides > slidesPerPage;
 
     {/* CTA */}
     <div className="text-center mt-12">
-      
+      <a href="/services">
       <Button type="submit" size="lg" className=" inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
         View All Services
         <ArrowRight className="ml-2 h-5 w-5" />
       </Button>
+      </a>
     </div>
   </div>
 </section>
