@@ -60,7 +60,7 @@ const dentalTourismHeroData = {
             description: "Clear cost breakdown with no hidden charges/fees."
         },
         {
-            icon: "/images/icons/bx_clinic-facility.svg",
+            icon: "/images/icons/clinic.svg",
             title: "Modern Facilities",
             description: "State-of-the-art clinic equipped with the latest technology and modern sterilization protocol."
         }
