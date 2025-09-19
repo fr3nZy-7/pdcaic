@@ -49,8 +49,8 @@ const ServicePage = () => {
 
       {/* Hero Section */}
       <HeroSection
-      breadcrumbLink="/"
-      breadcrumbLabel="Home"
+      breadcrumbLink="/services"
+      breadcrumbLabel="Servces"
       title={service.title}
       description={service.shortDescription}
       backgroundImage={service.heroImage}
