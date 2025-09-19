@@ -312,7 +312,7 @@ const PrivacyPolicy = () => {
             {sharingPurposes.map((purpose, index) => (
               <GlassmorphismCard
                 key={index}
-                className="p-6 bg-shade/30 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
+                className="p-6 bg-white/40 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
               >
                 <CardHeader>
                   <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mb-4">
