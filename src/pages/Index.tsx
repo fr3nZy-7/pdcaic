@@ -231,7 +231,7 @@ const showNextButton = totalSlides > slidesPerPage;
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {features.map((feature, index) => (
-        <GlassmorphismCard key={index} className="p-8 text-white bg-[#00ABDA]/30  hover:scale-105">
+        <GlassmorphismCard key={index} className="p-8 text-white bg-primary/40  hover:scale-105">
         
           <CardHeader>
             <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
