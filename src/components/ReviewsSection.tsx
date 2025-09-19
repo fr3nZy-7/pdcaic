@@ -235,16 +235,17 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
 
       {/* View All Reviews Button */}
       <div className="text-center">
-        <a 
-          href="https://g.page/padmanaabh-dental/review" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors shadow-lg"
+      <a
+        href="https://www.google.com/maps/place/Padmanaabh+Dental+Clinic%26Implant+Centre:+Best+Dentist+In+Lohegaon-Best+Rootcanal+RCT+Doctor+Dental+clinic+In+Lohegaon/@18.601987,73.930912,17z/data=!4m6!3m5!1s0x3bc2c7808313ef37:0x853c2d5523f36605!8m2!3d18.6019842!4d73.9335108!16s%2Fg%2F11rjz2t54r?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
         >
-          <span>View All Reviews on Google</span>
-          <ExternalLink className="ml-2 h-4 w-4" />
-        </a>
-      </div>
+        
+        <span>View All Reviews </span>
+        <ExternalLink className="h-5 w-5" />
+    </a>
+    </div>
 
       {/* Google Reviews Notice */}
       <div className="mt-6 text-center">
@@ -318,7 +319,7 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
                 <div className="text-sm text-gray-600 mt-1">Google Rating</div>
               </div>
               <div className="text-center border-l border-gray-300 pl-4">
-                <div className="text-3xl font-bold text-shade">500+</div>
+                <div className="text-3xl font-bold text-shade">100+</div>
                 <div className="text-sm text-gray-600 mt-1">Reviews</div>
               </div>
             </CardContent>
