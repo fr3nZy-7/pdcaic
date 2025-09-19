@@ -168,9 +168,9 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {treatmentProcess.map((process, index) => (
               
-              <Card key={index} className="text-center  bg-primary/30 backdrop-blur-2xl shadow-lg hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl hover:scale-105">
+              <Card key={index} className="text-center  bg-[#00ABDA]/30 backdrop-blur-2xl shadow-lg hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl hover:scale-105">
                 <CardHeader>
-                  <div className="mx-auto mb-4 w-16 h-16 bg-primary/40 rounded-full flex items-center justify-center">
+                  <div className="mx-auto mb-4 w-16 h-16 bg-white/30 rounded-full flex items-center justify-center">
                     <span className="text-shade font-bold text-xl">{process.step}</span>
                   </div>
                   <CardTitle className="text-lg text-shade">{process.title}</CardTitle>

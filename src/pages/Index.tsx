@@ -219,31 +219,35 @@ const showNextButton = totalSlides > slidesPerPage;
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We combine cutting-edge technology with compassionate care to deliver 
-              exceptional dental experiences that exceed your expectations.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="mx-auto mb-4 w-20 h-20 bg-primary-light rounded-full flex items-center justify-center">
-                    <div className="text-primary">{feature.icon}</div>
-                  </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                  <CardDescription>{feature.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Why Choose Us Section */}
+<section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">Why Choose Us?</h2>
+      <p className="text-lg text-black/80 max-w-3xl mx-auto">
+        We combine cutting-edge technology with compassionate care to deliver 
+        exceptional dental experiences that exceed your expectations.
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map((feature, index) => (
+        <GlassmorphismCard key={index} className="p-8 text-white bg-[#00ABDA]/30  hover:scale-105">
+        
+          <CardHeader>
+            <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="text-primary text-2xl">{feature.icon}</div>
+            </div>
+            <CardTitle className="text-lg text-shade">{feature.title}</CardTitle>
+            <CardDescription className="text-black/80">
+              {feature.description}
+            </CardDescription>
+          </CardHeader>
+        
+        </GlassmorphismCard>
+      ))}
+    </div>
+  </div>
+</section>
 
       
       {/* Services Section */}
