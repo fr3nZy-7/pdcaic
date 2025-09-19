@@ -13,17 +13,16 @@ import {
   MapPin
 } from "lucide-react";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
-import FooterCTA from "@/components/FooterCTA";
+
 import GlassmorphismCard from "@/components/GlassmorphismCard";
-import WhatsAppUsButton from "@/components/WhatsAppUsButton";
-import BookAppointmentButton from "@/components/BookAppointmentButton";
+
 import HeroSection from "@/components/HeroSection";
 
 const Terms = () => {
   const TermsHeroData = {
     title: "Terms of Service",
     shortDescription: "Please read these terms carefully before using our website and services. These terms govern your use of our dental services and website.",
-    heroImage: "/images/common/hero-bg.jpg", // Replace with appropriate image
+    heroImage: "/images/common/allservicegrid.jpg", // Replace with appropriate image
   };
 
   const termsSections = [
@@ -117,7 +116,7 @@ const Terms = () => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
               <p className="text-primary font-semibold">
-                Last updated: <span className="bg-yellow-200 px-2 py-1 rounded font-bold">[Date]</span>
+                Last updated: <span className=" px-2 py-1 rounded font-bold">[20th Sept 2025]</span>
               </p>
             </div>
           </div>
@@ -131,8 +130,8 @@ const Terms = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-shade">Welcome to Padmanaabh Dental Clinic</h2>
             <div className="prose prose-lg mx-auto text-black/80">
               <p className="mb-6 text-lg">
-                Welcome to <span className="bg-yellow-200 px-1 rounded font-semibold">[Padmanaabh Dental Clinic and Implant Centre]</span> ("we," "our," or "us"). 
-                These Terms of Service ("Terms") govern your use of our website located at <span className="bg-yellow-200 px-1 rounded font-semibold">[your-website.com]</span> 
+                Welcome to <span className=" px-1 rounded font-semibold">Padmanaabh Dental Clinic and Implant Centre</span> ("we," "our," or "us"). 
+                These Terms of Service ("Terms") govern your use of our website located at <span className="px-1 rounded font-semibold">[endodontistpune.in]</span> 
                 (the "Service") operated by Padmanaabh Dental Clinic and Implant Centre.
               </p>
               <p className="text-lg">
@@ -210,7 +209,7 @@ const Terms = () => {
             {keyPolicies.map((policy, index) => (
               <GlassmorphismCard
                 key={index}
-                className="p-6 bg-shade/30 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
+                className="p-6 bg-white/40 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
               >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold text-shade mb-4">{policy.title}</CardTitle>
@@ -219,7 +218,7 @@ const Terms = () => {
                   <ul className="space-y-2">
                     {policy.points.map((point, pointIndex) => (
                       <li key={pointIndex} className="flex items-start">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-shade rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <span className="text-black/80">{point}</span>
                       </li>
                     ))}
@@ -232,7 +231,7 @@ const Terms = () => {
       </section>
 
       {/* Intellectual Property & Changes Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50 ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -271,62 +270,10 @@ const Terms = () => {
         </div>
       </section>
 
-      {/* Contact Information Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-pink-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-shade">Contact Us</h2>
-            <GlassmorphismCard className="p-8 bg-primary/40 backdrop-blur-2xl shadow-lg">
-              <CardContent>
-                <p className="text-lg text-black/80 mb-6 text-center">
-                  If you have any questions about these Terms of Service, please contact us:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <Mail className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Email</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[your-email@clinic.com]</span>
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <Phone className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Phone</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[your-phone-number]</span>
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Address</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[Your Clinic Address]</span>
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <Shield className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Legal Officer</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[Name and Title]</span>
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </GlassmorphismCard>
-          </div>
-        </div>
-      </section>
+      
       
       <FloatingActionButtons />
-      <FooterCTA />
+      
       <Footer />
     </div>
   );

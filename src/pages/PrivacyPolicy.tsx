@@ -16,17 +16,16 @@ import {
   UserCheck
 } from "lucide-react";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
-import FooterCTA from "@/components/FooterCTA";
+
 import GlassmorphismCard from "@/components/GlassmorphismCard";
-import WhatsAppUsButton from "@/components/WhatsAppUsButton";
-import BookAppointmentButton from "@/components/BookAppointmentButton";
+
 import HeroSection from "@/components/HeroSection";
 
 const PrivacyPolicy = () => {
   const PrivacyHeroData = {
     title: "Privacy Policy",
     shortDescription: "We are committed to protecting your privacy and ensuring the security of your personal information. Learn how we collect, use, and safeguard your data.",
-    heroImage: "/images/common/hero-bg.jpg", // Replace with appropriate image
+    heroImage: "/images/common/allservicegrid.jpg", // Replace with appropriate image
   };
 
   const privacySections = [
@@ -167,7 +166,7 @@ const PrivacyPolicy = () => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
               <p className="text-primary font-semibold">
-                Last updated: <span className="bg-yellow-200 px-2 py-1 rounded font-bold">[Date]</span>
+                Last updated: <span className=" px-2 py-1 rounded font-bold">[20th Sept 2025]</span>
               </p>
             </div>
           </div>
@@ -181,7 +180,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-shade">Your Privacy Matters to Us</h2>
             <div className="prose prose-lg mx-auto text-black/80">
               <p className="mb-6 text-lg">
-                At <span className="bg-yellow-200 px-1 rounded font-semibold">[Padmanaabh Dental Clinic and Implant Centre]</span>, 
+                At <span className=" px-1 rounded font-semibold">Padmanaabh Dental Clinic and Implant Centre</span>, 
                 we are committed to protecting your privacy and ensuring the security of your personal information.
               </p>
               <p className="text-lg mb-6">
@@ -191,7 +190,7 @@ const PrivacyPolicy = () => {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
                 <p className="text-blue-800 font-semibold">
                   <AlertTriangle className="inline h-5 w-5 mr-2" />
-                  As a healthcare provider, we are bound by HIPAA (Health Insurance Portability and Accountability Act) regulations.
+                  As a healthcare provider, we are bound by DISHA (Digital Information Security in Healthcare Act) and DPDP (Digital Personal Data Protection Act) regulations.
                 </p>
               </div>
             </div>
@@ -433,11 +432,11 @@ const PrivacyPolicy = () => {
 
               <GlassmorphismCard className="p-8 bg-yellow-100/60 backdrop-blur-2xl shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-shade mb-4">HIPAA Notice</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-shade mb-4">DISHA Notice</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-black/80 mb-4">
-                    As a healthcare provider, we are bound by HIPAA regulations for protecting your health information.
+                    As a healthcare provider, we are bound by DISHA regulations for protecting your health information.
                   </p>
                   <p className="text-black/80">
                     For detailed information about your healthcare privacy rights, please request our 
@@ -447,59 +446,13 @@ const PrivacyPolicy = () => {
               </GlassmorphismCard>
             </div>
 
-            {/* Contact Information */}
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-shade">Contact Our Privacy Team</h2>
-            <GlassmorphismCard className="p-8 bg-primary/40 backdrop-blur-2xl shadow-lg">
-              <CardContent>
-                <p className="text-lg text-black/80 mb-6 text-center">
-                  If you have any questions about this Privacy Policy or our privacy practices, please contact us:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <Mail className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Email</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[your-email@clinic.com]</span>
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <Phone className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Phone</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[your-phone-number]</span>
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Address</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[Your Clinic Address]</span>
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white/50 rounded-lg backdrop-blur-3xl flex items-center justify-center mx-auto mb-3">
-                      <Shield className="h-6 w-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-shade">Privacy Officer</p>
-                    <p className="text-sm text-black/80">
-                      <span className="bg-yellow-200 px-1 rounded">[Name and Title]</span>
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </GlassmorphismCard>
+           
           </div>
         </div>
       </section>
       
       <FloatingActionButtons />
-      <FooterCTA />
+      
       <Footer />
     </div>
   );
