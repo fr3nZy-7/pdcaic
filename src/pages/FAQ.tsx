@@ -121,7 +121,7 @@ const FAQ = () => {
         title={faqHeroData.title}
         description={faqHeroData.shortDescription}
         backgroundImage={faqHeroData.heroImage}
-        overlayGradient="from-[#23AAB9]/40 to-[#0194C1]/40"
+        overlayGradient="from-[#0194C1]/70 to-[#23AAB9]/30"
         titleColor="text-white"
         descriptionColor="text-white/90"
         align="left"

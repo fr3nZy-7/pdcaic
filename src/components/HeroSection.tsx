@@ -44,7 +44,7 @@ export default function HeroSection({
         {/* Breadcrumb */}
         <Link
           to={breadcrumbLink}
-          className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center text-shade font-bold hover:text-primary mb-8 transition-colors"
         >
           <ChevronLeft className="w-5 h-5 mr-1" />
           {breadcrumbLabel}
