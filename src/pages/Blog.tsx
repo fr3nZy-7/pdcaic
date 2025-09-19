@@ -11,6 +11,7 @@ import dentalImplantImage from "@/assets/dental-implant.jpg";
 import heroImage from "@/assets/hero-dental-clinic.jpg";
 import HeroSection from "@/components/HeroSection";
 import FooterCTA from "@/components/FooterCTA";
+import FloatingActionButtons from "@/components/FloatingActionButtons";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -294,7 +295,7 @@ const Blog = () => {
         </div>
       </section>
 
-      
+      <FloatingActionButtons />
       <FooterCTA />
       <Footer />
     </div>
