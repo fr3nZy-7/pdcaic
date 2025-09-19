@@ -157,8 +157,7 @@ const PrivacyPolicy = () => {
         align="left"
       >
         <>
-          <WhatsAppUsButton />
-          <BookAppointmentButton />
+          
         </>
       </HeroSection>
 

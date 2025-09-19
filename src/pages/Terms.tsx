@@ -107,8 +107,7 @@ const Terms = () => {
         align="left"
       >
         <>
-          <WhatsAppUsButton />
-          <BookAppointmentButton />
+          
         </>
       </HeroSection>
 
