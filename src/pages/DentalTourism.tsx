@@ -27,7 +27,7 @@ import FooterCTA from "@/components/FooterCTA";
 
 const dentalTourismHeroData = {
     title: "Dental Tourism",
-    shortDescription: "Save uo tp 70& on premium dental treatments while experiencing international quality care and hospitality.",
+    shortDescription: "Save up tp 70& on premium dental treatments while experiencing international quality care and hospitality.",
     heroImage: "/images/services/dental-tourism.jpg", 
     detailedContent: {
         mainTitle: "Why Choose us in India?",
@@ -90,11 +90,11 @@ const dentalTourismHeroData = {
     
               {/* Hero Content */}
               <div className="max-w-3xl mx-auto text-center">
-                <GlassmorphismCard className="p-8 md:p-12 backdrop-blur-2xl bg-white/20">
+                <GlassmorphismCard className="p-8 md:p-12 backdrop-blur-3xl bg-white/30">
                   <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6">
                     {dentalTourismHeroData.title}
                   </h1>
-                  <p className="text-lg md:text-xl text-shade/90 mb-8 leading-relaxed">
+                  <p className="text-lg md:text-xl text-black/90 mb-8 leading-relaxed">
                     {dentalTourismHeroData.shortDescription}
                   </p>
                   
