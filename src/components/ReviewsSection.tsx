@@ -38,30 +38,30 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   const staticReviews = [
     {
       id: 1,
-      name: "Sarah M.",
+      name: "Sampada",
       rating: 5,
-      text: "Excellent dental care! Dr. Neha and her team are very professional and caring. The clinic is modern and clean. Highly recommended!",
-      date: "2 months ago"
-    },
-    {
-      id: 2,
-      name: "Rajesh K.",
-      rating: 5,
-      text: "Outstanding service and treatment. The dental implant procedure was painless and the results are amazing. Thank you team!",
+      text: "I was searching for the best dental clinic near me for tooth pain and found Dr. Neha Deshpande – she’s absolutely amazing! I got a single-sitting root canal done painlessly. Her hands are so gentle you don’t even realize when she gives you an injection. She explains each procedure in detail, has a great personality, and truly makes you feel comfortable. She’s well-spoken, calm, and perfect for every age group – whether it’s kids, adults, or seniors, you’ll be in safe hands. The clinic also offers braces, smile makeovers, dental implants, and Invisalign. It’s a clean, hygienic space with friendly staff and top-notch service – ideal for anyone in Dhanori, Wagholi, Vishrantwadi, or Viman Nagar.",
       date: "1 month ago"
     },
     {
-      id: 3,
-      name: "Priya S.",
+      id: 2,
+      name: "Siddhi",
       rating: 5,
-      text: "Best dental clinic in Pune! The staff is friendly, and the doctors explain everything clearly. Very satisfied with the treatment.",
-      date: "3 weeks ago"
+      text: "I had a painless and stress-free tooth extraction at Padmanaabh Dental Clinic, and I couldn't be more thankful. Dr. Neha Deshpande is incredibly kind, patient, and really listens. She explained everything so clearly, which made the whole experience feel a lot less intimidating. Dental treatments can often be confusing and expensive, but she recommends only what is genuinely necessary, and her fees are very reasonable.I’m extremely satisfied with the care I received and would highly recommend Padmanaabh Dental Clinic to anyone seeking reliable and professional dental treatment.",
+      date: "2 month ago"
+    },
+    {
+      id: 3,
+      name: "Sonali Kadus",
+      rating: 5,
+      text: "I was looking for good dentist for my 7 yr old daughter since long time as didn't have good experience with few in past. after  many  search found Dr Nena  on google  and I can say she is bestest doctor I have found. She is very polite  , experience and skilled doc. She knows how to handle children. From now  on she is my family  dentist.",
+      date: "3 months ago"
     },
     {
       id: 4,
-      name: "John D.",
+      name: "Sayali Dubash",
       rating: 5,
-      text: "Professional team and excellent facilities. My root canal treatment was completed without any discomfort. Highly appreciate the care!",
+      text: "Had a great experience with the ortho treatment for our Son! Both Dr. Neha and Dr. Meenakshi did a wonderful job. We felt very much at ease after consulting with the doctors and receiving the assurance of best possible treatment. The follow up and appointment schedule went off very smoothly. Had great communication with the doctors. Will definately recommend the clinic for a number of Dental treatments! Thank you!",
       date: "2 weeks ago"
     }
   ];
