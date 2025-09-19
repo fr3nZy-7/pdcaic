@@ -32,6 +32,7 @@ import { features } from "process";
 import FooterCTA from "@/components/FooterCTA";
 import HeroSection from "@/components/HeroSection";
 
+
 const dentalTourismHeroData = {
     title: "Dental Tourism",
     shortDescription: "Save up tp 70& on premium dental treatments while experiencing international quality care and hospitality.",
@@ -99,7 +100,7 @@ const priceComparisonData = [
 
 const treatmentJourneySteps = [
     {
-        icon: "/images/icons/virtual-consult.svg",
+        icon: Monitor,
         title: "Virtual Consultation",
         step: 1
     },
@@ -159,10 +160,10 @@ const DentalTourism = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Content */}
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-shade mb-6">
                     {dentalTourismHeroData.detailedContent.mainTitle}
                   </h2>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-lg text-shade mb-8 leading-relaxed">
                     {dentalTourismHeroData.detailedContent.mainDescription}
                   </p>
 
@@ -175,9 +176,9 @@ const DentalTourism = () => {
                           alt={feature.title}
                           className="w-12 h-12 mb-3"
                         />
-                        <h3 className="font-semibold text-gray-800 mb-2">{feature.title}</h3>
+                        <h3 className="font-semibold text-shade mb-2">{feature.title}</h3>
                         {feature.description && (
-                          <p className="text-sm text-gray-600">{feature.description}</p>
+                          <p className="text-sm text-black/80">{feature.description}</p>
                         )}
                       </div>
                     ))}
@@ -316,10 +317,10 @@ const DentalTourism = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                   {/* Content */}
                   <div className="p-8 lg:p-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-shade mb-4">
                       Explore Our Comprehensive Services
                     </h2>
-                    <p className="text-lg text-[#00ABDA] mb-8">
+                    <p className="text-lg text-black/80 mb-8">
                       Discover the range of treatments we offer to enhance your dental health and smile.
                     </p>
                     
