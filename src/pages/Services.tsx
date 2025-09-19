@@ -111,6 +111,7 @@ const Services = () => {
     
 
  {/* All Services Grid */}
+{/* All Services Grid */}
 <section
   className="py-16 text-shade/90 bg-white/20"
   style={{
@@ -125,15 +126,27 @@ const Services = () => {
       {services.map((service) => (
         <GlassmorphismCard
           key={service.slug}
-          className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow h-full"
+          className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col"
         >
-          <ServiceCard
-            title={service.title}
-            description={service.shortDescription}
-            iconPath={service.iconPath}
-            features={service.features}
-            path={`/services/${service.slug}`}
-          />
+          {/* Service Image */}
+          {service.imagePath && (
+            <img
+              src={service.imagePath}
+              alt={service.title}
+              className="w-full h-40 object-cover rounded-t-xl"
+            />
+          )}
+
+          {/* Service Content */}
+          <div className="p-4 flex-1 flex flex-col">
+            <ServiceCard
+              title={service.title}
+              description={service.shortDescription}
+              iconPath={service.iconPath}
+              features={service.features}
+              path={`/services/${service.slug}`}
+            />
+          </div>
         </GlassmorphismCard>
       ))}
     </div>
