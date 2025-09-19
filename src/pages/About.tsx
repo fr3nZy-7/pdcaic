@@ -19,8 +19,16 @@ import GlassmorphismCard from "@/components/GlassmorphismCard";
 import { Link } from "react-router-dom";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
+import HeroSection from "@/components/HeroSection";
 
 const About = () => {
+
+  const AboutHeroData = {
+    title: "We are Padmanaabh Dental Clinic and Implant Centre",
+    shortDescription: "Dedicated to providing exceptional dental care with a personal touch. Our experienced team combines advanced technology with compassionate care to deliver the best possible outcomes for our patients.",
+    heroImage: drnehaImage,
+  };
+
   const teamMembers = [
     
     {
@@ -96,52 +104,25 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-<section
-  className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
-  style={{
-    backgroundImage: `url(${drnehaImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "top",
-    backgroundBlendMode: "overlay",
-  }}
->
-  {/* Background overlay */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9]/20 to-[#0194C1]/20"></div>
+      
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-    {/* Breadcrumb */}
-    <Link
-      to="/"
-      className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+    <HeroSection
+      breadcrumbLink="/"
+      breadcrumbLabel="Home"
+      title={AboutHeroData.title}
+      description={AboutHeroData.shortDescription}
+      backgroundImage={AboutHeroData.heroImage}
+      overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/20"
+      titleColor="text-shade"
+      descriptionColor="text-black/70"
+      align="left"
     >
-      <ChevronLeft className="w-5 h-5 mr-1" />
-      Home
-    </Link>
+      <>
+        <WhatsAppUsButton />
+        <BookAppointmentButton />
+      </>
+    </HeroSection>
 
-    {/* Hero Content */}
-    <div className="max-w-3xl mx-auto text-center">
-      <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
-        <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6 leading-tight">
-          We are{" "}
-          
-          <span className="block">Padmanaabh Dental Clinic and Implant Centre</span>
-        </h1>
-        <p className="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
-          Dedicated to providing exceptional dental care with a personal touch.
-          Our experienced team combines advanced technology with compassionate
-          care to deliver the best possible outcomes for our patients.
-        </p>
-
-       {/* Action Buttons */}
-       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <WhatsAppUsButton />
-                <BookAppointmentButton />
-              </div>
-      </GlassmorphismCard>
-    </div>
-  </div>
-</section>
 
       {/* Our Story Section */}
       <section className="py-20">

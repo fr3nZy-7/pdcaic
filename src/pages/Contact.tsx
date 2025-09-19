@@ -21,7 +21,7 @@ import GlassmorphismCard from '@/components/GlassmorphismCard';
 import WhatsAppUsButton from '@/components/WhatsAppUsButton';
 import BookAppointmentButton from '@/components/BookAppointmentButton';
 import FloatingActionButtons from "@/components/FloatingActionButtons";
-
+import HeroSection from "@/components/HeroSection";
 
 const contactHeroData = {
   title: "Contact Us",
@@ -69,48 +69,22 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section - UPDATED */}
-      <section
-        className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
-        style={{
-          backgroundImage: `url(${contactHeroData.heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
-        }}
-      >
-        {/* Background overlay */}
-        <div className="absolute inset-0 "></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-          {/* Breadcrumb */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5 mr-1" />
-            Home
-          </Link>
-
-          {/* Hero Content */}
-          <div className="max-w-3xl mx-auto text-center">
-            <GlassmorphismCard className="p-8 md:p-12 backdrop-blur-2xl bg-white/20">
-              <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6">
-                {contactHeroData.title}
-              </h1>
-              <p className="text-lg md:text-xl text-shade/90 mb-8 leading-relaxed">
-                {contactHeroData.shortDescription}
-              </p>
-              
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <WhatsAppUsButton />
-                <BookAppointmentButton />
-              </div>
-            </GlassmorphismCard>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+      breadcrumbLink="/"
+      breadcrumbLabel="Home"
+      title={contactHeroData.title}
+      description={contactHeroData.shortDescription}
+      backgroundImage={contactHeroData.heroImage}
+      overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/20"
+      titleColor="text-shade"
+      descriptionColor="text-black/70"
+      align="left"
+    >
+      <>
+        <WhatsAppUsButton />
+        <BookAppointmentButton />
+      </>
+    </HeroSection>
 
       {/* Contact Information Cards */}
       <section className="py-20 " style={{

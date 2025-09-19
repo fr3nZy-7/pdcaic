@@ -25,7 +25,7 @@ import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
 import FooterCTA from "@/components/FooterCTA";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
-
+import HeroSection from "@/components/HeroSection";
 
 const servicesHeroData = {
   title: "Comprehensive Dental Services",
@@ -64,48 +64,23 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-
-      <section
-        className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
-        style={{
-          backgroundImage: `url(${servicesHeroData.heroImage})`,
-          backgroundSize: '100%',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
-        }}
+        <HeroSection
+        breadcrumbLink="/"
+        breadcrumbLabel="Home"
+        title={servicesHeroData.title}
+        description={servicesHeroData.shortDescription}
+        backgroundImage={servicesHeroData.heroImage}
+        overlayGradient="from-[#23AAB9]/40 to-[#0194C1]/40"
+        titleColor="text-shade"
+        descriptionColor="text-shade/90"
+        align="left"
       >
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9]/20 to-[#0194C1]/20"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-          {/* Breadcrumb */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5 mr-1" />
-            Home
-          </Link>
+        <>
+          <WhatsAppUsButton />
+          <BookAppointmentButton />
+        </>
+      </HeroSection>
 
-          {/* Hero Content  */}
-          <div className="max-w-3xl mx-auto text-center ">
-            <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
-              <h1 className="text-3xl md:text-5xl font-bold text-shade/80 mb-6">
-                {servicesHeroData.title}
-              </h1>
-              <p className="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
-                {servicesHeroData.shortDescription}
-              </p>
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <WhatsAppUsButton />
-                <BookAppointmentButton />
-              </div>
-            </GlassmorphismCard>
-          </div>
-        </div>
-      </section>
 
 
     

@@ -12,6 +12,7 @@ import WhatsAppUsButton from '@/components/WhatsAppUsButton';
 import BookAppointmentButton from '@/components/BookAppointmentButton';
 import FloatingActionButtons from '@/components/FloatingActionButtons';
 import FooterCTA from '@/components/FooterCTA';
+import HeroSection from '@/components/HeroSection';
 
 const faqHeroData = {
   title: "Frequently Asked Questions",
@@ -114,56 +115,38 @@ const FAQ = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section
-        className="relative bg-gradient-to-br from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
-        style={{
-          backgroundImage: `url(${faqHeroData.heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
-        }}
-      >
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-          {/* Breadcrumb */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5 mr-1" />
-            Home
-          </Link>
+      <HeroSection
+        breadcrumbLink="/"
+        breadcrumbLabel="Home"
+        title={faqHeroData.title}
+        description={faqHeroData.shortDescription}
+        backgroundImage={faqHeroData.heroImage}
+        overlayGradient="from-[#23AAB9]/40 to-[#0194C1]/40"
+        titleColor="text-white"
+        descriptionColor="text-white/90"
+        align="left"
+      ><>
+          
+          {/* Search Bar */}
+      <div className="relative w-full mx-auto mb-8">
+        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-6 w-6" />
+        <Input
+          type="text"
+          placeholder="Search for an answer..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="pl-12 pr-6 py-4 text-lg rounded-full border-2 border-primary/40 bg-white shadow-xl text-black placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/50 transition-colors"
+        />
+      </div>
 
-          {/* Hero Content  */}
-          <div className="max-w-3xl mx-auto text-center ">
-            <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                {faqHeroData.title}
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                {faqHeroData.shortDescription}
-              </p>
-              
-              {/* Search Bar */}
-              <div className="relative max-w-lg mx-auto mb-8">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-6 w-6" />
-                <Input
-                  type="text"
-                  placeholder="Search for an answer..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-12 pr-6 py-4 text-lg rounded-full border-2 border-primary/40 bg-white shadow-xl text-black placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/50 transition-colors"
-                />
-              </div>
 
-              
-            </GlassmorphismCard>
-          </div>
-        </div>
-      </section>
+        </>
+      </HeroSection>
+
+
+
+
+
 
       {/* FAQ Accordion */}
       <section className="py-16">

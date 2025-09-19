@@ -12,10 +12,19 @@ import FooterCTA from "@/components/FooterCTA";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import { Link } from "react-router-dom";
 import GlassmorphismCard from "@/components/GlassmorphismCard";
-
+import HeroSection from "@/components/HeroSection";
 import { ChevronLeft } from "lucide-react";
+import WhatsAppUsButton from "@/components/WhatsAppUsButton";
+import BookAppointmentButton from "@/components/BookAppointmentButton";
 
 const Gallery = () => {
+
+  const GalleryHeroData = {
+    title: "Our Gallery",
+    shortDescription: "Take a visual journey through our modern dental clinic, see our advanced treatments in action, and meet our dedicated team of professionals.",
+    heroImage: "/images/common/gallery-bg.jpg",
+  };
+
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -110,43 +119,25 @@ const Gallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-<section
-  className="relative bg-gradient-to-br from-[#00ABDA] to-[#4DD0E1] min-h-[70vh] flex items-center"
-  style={{
-    backgroundImage: `url(/images/common/gallery-bg.jpg)`, // replace with actual image import/URL
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundBlendMode: "overlay",
-  }}
->
-  {/* Background overlay */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
+      
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-    {/* Breadcrumb */}
-    <Link
-      to="/"
-      className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
+    <HeroSection
+      breadcrumbLink="/"
+      breadcrumbLabel="Home"
+      title={GalleryHeroData.title}
+      description={GalleryHeroData.shortDescription}
+      backgroundImage={GalleryHeroData.heroImage}
+      overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/20"
+      titleColor="text-shade"
+      descriptionColor="text-black/70"
+      align="left"
     >
-      <ChevronLeft className="w-5 h-5 mr-1" />
-      Home
-    </Link>
+      <>
+        <WhatsAppUsButton />
+        <BookAppointmentButton />
+      </>
+    </HeroSection>
 
-    {/* Hero Content */}
-    <div className="max-w-3xl mx-auto text-center">
-      <GlassmorphismCard className="p-8 md:p-12 bg-white/40 backdrop-blur-2xl shadow-lg">
-        <h1 className="text-3xl md:text-5xl font-bold text-shade mb-6 leading-tight">
-          Our Gallery
-        </h1>
-        <p className="text-lg md:text-xl text-black/70 mb-8 leading-relaxed">
-          Take a visual journey through our modern dental clinic, see our 
-          advanced treatments in action, and meet our dedicated team of professionals.
-        </p>
-      </GlassmorphismCard>
-    </div>
-  </div>
-</section>
 
 
       {/* Gallery Section */}

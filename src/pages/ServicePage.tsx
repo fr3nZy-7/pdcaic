@@ -11,6 +11,7 @@ import BookAppointmentButton from "@/components/BookAppointmentButton";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import FooterCTA from "@/components/FooterCTA";
+import HeroSection from "@/components/HeroSection";
 
 const ServicePage = () => {
   const { slug } = useParams();
@@ -47,49 +48,22 @@ const ServicePage = () => {
       <Header />
 
       {/* Hero Section */}
-      <section
-        className="relative bg-gradient-to-br from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center"
-        style={{
-          backgroundImage: `url(${service.heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
-        }}
-      >
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#23AAB9] to-[#0194C1]/20"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-          {/* Breadcrumb */}
-          <Link 
-            to="/services" 
-            className="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5 mr-1" />
-            Services
-          </Link>
-
-          {/* Hero Content */}
-          <div className="max-w-2xl">
-            <GlassmorphismCard className="p-8 md:p-12">
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                {service.title}
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                {service.shortDescription}
-              </p>
-              
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <WhatsAppUsButton />
-                <BookAppointmentButton />
-              </div>
-            </GlassmorphismCard>
-          </div>
-        </div>
-      </section>
-
-      
+      <HeroSection
+      breadcrumbLink="/"
+      breadcrumbLabel="Home"
+      title={service.title}
+      description={service.shortDescription}
+      backgroundImage={service.heroImage}
+      overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/40"
+      titleColor="text-shade"
+      descriptionColor="text-black/70"
+      align="left"
+    >
+      <>
+        <WhatsAppUsButton />
+        <BookAppointmentButton />
+      </>
+    </HeroSection>
 
       {/* Service Features Section */}
       <section className="py-16 bg-white">
