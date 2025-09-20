@@ -24,6 +24,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <div className="scroll-smooth">
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -49,6 +50,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    </div>
   </QueryClientProvider>
 );
 
