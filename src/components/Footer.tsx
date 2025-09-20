@@ -4,7 +4,7 @@ import FullLogo from "@/assets/full-logo-w-name.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary/00 text-white relative overflow-hidden">
+    <footer id="footer" className="bg-primary/00 text-white relative overflow-hidden">
       {/* Background Design Pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg 

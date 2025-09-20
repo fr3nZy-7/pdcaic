@@ -203,7 +203,7 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   }, [location.pathname, scriptLoaded, widgetFailed]);
 
   const StaticReviews = () => (
-    <div className="static-reviews">
+    <div id="reviews" className="static-reviews">
       {/* Reviews Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {staticReviews.map((review) => (
@@ -234,7 +234,7 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
       </div>
 
       {/* View All Reviews Button */}
-      <div className="text-center">
+      <div className="text-center px-8">
       <a
         href="https://www.google.com/maps/place/Padmanaabh+Dental+Clinic%26Implant+Centre:+Best+Dentist+In+Lohegaon-Best+Rootcanal+RCT+Doctor+Dental+clinic+In+Lohegaon/@18.601987,73.930912,17z/data=!4m6!3m5!1s0x3bc2c7808313ef37:0x853c2d5523f36605!8m2!3d18.6019842!4d73.9335108!16s%2Fg%2F11rjz2t54r?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
@@ -245,6 +245,12 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
         <span>View All Reviews </span>
         <ExternalLink className="h-5 w-5" />
     </a>
+    <a 
+        href="/gallery"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
+        >View Gallery</a>
     </div>
 
       {/* Google Reviews Notice */}

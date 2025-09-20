@@ -45,9 +45,9 @@ const dentalTourismHeroData = {
     },
     features: [
         {
-            icon: "/images/icons/expert-specialist.svg",
-            title: "Expert and Quality Care",
-            description: "Top-notch dental services with international standards."
+            icon: "/images/icons/certified.svg",
+            title: "IDA and IACDE Member",
+            description: "Indian Dental Association and Indian Association of Conservative Dentistry and Endodontics member."
         },
         {
             icon: "/images/icons/flight-international.svg",

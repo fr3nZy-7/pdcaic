@@ -5,6 +5,10 @@ interface WhatsAppUsButtonProps {
 
 const WhatsAppUsButton = ({ onClick, className = "" }: WhatsAppUsButtonProps) => {
   return (
+    <a
+    href="https://wa.me/917507325539"
+    target="_blank"
+    >
     <button
       onClick={onClick}
       className={`
@@ -30,6 +34,8 @@ const WhatsAppUsButton = ({ onClick, className = "" }: WhatsAppUsButtonProps) =>
       />
       WhatsApp Us!
     </button>
+    </a>
+
   );
 };
 
