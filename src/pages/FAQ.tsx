@@ -112,7 +112,7 @@ const FAQ = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-gradient-to-r from-pink-50 to-blue-50">
       <Header />
       
       <HeroSection
