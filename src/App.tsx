@@ -20,6 +20,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Sitemap from "./pages/Sitemap";  
 import BookingTest from "./pages/BookingTest";
+import ManageGallery from "./pages/ManageGallery";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/booking-test" element={<BookingTest />} />
+          <Route path="/admin/manage-gallery" element={<ManageGallery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
