@@ -1,73 +1,51 @@
-// src/pages/admin/ManageGallery.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
-import { uploadFileToGalleryStorage, insertGalleryRows, fetchCategories, fetchServices, fetchTagSuggestions } from "@/lib/galleryClient";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-// small helper to split and normalise tags
-function parseTags(value: string) {
-  return value
-    .split(",")
-    .map((t) => t.trim())
-    .filter(Boolean);
+// Helper to upload file to Supabase storage
+async function uploadFileToGalleryStorage(file: File) {
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${Math.random()}.${fileExt}`;
+  const filePath = `${fileName}`;
+
+  const { data, error } = await supabase.storage
+    .from('gallery')
+    .upload(filePath, file);
+
+  if (error) throw error;
+
+  const { data: { publicUrl } } = supabase.storage
+    .from('gallery')
+    .getPublicUrl(filePath);
+
+  return { publicUrl, filePath };
 }
 
 const ManageGallery: React.FC = () => {
-  // form fields
+  // Form fields
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [categoryId, setCategoryId] = useState<string | null>(null);
-  const [serviceId, setServiceId] = useState<string | null>(null);
-  const [tagsInput, setTagsInput] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
-  const [altText, setAltText] = useState("");
-  const [isFeatured, setIsFeatured] = useState(false);
-  const [isActive, setIsActive] = useState(true);
-  const [sortOrder, setSortOrder] = useState<number | undefined>(undefined);
-  const [pairMode, setPairMode] = useState(false); // upload before/after pair
+  const [category, setCategory] = useState("clinic");
+  const [uploadType, setUploadType] = useState<"individual" | "pair">("individual");
   const [files, setFiles] = useState<File[]>([]);
-  const [youtubeUrl, setYoutubeUrl] = useState(""); // if adding video via YouTube
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  // lookups
-  const [categories, setCategories] = useState<{ id: string; name: string }[]>([]);
-  const [services, setServices] = useState<{ id: string; title: string }[]>([]);
-  const [tagSuggestions, setTagSuggestions] = useState<string[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const cats = await fetchCategories();
-        setCategories(cats || []);
-      } catch (err) {
-        console.error("fetch categories", err);
-      }
-      try {
-        const svcs = await fetchServices();
-        setServices(svcs || []);
-      } catch (err) {
-        console.error("fetch services", err);
-      }
-      try {
-        const tags = await fetchTagSuggestions();
-        setTagSuggestions(tags || []);
-      } catch (err) {
-        console.error("fetch tags", err);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    setTags(parseTags(tagsInput));
-  }, [tagsInput]);
+  // Fixed categories matching your gallery page
+  const categories = [
+    { id: "clinic", name: "Clinic" },
+    { id: "treatments", name: "Treatments" },
+    { id: "team", name: "Team" },
+    { id: "before-after", name: "Before & After" },
+  ];
 
   const previews = useMemo(
     () =>
@@ -83,11 +61,18 @@ const ManageGallery: React.FC = () => {
     setMessage(null);
     setErrorMsg(null);
     const list = e.target.files ? Array.from(e.target.files) : [];
-    // If pairMode enforce exactly 2 files
-    if (pairMode && list.length > 2) {
-      setErrorMsg("In pair mode please select exactly two files (before & after).");
+    
+    // Validation based on upload type
+    if (uploadType === "pair" && list.length !== 2) {
+      setErrorMsg("For before & after pairs, please select exactly 2 images.");
       return;
     }
+    
+    if (uploadType === "individual" && list.length > 1) {
+      setErrorMsg("For individual upload, please select only 1 image.");
+      return;
+    }
+
     setFiles(list);
   }
 
@@ -95,111 +80,80 @@ const ManageGallery: React.FC = () => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   }
 
-  async function handleSubmit(e?: React.FormEvent) {
-    if (e) e.preventDefault();
+  async function handleSubmit() {
     setMessage(null);
     setErrorMsg(null);
 
-    // validations
+    // Validation
     if (!title.trim()) {
       setErrorMsg("Please enter a title.");
       return;
     }
-    if (!youtubeUrl && files.length === 0) {
-      setErrorMsg("Please choose file(s) to upload or provide a YouTube URL for video.");
+    
+    if (files.length === 0) {
+      setErrorMsg("Please select image(s) to upload.");
       return;
     }
-    if (pairMode && files.length !== 2) {
-      setErrorMsg("Pair mode requires exactly 2 images selected.");
+
+    if (uploadType === "pair" && files.length !== 2) {
+      setErrorMsg("For before & after pairs, please select exactly 2 images.");
+      return;
+    }
+
+    if (uploadType === "individual" && files.length !== 1) {
+      setErrorMsg("For individual upload, please select exactly 1 image.");
       return;
     }
 
     setUploading(true);
     try {
-      // try to get current user (for uploaded_by)
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      const uploadedBy = user?.id ?? null;
+      // Skip uploaded_by tracking for now
+      const uploadedBy = null;
 
-      // compute pair_id if required
-      const pairId = pairMode ? crypto.randomUUID() : null;
-
+      const pairId = uploadType === "pair" ? crypto.randomUUID() : null;
       const rowsToInsert: Database["public"]["Tables"]["gallery"]["Insert"][] = [];
 
-      // 1) handle file uploads (images)
+      // Handle file uploads
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const { publicUrl } = await uploadFileToGalleryStorage(file);
+        
         const row: Database["public"]["Tables"]["gallery"]["Insert"] = {
-          title: pairMode ? `${title} - ${i === 0 ? "Before" : "After"}` : title,
+          title: uploadType === "pair" ? `${title} - ${i === 0 ? "Before" : "After"}` : title,
           description: description || null,
           media_type: "image",
           media_url: publicUrl,
           thumbnail_url: publicUrl,
-          category_id: categoryId ?? null,
-          service_id: serviceId ?? null,
-          alt_text: altText || null,
-          tags: tags.length ? tags : null,
-          is_featured: isFeatured,
-          is_active: isActive,
-          sort_order: sortOrder ?? null,
+          category_id: null, // We'll use tags instead for simplicity
+          service_id: null,
+          alt_text: uploadType === "pair" ? `${title} - ${i === 0 ? "Before" : "After"}` : title,
+          tags: [category], // Store category as tag for easy filtering
+          is_featured: false,
+          is_active: true,
+          sort_order: null,
           uploaded_by: uploadedBy,
           pair_id: pairId,
         };
         rowsToInsert.push(row);
       }
 
-      // 2) optionally handle YouTube video entry (admin can either upload files OR submit a YouTube URL)
-      if (!files.length && youtubeUrl) {
-        // store youtube url as media_url; thumbnail_url can be derived by frontend from video id
-        const row: Database["public"]["Tables"]["gallery"]["Insert"] = {
-          title,
-          description: description || null,
-          media_type: "video",
-          media_url: youtubeUrl,
-          thumbnail_url: null,
-          category_id: categoryId ?? null,
-          service_id: serviceId ?? null,
-          alt_text: altText || null,
-          tags: tags.length ? tags : null,
-          is_featured: isFeatured,
-          is_active: isActive,
-          sort_order: sortOrder ?? null,
-          uploaded_by: uploadedBy,
-          pair_id: null,
-        };
-        rowsToInsert.push(row);
-      }
+      // Insert all rows
+      const { error: insertError } = await supabase.from("gallery").insert(rowsToInsert);
+      if (insertError) throw insertError;
 
-      // insert rows in one call
-      if (rowsToInsert.length > 0) {
-        const { error: insertError } = await supabase.from("gallery").insert(rowsToInsert);
-        if (insertError) throw insertError;
-      }
-
-      setMessage("Upload successful. Gallery updated.");
-      // clear form (keeping categories to speed repetitive uploads)
+      setMessage(`Successfully uploaded ${files.length} image(s) to gallery!`);
+      
+      // Clear form
       setTitle("");
       setDescription("");
       setFiles([]);
-      setYoutubeUrl("");
-      setTagsInput("");
-      setAltText("");
-      setIsFeatured(false);
-      setSortOrder(undefined);
+      setUploadType("individual");
+      setCategory("clinic");
     } catch (err: any) {
-      console.error("upload error", err);
-      setErrorMsg(err?.message ?? "Upload failed. See console for details.");
+      console.error("Upload error:", err);
+      setErrorMsg(err?.message ?? "Upload failed. Please try again.");
     } finally {
       setUploading(false);
-      // refresh tag suggestions + maybe categories/services if you allow new ones
-      try {
-        const tags = await fetchTagSuggestions();
-        setTagSuggestions(tags || []);
-      } catch (e) {
-        /* ignore */
-      }
     }
   }
 
@@ -208,144 +162,149 @@ const ManageGallery: React.FC = () => {
       <Header />
 
       <main className="container mx-auto px-4 py-10">
-        <h1 className="text-2xl font-bold mb-6">Manage Gallery</h1>
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold mb-2">Manage Gallery</h1>
+          <p className="text-muted-foreground mb-8">Upload images to your dental clinic gallery</p>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-card p-6 rounded-lg shadow-sm">
-          <div>
-            <label className="block mb-2 text-sm font-medium">Title</label>
-            <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Smile Makeover - Case #102" />
-          </div>
-
-          <div>
-            <label className="block mb-2 text-sm font-medium">Description</label>
-            <Textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Short description (optional)" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="space-y-6 bg-card p-6 rounded-lg border">
+            {/* Upload Type Selection */}
             <div>
-              <label className="block mb-2 text-sm font-medium">Category</label>
-              <select value={categoryId ?? ""} onChange={(e) => setCategoryId(e.target.value || null)} className="w-full rounded-md p-2 border">
-                <option value="">— None —</option>
-                {categories.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name}
+              <Label className="text-base font-medium mb-4 block">Upload Type</Label>
+              <RadioGroup value={uploadType} onValueChange={(value) => setUploadType(value as "individual" | "pair")}>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="individual" id="individual" />
+                  <Label htmlFor="individual">Individual Image</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="pair" id="pair" />
+                  <Label htmlFor="pair">Before & After Pair</Label>
+                </div>
+              </RadioGroup>
+            </div>
+
+            {/* Title */}
+            <div>
+              <Label htmlFor="title">Title</Label>
+              <Input 
+                id="title"
+                value={title} 
+                onChange={(e) => setTitle(e.target.value)} 
+                placeholder={uploadType === "pair" ? "e.g. Smile Makeover Case #1" : "e.g. Modern Dental Equipment"}
+              />
+            </div>
+
+            {/* Category */}
+            <div>
+              <Label htmlFor="category">Category</Label>
+              <select 
+                id="category"
+                value={category} 
+                onChange={(e) => setCategory(e.target.value)} 
+                className="w-full rounded-md border border-input bg-background px-3 py-2"
+              >
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+                    {cat.name}
                   </option>
                 ))}
               </select>
             </div>
 
+            {/* Description */}
             <div>
-              <label className="block mb-2 text-sm font-medium">Service</label>
-              <select value={serviceId ?? ""} onChange={(e) => setServiceId(e.target.value || null)} className="w-full rounded-md p-2 border">
-                <option value="">— None —</option>
-                {services.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.title}
-                  </option>
-                ))}
-              </select>
+              <Label htmlFor="description">Description (Optional)</Label>
+              <Textarea 
+                id="description"
+                value={description} 
+                onChange={(e) => setDescription(e.target.value)} 
+                placeholder="Brief description about the image(s)"
+                rows={3}
+              />
             </div>
 
+            {/* File Upload */}
             <div>
-              <label className="block mb-2 text-sm font-medium">Alt text (for accessibility)</label>
-              <Input value={altText} onChange={(e) => setAltText(e.target.value)} placeholder="e.g. Before teeth whitening" />
+              <Label className="block mb-2">
+                {uploadType === "pair" ? "Select Before & After Images (2 images)" : "Select Image (1 image)"}
+              </Label>
+              <input
+                type="file"
+                accept="image/*"
+                multiple={uploadType === "pair"}
+                onChange={handleFileChange}
+                className="block w-full text-sm text-muted-foreground file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+              />
+              <p className="text-sm text-muted-foreground mt-1">
+                {uploadType === "pair" ? "Select 2 images: first will be 'Before', second will be 'After'" : "Select 1 image for individual upload"}
+              </p>
             </div>
-          </div>
 
-          <div>
-            <label className="block mb-2 text-sm font-medium">Tags (comma separated)</label>
-            <Input
-              value={tagsInput}
-              onChange={(e) => setTagsInput(e.target.value)}
-              placeholder="e.g. whitening, anterior, paediatric"
-            />
-            {tagSuggestions.length > 0 && (
-              <div className="mt-2 text-sm text-muted-foreground">
-                Suggestions:{" "}
-                {tagSuggestions.slice(0, 10).map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    className="inline-block mr-2 mb-1 px-2 py-1 rounded bg-muted/30 text-xs"
-                    onClick={() => {
-                      const merged = Array.from(new Set([...tags, t]));
-                      setTagsInput(merged.join(", "));
-                      setTags(merged);
-                    }}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="flex items-center gap-4">
-            <label className="flex items-center gap-2">
-              <Checkbox checked={isFeatured} onCheckedChange={(v) => setIsFeatured(Boolean(v))} />
-              <span className="text-sm">Featured</span>
-            </label>
-
-            <label className="flex items-center gap-2">
-              <Checkbox checked={isActive} onCheckedChange={(v) => setIsActive(Boolean(v))} />
-              <span className="text-sm">Active</span>
-            </label>
-
-            <label className="flex items-center gap-2">
-              <Checkbox checked={pairMode} onCheckedChange={(v) => setPairMode(Boolean(v))} />
-              <span className="text-sm">Upload as Before & After pair</span>
-            </label>
-          </div>
-
-          <div>
-            <label className="block mb-2 text-sm font-medium">Upload images (images only) {pairMode ? " — select exactly 2" : ""}</label>
-            <input
-              type="file"
-              accept="image/*"
-              multiple={!pairMode}
-              onChange={handleFileChange}
-              className="block w-full"
-            />
+            {/* File Previews */}
             {previews.length > 0 && (
-              <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-                {previews.map((p, i) => (
-                  <div key={i} className="relative rounded border overflow-hidden">
-                    <img src={p.url} alt={p.name} className="w-full h-36 object-cover" />
-                    <button type="button" className="absolute top-1 right-1 bg-white/80 rounded-full p-1 text-xs" onClick={() => removeFile(i)}>
-                      Remove
-                    </button>
-                    <div className="p-2 text-xs">{p.name}</div>
-                  </div>
-                ))}
+              <div className="space-y-4">
+                <Label>Preview</Label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {previews.map((preview, i) => (
+                    <div key={i} className="relative">
+                      <img 
+                        src={preview.url} 
+                        alt={preview.name} 
+                        className="w-full h-48 object-cover rounded-lg border" 
+                      />
+                      {uploadType === "pair" && (
+                        <div className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                          {i === 0 ? "Before" : "After"}
+                        </div>
+                      )}
+                      <Button 
+                        type="button" 
+                        variant="destructive" 
+                        size="sm"
+                        className="absolute top-2 right-2" 
+                        onClick={() => removeFile(i)}
+                      >
+                        Remove
+                      </Button>
+                      <p className="text-sm text-muted-foreground mt-2 truncate">{preview.name}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <div className="flex gap-4">
+              <Button onClick={handleSubmit} disabled={uploading} className="flex-1">
+                {uploading ? "Uploading..." : `Upload ${uploadType === "pair" ? "Pair" : "Image"}`}
+              </Button>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={() => {
+                  setTitle(""); 
+                  setDescription(""); 
+                  setFiles([]);
+                  setMessage(null);
+                  setErrorMsg(null);
+                }}
+              >
+                Clear
+              </Button>
+            </div>
+
+            {/* Messages */}
+            {message && (
+              <div className="p-4 bg-green-50 border border-green-200 rounded-md">
+                <p className="text-green-800 text-sm">{message}</p>
+              </div>
+            )}
+            {errorMsg && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+                <p className="text-red-800 text-sm">{errorMsg}</p>
               </div>
             )}
           </div>
-
-          <div>
-            <div className="mb-2 text-sm font-medium">Or add a YouTube video (paste full URL)</div>
-            <Input value={youtubeUrl} onChange={(e) => setYoutubeUrl(e.target.value)} placeholder="https://www.youtube.com/watch?v=..." />
-            <div className="text-xs text-muted-foreground mt-1">If YouTube URL is provided, no file upload is required for that entry.</div>
-          </div>
-
-          <div>
-            <label className="block mb-2 text-sm font-medium">Sort order (optional)</label>
-            <Input type="number" value={sortOrder ?? ""} onChange={(e) => setSortOrder(Number(e.target.value || undefined))} />
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Button type="submit" onClick={handleSubmit} disabled={uploading}>
-              {uploading ? "Uploading..." : "Upload to Gallery"}
-            </Button>
-            <Button variant="ghost" onClick={() => {
-              setTitle(""); setDescription(""); setFiles([]); setTagsInput(""); setAltText(""); setYoutubeUrl("");
-            }}>
-              Reset
-            </Button>
-          </div>
-
-          {message && <div className="text-sm text-success mt-2">{message}</div>}
-          {errorMsg && <div className="text-sm text-destructive mt-2">{errorMsg}</div>}
-        </form>
+        </div>
       </main>
 
       <Footer />
