@@ -169,7 +169,7 @@ const Admin = () => {
                 <CardDescription>Create and edit blog content</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full">Manage Blog</Button>
+              <a  href="/admin/manage-blogs" >  <Button className="w-full">Manage Blog</Button></a>
               </CardContent>
             </Card>
 
@@ -179,7 +179,7 @@ const Admin = () => {
                 <CardDescription>Manage clinic gallery</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full">Manage Gallery</Button>
+                <a  href="/admin/manage-gallery" >  <Button className="w-full">Manage Gallery</Button></a>
               </CardContent>
             </Card>
 

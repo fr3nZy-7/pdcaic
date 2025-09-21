@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 // Helper to upload file to Supabase storage
 async function uploadFileToGalleryStorage(file: File) {
@@ -160,7 +162,14 @@ const ManageGallery: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
+    {/* Breadcrumb */}
+        <Link
+          to="/admin"
+          className="inline-flex items-center text-shade font-bold hover:text-primary mb-8 transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5 mr-1" />
+           Back to Admin Dashboard
+        </Link>
       <main className="container mx-auto px-4 py-10">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-2">Manage Gallery</h1>
