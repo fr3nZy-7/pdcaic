@@ -4,9 +4,18 @@ interface BookAppointmentButtonProps {
 }
 
 const BookAppointmentButton = ({ onClick, className = "" }: BookAppointmentButtonProps) => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    } else {
+      // Default behavior: navigate to booking page
+      window.location.href = '/book-appointment';
+    }
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       className={`
         flex items-center justify-center gap-2
         rounded-full font-semibold text-white font-heading

@@ -21,6 +21,8 @@ import Terms from "./pages/Terms";
 import Sitemap from "./pages/Sitemap";  
 import BookingTest from "./pages/BookingTest";
 import ManageGallery from "./pages/ManageGallery";
+import BookAppointment from "./pages/BookAppointment";
+
 
 const queryClient = new QueryClient();
 
@@ -49,6 +51,7 @@ const App = () => (
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/booking-test" element={<BookingTest />} />
           <Route path="/admin/manage-gallery" element={<ManageGallery />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
