@@ -170,8 +170,8 @@ export const services: Service[] = [
     }
   },
   {
-    slug: "implants",
-    title: "Implants",
+    slug: "dental-implants",
+    title: "Dental Implants",
     shortDescription: "Regain your confidence with permanent tooth replacements. Dental implants are the gold standard for restoring missing teeth and providing a stable, natural-looking smile.",
     iconPath: "/images/icons/implants.svg",
     longDescription: "Dental implants are a long-term solution for missing teeth. An implant is a small post, usually made of titanium, that is surgically placed into the jawbone to act as a replacement for the tooth's root. A crown is then placed on top, providing a durable and aesthetically pleasing restoration that looks and feels like a natural tooth.",
