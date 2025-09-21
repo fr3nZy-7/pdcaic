@@ -316,7 +316,7 @@ const ManageGallery: React.FC = () => {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   );
 };

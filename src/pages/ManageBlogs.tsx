@@ -390,7 +390,7 @@ const ManageBlogs: React.FC = () => {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   );
 };
