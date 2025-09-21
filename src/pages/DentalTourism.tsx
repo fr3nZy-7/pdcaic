@@ -35,7 +35,7 @@ import HeroSection from "@/components/HeroSection";
 
 const dentalTourismHeroData = {
     title: "Dental Tourism",
-    shortDescription: "Save up tp 70& on premium dental treatments while experiencing international quality care and hospitality.",
+    shortDescription: "Save up tp 70% on premium dental treatments while experiencing international quality care and hospitality. Click the button below to Book a Video Consultation today!",
     heroImage: "/images/services/dental-tourism.jpg", 
     journeyImage: "/images/common/footer-cta-bg.jpg",
     detailedContent: {
@@ -149,7 +149,7 @@ const DentalTourism = () => {
         >
           <>
             <WhatsAppUsButton />
-            <BookAppointmentButton />
+            <BookAppointmentButton eventSlug="vc"/>
           </>
         </HeroSection>
 

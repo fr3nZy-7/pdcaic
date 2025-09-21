@@ -1,6 +1,6 @@
 // src/components/CalcomWidget.tsx
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect, useState } from "react"; // <-- Add useState
+import { useEffect, useState } from "react";
 import GlassmorphismCard from '@/components/GlassmorphismCard';
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, Stethoscope } from 'lucide-react';
@@ -22,7 +22,7 @@ interface CalcomWidgetProps {
 
 const CalcomWidget = ({
   username = "dr-neha",
-  eventSlug = "dental-appointment",
+  eventSlug = "dental-appointment", // This is the default value
   title = "Book Your Dental Appointment",
   subtitle = "Select a convenient date and time for your visit",
   showHeader = true,
@@ -34,13 +34,12 @@ const CalcomWidget = ({
     hideBranding: true
   }
 }: CalcomWidgetProps) => {
-  // 1. Create a state to track if the component has mounted
   const [isMounted, setIsMounted] = useState(false);
   
+  // The 'calLink' now correctly uses the 'eventSlug' prop
   const calLink = `${username}/${eventSlug}`;
   
   useEffect(() => {
-    // 2. Set isMounted to true on the client side
     setIsMounted(true);
     
     (async function () {
@@ -49,9 +48,8 @@ const CalcomWidget = ({
     })();
   }, [uiConfig]);
   
-  // 3. Conditionally render the widget only after mounting
   if (!isMounted) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return (
