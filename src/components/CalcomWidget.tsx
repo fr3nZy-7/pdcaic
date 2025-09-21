@@ -23,8 +23,8 @@ interface CalcomWidgetProps {
 const CalcomWidget = ({
   username = "dr-neha",
   eventSlug = "dental-appointment", // This is the default value
-  title = "Book Your Dental Appointment",
-  subtitle = "Select a convenient date and time for your visit",
+  title = "",
+  subtitle = "",
   showHeader = true,
   className = "",
   uiConfig = {
@@ -63,23 +63,12 @@ const CalcomWidget = ({
               </h2>
               <p className="text-lg text-black/80">{subtitle}</p>
               <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <span>Easy Online Booking</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <span>Flexible Time Slots</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Stethoscope className="h-4 w-4 text-primary" />
-                  <span>Professional Care</span>
-                </div>
+             
               </div>
             </div>
           )}
 
-          <GlassmorphismCard className="bg-white/95 backdrop-blur-xl shadow-xl overflow-hidden">
+          <GlassmorphismCard className="bg-primary/80 backdrop-blur-3xl shadow-xl overflow-hidden">
             <CardContent className="p-0">
               <Cal 
                 calLink={calLink}
@@ -90,11 +79,7 @@ const CalcomWidget = ({
           
           <div className="text-center mt-6">
             <p className="text-gray-600 text-sm">
-              Having trouble booking? Call us directly at{' '}
-              <a href="tel:+919876543210" className="text-primary font-medium hover:underline">
-                +91 98765 43210
-              </a>
-              {' '}or WhatsApp us for assistance.
+              Having trouble booking? Call us directly or WhatsApp us for assistance.
             </p>
           </div>
           
