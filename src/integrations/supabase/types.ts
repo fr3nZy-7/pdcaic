@@ -251,6 +251,7 @@ export type Database = {
           title: string
           updated_at: string
           uploaded_by: string | null
+          pair_id: string | null        // 👈 added
         }
         Insert: {
           alt_text?: string | null
@@ -269,6 +270,7 @@ export type Database = {
           title: string
           updated_at?: string
           uploaded_by?: string | null
+          pair_id?: string | null       // 👈 added
         }
         Update: {
           alt_text?: string | null
@@ -287,6 +289,7 @@ export type Database = {
           title?: string
           updated_at?: string
           uploaded_by?: string | null
+          pair_id?: string | null       // 👈 added
         }
         Relationships: [
           {
@@ -312,56 +315,7 @@ export type Database = {
           },
         ]
       }
-      inquiries: {
-        Row: {
-          admin_response: string | null
-          assigned_to: string | null
-          created_at: string
-          email: string
-          id: string
-          message: string
-          name: string
-          phone: string | null
-          status: Database["public"]["Enums"]["inquiry_status"]
-          subject: string | null
-          updated_at: string
-        }
-        Insert: {
-          admin_response?: string | null
-          assigned_to?: string | null
-          created_at?: string
-          email: string
-          id?: string
-          message: string
-          name: string
-          phone?: string | null
-          status?: Database["public"]["Enums"]["inquiry_status"]
-          subject?: string | null
-          updated_at?: string
-        }
-        Update: {
-          admin_response?: string | null
-          assigned_to?: string | null
-          created_at?: string
-          email?: string
-          id?: string
-          message?: string
-          name?: string
-          phone?: string | null
-          status?: Database["public"]["Enums"]["inquiry_status"]
-          subject?: string | null
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "inquiries_assigned_to_fkey"
-            columns: ["assigned_to"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
+      
       profiles: {
         Row: {
           avatar_url: string | null

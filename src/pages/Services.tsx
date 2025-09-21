@@ -104,9 +104,9 @@ const Services = () => {
           className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col"
         >
           {/* Service Image */}
-          {service.imagePath && (
+          {service.detailedContent?.additionalSections[0]?.image && (
             <img
-              src={service.imagePath}
+              src={service.infographicImages}
               alt={service.title}
               className="w-full h-40 object-cover rounded-t-xl"
             />
@@ -117,7 +117,7 @@ const Services = () => {
             <ServiceCard
               title={service.title}
               description={service.shortDescription}
-              iconPath={service.iconPath}
+              
               features={service.features}
               path={`/services/${service.slug}`}
             />

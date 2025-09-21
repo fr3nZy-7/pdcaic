@@ -211,15 +211,18 @@ const showNextButton = totalSlides > slidesPerPage;
                 {/* Contact Info */}
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center text-white/80">
+                    
                     <Clock className="h-5 w-5 mr-3" />
-                    <span>Open Today ! 10:00 AM - 09:00 PM</span>
+                    <a href="/contact">
+                    <span>Open Today! 10:00 AM - 08:00 PM</span>
+                    </a>
                     <a href="/contact" className="ml-2 text-primary-dark underline">
                     <span className="text-primary-dark underline ml-2">Check Timings</span>
                     </a>
                   </div>
                   <div className="flex items-center text-white/80">
                     <Phone className="h-5 w-5 mr-3" />
-                    <span>+91-7507 32 55 39</span>
+                    <span>+91-7507 325 539</span>
                   </div>
                 </div>
 
@@ -303,10 +306,18 @@ const showNextButton = totalSlides > slidesPerPage;
               <GlassmorphismCard
               className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow "
               >
+                 {/* Service Image */}
+                  {service.detailedContent?.additionalSections[0]?.image && (
+                    <img
+                      src={service.infographicImages}
+                      alt={service.title}
+                      className="w-full h-40 object-cover rounded-t-xl"
+                    />
+                  )}
                 <ServiceCard
                   title={service.title}
                   description={service.shortDescription}
-                  iconPath={service.iconPath}
+                  
                   features={service.features}
                   path={`/services/${service.slug}`}
                 />

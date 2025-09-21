@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 interface ServiceCardProps {
   title: string;
   description: string;
-  iconPath: string;
+  
   image?: string;
   className?: string;
   features?: {
@@ -21,9 +21,9 @@ interface ServiceCardProps {
   path?: string;
 }
 
-const ServiceCard = ({ title, description, iconPath, image, className = "", features, path }: ServiceCardProps) => {
+const ServiceCard = ({ title, description,  image, className = "", features, path }: ServiceCardProps) => {
   return (
-    <> {/* We are removing the Card component from here */}
+    <> {/*  */}
       {image && (
         <div className="aspect-video overflow-hidden rounded-t-lg">
           <img
@@ -34,13 +34,7 @@ const ServiceCard = ({ title, description, iconPath, image, className = "", feat
         </div>
       )}
       <CardHeader className="text-center">
-        <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-          <img
-            src={iconPath}
-            alt={`${title} icon`}
-            className="w-10 h-10 invert"
-          />
-        </div>
+       
         <CardTitle className="text-2xl font-semibold text-shade">{title}</CardTitle>
         <CardDescription className="text-shade text-md leading-relaxed">{description}</CardDescription>
       </CardHeader>
