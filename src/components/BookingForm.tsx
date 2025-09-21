@@ -112,7 +112,7 @@ const BookingForm = ({
       if (onSuccess) {
         onSuccess({
           bookingId: response.calcomBooking.id,
-          confirmationMessage: 'Appointment booked successfully in both calendar and our system!',
+          confirmationMessage: 'Appointment booked successfully!',
           whatsappMessage: 'We will contact you on WhatsApp shortly',
           patientEmail: formData.email || undefined
         });

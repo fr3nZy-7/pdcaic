@@ -13,6 +13,7 @@ const apiCall = async (endpoint: string, options: RequestInit = {}) => {
     headers: {
       'Authorization': `Bearer ${API_KEY}`,
       'Content-Type': 'application/json',
+      'cal-api-version': '2024-06-14',
       ...options.headers,
     },
   });
@@ -130,6 +131,23 @@ export const createHybridBooking = async (bookingData: BookingFormData): Promise
       }
     }
     
+    throw error;
+  }
+};
+
+// Create a Supabase-only booking (fallback when Cal.com has issues)
+export const createSupabaseOnlyBooking = async (bookingData: BookingFormData): Promise<any> => {
+  try {
+    console.log('Creating Supabase-only booking...');
+    const supabaseAppointment = await createSupabaseAppointment(bookingData);
+    
+    return {
+      calcomBooking: null,
+      supabaseAppointment,
+      message: 'Appointment saved to our system. We will confirm via WhatsApp shortly.'
+    };
+  } catch (error) {
+    console.error('Supabase-only booking failed:', error);
     throw error;
   }
 };
