@@ -139,6 +139,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const handleEventTypeChange = (eventTypeId: string) => {
     const eventType = eventTypes.find(et => et.id === eventTypeId) || null;
     setSelectedEventType(eventType);
+    
+    // Clear form data that depends on event type
+    setFormData(prev => ({ ...prev, preferred_date: '', preferred_time: '' }));
+    setTimeSlots([]);
+    
     // Clear event type error when selection is made
     if (eventType && formErrors.event_type_id) {
       setFormErrors(prev => ({ ...prev, event_type_id: undefined }));
@@ -393,7 +398,10 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <select
                 id="event-type-select"
                 value={selectedEventType?.id || ''}
-                onChange={(e) => handleEventTypeChange(e.target.value)}
+                onChange={(e) => {
+                  console.log('Event type selected:', e.target.value); // Debug log
+                  handleEventTypeChange(e.target.value);
+                }}
                 className={`w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary ${
                   formErrors.event_type_id ? 'border-red-500' : 'border-input bg-background'
                 }`}
