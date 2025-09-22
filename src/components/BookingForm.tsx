@@ -28,6 +28,7 @@ interface FormErrors {
   patient_phone?: string;
   patient_email?: string;
   service_id?: string;
+  event_type_id?: string;
   preferred_date?: string;
   preferred_time?: string;
 }
@@ -53,13 +54,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const [eventTypes, setEventTypes] = useState<CalcomEventType[]>([]);
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
   const [selectedEventType, setSelectedEventType] = useState<CalcomEventType | null>(null);
-  
+
   // Loading states
   const [loadingServices, setLoadingServices] = useState(true);
   const [loadingEventTypes, setLoadingEventTypes] = useState(true);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  
+
   // Success/error states
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
@@ -70,7 +71,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
     loadEventTypes();
   }, []);
 
-  // Load time slots when date and service change
+  // Load time slots when date and event type change
   useEffect(() => {
     if (formData.preferred_date && selectedEventType) {
       loadTimeSlots(selectedEventType.id, formData.preferred_date);
@@ -128,8 +129,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    
-    // Clear related error
+
     if (formErrors[field as keyof FormErrors]) {
       setFormErrors(prev => ({ ...prev, [field]: undefined }));
     }
@@ -137,24 +137,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
   const handleServiceChange = (serviceId: string) => {
     handleInputChange('service_id', serviceId);
-    
-    // Find corresponding event type based on service
-    // This mapping should be configured based on your Cal.com setup
-    const eventTypeMap: Record<string, string> = {
-      // You'll need to map your service IDs to event type names
-      // Example: 'consultation-service-id': 'Consultation',
-    };
-    
-    const service = services.find(s => s.id === serviceId);
-    if (service) {
-      // Try to find matching event type
-      const eventType = eventTypes.find(et => 
-        et.title.toLowerCase().includes(service.title.toLowerCase()) ||
-        service.title.toLowerCase().includes(et.title.toLowerCase())
-      );
-      
-      setSelectedEventType(eventType || null);
-    }
+    // Remove previous selected event type when service changes
+    setSelectedEventType(null);
+  };
+
+  const handleEventTypeChange = (eventTypeId: string) => {
+    const eventType = eventTypes.find(et => et.id === eventTypeId) || null;
+    setSelectedEventType(eventType);
   };
 
   const validateForm = (): boolean => {
@@ -171,13 +160,16 @@ const BookingForm: React.FC<BookingFormProps> = ({
       errors.patient_phone = 'Please enter a valid 10-digit phone number';
     }
 
-    // Email validation (optional but must be valid if provided)
     if (formData.patient_email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.patient_email)) {
       errors.patient_email = 'Please enter a valid email address';
     }
 
     if (!formData.service_id) {
       errors.service_id = 'Please select a service';
+    }
+
+    if (!selectedEventType) {
+      errors.event_type_id = 'Please select an event type';
     }
 
     if (!formData.preferred_date) {
@@ -194,7 +186,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm() || !selectedEventType) {
       return;
     }
@@ -212,7 +204,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         preferred_time: formData.preferred_time,
         notes: formData.notes.trim() || undefined,
         event_type_id: selectedEventType.id,
-        event_type_name: selectedEventType.title
+        event_type_name: selectedEventType.title,
       };
 
       const response = await createBooking(bookingData);
@@ -220,11 +212,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
       if (response.success && response.data) {
         setSubmitStatus('success');
         setSubmitMessage(response.data.message);
-        
-        // Call success callback
+
         onSuccess?.(response.data);
 
-        // Reset form after success
         setTimeout(() => {
           if (!showModal) {
             resetForm();
@@ -250,7 +240,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
       service_id: '',
       preferred_date: '',
       preferred_time: '',
-      notes: ''
+      notes: '',
     });
     setFormErrors({});
     setSelectedEventType(null);
@@ -267,7 +257,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   // Success message component
   if (submitStatus === 'success') {
     return (
-      <div className={showModal ? "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4" : ""}>
+      <div className={showModal ? 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4' : ''}>
         <Card className="w-full max-w-md">
           <CardContent className="text-center p-8">
             <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
@@ -290,9 +280,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
           <Stethoscope className="h-6 w-6" />
           Book Your Appointment
         </CardTitle>
-        <p className="text-gray-600 mt-2">
-          Schedule your visit with Dr. Neha Deshpande Tambe
-        </p>
+        <p className="text-gray-600 mt-2">Schedule your visit with Dr. Neha Deshpande Tambe</p>
       </CardHeader>
 
       <CardContent>
@@ -329,9 +317,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 }`}
                 placeholder="Enter your full name"
               />
-              {formErrors.patient_name && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.patient_name}</p>
-              )}
+              {formErrors.patient_name && <p className="text-red-500 text-sm mt-1">{formErrors.patient_name}</p>}
             </div>
 
             {/* Phone */}
@@ -351,9 +337,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   placeholder="10-digit mobile number"
                 />
               </div>
-              {formErrors.patient_phone && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.patient_phone}</p>
-              )}
+              {formErrors.patient_phone && <p className="text-red-500 text-sm mt-1">{formErrors.patient_phone}</p>}
             </div>
 
             {/* Email */}
@@ -373,12 +357,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   placeholder="your@email.com"
                 />
               </div>
-              {formErrors.patient_email && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.patient_email}</p>
-              )}
-              <p className="text-xs text-gray-500 mt-1">
-                If not provided, we'll use your phone number for confirmations
-              </p>
+              {formErrors.patient_email && <p className="text-red-500 text-sm mt-1">{formErrors.patient_email}</p>}
+              <p className="text-xs text-gray-500 mt-1">If not provided, we'll use your phone number for confirmations</p>
             </div>
           </div>
 
@@ -404,13 +384,45 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 {services.map(service => (
                   <option key={service.id} value={service.id}>
                     {service.title}
-                    {service.duration_minutes && ` (${service.duration_minutes} min)`}
                   </option>
                 ))}
               </select>
             )}
-            {formErrors.service_id && (
-              <p className="text-red-500 text-sm mt-1">{formErrors.service_id}</p>
+            {formErrors.service_id && <p className="text-red-500 text-sm mt-1">{formErrors.service_id}</p>}
+          </div>
+
+          {/* Event Type Selection */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Event Type <span className="text-red-500">*</span>
+            </label>
+            {loadingEventTypes ? (
+              <div className="flex items-center justify-center p-4 border border-gray-300 rounded-lg">
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                Loading event types...
+              </div>
+            ) : (
+              <select
+                value={selectedEventType?.id || ''}
+                onChange={(e) => {
+                  const id = e.target.value;
+                  const et = eventTypes.find(et => et.id === id) || null;
+                  setSelectedEventType(et);
+                }}
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  !selectedEventType ? 'border-red-500' : 'border-gray-300'
+                }`}
+              >
+                <option value="">Select an event type</option>
+                {eventTypes.map(et => (
+                  <option key={et.id} value={et.id}>
+                    {et.title} {et.duration ? `(${et.duration} min)` : ''}
+                  </option>
+                ))}
+              </select>
+            )}
+            {!selectedEventType && formErrors.event_type_id && (
+              <p className="text-red-500 text-sm mt-1">Please select an event type</p>
             )}
           </div>
 
@@ -424,9 +436,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               onDateSelect={(date) => handleInputChange('preferred_date', date)}
               disabled={!selectedEventType}
             />
-            {formErrors.preferred_date && (
-              <p className="text-red-500 text-sm mt-1">{formErrors.preferred_date}</p>
-            )}
+            {formErrors.preferred_date && <p className="text-red-500 text-sm mt-1">{formErrors.preferred_date}</p>}
           </div>
 
           {/* Time Selection */}
@@ -441,9 +451,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 onTimeSelect={(time) => handleInputChange('preferred_time', time)}
                 loading={loadingSlots}
               />
-              {formErrors.preferred_time && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.preferred_time}</p>
-              )}
+              {formErrors.preferred_time && <p className="text-red-500 text-sm mt-1">{formErrors.preferred_time}</p>}
             </div>
           )}
 
