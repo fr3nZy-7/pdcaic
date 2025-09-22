@@ -1,3 +1,4 @@
+// src/pages/Contact.tsx
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,8 +13,7 @@ import {
   Mail,
   Clock,
   Send,
-  MessageCircle,
-  ChevronLeft
+  Loader2, // Import loader icon for visual feedback
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
@@ -22,6 +22,7 @@ import WhatsAppUsButton from '@/components/WhatsAppUsButton';
 import BookAppointmentButton from '@/components/BookAppointmentButton';
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import HeroSection from "@/components/HeroSection";
+import { supabase } from "@/integrations/supabase/client"; 
 
 const contactHeroData = {
   title: "Contact Us",
@@ -39,6 +40,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false); // <-- ADD LOADING STATE
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -48,21 +50,55 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // --- MODIFIED HANDLE SUBMIT FUNCTION ---
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
-    });
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('inquiries') // Your table name
+        .insert([
+          { 
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+            // 'status' will use its default value from the DB
+          }
+        ]);
+
+      if (error) {
+        throw error; // If Supabase returns an error, throw it to the catch block
+      }
+      
+      // On success
+      toast({
+        title: "Message Sent! ✅",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // On failure
+      toast({
+        variant: "destructive",
+        title: "Submission Failed ❌",
+        description: "Something went wrong. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false); // Stop loading state regardless of outcome
+    }
   };
 
   return (
@@ -70,23 +106,22 @@ const Contact = () => {
       <Header />
       
       <HeroSection
-      breadcrumbLink="/"
-      breadcrumbLabel="Home"
-      title={contactHeroData.title}
-      description={contactHeroData.shortDescription}
-      backgroundImage={contactHeroData.heroImage}
-      overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/20"
-      titleColor="text-shade"
-      descriptionColor="text-black/70"
-      align="left"
-    >
-      <>
-        <WhatsAppUsButton className="w-full"/>
-        <BookAppointmentButton />
-      </>
-    </HeroSection>
+        breadcrumbLink="/"
+        breadcrumbLabel="Home"
+        title={contactHeroData.title}
+        description={contactHeroData.shortDescription}
+        backgroundImage={contactHeroData.heroImage}
+        overlayGradient="from-[#23AAB9]/20 to-[#0194C1]/20"
+        titleColor="text-shade"
+        descriptionColor="text-black/70"
+        align="left"
+      >
+        <>
+          <WhatsAppUsButton className="w-full"/>
+          <BookAppointmentButton />
+        </>
+      </HeroSection>
 
-      {/* Contact Information Cards */}
       <section className="py-20 " style={{
           backgroundImage: `url(${contactHeroData.pageBackground})`,
           backgroundSize: 'cover',
@@ -95,7 +130,8 @@ const Contact = () => {
         }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40 hover:scale-105">
+            {/* ... Your contact information cards remain the same ... */}
+            <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40 hover:scale-105">
                     <CardHeader className="pb-2">
                         <div className="mx-auto mb-2 w-16 h-16 rounded-full flex items-center justify-center">
                             <MapPin className="h-8 w-8 text-shade" />
@@ -171,9 +207,7 @@ const Contact = () => {
                 </GlassmorphismCard>
           </div>
 
-          {/* Contact Form and Map */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
               <CardHeader>
                 <CardTitle className="text-3xl text-shade">Send us a Message</CardTitle>
@@ -183,7 +217,8 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* ... Your form inputs remain the same ... */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2 text-shade text-lg">
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
@@ -248,17 +283,26 @@ const Contact = () => {
                       rows={4}
                     />
                   </div>
-
-                  <Button type="submit" size="lg" className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
-                    Send Message
-                    <Send className="ml-2 h-5 w-5" />
+                  {/* --- MODIFIED SUBMIT BUTTON --- */}
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center"
+                    disabled={isSubmitting} // <-- Disable button while submitting
+                  >
+                    {isSubmitting ? (
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    ) : (
+                      <Send className="mr-2 h-5 w-5" />
+                    )}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
             </GlassmorphismCard>
 
-            {/* Map and Quick Actions */}
-            <div className="space-y-6">
+            {/* ... Your map and other cards remain the same ... */}
+                <div className="space-y-6">
               {/* Map Placeholder */}
               <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
                 <CardHeader>
@@ -329,9 +373,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="py-16 bg-gradient-to-r from-pink-50 to-blue-50">
-        <div className="container mx-auto px-4 text-center">
+      {/* ... FAQ Section remains the same ... */}
+      <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-shade">
             Have Questions?
           </h2>
