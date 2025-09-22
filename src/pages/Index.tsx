@@ -271,7 +271,7 @@ const Index = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <WhatsAppUsButton onClick={() => window.open("https://wa.me/917507325539", "_blank")} />
+                  <WhatsAppUsButton className="w-full" onClick={() => window.open("https://wa.me/917507325539", "_blank")} />
                   <BookAppointmentButton />
                 </div>
               </GlassmorphismCard>

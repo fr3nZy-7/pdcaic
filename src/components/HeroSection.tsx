@@ -65,7 +65,11 @@ export default function HeroSection({
             >
               {description}
             </p>
-            {children && <div className="flex flex-col sm:flex-row gap-4 justify-center">{children}</div>}
+              {children && (
+                <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center">
+                  {children}
+                </div>
+              )}
           </GlassmorphismCard>
         </div>
       </div>

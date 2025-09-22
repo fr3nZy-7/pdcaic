@@ -148,7 +148,7 @@ const DentalTourism = () => {
           align="left"
         >
           <>
-            <WhatsAppUsButton />
+            <WhatsAppUsButton className="w-full"/>
             <BookAppointmentButton eventSlug="vc"/>
           </>
         </HeroSection>

@@ -117,7 +117,7 @@ const About = () => {
         align="left"
       >
         <>
-          <WhatsAppUsButton />
+          <WhatsAppUsButton className="w-full"/>
           <BookAppointmentButton />
         </>
       </HeroSection>
