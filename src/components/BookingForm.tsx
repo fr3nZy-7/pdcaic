@@ -137,7 +137,12 @@ const BookingForm: React.FC<BookingFormProps> = ({
   };
 
   const handleEventTypeChange = (eventTypeId: string) => {
-    const eventType = eventTypes.find(et => et.id === eventTypeId) || null;
+    console.log('Looking for event type with ID:', eventTypeId);
+    console.log('Available event types:', eventTypes.map(et => ({ id: et.id, title: et.title })));
+    
+    const eventType = eventTypes.find(et => et.id == eventTypeId) || null; // Using == instead of === for loose comparison
+    console.log('Found event type:', eventType);
+    
     setSelectedEventType(eventType);
     
     // Clear form data that depends on event type
