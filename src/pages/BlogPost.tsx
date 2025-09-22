@@ -5,93 +5,174 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Calendar, User, Clock, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import dentalImplantImage from "@/assets/dental-implant.jpg";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import heroImage from "@/assets/hero-dental-clinic.jpg";
+
+
+interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string | null;
+  content: string | null;
+  featured_image_url: string | null;
+  author_id: string | null;
+  tags: string[] | null;
+  reading_time: number | null;
+  is_featured: boolean;
+  status: 'draft' | 'published' | 'archived';
+  published_at: string | null;
+  created_at: string;
+}
+
+interface Author {
+  id: string;
+  full_name: string | null;
+  email: string;
+}
+
+interface RelatedPost {
+  id: string;
+  title: string;
+  slug: string;
+  featured_image_url: string | null;
+  excerpt: string | null;
+}
 
 const BlogPost = () => {
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
+  const [blogPost, setBlogPost] = useState<BlogPost | null>(null);
+  const [author, setAuthor] = useState<Author | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<RelatedPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // In a real application, you would fetch the blog post data based on the slug
-  const blogPost = {
-    title: "The Complete Guide to Dental Implants: What You Need to Know",
-    content: `
-      <p>Dental implants have revolutionized the field of dentistry, offering a permanent solution for missing teeth that looks, feels, and functions like natural teeth. If you're considering dental implants, this comprehensive guide will provide you with all the information you need to make an informed decision.</p>
+  // Categories mapping for display
+  const categories = [
+    { id: "general", name: "General Dentistry" },
+    { id: "cosmetic", name: "Cosmetic Dentistry" },
+    { id: "implants", name: "Dental Implants" },
+    { id: "oral-health", name: "Oral Health" },
+    { id: "pediatric", name: "Pediatric Dentistry" },
+  ];
 
-      <h2>What Are Dental Implants?</h2>
-      <p>Dental implants are titanium posts that are surgically placed into the jawbone to replace the root of a missing tooth. Once the implant integrates with the bone, a crown is attached to restore the appearance and function of the tooth.</p>
+  useEffect(() => {
+    if (slug) {
+      fetchBlogPost();
+    }
+  }, [slug]);
 
-      <h2>Benefits of Dental Implants</h2>
-      <ul>
-        <li><strong>Permanent Solution:</strong> With proper care, dental implants can last a lifetime</li>
-        <li><strong>Natural Appearance:</strong> Implants look and feel like your natural teeth</li>
-        <li><strong>Preserve Bone:</strong> Implants stimulate jawbone growth and prevent bone loss</li>
-        <li><strong>Improved Function:</strong> Eat your favorite foods without worry</li>
-        <li><strong>No Impact on Adjacent Teeth:</strong> Unlike bridges, implants don't require altering healthy teeth</li>
-      </ul>
+  const fetchBlogPost = async () => {
+    try {
+      setLoading(true);
+      setError(null);
 
-      <h2>The Implant Process</h2>
-      <p>The dental implant process typically involves several stages:</p>
-      
-      <h3>1. Initial Consultation</h3>
-      <p>During your first visit, we'll evaluate your oral health, take X-rays, and discuss your treatment options.</p>
+      // Fetch the specific blog post
+      const { data: post, error: postError } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('slug', slug)
+        .eq('status', 'published')
+        .single();
 
-      <h3>2. Implant Placement</h3>
-      <p>The titanium implant is surgically placed into the jawbone under local anesthesia. This procedure is typically painless.</p>
+      if (postError) {
+        if (postError.code === 'PGRST116') {
+          // No rows returned
+          setError('Blog post not found');
+        } else {
+          throw postError;
+        }
+        return;
+      }
 
-      <h3>3. Healing and Integration</h3>
-      <p>Over the next 3-6 months, the implant will integrate with your jawbone in a process called osseointegration.</p>
+      setBlogPost(post);
 
-      <h3>4. Crown Placement</h3>
-      <p>Once healing is complete, we'll attach an abutment and crown to complete your new tooth.</p>
+      // Fetch author information
+      if (post.author_id) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('id, full_name, email')
+          .eq('id', post.author_id)
+          .single();
+        
+        if (profile) setAuthor(profile);
+      }
 
-      <h2>Are You a Candidate for Dental Implants?</h2>
-      <p>Most people with good oral and general health are candidates for dental implants. Factors we consider include:</p>
-      <ul>
-        <li>Adequate bone density in the jaw</li>
-        <li>Healthy gums</li>
-        <li>Commitment to good oral hygiene</li>
-        <li>Non-smoker or willingness to quit</li>
-      </ul>
+      // Fetch related posts (same category, different post)
+      if (post.tags && post.tags.length > 0) {
+        const category = post.tags[0]; // First tag is category
+        const { data: related } = await supabase
+          .from('blog_posts')
+          .select('id, title, slug, featured_image_url, excerpt')
+          .eq('status', 'published')
+          .contains('tags', [category])
+          .neq('id', post.id)
+          .limit(3);
 
-      <h2>Post-Implant Care</h2>
-      <p>Caring for your dental implants is similar to caring for natural teeth:</p>
-      <ul>
-        <li>Brush twice daily with a soft-bristled toothbrush</li>
-        <li>Floss daily around the implant</li>
-        <li>Use an antimicrobial mouth rinse</li>
-        <li>Schedule regular dental check-ups and cleanings</li>
-        <li>Avoid hard foods that could damage the crown</li>
-      </ul>
+        if (related) setRelatedPosts(related);
+      }
 
-      <h2>Why Choose Padmanaabh Dental Clinic for Your Implants?</h2>
-      <p>At Padmanaabh Dental Clinic, we have over 15 years of experience in dental implant placement. Our state-of-the-art facility and expert team ensure you receive the highest quality care in a comfortable environment.</p>
-
-      <p>If you're ready to restore your smile with dental implants, contact us today to schedule your consultation.</p>
-    `,
-    category: "implants",
-    author: "Dr. Padmanaabh",
-    date: "2024-01-15",
-    readTime: "8 min read",
-    image: dentalImplantImage,
-    tags: ["dental implants", "oral surgery", "tooth replacement", "dental care"],
+    } catch (err: any) {
+      setError(err.message || 'Failed to load blog post');
+      console.error('BlogPost fetch error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const relatedPosts = [
-    {
-      title: "Root Canal Treatment: Myths vs Reality",
-      slug: "root-canal-myths-reality",
-      image: dentalImplantImage,
-    },
-    {
-      title: "Cosmetic Dentistry: Transform Your Smile",
-      slug: "cosmetic-dentistry-modern-techniques",
-      image: dentalImplantImage,
-    },
-    {
-      title: "10 Essential Tips for Maintaining Oral Health",
-      slug: "oral-health-tips-home",
-      image: dentalImplantImage,
-    },
-  ];
+  // Get category name from tags
+  const getCategoryFromTags = (tags: string[] | null) => {
+    if (!tags || tags.length === 0) return "General Dentistry";
+    const categoryId = tags[0];
+    const category = categories.find(cat => cat.id === categoryId);
+    return category?.name || "General Dentistry";
+  };
+
+  // Get author name
+  const getAuthorName = () => {
+    if (!author) return "Dr. Padmanaabh";
+    return author.full_name || author.email || "Dr. Padmanaabh";
+  };
+
+  // Format date
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) return new Date().toLocaleDateString();
+    return new Date(dateString).toLocaleDateString();
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="flex items-center justify-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !blogPost) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto px-4 py-20">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Blog Post Not Found</h1>
+            <p className="text-muted-foreground mb-8">{error || "The requested blog post could not be found."}</p>
+            <Link to="/blog">
+              <Button>
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Blog
+              </Button>
+            </Link>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -110,15 +191,15 @@ const BlogPost = () => {
         <div className="max-w-4xl mx-auto">
           {/* Meta Information */}
           <div className="flex items-center justify-between mb-6">
-            <Badge variant="secondary">Dental Implants</Badge>
+            <Badge variant="secondary">{getCategoryFromTags(blogPost.tags)}</Badge>
             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-1" />
-                {new Date(blogPost.date).toLocaleDateString()}
+                {formatDate(blogPost.published_at)}
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-1" />
-                {blogPost.readTime}
+                {blogPost.reading_time || 5} min read
               </div>
             </div>
           </div>
@@ -135,8 +216,8 @@ const BlogPost = () => {
                 <User className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="font-semibold">{blogPost.author}</p>
-                <p className="text-sm text-muted-foreground">Lead Dentist & Founder</p>
+                <p className="font-semibold">{getAuthorName()}</p>
+                <p className="text-sm text-muted-foreground">Chief Endodontist & Founder</p>
               </div>
             </div>
             
@@ -158,79 +239,72 @@ const BlogPost = () => {
           </div>
 
           {/* Featured Image */}
-          <div className="mb-8">
-            <img
-              src={blogPost.image}
-              alt={blogPost.title}
-              className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
-            />
-          </div>
+          {blogPost.featured_image_url && (
+            <div className="mb-8">
+              <img
+                src={blogPost.featured_image_url}
+                alt={blogPost.title}
+                className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+          )}
 
           {/* Article Content */}
-          <div 
-            className="prose prose-lg max-w-none mb-12"
-            dangerouslySetInnerHTML={{ __html: blogPost.content }}
-          />
+          {blogPost.content && (
+            <div 
+              className="prose prose-lg max-w-none mb-12 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:mb-4 [&>ul]:mb-4 [&>ul>li]:mb-2 [&>strong]:font-semibold"
+              dangerouslySetInnerHTML={{ __html: blogPost.content }}
+            />
+          )}
 
           {/* Tags */}
-          <div className="mb-8">
-            <h3 className="font-semibold mb-4">Tags:</h3>
-            <div className="flex flex-wrap gap-2">
-              {blogPost.tags.map((tag, index) => (
-                <Badge key={index} variant="outline" className="text-sm">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <Card className="bg-primary text-primary-foreground mb-12">
-            <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">
-                Ready to Transform Your Smile?
-              </h3>
-              <p className="mb-6 opacity-90">
-                Schedule a consultation with our dental experts to discuss your treatment options.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary">
-                  Book Appointment
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  Call: +91 9999999999
-                </Button>
+          {blogPost.tags && blogPost.tags.length > 1 && (
+            <div className="mb-8">
+              <h3 className="font-semibold mb-4">Tags:</h3>
+              <div className="flex flex-wrap gap-2">
+                {blogPost.tags.slice(1).map((tag, index) => (
+                  <Badge key={index} variant="outline" className="text-sm">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          )}
+
+          
 
           {/* Related Posts */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8">Related Articles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedPosts.map((post, index) => (
-                <Card key={index} className="group hover:shadow-lg transition-shadow">
-                  <div className="aspect-video overflow-hidden rounded-t-lg">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg line-clamp-2">{post.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Link to={`/blog/${post.slug}`}>
-                      <Button variant="ghost" size="sm" className="p-0 h-auto">
-                        Read More →
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
+          {relatedPosts.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold mb-8">Related Articles</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {relatedPosts.map((post) => (
+                  <Card key={post.id} className="group hover:shadow-lg transition-shadow">
+                    <div className="aspect-video overflow-hidden rounded-t-lg">
+                      <img
+                        src={post.featured_image_url || heroImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="text-lg line-clamp-2">{post.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <Link to={`/blog/${post.slug}`}>
+                        <Button variant="ghost" size="sm" className="p-0 h-auto">
+                          Read More →
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </article>
 

@@ -161,7 +161,7 @@ const ManageGallery: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      
     {/* Breadcrumb */}
         <Link
           to="/admin"

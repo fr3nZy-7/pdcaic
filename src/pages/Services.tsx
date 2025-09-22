@@ -83,9 +83,7 @@ const Services = () => {
 
 
 
-    
-
- {/* All Services Grid */}
+ 
 {/* All Services Grid */}
 <section
   className="py-16 text-shade/90 bg-white/20"
@@ -103,21 +101,22 @@ const Services = () => {
           key={service.slug}
           className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col"
         >
-          {/* Service Image */}
-          {service.detailedContent?.additionalSections[0]?.image && (
+         {/* Square Image Container (slightly bigger than carousel) */}
+        {service.infographicImages && (
+          <div className="mx-auto w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mt-6 rounded-xl overflow-hidden flex items-center justify-center">
             <img
               src={service.infographicImages}
               alt={service.title}
-              className="w-full h-40 object-cover rounded-t-xl"
+              className="w-full h-full object-contain"
             />
-          )}
+          </div>
+        )}
 
           {/* Service Content */}
-          <div className="p-4 flex-1 flex flex-col">
+          <div className="p-2 flex-1 flex flex-col">
             <ServiceCard
               title={service.title}
               description={service.shortDescription}
-              
               features={service.features}
               path={`/services/${service.slug}`}
             />

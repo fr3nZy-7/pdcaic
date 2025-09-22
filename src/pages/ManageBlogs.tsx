@@ -50,11 +50,13 @@ const ManageBlogs: React.FC = () => {
 
   // Categories matching your blog component
   const categories = [
+    { id: "endodontics", name: "Endodontics" },
     { id: "general", name: "General Dentistry" },
     { id: "cosmetic", name: "Cosmetic Dentistry" },
     { id: "implants", name: "Dental Implants" },
     { id: "oral-health", name: "Oral Health" },
     { id: "pediatric", name: "Pediatric Dentistry" },
+    
   ];
 
   // Admin route protection - add navigate import when integrating
@@ -194,7 +196,7 @@ const ManageBlogs: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      
 
       {/* Breadcrumb */}
       <Link

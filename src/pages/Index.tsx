@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+// src/pages/Index.tsx
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -8,22 +9,22 @@ import GlassmorphismCard from "@/components/GlassmorphismCard";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
 import WhatsAppUsButton from "@/components/WhatsAppUsButton";
-import { 
-  Stethoscope, 
-  Zap, 
-  Star, 
-  Award, 
-  Users, 
-  Clock, 
-  Shield, 
+import {
+  Stethoscope,
+  Zap,
+  Star,
+  Award,
+  Users,
+  Clock,
+  Shield,
   Heart,
   Smile,
   ArrowRight,
   CheckCircle,
   MapPin,
   Phone,
-  ChevronLeft, 
-  ChevronRight
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import heroImage from "@/assets/hero-dental-clinic.jpg";
 import dentalImplantImage from "@/assets/dental-implant.jpg";
@@ -32,42 +33,118 @@ import logo from "@/assets/logo.svg";
 import shortLogo from "@/assets/short-logo-wo-name.svg";
 import FooterCTA from "@/components/FooterCTA";
 import { services } from "@/data/services";
-import ReviewsSection from '@/components/ReviewsSection';
-import { scrollToId } from '@/lib/ScrollToId';
-
-
-
-
-
+import ReviewsSection from "@/components/ReviewsSection";
+import { scrollToId } from "@/lib/ScrollToId";
 
 const Index = () => {
-  
-  
-  
-const [currentIndex, setCurrentIndex] = useState(0);
-const totalSlides = services.length;
-const slidesPerPage = 3;
+  // ---------- Helpers for carousel responsiveness ----------
+  function getSlidesPerPage(width: number) {
+    // Tailwind-like breakpoints: mobile -> 1, sm -> 2, lg -> 3, xl -> 4
+    if (width >= 1280) return 4;
+    if (width >= 1024) return 3;
+    if (width >= 640) return 2;
+    return 1;
+  }
 
-// Go back by one "page"
-const handlePrev = () => {
-  setCurrentIndex((prevIndex) => {
-    const newIndex = prevIndex - 1;
-    return newIndex < 0 ? Math.ceil(totalSlides / slidesPerPage) - 1 : newIndex;
-  });
-};
+  // ---------- ServicesCarousel component ----------
+  const ServicesCarousel: React.FC<{ services: any[] }> = ({ services }) => {
+    const [slidesPerPage, setSlidesPerPage] = useState<number>(() =>
+      typeof window !== "undefined" ? getSlidesPerPage(window.innerWidth) : 1
+    );
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const viewportRef = useRef<HTMLDivElement | null>(null);
 
-// Go forward by one "page"
-const handleNext = () => {
-  setCurrentIndex((prevIndex) => {
-    const newIndex = prevIndex + 1;
-    return newIndex >= Math.ceil(totalSlides / slidesPerPage) ? 0 : newIndex;
-  });
-};
+    // update slidesPerPage on resize
+    useEffect(() => {
+      function onResize() {
+        const sp = getSlidesPerPage(window.innerWidth);
+        setSlidesPerPage(sp);
+      }
+      window.addEventListener("resize", onResize);
+      return () => window.removeEventListener("resize", onResize);
+    }, []);
 
-const showPrevButton = totalSlides > slidesPerPage;
-const showNextButton = totalSlides > slidesPerPage;
-  // const featuredServices = services.slice(0, 3);
+    // clamp currentIndex whenever slidesPerPage or services.length changes
+    useEffect(() => {
+      const maxIndex = Math.max(0, services.length - slidesPerPage);
+      setCurrentIndex((ci) => Math.min(ci, maxIndex));
+    }, [slidesPerPage, services.length]);
 
+    const slideWidthPercent = 100 / slidesPerPage;
+    const maxIndex = Math.max(0, services.length - slidesPerPage);
+    const showControls = services.length > slidesPerPage;
+
+    const handlePrev = () => setCurrentIndex((c) => Math.max(0, c - 1));
+    const handleNext = () => setCurrentIndex((c) => Math.min(maxIndex, c + 1));
+
+    // optional: keyboard navigation
+    useEffect(() => {
+      function onKey(e: KeyboardEvent) {
+        if (e.key === "ArrowLeft") handlePrev();
+        if (e.key === "ArrowRight") handleNext();
+      }
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }, [maxIndex]);
+
+    return (
+      <div className="relative">
+        {/* Prev / Next controls */}
+        {showControls && (
+          <button
+            aria-label="Previous"
+            onClick={handlePrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+          >
+            <ChevronLeft className="w-4 h-4 text-gray-700" />
+          </button>
+        )}
+        {showControls && (
+          <button
+            aria-label="Next"
+            onClick={handleNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+          >
+            <ChevronRight className="w-4 h-4 text-gray-700" />
+          </button>
+        )}
+
+        {/* viewport */}
+        <div ref={viewportRef} className="overflow-hidden px-4">
+          {/* track */}
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * slideWidthPercent}%)`,
+            }}
+          >
+            {services.map((service, idx) => (
+              <div
+                key={service.id ?? idx}
+                className="box-border px-4"
+                style={{
+                  flex: `0 0 ${slideWidthPercent}%`,
+                  maxWidth: `${slideWidthPercent}%`,
+                }}
+              >
+                <GlassmorphismCard className="bg-white/30 backdrop-blur-md shadow-lg h-full">
+                  <ServiceCard
+                    title={service.title}
+                    description={service.shortDescription}
+                    image={service.infographicImages ?? service.featuredImage ?? undefined}
+                    features={service.features}
+                    path={`/services/${service.slug}`}
+                  />
+                </GlassmorphismCard>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // ---------- Page content ----------
   const features = [
     {
       title: "Advanced Technology",
@@ -91,40 +168,18 @@ const showNextButton = totalSlides > slidesPerPage;
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Priya Sharma",
-      review: "Excellent service and care. The team made me feel comfortable throughout my treatment.",
-      rating: 5,
-    },
-    {
-      name: "Rajesh Kumar",
-      review: "Professional staff and modern facilities. Highly recommend for dental implants.",
-      rating: 5,
-    },
-    {
-      name: "Anita Patel",
-      review: "Best dental clinic in Pune. They truly care about their patients' well-being.",
-      rating: 5,
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-primary to-primary-dark overflow-hidden">
         {/* Background dental chair image */}
         <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Modern dental clinic interior"
-            className="w-full h-full object-cover"
-          />
+          <img src={heroImage} alt="Modern dental clinic interior" className="w-full h-full object-cover" />
           <div className="absolute inset-0"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
             {/* Left side - Glassmorphism Card */}
@@ -134,20 +189,14 @@ const showNextButton = totalSlides > slidesPerPage;
                 <div className="mb-6">
                   <div className="flex items-center mb-3">
                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mr-4">
-                      
-                      <img
-                      src={shortLogo}
-                      alt="clinic logo"
-                      />
-                    
-                      
+                      <img src={shortLogo} alt="clinic logo" />
                     </div>
                     <div>
                       <h2 className="text-5xl font-bold text-shade font-heading">PADMANAABH</h2>
                       <p className="text-2xl font-bold text-shade/80 font-heading">Dental Clinic and Implant Centre</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center mb-2">
                     <MapPin className="h-4 w-4 text-primary-dark mr-2" />
                     <a
@@ -161,7 +210,7 @@ const showNextButton = totalSlides > slidesPerPage;
                       Lohegaon, Pune.
                     </a>
                   </div>
-                  
+
                   <a
                     href="#reviews"
                     onClick={(e) => {
@@ -172,11 +221,7 @@ const showNextButton = totalSlides > slidesPerPage;
                     <div className="flex items-center">
                       <span className="text-primary-dark mr-2">Top rated in Pune</span>
                       <span className="font-bold text-primary-dark mr-2">4.9/5</span>
-                      <div className="flex text-yellow-400">
-                        {"★★★★★".split("").map((star, i) => (
-                          <span key={i}>{star}</span>
-                        ))}
-                      </div>
+                      <div className="flex text-yellow-400">{"★★★★★".split("").map((star, i) => (<span key={i}>{star}</span>))}</div>
                     </div>
                   </a>
                 </div>
@@ -186,10 +231,9 @@ const showNextButton = totalSlides > slidesPerPage;
                   Your Smile, Our Passion
                   <span className="block">– Book Today!</span>
                 </h1>
-                
+
                 <p className="text-lg text-white/90 mb-8">
-                  Experience compassionate care and advanced treatments 
-                  tailored just for you.
+                  Experience compassionate care and advanced treatments tailored just for you.
                 </p>
 
                 {/* Features */}
@@ -211,13 +255,12 @@ const showNextButton = totalSlides > slidesPerPage;
                 {/* Contact Info */}
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center text-white/80">
-                    
                     <Clock className="h-5 w-5 mr-3" />
                     <a href="/contact">
-                    <span>Open Today! 10:00 AM - 08:00 PM</span>
+                      <span>Open Today! 10:00 AM - 08:00 PM</span>
                     </a>
                     <a href="/contact" className="ml-2 text-primary-dark underline">
-                    <span className="text-primary-dark underline ml-2">Check Timings</span>
+                      <span className="text-primary-dark underline ml-2">Check Timings</span>
                     </a>
                   </div>
                   <div className="flex items-center text-white/80">
@@ -228,147 +271,74 @@ const showNextButton = totalSlides > slidesPerPage;
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <WhatsAppUsButton 
-                    onClick={() => window.open('https://wa.me/917507325539', '_blank')}
-                  />
+                  <WhatsAppUsButton onClick={() => window.open("https://wa.me/917507325539", "_blank")} />
                   <BookAppointmentButton />
                 </div>
               </GlassmorphismCard>
             </div>
-            
+
             {/* Right side - Keep space for the dental chair image */}
             <div className="hidden lg:block"></div>
           </div>
         </div>
       </section>
 
-    {/* Why Choose Us Section */}
-<section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">Why Choose Us?</h2>
-      <p className="text-lg text-black/80 max-w-3xl mx-auto">
-        We combine cutting-edge technology with compassionate care to deliver 
-        exceptional dental experiences that exceed your expectations.
-      </p>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {features.map((feature, index) => (
-        <GlassmorphismCard key={index} className="p-8  bg-primary/40  hover:scale-105">
-        
-          <CardHeader>
-            <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-              <div className="text-primary text-2xl">{feature.icon}</div>
-            </div>
-            <CardTitle className="text-lg text-shade">{feature.title}</CardTitle>
-            <CardDescription className="text-black/80">
-              {feature.description}
-            </CardDescription>
-          </CardHeader>
-        
-        </GlassmorphismCard>
-      ))}
-    </div>
-  </div>
-</section>
-
-      
-      {/* Services Section */}
-<section className="py-20 bg-gradient-to-br from-primary/60 to-primary-dark/30">
-  <div className="container mx-auto relative px-4">
-    {/* Header */}
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">
-        Explore Our Comprehensive Services
-      </h2>
-      <p className="text-lg text-black/80 max-w-3xl mx-auto">
-        From routine cleanings to complex procedures, we offer a full range of
-        dental services to keep your smile healthy and beautiful.
-      </p>
-    </div>
-
-    {/* Carousel */}
-    <div className="relative">
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / slidesPerPage)}%)`,
-            width: `${(100 / slidesPerPage) * services.length}%`,
-          }}
-        >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              style={{ width: `${100 / services.length}%` }}
-              className="px-4 box-border"
-            >
-              <GlassmorphismCard
-              className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow "
-              >
-                 {/* Service Image */}
-                  {service.detailedContent?.additionalSections[0]?.image && (
-                    <img
-                      src={service.infographicImages}
-                      alt={service.title}
-                      className="w-full h-40 object-cover rounded-t-xl"
-                    />
-                  )}
-                <ServiceCard
-                  title={service.title}
-                  description={service.shortDescription}
-                  
-                  features={service.features}
-                  path={`/services/${service.slug}`}
-                />
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">Why Choose Us?</h2>
+            <p className="text-lg text-black/80 max-w-3xl mx-auto">
+              We combine cutting-edge technology with compassionate care to deliver exceptional dental experiences that exceed your expectations.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <GlassmorphismCard key={index} className="p-8  bg-primary/40  hover:scale-105">
+                <CardHeader>
+                  <div className="mx-auto mb-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <div className="text-primary text-2xl">{feature.icon}</div>
+                  </div>
+                  <CardTitle className="text-lg text-shade">{feature.title}</CardTitle>
+                  <CardDescription className="text-black/80">{feature.description}</CardDescription>
+                </CardHeader>
               </GlassmorphismCard>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Navigation */}
-      {showPrevButton && (
-        <button
-          onClick={handlePrev}
-          className="absolute -left-10 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-md"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-      )}
-      {showNextButton && (
-        <button
-          onClick={handleNext}
-          className="absolute -right-10 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-md"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
-      )}
-    </div>
+      {/* Services Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/60 to-primary-dark/30">
+        <div className="container mx-auto relative px-4">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shade">Explore Our Comprehensive Services</h2>
+            <p className="text-lg text-black/80 max-w-3xl mx-auto">
+              From routine cleanings to complex procedures, we offer a full range of dental services to keep your smile healthy and beautiful.
+            </p>
+          </div>
 
-    {/* CTA */}
-    <div className="text-center mt-12">
-      <a href="/services">
-      <Button type="submit" size="lg" className=" inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
-        View All Services
-        <ArrowRight className="ml-2 h-5 w-5" />
-      </Button>
-      </a>
-    </div>
-  </div>
-</section>
+          {/* Carousel */}
+          <ServicesCarousel services={services} />
 
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <a href="/services">
+              <Button type="submit" size="lg" className=" inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 mt-4 justify-center">
+                View All Services
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Patient Testimonials */}
       <section className=" bg-white text-primary">
-        
-          
-        <ReviewsSection/>
-
-        
+        <ReviewsSection />
       </section>
 
-      
       <FooterCTA />
       <Footer />
       <FloatingActionButtons />
