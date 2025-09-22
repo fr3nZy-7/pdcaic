@@ -7,6 +7,8 @@ const API_KEY = process.env.CALCOM_API_KEY;
 const calcomApiCall = async (endpoint: string) => {
   const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${API_KEY}`;
 
+  console.log('Cal.com slot API call URL:', url);
+
   const response = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +25,6 @@ const calcomApiCall = async (endpoint: string) => {
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -39,10 +40,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { eventTypeId, date } = req.query;
 
-    if (!eventTypeId || !date) {
+    console.log('Fetching slots for eventTypeId:', eventTypeId, 'date:', date);
+
+    if (!eventTypeId || !date || Array.isArray(eventTypeId) || Array.isArray(date)) {
       return res.status(400).json({
         success: false,
-        error: 'eventTypeId and date are required'
+        error: 'eventTypeId and date are required and must be single strings'
       });
     }
 
