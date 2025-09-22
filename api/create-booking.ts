@@ -6,12 +6,13 @@ const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 const CALCOM_API_BASE = 'https://api.cal.com/v1';
 const CALCOM_API_KEY = process.env.CALCOM_API_KEY;
 
-// Cal.com API helper
+// Cal.com API helper using apiKey query param (v1 auth)
 const calcomApiCall = async (endpoint: string, options: RequestInit = {}) => {
-  const response = await fetch(`${CALCOM_API_BASE}${endpoint}`, {
+  const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${CALCOM_API_KEY}`;
+
+  const response = await fetch(url, {
     ...options,
     headers: {
-      'Authorization': `Bearer ${CALCOM_API_KEY}`,
       'Content-Type': 'application/json',
       'cal-api-version': '2024-06-14',
       ...options.headers,
@@ -189,6 +190,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
           : 'Appointment saved! Calendar booking pending - Dr. Neha will confirm manually.'
       }
     };
+
 
     // Add warning if Cal.com failed
     if (calcomError) {

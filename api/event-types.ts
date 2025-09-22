@@ -3,16 +3,17 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 const CALCOM_API_BASE = 'https://api.cal.com/v1';
 const API_KEY = process.env.CALCOM_API_KEY;
 
-// Cal.com API helper
+// Cal.com API helper using apiKey query param (v1 auth)
 const calcomApiCall = async (endpoint: string, options: RequestInit = {}) => {
-  const response = await fetch(`${CALCOM_API_BASE}${endpoint}`, {
+  const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${API_KEY}`;
+
+  const response = await fetch(url, {
     ...options,
     headers: {
-      'Authorization': `Bearer ${API_KEY}`,
       'Content-Type': 'application/json',
       'cal-api-version': '2024-06-14',
       ...options.headers,
-    },
+    }
   });
 
   if (!response.ok) {
@@ -24,7 +25,6 @@ const calcomApiCall = async (endpoint: string, options: RequestInit = {}) => {
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');

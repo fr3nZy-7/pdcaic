@@ -1,17 +1,16 @@
-// src/lib/calcom-api.ts - FIXED Cal.com API Integration
-
 import type { BookingFormData, CalcomBookingResponse, CalcomEventType } from '../types/booking';
 
 const CALCOM_API_BASE = 'https://api.cal.com/v1';
 const API_KEY = import.meta.env.VITE_CALCOM_API_KEY;
 
-// Helper function to make API calls - FIXED VERSION
+// Helper function to make API calls using API v1 query parameter authentication
 const apiCall = async (endpoint: string, options: RequestInit = {}) => {
+  const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${API_KEY}`;
+
   try {
-    const response = await fetch(`${CALCOM_API_BASE}${endpoint}`, {
+    const response = await fetch(url, {
       ...options,
       headers: {
-        'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json',
         'cal-api-version': '2024-06-14',
         ...options.headers,
