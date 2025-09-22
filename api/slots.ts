@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const CALCOM_API_BASE = 'https://api.cal.com/v2'; // Changed to v2
+const CALCOM_API_BASE = 'https://api.cal.com/v2';
 const API_KEY = process.env.CALCOM_API_KEY;
 
 const calcomApiCall = async (endpoint: string) => {
@@ -10,9 +10,9 @@ const calcomApiCall = async (endpoint: string) => {
 
   const response = await fetch(url, {
     headers: {
-      'Authorization': `Bearer ${API_KEY}`, // Changed to Bearer auth
+      'Authorization': `Bearer ${API_KEY}`,
       'Content-Type': 'application/json',
-      'cal-api-version': '2024-09-04', // Updated version
+      'cal-api-version': '2024-09-04',
     },
   });
 
@@ -61,11 +61,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Use v2 endpoint with correct parameters
     const response = await calcomApiCall(
-      `/slots?start=${date}&eventTypeId=${eventTypeId}`
+      `/slots?eventTypeId=${eventTypeId}&start=${date}`
     );
 
-    // Format slots for frontend (v2 API returns different structure)
-    const slots = Object.values(response.data || {}).flat().map((slot: any) => {
+    console.log('Cal.com slots response:', response);
+
+    // Cal.com v2 returns slots in this format: { data: { "2025-09-29": [slot1, slot2] } }
+    const slotsData = response.data || {};
+    const dateKey = Object.keys(slotsData)[0]; // Get first date key
+    const slotsArray = dateKey ? slotsData[dateKey] : [];
+
+    // Format slots for frontend
+    const slots = slotsArray.map((slot: any) => {
       const time = new Date(slot.time);
       return {
         time: time.toLocaleTimeString('en-US', {
