@@ -52,7 +52,7 @@ export const getAvailableSlots = async (
 
 // Create a new booking
 export const createBooking = async (bookingData: BookingFormData): Promise<ApiResponse<BookingSuccess>> => {
-  return apiCall<BookingSuccess>('/create-booking', { // → /api/create-booking.ts
+  return apiCall<BookingSuccess>('/bookings', { // → /api/create-booking.ts
     method: 'POST',
     body: JSON.stringify(bookingData),
   });
@@ -61,7 +61,7 @@ export const createBooking = async (bookingData: BookingFormData): Promise<ApiRe
 // Get appointments (for admin dashboard later)
 export const getAppointments = async (status?: string): Promise<ApiResponse<any[]>> => {
   const query = status ? `?status=${status}` : '';
-  return apiCall<any[]>(`/create-booking${query}`); // → /api/create-booking.ts (GET method)
+  return apiCall<any[]>(`/bookings${query}`); // → /api/create-booking.ts (GET method)
 };
 
 // Utility functions for frontend (same as before)
