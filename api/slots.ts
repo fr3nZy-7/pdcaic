@@ -1,33 +1,35 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const CALCOM_API_BASE = 'https://api.cal.com/v1';
+const CALCOM_API_BASE = 'https://api.cal.com/v2'; // Changed to v2
 const API_KEY = process.env.CALCOM_API_KEY;
 
 const calcomApiCall = async (endpoint: string) => {
-    const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${API_KEY}`;
-  
-    console.log('Cal.com slot API call URL:', url);
-  
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        'cal-api-version': '2024-06-14',
-      },
-    });
-  
-    if (!response.ok) {
-      // Log full error response body for debugging
-      const errorBody = await response.json().catch(() => ({ message: 'Cal.com API call failed' }));
-      console.error('Cal.com API error response:', errorBody);
-      throw new Error(errorBody.message || `HTTP error! status: ${response.status}`);
-    }
-  
-    return response.json();
-  };
+  const url = `${CALCOM_API_BASE}${endpoint}`;
+
+  console.log('Cal.com v2 API call URL:', url);
+
+  const response = await fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`, // Changed to Bearer auth
+      'Content-Type': 'application/json',
+      'cal-api-version': '2024-09-04', // Updated version
+    },
+  });
+
+  console.log('Cal.com API response status:', response.status);
+
+  if (!response.ok) {
+    const errorBody = await response.json().catch(() => ({ message: 'Cal.com API call failed' }));
+    console.error('Cal.com API error response:', errorBody);
+    throw new Error(errorBody.message || `HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+};
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
@@ -57,13 +59,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
-    // Get available slots from Cal.com
+    // Use v2 endpoint with correct parameters
     const response = await calcomApiCall(
-      `/slots/available?eventTypeId=${eventTypeId}&startTime=${date}T00:00:00.000Z&endTime=${date}T23:59:59.000Z`
+      `/slots?start=${date}&eventTypeId=${eventTypeId}`
     );
 
-    // Format slots for frontend
-    const slots = (response.slots || []).map((slot: any) => {
+    // Format slots for frontend (v2 API returns different structure)
+    const slots = Object.values(response.data || {}).flat().map((slot: any) => {
       const time = new Date(slot.time);
       return {
         time: time.toLocaleTimeString('en-US', {
