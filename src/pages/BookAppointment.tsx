@@ -1,72 +1,293 @@
-import { useEffect, useState } from 'react';
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingActionButtons from "@/components/FloatingActionButtons";
-import CalcomWidget from '@/components/CalcomWidget';
-import { Calendar, Clock, Stethoscope } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, Phone, MapPin, Clock, CheckCircle2, Star, Stethoscope } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import BookingForm from '@/components/BookingForm';
+import GlassmorphismCard from '@/components/GlassmorphismCard';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import type { BookingSuccess } from '@/types/booking';
 
-// Assuming GlassmorphismCard is a component that provides the glassmorphism styling
-// Make sure you import it if it's a separate component you want to use.
-// If not, we'll apply the styles directly.
-// For this example, I'll apply the styles directly to demonstrate.
-// If you have a GlassmorphismCard component, you can adapt it.
-// import GlassmorphismCard from '@/components/GlassmorphismCard'; // Uncomment if using
+const BookAppointment: React.FC = () => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState<BookingSuccess | null>(null);
 
-const BookAppointment = () => {
-  const [slug, setSlug] = useState('dental-appointment');
-  
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const eventSlugFromUrl = params.get('eventSlug');
-    if (eventSlugFromUrl) {
-      setSlug(eventSlugFromUrl);
+  const handleBookingSuccess = (data: BookingSuccess) => {
+    setBookingDetails(data);
+    setShowSuccessMessage(true);
+    
+    // Auto-hide success message after 10 seconds
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 10000);
+  };
+
+  // Clinic information
+  const clinicInfo = {
+    name: "Dr. Neha Deshpande Tambe",
+    credentials: "BDS, MDS",
+    specialty: "Endodontist",
+    address: "Pathare Wasti, Lohegaon, Pune",
+    phone: "+91 XXXX-XXXX-XX", // Replace with actual number
+    email: "info@padmanaabhdental.clinic",
+    workingHours: [
+      "Monday - Saturday: 9:00 AM - 7:00 PM",
+      "Sunday: Closed"
+    ]
+  };
+
+  const services = [
+    {
+      name: "Consultation",
+      duration: "30 minutes",
+      description: "Initial consultation and dental examination",
+      icon: Stethoscope
+    },
+    {
+      name: "Root Canal Treatment",
+      duration: "60 minutes",
+      description: "Advanced endodontic treatment",
+      icon: Star
+    },
+    {
+      name: "Follow-up Visit",
+      duration: "30 minutes", 
+      description: "Post-treatment check-up and care",
+      icon: CheckCircle2
+    },
+    {
+      name: "Video Consultation",
+      duration: "45 minutes",
+      description: "Online consultation and guidance",
+      icon: Calendar
     }
-  }, []);
-  
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
-      {/* Slim, custom hero section with glassmorphism for content */}
-      <section 
-        className="relative bg-cover bg-center py-8 md:py-12 lg:py-16" // Adjusted padding for better vertical spacing
-        style={{ backgroundImage: 'url(/images/common/allservicegrid.jpg)' }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0194C1]/60 to-[#23AAB9]/60"></div>
-        <div className="container relative z-10 mx-auto px-4 text-left">
-          {/* Glassmorphism Card for the Hero Content */}
-          <div 
-            className="bg-white/50 backdrop-blur-3xl rounded-xl p-6 md:p-8 shadow-lg max-w-xl mx-auto md:mx-0"
-          >
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-shade">Book An Appointment</h1>
-            <p className="text-lg text-black/80 mb-4">
-              Schedule your visit with Dr. Neha at your convenience.
+      
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-50 to-pink-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shade">
+              Book Your Appointment
+            </h1>
+            <p className="text-xl text-black/80 mb-8">
+              Schedule your visit with Pune's leading endodontist
             </p>
-            <div className="flex flex-wrap gap-4 text-sm text-black/80 font-medium">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-shade" />
-                <span>Easy Online Booking</span>
+            
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+              {[
+                { label: "Years Experience", value: "10+" },
+                { label: "Happy Patients", value: "5000+" },
+                { label: "Success Rate", value: "98%" },
+                { label: "Response Time", value: "< 1hr" }
+              ].map((stat, index) => (
+                <GlassmorphismCard key={index} className="p-4 text-center">
+                  <div className="text-2xl font-bold text-shade">{stat.value}</div>
+                  <div className="text-sm text-black/70">{stat.label}</div>
+                </GlassmorphismCard>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Message */}
+      {showSuccessMessage && bookingDetails && (
+        <section className="py-8 bg-green-50">
+          <div className="container mx-auto px-4">
+            <GlassmorphismCard className="max-w-2xl mx-auto p-6 bg-green-100/80 border-green-200">
+              <div className="text-center">
+                <CheckCircle2 className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-green-800 mb-2">
+                  Appointment Booked Successfully!
+                </h3>
+                <p className="text-green-700 mb-4">
+                  {bookingDetails.message}
+                </p>
+                <div className="text-sm text-green-600">
+                  Booking ID: {bookingDetails.appointmentId}
+                </div>
+                <Button
+                  onClick={() => setShowSuccessMessage(false)}
+                  className="mt-4 bg-green-600 hover:bg-green-700"
+                >
+                  Dismiss
+                </Button>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-shade" />
-                <span>Flexible Time Slots</span>
+            </GlassmorphismCard>
+          </div>
+        </section>
+      )}
+
+      {/* Main Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              
+              {/* Booking Form - Takes 2/3 of the space */}
+              <div className="lg:col-span-2">
+                <BookingForm onSuccess={handleBookingSuccess} />
               </div>
-              <div className="flex items-center gap-2">
-                <Stethoscope className="h-4 w-4 text-shade" />
-                <span>Professional Care</span>
+
+              {/* Sidebar Information */}
+              <div className="space-y-6">
+                
+                {/* Doctor Information */}
+                <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
+                  <CardHeader className="p-0 mb-4">
+                    <CardTitle className="text-xl font-bold text-shade">
+                      Your Doctor
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="text-center mb-4">
+                      {/* Add doctor's photo here if available */}
+                      <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                        <span className="text-white font-bold text-2xl">
+                          {clinicInfo.name.split(' ').map(n => n).join('')}
+                        </span>
+                      </div>
+                      <h3 className="font-semibold text-shade">{clinicInfo.name}</h3>
+                      <p className="text-sm text-black/70">{clinicInfo.credentials}</p>
+                      <p className="text-sm font-medium text-blue-600">{clinicInfo.specialty}</p>
+                    </div>
+                    
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-black/80">{clinicInfo.address}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-gray-500" />
+                        <span className="text-black/80">{clinicInfo.phone}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <Clock className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          {clinicInfo.workingHours.map((hours, index) => (
+                            <div key={index} className="text-black/80">{hours}</div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </GlassmorphismCard>
+
+                {/* Services Overview */}
+                <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
+                  <CardHeader className="p-0 mb-4">
+                    <CardTitle className="text-xl font-bold text-shade">
+                      Available Services
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="space-y-4">
+                      {services.map((service, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-white/50 rounded-lg">
+                          <service.icon className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                          <div className="flex-1">
+                            <h4 className="font-medium text-shade text-sm">{service.name}</h4>
+                            <p className="text-xs text-black/70 mb-1">{service.description}</p>
+                            <span className="text-xs text-blue-600 font-medium">{service.duration}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </GlassmorphismCard>
+
+                {/* Important Notes */}
+                <GlassmorphismCard className="p-6 bg-yellow-50/80 backdrop-blur-2xl border-yellow-200">
+                  <CardHeader className="p-0 mb-3">
+                    <CardTitle className="text-lg font-bold text-yellow-800">
+                      Important Notes
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <ul className="space-y-2 text-sm text-yellow-800">
+                      <li className="flex items-start gap-2">
+                        <span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Please arrive 10 minutes before your appointment</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Bring your previous dental records if available</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Emergency appointments available on call</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>Clinic is closed on Sundays</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </GlassmorphismCard>
+
+                {/* Contact for Help */}
+                <GlassmorphismCard className="p-6 bg-blue-50/80 backdrop-blur-2xl border-blue-200">
+                  <CardContent className="p-0 text-center">
+                    <Phone className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+                    <h3 className="font-semibold text-blue-900 mb-2">Need Help?</h3>
+                    <p className="text-sm text-blue-800 mb-3">
+                      Having trouble booking online? Call us directly for assistance.
+                    </p>
+                    <Button variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50">
+                      Call Now
+                    </Button>
+                  </CardContent>
+                </GlassmorphismCard>
+
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-r from-pink-50 to-blue-50 -mt-20 md:-mt-24 lg:-mt-28">
+      {/* Why Choose Us */}
+      <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <CalcomWidget eventSlug={slug} />
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8 text-shade">
+              Why Choose Dr. Neha?
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: Star,
+                  title: "Expert Specialist",
+                  description: "MDS in Endodontics with 10+ years of experience in root canal treatments"
+                },
+                {
+                  icon: CheckCircle2,
+                  title: "Advanced Technology",
+                  description: "State-of-the-art equipment and modern treatment techniques"
+                },
+                {
+                  icon: Calendar,
+                  title: "Flexible Scheduling",
+                  description: "Easy online booking with multiple time slots available daily"
+                }
+              ].map((feature, index) => (
+                <GlassmorphismCard key={index} className="p-6 text-center bg-white/80">
+                  <feature.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <h3 className="font-semibold text-shade mb-2">{feature.title}</h3>
+                  <p className="text-black/70 text-sm">{feature.description}</p>
+                </GlassmorphismCard>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <FloatingActionButtons />
       <Footer />
     </div>
   );
