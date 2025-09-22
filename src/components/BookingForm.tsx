@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { X, User, Phone, Mail, FileText, Calendar, Clock, Loader2, CheckCircle, AlertCircle, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import DatePicker from '@/components/ui/DatePicker';
 import TimeSlots from '@/components/ui/TimeSlots';
@@ -136,23 +139,45 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const handleEventTypeChange = (eventTypeId: string) => {
     const eventType = eventTypes.find(et => et.id === eventTypeId) || null;
     setSelectedEventType(eventType);
+    // Clear event type error when selection is made
+    if (eventType && formErrors.event_type_id) {
+      setFormErrors(prev => ({ ...prev, event_type_id: undefined }));
+    }
   };
 
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
-    if (!formData.patient_name.trim()) errors.patient_name = 'Name is required';
+    
+    if (!formData.patient_name.trim()) {
+      errors.patient_name = 'Name is required';
+    }
+    
     if (!formData.patient_phone.trim()) {
       errors.patient_phone = 'Phone number is required';
     } else if (!/^[6-9]\d{9}$/.test(formData.patient_phone.replace(/[^0-9]/g, ''))) {
       errors.patient_phone = 'Please enter a valid 10-digit phone number';
     }
+    
     if (formData.patient_email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.patient_email)) {
       errors.patient_email = 'Please enter a valid email address';
     }
-    if (!formData.service_id) errors.service_id = 'Please select a service';
-    if (!selectedEventType) errors.event_type_id = 'Please select an event type';
-    if (!formData.preferred_date) errors.preferred_date = 'Please select a date';
-    if (!formData.preferred_time) errors.preferred_time = 'Please select a time';
+    
+    if (!formData.service_id) {
+      errors.service_id = 'Please select a service';
+    }
+    
+    if (!selectedEventType) {
+      errors.event_type_id = 'Please select an event type';
+    }
+    
+    if (!formData.preferred_date) {
+      errors.preferred_date = 'Please select a date';
+    }
+    
+    if (!formData.preferred_time) {
+      errors.preferred_time = 'Please select a time';
+    }
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -160,8 +185,10 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm() || !selectedEventType) return;
+
     setSubmitting(true);
     setSubmitStatus('idle');
+
     try {
       const bookingData: BookingFormData = {
         patient_name: formData.patient_name.trim(),
@@ -174,7 +201,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
         event_type_id: selectedEventType.id,
         event_type_name: selectedEventType.title
       };
+
       const response = await createBooking(bookingData);
+      
       if (response.success && response.data) {
         setSubmitStatus('success');
         setSubmitMessage(response.data.message);
@@ -186,7 +215,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         setSubmitStatus('error');
         setSubmitMessage(response.error || 'Failed to book appointment');
       }
-    } catch {
+    } catch (error) {
       setSubmitStatus('error');
       setSubmitMessage('Network error. Please try again.');
     } finally {
@@ -242,7 +271,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
       </CardHeader>
 
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="space-y-6">
           {submitStatus === 'error' && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
               <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
@@ -260,68 +289,70 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </h3>
 
             <div>
-              <label htmlFor="patientName" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="patient-name">
                 Full Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                id="patientName"
+              </Label>
+              <Input
+                id="patient-name"
                 type="text"
                 value={formData.patient_name}
                 onChange={(e) => handleInputChange('patient_name', e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  formErrors.patient_name ? 'border-red-500' : 'border-gray-300'
-                }`}
                 placeholder="Enter your full name"
+                className={formErrors.patient_name ? 'border-red-500' : ''}
               />
-              {formErrors.patient_name && <p className="text-red-500 text-sm mt-1">{formErrors.patient_name}</p>}
+              {formErrors.patient_name && (
+                <p className="text-red-500 text-sm mt-1">{formErrors.patient_name}</p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="patientPhone" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="patient-phone">
                 Phone Number <span className="text-red-500">*</span>
-              </label>
+              </Label>
               <div className="relative">
                 <Phone className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-                <input
-                  id="patientPhone"
+                <Input
+                  id="patient-phone"
                   type="tel"
                   value={formData.patient_phone}
                   onChange={(e) => handleInputChange('patient_phone', e.target.value)}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    formErrors.patient_phone ? 'border-red-500' : 'border-gray-300'
-                  }`}
                   placeholder="10-digit mobile number"
+                  className={`pl-10 ${formErrors.patient_phone ? 'border-red-500' : ''}`}
                 />
               </div>
-              {formErrors.patient_phone && <p className="text-red-500 text-sm mt-1">{formErrors.patient_phone}</p>}
+              {formErrors.patient_phone && (
+                <p className="text-red-500 text-sm mt-1">{formErrors.patient_phone}</p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="patientEmail" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="patient-email">
                 Email Address <span className="text-gray-500">(Optional)</span>
-              </label>
+              </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-                <input
-                  id="patientEmail"
+                <Input
+                  id="patient-email"
                   type="email"
                   value={formData.patient_email}
                   onChange={(e) => handleInputChange('patient_email', e.target.value)}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    formErrors.patient_email ? 'border-red-500' : 'border-gray-300'
-                  }`}
                   placeholder="your@email.com"
+                  className={`pl-10 ${formErrors.patient_email ? 'border-red-500' : ''}`}
                 />
               </div>
-              {formErrors.patient_email && <p className="text-red-500 text-sm mt-1">{formErrors.patient_email}</p>}
-              <p className="text-xs text-gray-500 mt-1">If not provided, we'll use your phone number for confirmations</p>
+              {formErrors.patient_email && (
+                <p className="text-red-500 text-sm mt-1">{formErrors.patient_email}</p>
+              )}
+              <p className="text-xs text-gray-500 mt-1">
+                If not provided, we'll use your phone number for confirmations
+              </p>
             </div>
           </div>
 
           <div>
-            <label htmlFor="serviceSelect" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label htmlFor="service-select">
               Service Needed <span className="text-red-500">*</span>
-            </label>
+            </Label>
             {loadingServices ? (
               <div className="flex items-center justify-center p-4 border border-gray-300 rounded-lg">
                 <Loader2 className="h-4 w-4 animate-spin mr-2" />
@@ -329,12 +360,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </div>
             ) : (
               <select
-                id="serviceSelect"
-                name="service"
+                id="service-select"
                 value={formData.service_id}
                 onChange={(e) => handleServiceChange(e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  formErrors.service_id ? 'border-red-500' : 'border-gray-300'
+                className={`w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary ${
+                  formErrors.service_id ? 'border-red-500' : 'border-input bg-background'
                 }`}
               >
                 <option value="">Select a service</option>
@@ -345,13 +375,15 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 ))}
               </select>
             )}
-            {formErrors.service_id && <p className="text-red-500 text-sm mt-1">{formErrors.service_id}</p>}
+            {formErrors.service_id && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.service_id}</p>
+            )}
           </div>
 
           <div>
-            <label htmlFor="eventTypeSelect" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label htmlFor="event-type-select">
               Event Type <span className="text-red-500">*</span>
-            </label>
+            </Label>
             {loadingEventTypes ? (
               <div className="flex items-center justify-center p-4 border border-gray-300 rounded-lg">
                 <Loader2 className="h-4 w-4 animate-spin mr-2" />
@@ -359,71 +391,70 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </div>
             ) : (
               <select
-                id="eventTypeSelect"
-                name="eventType"
+                id="event-type-select"
                 value={selectedEventType?.id || ''}
-                onChange={(e) => {
-                  const id = e.target.value;
-                  const et = eventTypes.find(et => et.id === id) || null;
-                  setSelectedEventType(et);
-                }}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  !selectedEventType ? 'border-red-500' : 'border-gray-300'
+                onChange={(e) => handleEventTypeChange(e.target.value)}
+                className={`w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary ${
+                  formErrors.event_type_id ? 'border-red-500' : 'border-input bg-background'
                 }`}
               >
                 <option value="">Select an event type</option>
-                {eventTypes.map(et => (
-                  <option key={et.id} value={et.id}>
-                    {et.title} {et.duration ? `(${et.duration} min)` : ''}
+                {eventTypes.map(eventType => (
+                  <option key={eventType.id} value={eventType.id}>
+                    {eventType.title} {eventType.duration ? `(${eventType.duration} min)` : ''}
                   </option>
                 ))}
               </select>
             )}
-            {!selectedEventType && formErrors.event_type_id && (
-              <p className="text-red-500 text-sm mt-1">Please select an event type</p>
+            {formErrors.event_type_id && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.event_type_id}</p>
             )}
           </div>
 
           <div>
-            <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label>
               Preferred Date <span className="text-red-500">*</span>
-            </label>
+            </Label>
             <DatePicker
               selectedDate={formData.preferred_date}
               onDateSelect={(date) => handleInputChange('preferred_date', date)}
               disabled={!selectedEventType}
             />
-            {formErrors.preferred_date && <p className="text-red-500 text-sm mt-1">{formErrors.preferred_date}</p>}
+            {formErrors.preferred_date && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.preferred_date}</p>
+            )}
           </div>
 
           {formData.preferred_date && selectedEventType && (
             <div>
-              <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-2">
+              <Label>
                 Preferred Time <span className="text-red-500">*</span>
-              </label>
+              </Label>
               <TimeSlots
                 slots={timeSlots}
                 selectedTime={formData.preferred_time}
                 onTimeSelect={(time) => handleInputChange('preferred_time', time)}
                 loading={loadingSlots}
               />
-              {formErrors.preferred_time && <p className="text-red-500 text-sm mt-1">{formErrors.preferred_time}</p>}
+              {formErrors.preferred_time && (
+                <p className="text-red-500 text-sm mt-1">{formErrors.preferred_time}</p>
+              )}
             </div>
           )}
 
           <div>
-            <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label htmlFor="notes">
               Additional Notes <span className="text-gray-500">(Optional)</span>
-            </label>
+            </Label>
             <div className="relative">
               <FileText className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-              <textarea
+              <Textarea
                 id="notes"
                 value={formData.notes}
                 onChange={(e) => handleInputChange('notes', e.target.value)}
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                rows={3}
                 placeholder="Any specific concerns or requirements..."
+                rows={3}
+                className="pl-10"
               />
             </div>
           </div>
@@ -441,7 +472,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </Button>
             )}
             <Button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               disabled={submitting || !selectedEventType}
               className="flex-1 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold"
             >
@@ -455,7 +487,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               )}
             </Button>
           </div>
-        </form>
+        </div>
       </CardContent>
     </Card>
   );
