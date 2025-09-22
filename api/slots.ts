@@ -64,26 +64,51 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `/slots?eventTypeId=${eventTypeId}&start=${date}&end=${date}`
     );
 
-    console.log('Cal.com slots response:', response);
+    console.log('Cal.com slots response:', JSON.stringify(response, null, 2));
 
     // Cal.com v2 returns slots in this format: { data: { "2025-09-29": [slot1, slot2] } }
     const slotsData = response.data || {};
     const dateKey = Object.keys(slotsData)[0]; // Get first date key
     const slotsArray = dateKey ? slotsData[dateKey] : [];
 
-    // Format slots for frontend
+    console.log('Slots array:', JSON.stringify(slotsArray.slice(0, 2), null, 2)); // Log first 2 slots
+
+    // Format slots for frontend - try different possible slot properties
     const slots = slotsArray.map((slot: any) => {
-      const time = new Date(slot.time);
-      return {
-        time: time.toLocaleTimeString('en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: true,
-          timeZone: 'Asia/Kolkata'
-        }),
-        available: true,
-        iso: slot.time
-      };
+      console.log('Processing slot:', slot);
+      
+      // Try different possible time properties
+      const timeValue = slot.time || slot.start || slot.startTime || slot.dateTime;
+      
+      if (!timeValue) {
+        console.error('No time property found in slot:', slot);
+        return {
+          time: "No time data",
+          available: slot.available !== false,
+          iso: null
+        };
+      }
+
+      try {
+        const time = new Date(timeValue);
+        return {
+          time: time.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true,
+            timeZone: 'Asia/Kolkata'
+          }),
+          available: slot.available !== false,
+          iso: timeValue
+        };
+      } catch (error) {
+        console.error('Error parsing time:', timeValue, error);
+        return {
+          time: `Invalid: ${timeValue}`,
+          available: slot.available !== false,
+          iso: timeValue
+        };
+      }
     });
 
     return res.status(200).json({
