@@ -19,9 +19,12 @@ const Sitemap = () => {
       title: "Main Pages",
       links: [
         { label: "Home", path: "/" },
-        { label: "About Us", path: "/about" },
         { label: "Services", path: "/services" },
+        { label: "Dental Tourism", path: "/dental-tourism" },
+        
+        { label: "About Us", path: "/about" },
         { label: "Contact Us", path: "/contact" },
+        
         { label: "Terms of Service", path: "/terms" },
         { label: "Privacy Policy", path: "/privacy" },
       ],
@@ -31,24 +34,28 @@ const Sitemap = () => {
       links: [
        
         { label: "Root Canal", path: "/services/root-canal" },
-        { label: "Orthodontics", path: "/services/orthodontics" },
         { label: "Dental Implants", path: "/services/dental-implants" },
-        { label: "General Dentistry", path: "/services/general-dentistry" },
-        { label: "Cosmetic Dentistry", path: "/services/cosmetic-dentistry" },
-        { label: "Oral Surgery", path: "/services/oral-surgery" },
-        { label: "Periodontal Treatment", path: "/services/periodontal-treatment" },
-        { label: "Pediatric Dentistry", path: "/services/pediatric-dentistry" },
-        { label: "Emergency Dental Care", path: "/services/emergency-dental-care" },
-
+        { label: "Full Mouth Rehab", path: "/services/full-mouth-rehab" },
+        { label: "Teeth Restoration", path: "/services/teeth-restoration" },
+        { label: "Oral Cancer Screening", path: "/services/oral-cancer-screening" },
+        { label: "Smile Designing", path: "/services/smile-designing" },
+        { label: "Tooth Extraction", path: "/services/tooth-extraction" },
+        { label: "Braces and Invisalign", path: "/services/braces-and-invisalign" },
+        { label: "Crowns and Bridges", path: "/services/crowns-and-bridges" },
+        { label: "Teeth Whitening", path: "/services/teeth-whitening" },
+        { label: "Cleaning and Polishing", path: "/services/cleaning-and-polishing" },
+        { label: "Kids Dentistry", path: "/services/kids-dentistry" },
       ],
     },
     {
       title: "Patient Resources",
       links: [
-        { label: "Knowledge Centre", path: "/blog" },
-        { label: "Gallery", path: "/gallery" },
         { label: "FAQs", path: "/faq" },
-        { label: "Book an Appointment", path: "/faq" },
+        { label: "Gallery", path: "/gallery" },
+        { label: "Knowledge Centre (Blogs)", path: "/blog" },
+        
+        
+        { label: "Book an Appointment", path: "/book-appointment" },
       ],
     },
   ];
