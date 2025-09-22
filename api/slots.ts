@@ -59,9 +59,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
-    // Use v2 endpoint with correct parameters
+    // Use v2 endpoint with both start and end parameters
     const response = await calcomApiCall(
-      `/slots?eventTypeId=${eventTypeId}&start=${date}`
+      `/slots?eventTypeId=${eventTypeId}&start=${date}&end=${date}`
     );
 
     console.log('Cal.com slots response:', response);
