@@ -3,26 +3,27 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 const CALCOM_API_BASE = 'https://api.cal.com/v1';
 const API_KEY = process.env.CALCOM_API_KEY;
 
-// Cal.com API helper using apiKey query param (v1 auth)
 const calcomApiCall = async (endpoint: string) => {
-  const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${API_KEY}`;
-
-  console.log('Cal.com slot API call URL:', url);
-
-  const response = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-      'cal-api-version': '2024-06-14',
-    },
-  });
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({ message: 'Cal.com API call failed' }));
-    throw new Error(error.message || `HTTP error! status: ${response.status}`);
-  }
-
-  return response.json();
-};
+    const url = `${CALCOM_API_BASE}${endpoint}${endpoint.includes('?') ? '&' : '?'}apiKey=${API_KEY}`;
+  
+    console.log('Cal.com slot API call URL:', url);
+  
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        'cal-api-version': '2024-06-14',
+      },
+    });
+  
+    if (!response.ok) {
+      // Log full error response body for debugging
+      const errorBody = await response.json().catch(() => ({ message: 'Cal.com API call failed' }));
+      console.error('Cal.com API error response:', errorBody);
+      throw new Error(errorBody.message || `HTTP error! status: ${response.status}`);
+    }
+  
+    return response.json();
+  };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
