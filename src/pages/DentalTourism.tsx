@@ -70,30 +70,30 @@ const dentalTourismHeroData = {
 const priceComparisonData = [
     {
         treatment: "Dental Implants",
-        indiaPrice: "$800",
+        indiaPrice: "$800 onwards",
         foreignPrice: "$3000",
         savings: "73%",
         savingsColor: "#007286"
     },
     {
-        treatment: "Full Smile Makeover",
-        indiaPrice: "$3500",
+        treatment: "Smile Design/Makeover",
+        indiaPrice: "$3500 onwards",
         foreignPrice: "$12000",
         savings: "70%",
         savingsColor: "#00C59E"
     },
     {
         treatment: "Root Canal",
-        indiaPrice: "$200",
+        indiaPrice: "$150 onwards",
         foreignPrice: "$1000",
-        savings: "80%",
+        savings: "93%",
         savingsColor: "#00FFFF"
     },
     {
         treatment: "Dental Crown",
-        indiaPrice: "$300",
+        indiaPrice: "$150 onwards",
         foreignPrice: "$1200",
-        savings: "75%",
+        savings: "92%",
         savingsColor: "#007286"
     }
 ];
@@ -247,7 +247,7 @@ const DentalTourism = () => {
                         className="text-2xl md:text-3xl font-bold text-shade"
                         >
                         You Save <span 
-                            style={{ color: "#00C59E" }}
+                            style={{ color: "#06cca5" }}
                         >{item.savings}</span>
                         </span>
                     </div>

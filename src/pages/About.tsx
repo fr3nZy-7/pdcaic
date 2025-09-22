@@ -198,7 +198,7 @@ const About = () => {
 
       {/* Our Values Section */}
       <section
-        className="relative bg-gradient-to-br from-[#23AAB9] to-[#0194C1] min-h-[70vh] flex items-center py-20"
+        className="relative bg-gradient-to-br from-[#23AAB9]/20 to-[#0194C1]/40 min-h-[70vh] flex items-center py-20"
         style={{
           backgroundImage: `url(/images/common/section-bg.jpg)`,
           backgroundSize: "cover",
@@ -223,7 +223,7 @@ const About = () => {
             {values.map((value, index) => (
               <GlassmorphismCard
                 key={index}
-                className="p-6 bg-shade/30 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
+                className="p-6 bg-primary/50 backdrop-blur-3xl shadow-lg hover:scale-105 transition-transform"
               >
                 <CardContent className="flex flex-col items-center text-center gap-4 sm:flex-row sm:items-start sm:text-left sm:gap-4">
                   {/* Icon */}
@@ -235,7 +235,7 @@ const About = () => {
                     <h3 className="font-bold text-lg text-shade mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-black/80">{value.description}</p>
+                    <p className="text-white/80 font-semibold">{value.description}</p>
                   </div>
                 </CardContent>
               </GlassmorphismCard>
