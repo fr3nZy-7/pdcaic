@@ -32,14 +32,14 @@ const formatDateTimeForCalcom = (date: string, time: string): string => {
   const [datePart] = date.split('T');
   const [timePart, period] = time.split(' ');
   const [hours, minutes] = timePart.split(':');
-  
+
   let hour24 = parseInt(hours);
   if (period?.toUpperCase() === 'PM' && hour24 !== 12) {
     hour24 += 12;
   } else if (period?.toUpperCase() === 'AM' && hour24 === 12) {
     hour24 = 0;
   }
-  
+
   const fullDate = new Date(`${datePart}T${hour24.toString().padStart(2, '0')}:${minutes}:00`);
   return fullDate.toISOString();
 };
@@ -49,12 +49,12 @@ const processEmail = (email?: string, mobile?: string): string => {
   if (email && email.trim()) {
     return email.trim();
   }
-  
+
   if (mobile && mobile.trim()) {
     const cleanMobile = mobile.replace(/[^0-9]/g, '');
     return `${cleanMobile}@padmanaabhdental.clinic`;
   }
-  
+
   throw new Error('Either email or mobile number is required');
 };
 
@@ -111,9 +111,12 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+    // Convert empty string service_id to null to avoid UUID error
+    const safeServiceId = service_id && service_id.trim() !== '' ? service_id : null;
+
     // Process email (use mobile if email not provided)
     const processedEmail = processEmail(patient_email, patient_phone);
-    
+
     // Format datetime for Cal.com
     const calcomDateTime = formatDateTimeForCalcom(preferred_date, preferred_time);
 
@@ -138,7 +141,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
             language: 'en',
             metadata: {
               source: 'padmanaabhdental.clinic',
-              service_id: service_id
+              service_id: safeServiceId
             },
           }),
         });
@@ -159,7 +162,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
         patient_name,
         patient_email: processedEmail,
         patient_phone,
-        service_id,
+        service_id: safeServiceId,
         preferred_date,
         preferred_time,
         notes,
@@ -185,12 +188,11 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
       data: {
         appointmentId: appointment.id,
         calcomBookingId,
-        message: calcomBookingId 
+        message: calcomBookingId
           ? 'Appointment booked successfully and calendar updated!'
           : 'Appointment saved! Calendar booking pending - Dr. Neha will confirm manually.'
       }
     };
-
 
     // Add warning if Cal.com failed
     if (calcomError) {
@@ -198,7 +200,6 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
     }
 
     return res.status(200).json(response);
-
   } catch (error) {
     console.error('Booking API error:', error);
     return res.status(500).json({
@@ -246,7 +247,6 @@ async function handleGetAppointments(req: VercelRequest, res: VercelResponse) {
       success: true,
       data: appointments || []
     });
-
   } catch (error) {
     console.error('Get appointments error:', error);
     return res.status(500).json({
