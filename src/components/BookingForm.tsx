@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, User, Phone, Mail, FileText, Loader2, CheckCircle, AlertCircle, Stethoscope } from 'lucide-react';
+import { X, User, Phone, Mail, FileText, Loader2, AlertCircle, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,7 +9,6 @@ import DatePicker from '@/components/ui/DatePicker';
 import TimeSlots from '@/components/ui/TimeSlots';
 import { getEventTypes, getAvailableSlots, createBooking } from '@/lib/booking-api';
 import type { CalcomEventType, TimeSlot, BookingFormData } from '@/types/booking';
-import GlassmorphismCard from './GlassmorphismCard';
 
 interface BookingFormProps {
   showModal?: boolean;
@@ -166,8 +165,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
       if (response.success && response.data) {
         setSubmitStatus('success');
         setSubmitMessage(response.data.message);
+        // CHANGED: Call onSuccess immediately and reset form
         onSuccess?.(response.data);
-        setTimeout(() => { if (!showModal) resetForm(); }, 3000);
+        resetForm(); // Reset form immediately after success
       } else {
         // Check for conflict error (409 status)
         if (response.error?.includes('Time slot no longer available') || response.error?.includes('409')) {
@@ -211,28 +211,14 @@ const BookingForm: React.FC<BookingFormProps> = ({
     onCancel?.();
   };
 
-  if (submitStatus === 'success') {
-    return (
-      <div className={showModal ? 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4' : ''}>
-        <Card className="w-full max-w-md">
-          <CardContent className="text-center p-8">
-            <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Appointment Booked!</h3>
-            <p className="text-gray-600 mb-6">{submitMessage}</p>
-            <Button onClick={handleClose} className="w-full">Close</Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
+  // REMOVED: Success modal component entirely
 
   const formContent = (
-    <GlassmorphismCard className="bg-primary/20 w-full max-w-2xl mx-auto text-shade ">
-    
+    <Card className="w-full max-w-2xl mx-auto text-shade">
       <CardHeader className="text-center">
         <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold text-shade">
-          <img src="/images/icons/tooth-tick.svg" alt="Clinic Logo" className="h-10 w-10" />
-          Appointment Form
+          <Stethoscope className="h-6 w-6" />
+          Book Your Appointment
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -419,8 +405,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         </form>
       </CardContent>
-    
-    </GlassmorphismCard>
+    </Card>
   );
 
   if (showModal) {

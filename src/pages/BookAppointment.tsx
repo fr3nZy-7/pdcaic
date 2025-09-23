@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Phone, MapPin, Clock, CheckCircle2, Star, Stethoscope } from 'lucide-react';
+import { Calendar, Phone, MapPin, Clock, CheckCircle2, Star, Stethoscope, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
@@ -19,8 +19,6 @@ const BookAppointment: React.FC = () => {
     setTimeout(() => setShowSuccessMessage(false), 10000);
   };
 
-  
-
   // Static services for sidebar display only
   const services = [
     { name: "Consultation", duration: "30 minutes", description: "Initial consultation and dental examination", icon: Stethoscope },
@@ -34,7 +32,7 @@ const BookAppointment: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center py-8 md:py-12 lg:py-16" // Adjusted padding for better vertical spacing
+      <section className="relative bg-cover bg-center py-8 md:py-12 lg:py-16"
         style={{ backgroundImage: 'url(/images/common/contact-section.jpg)' }}>
         
         <div className="container mx-auto px-4">
@@ -58,21 +56,34 @@ const BookAppointment: React.FC = () => {
         </div>
       </section>
 
-      {/* Success Message */}
+      {/* Success Popup Modal - FIXED: Now floating overlay */}
       {showSuccessMessage && bookingDetails && (
-        <section className="py-8 bg-green-50">
-          <div className="container mx-auto px-4">
-            <GlassmorphismCard className="max-w-2xl mx-auto p-6 bg-green-100/80 border-green-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="relative max-w-md w-full">
+            <GlassmorphismCard className="p-6 bg-green-100/95 border-green-200 backdrop-blur-sm">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowSuccessMessage(false)}
+                className="absolute -top-2 -right-2 z-10 bg-white hover:bg-gray-50"
+              >
+                <X className="h-4 w-4" />
+              </Button>
               <div className="text-center">
                 <CheckCircle2 className="h-12 w-12 text-green-600 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-green-800 mb-2">Appointment Booked Successfully!</h3>
                 <p className="text-green-700 mb-4">{bookingDetails.message}</p>
-                <div className="text-sm text-green-600">Booking ID: {bookingDetails.appointmentId}</div>
-                <Button onClick={() => setShowSuccessMessage(false)} className="mt-4 bg-green-600 hover:bg-green-700">Dismiss</Button>
+                <div className="text-sm text-green-600 mb-4">Booking ID: {bookingDetails.appointmentId}</div>
+                <Button 
+                  onClick={() => setShowSuccessMessage(false)} 
+                  className="w-full bg-green-600 hover:bg-green-700"
+                >
+                  Close
+                </Button>
               </div>
             </GlassmorphismCard>
           </div>
-        </section>
+        </div>
       )}
 
       {/* Main Content */}
@@ -90,15 +101,12 @@ const BookAppointment: React.FC = () => {
               {/* Booking Form */}
               <div className="lg:col-span-2">
                 <BookingForm onSuccess={handleBookingSuccess} />
-               
-
-
               </div>
 
               {/* Sidebar Information */}
               <div className="space-y-6">
 
-              <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
+                <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
                   <CardHeader className="p-0 mb-4">
                     <CardTitle className="text-xl font-bold text-shade">Available Services</CardTitle>
                   </CardHeader>
@@ -132,9 +140,6 @@ const BookAppointment: React.FC = () => {
                   </CardContent>
                 </GlassmorphismCard>
 
-                
-               
-
               </div>
             </div>
           </div>
@@ -152,7 +157,7 @@ const BookAppointment: React.FC = () => {
                 { icon: CheckCircle2, title: "Advanced Technology", description: "State-of-the-art equipment and modern treatment techniques" },
                 { icon: Calendar, title: "Flexible Scheduling", description: "Easy online booking with multiple time slots available daily" }
               ].map((feature, i) => (
-                <GlassmorphismCard key={i} className="p-6 text-center bg-white/80">
+                <GlassmorphismCard key={i} className="p-6 text-center bg-primary/20">
                   <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold text-shade mb-2">{feature.title}</h3>
                   <p className="text-black/70 text-sm">{feature.description}</p>
