@@ -342,13 +342,13 @@ const Contact = () => {
 
               
                 
-              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-4 backdrop-blur-2xl bg-white/40">
+              <GlassmorphismCard className="text-center hover:shadow-lg transition-shadow p-2 backdrop-blur-2xl bg-white/40">
                 <CardHeader>
                   <CardTitle className="text-shade text-3xl">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   
-                  <BookAppointmentButton className="w-full justify-center"/>
+                  <BookAppointmentButton className=" w-full justify-center"/>
                   <WhatsAppUsButton className="w-full justify-center" onClick={() => window.open('https://wa.me/917507325539', '_blank')}/>
                   <div className="bg-white/40 backdrop-blur-2xl p-4 rounded-lg">
                     <h4 className="font-semibold mb-2 text-lg text-shade">Emergency Dental Care</h4>

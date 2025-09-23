@@ -34,7 +34,7 @@ const Header = () => {
         { name: "Dental Implants", href: "/services/dental-implants" },
         { name: "Full Mouth Rehab", href: "/services/full-mouth-rehab" },
         { name: "Teeth Restoration", href: "/services/teeth-restoration" },
-        { name: "Oral Cancer Screening", href: "/services/oral-cancer-screening" },
+        { name: "Oral Surgery", href: "/services/oral-surgery" },
         { name: "Smile Designing", href: "/services/smile-designing" },
         { name: "Tooth Extraction", href: "/services/tooth-extraction" },
         { name: "Braces and Invisalign", href: "/services/braces-and-invisalign" },

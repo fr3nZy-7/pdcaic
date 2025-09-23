@@ -58,7 +58,7 @@ const Footer = () => {
                 <div className="font-body">
                   <div className="font-medium text-shade">Our Location</div>
                   <div className="text-black/80 text-sm leading-relaxed">
-                    Lane No. 1 Sainik Colony, Pathore Wasti,<br />
+                    Lane No. 1 Sainik Colony, Pathare Wasti,<br />
                     Lohegaon, Pune, Maharashtra 411047
                   </div>
                 </div>
@@ -72,7 +72,7 @@ const Footer = () => {
                     href="tel:+917507325539" 
                     className="text-black/80 text-sm hover:text-accent transition-colors"
                   >
-                    +91 7507 32 55 39
+                    +91 7507 325 539
                   </a>
                 </div>
               </div>

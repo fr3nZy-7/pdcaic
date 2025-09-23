@@ -209,14 +209,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
   }
 
   const formContent = (
-    <Card className="w-full max-w-2xl mx-auto">
+    <Card className="w-full max-w-2xl mx-auto text-shade">
       <CardHeader className="text-center">
         <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold text-shade">
-          <Stethoscope className="h-6 w-6" />
-          Book Your Appointment
+          
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent >
         <form onSubmit={handleSubmit} className="space-y-6">
           {submitStatus === 'error' && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
@@ -360,7 +359,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <Button
               type="submit"
               disabled={submitting || !selectedEventType}
-              className="flex-1 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#23AAB9] to-[#0194C1] text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
               {submitting ? (
                 <>

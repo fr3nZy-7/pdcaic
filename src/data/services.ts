@@ -79,7 +79,7 @@ export const services: Service[] = [
     shortDescription: "Advanced endodontic therapy to save infected or damaged teeth while eliminating pain and preserving natural teeth.",
     iconPath:"/images/icons/root-canal.svg",
     longDescription: "Root Canal Treatment (RCT) is a highly effective way to save a natural tooth that has been infected or damaged. At our clinic, we use modern techniques and advanced technology to make the procedure as pain-free and efficient as possible. Whether it's a single-visit RCT or a retreatment, our focus is always on patient comfort and preserving natural teeth.",
-    heroImage: "/images/services/endo-motor-rct-hero.jpg",
+    heroImage: "/images/services/root-canal-large.jpg",
     infographicImages: "/images/services/root-canal.jpg",
     
     seo: {
@@ -175,7 +175,7 @@ export const services: Service[] = [
     shortDescription: "Regain your confidence with permanent tooth replacements. Dental implants are the gold standard for restoring missing teeth and providing a stable, natural-looking smile.",
     iconPath: "/images/icons/implants.svg",
     longDescription: "Dental implants are a long-term solution for missing teeth. An implant is a small post, usually made of titanium, that is surgically placed into the jawbone to act as a replacement for the tooth's root. A crown is then placed on top, providing a durable and aesthetically pleasing restoration that looks and feels like a natural tooth.",
-    heroImage: "/images/services/implants-hero.jpg",
+    heroImage: "/images/services/dental-implants-hero-large.jpg",
     infographicImages: "/images/services/dental-implants.jpg",
     
     seo: {
@@ -191,17 +191,17 @@ export const services: Service[] = [
     beforeAfterCategory: "implants",
     features: [
       {
-        icon: "/images/icons/natural-feel.svg",
+        icon: "/images/icons/natural.svg",
         title: "Natural Look & Feel",
         description: "Implants blend seamlessly with your natural teeth"
       },
       {
-        icon: "/images/icons/long-lasting.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Long-Lasting Solution",
         description: "A permanent fix that can last a lifetime with proper care"
       },
       {
-        icon: "/images/icons/bone-preservation.svg",
+        icon: "/images/icons/strong.svg",
         title: "Bone Preservation",
         description: "Prevents jawbone deterioration and maintains facial structure"
       },
@@ -288,22 +288,22 @@ export const services: Service[] = [
     beforeAfterCategory: "full-mouth-rehab",
     features: [
       {
-        icon: "/images/icons/comprehensive-plan.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Comprehensive Plan",
         description: "A single, coordinated plan for all your dental needs"
       },
       {
-        icon: "/images/icons/customized-results.svg",
+        icon: "/images/icons/face-star.svg",
         title: "Customized Results",
         description: "Tailored treatment to meet your unique goals"
       },
       {
-        icon: "/images/icons/functional-aesthetics.svg",
+        icon: "/images/icons/smile-plus.svg",
         title: "Functional Aesthetics",
         description: "Restores both function and beauty to your smile"
       },
       {
-        icon: "/images/icons/multidisciplinary-approach.svg",
+        icon: "/images/icons/family.svg",
         title: "Multidisciplinary Approach",
         description: "Coordinated care from multiple dental specialists"
       }
@@ -385,22 +385,22 @@ export const services: Service[] = [
     beforeAfterCategory: "teeth-restoration",
     features: [
       {
-        icon: "/images/icons/natural-look.svg",
+        icon: "/images/icons/natural.svg",
         title: "Natural-Looking Materials",
         description: "Tooth-colored fillings and crowns for a seamless smile"
       },
       {
-        icon: "/images/icons/durability.svg",
+        icon: "/images/icons/strong.svg",
         title: "Durable & Strong",
         description: "Long-lasting restorations that can withstand daily use"
       },
       {
-        icon: "/images/icons/preserve-tooth.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Preserves Tooth Structure",
         description: "Minimally invasive techniques to save your natural teeth"
       },
       {
-        icon: "/images/icons/quick-treatment.svg",
+        icon: "/images/icons/gentle.svg",
         title: "Efficient Procedures",
         description: "Get your teeth restored quickly and comfortably"
       }
@@ -460,89 +460,112 @@ export const services: Service[] = [
     }
   },
   {
-    slug: "oral-cancer-screening",
-    title: "Oral Cancer Screening",
-    shortDescription: "Early detection is key to successful treatment. Our comprehensive oral cancer screenings are a simple, non-invasive way to identify potential issues and ensure peace of mind.",
-    iconPath: "/images/icons/oral-cancer-screening.svg",
-    longDescription: "Oral cancer screening is a routine examination performed by a dentist to look for signs of cancer or precancerous conditions in your mouth. This simple, pain-free procedure is a critical part of your regular dental check-up. We use the latest visual and tactile examination techniques to spot any abnormalities early, when treatment is most effective.",
-    heroImage: "/images/services/oral-cancer-screening-hero.jpg",
-    infographicImages: "/images/services/oral-cancer-screening.jpg",
-    
-    seo: {
-      title: "Oral Cancer Screening in Pune | Early Detection & Prevention",
-      description: "Schedule an oral cancer screening in Pune for early detection. Our quick and pain-free check-ups help identify signs of oral cancer when it's most treatable.",
-      keywords: [
-        "oral cancer screening",
-        "early detection",
-        "oral health",
-        "cancer prevention",
-      ],
+    "slug": "oral-surgery",
+    "title": "Oral Surgery",
+    "shortDescription": "Our expert oral surgery services cover a range of procedures, from routine extractions to complex surgical treatments, ensuring your oral health and comfort.",
+    "iconPath": "/images/icons/oral-surgery.svg",
+    "longDescription": "Oral surgery involves a variety of surgical procedures to treat injuries, diseases, and defects in the head, neck, face, jaws, and hard and soft tissues of the oral cavity. Our experienced team performs a wide range of procedures, including wisdom tooth extractions, surgical teeth extractions, sinus lifts, and oral cancer screenings, all with a focus on patient comfort and optimal outcomes.",
+    "heroImage": "/images/services/oral-surgery-hero.jpg",
+    "infographicImages": "/images/services/oral-surgery-info.jpg",
+    "seo": {
+        "title": "Oral Surgery in Pune | Wisdom Tooth Extraction & Sinus Lifts",
+        "description": "Comprehensive oral surgery services in Pune. We specialize in wisdom tooth extractions, surgical extractions, sinus lifts, and oral cancer screenings for your complete oral health.",
+        "keywords": [
+            "oral surgery",
+            "wisdom tooth extraction",
+            "surgical teeth extraction",
+            "sinus lift",
+            "oral cancer screening",
+            "oral surgeon pune"
+        ]
     },
-    beforeAfterCategory: "oral-cancer-screening",
-    features: [
-      {
-        icon: "/images/icons/quick-easy.svg",
-        title: "Quick & Easy",
-        description: "The screening takes just a few minutes during your check-up"
-      },
-      {
-        icon: "/images/icons/pain-free.svg",
-        title: "Completely Pain-Free",
-        description: "A non-invasive procedure with no discomfort"
-      },
-      {
-        icon: "/images/icons/peace-of-mind.svg",
-        title: "Peace of Mind",
-        description: "Early detection leads to better outcomes"
-      },
-      {
-        icon: "/images/icons/expert-care.svg",
-        title: "Expert Examination",
-        description: "Performed by a trained dental professional"
-      }
-    ],
-    processSteps: [
-      {
-        stepNumber: 1,
-        title: "Visual Examination",
-        description: "We visually inspect your face, neck, lips, gums, cheeks, and tongue"
-      },
-      {
-        stepNumber: 2,
-        title: "Tactile Examination",
-        description: "We gently feel for any lumps, bumps, or tender areas"
-      },
-      {
-        stepNumber: 3,
-        title: "Discussion & Results",
-        description: "We discuss our findings and next steps if any concerns are found"
-      }
-    ],
-    mockBeforeAfterImages: [
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "This service does not typically have before-and-after images." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "This service does not typically have before-and-after images." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "This service does not typically have before-and-after images." }
-    ],
-    detailedContent: {
-      mainTitle: "Your Health, Our Priority",
-      mainDescription: "Regular oral cancer screenings are a vital part of proactive healthcare. By including this simple test in your routine check-up, we help safeguard your health and catch potential issues early, when they are most treatable.",
-      heroContentImage: "/images/services/subhero-oral-cancer.jpg",
-      additionalSections: [
+    "beforeAfterCategory": "oral-surgery",
+    "features": [
         {
-          title: "Who is at Risk?",
-          content: "While anyone can develop oral cancer, the risk is higher for those who use tobacco, consume alcohol excessively, have a history of sun exposure to the lips, or have a family history of cancer. We recommend a screening for all adult patients.",
-          image: "/images/services/oral-cancer-risk.jpg",
-          subsections: [
-            {
-              subtitle: "The Importance of Early Detection",
-              text: "When detected in its early stages, oral cancer has a very high cure rate. This is why regular screenings are so important, as they can identify abnormalities long before you might notice any symptoms.",
-              image: "/images/services/oral-cancer-info.jpg"
-            }
-          ]
+            "icon": "/images/icons/expert-specialist.svg",
+            "title": "Experienced Surgeons",
+            "description": "Procedures performed by highly trained and experienced oral surgeons"
+        },
+        {
+            "icon": "/images/icons/clinic.svg",
+            "title": "Advanced Techniques",
+            "description": "We use modern surgical methods for precision and minimal discomfort"
+        },
+        {
+            "icon": "/images/icons/gentle-care.svg",
+            "title": "Effective Pain Management",
+            "description": "A focus on patient comfort through local anesthesia and sedation options"
+        },
+        {
+            "icon": "/images/icons/gentle.svg",
+            "title": "Comprehensive Solutions",
+            "description": "Covering a wide range of surgical needs, from simple to complex"
         }
-      ]
+    ],
+    "processSteps": [
+        {
+            "stepNumber": 1,
+            "title": "Initial Consultation & Diagnosis",
+            "description": "We perform a thorough examination and use diagnostic imaging to create a precise treatment plan"
+        },
+        {
+            "stepNumber": 2,
+            "title": "The Surgical Procedure",
+            "description": "The surgery is performed with a focus on safety, efficiency, and patient comfort"
+        },
+        {
+            "stepNumber": 3,
+            "title": "Post-Operative Care",
+            "description": "We provide detailed aftercare instructions and support for a smooth recovery"
+        }
+    ],
+    "mockBeforeAfterImages": [
+        {
+            "before": "/images/dummy-before.jpg",
+            "after": "/images/dummy-after.jpg",
+            "description": "This is a dummy image for a wisdom tooth extraction"
+        },
+        {
+            "before": "/images/dummy-before.jpg",
+            "after": "/images/dummy-after.jpg",
+            "description": "This is a dummy image for a surgical extraction"
+        },
+        {
+            "before": "/images/dummy-before.jpg",
+            "after": "/images/dummy-after.jpg",
+            "description": "This is a dummy image for a sinus lift procedure"
+        }
+    ],
+    "detailedContent": {
+        "mainTitle": "Expert Care for Your Surgical Needs",
+        "mainDescription": "Oral surgery can be necessary for a variety of conditions, including impacted teeth, jaw problems, and oral diseases. Our clinic offers a comprehensive range of surgical services designed to improve your oral health and restore function and aesthetics with precision and care.",
+        "heroContentImage": "/images/services/subhero-oral-surgery.jpg",
+        "additionalSections": [
+            {
+                "title": "Common Oral Surgery Procedures",
+                "content": "Our practice is equipped to handle a variety of procedures. This includes the removal of impacted wisdom teeth and other difficult extractions. We also perform advanced procedures like sinus lifts to prepare for dental implants and diagnose and treat oral pathologies, including oral cancer.",
+                "image": "/images/services/oral-surgery-procedures.jpg",
+                "subsections": [
+                    {
+                        "subtitle": "Wisdom Tooth & Surgical Extractions",
+                        "text": "Wisdom teeth often require surgical removal due to impaction or improper growth. Surgical extractions are performed when a tooth is not easily accessible, ensuring a safe and effective removal.",
+                        "image": "/images/services/wisdom-tooth-extraction.jpg"
+                    },
+                    {
+                        "subtitle": "Sinus Lift",
+                        "text": "A sinus lift is a surgical procedure that adds bone to your upper jaw in the area of your molars and premolars. This is often necessary when there is not enough bone height to place a dental implant.",
+                        "image": "/images/services/sinus-lift.jpg"
+                    },
+                    {
+                        "subtitle": "Oral Cancer Screening",
+                        "text": "As a key part of our oral surgery practice, we conduct routine oral cancer screenings. This simple, non-invasive examination is crucial for the early detection of any precancerous or cancerous lesions.",
+                        "image": "/images/services/oral-cancer-screening-detail.jpg"
+                    }
+                ]
+            }
+        ]
     }
-  },
+},
   {
     slug: "smile-designing",
     title: "Smile Designing",
@@ -566,17 +589,17 @@ export const services: Service[] = [
     beforeAfterCategory: "smile-designing",
     features: [
       {
-        icon: "/images/icons/personalized.svg",
+        icon: "/images/icons/face-star.svg",
         title: "Personalized Treatment Plan",
         description: "A unique plan designed just for you"
       },
       {
-        icon: "/images/icons/digital-preview.svg",
+        icon: "/images/icons/teeth.svg",
         title: "Digital Smile Preview",
         description: "See your new smile before any work begins"
       },
       {
-        icon: "/images/icons/aesthetics.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Aesthetic Excellence",
         description: "Focus on creating a beautiful and harmonious smile"
       },
@@ -646,7 +669,7 @@ export const services: Service[] = [
     shortDescription: "Expert and gentle tooth extraction services. We prioritize your comfort and safety, ensuring a smooth and pain-free procedure when a tooth cannot be saved.",
     iconPath: "/images/icons/tooth-extraction.svg",
     longDescription: "Tooth extraction is the removal of a tooth from its socket in the bone. It's often a last resort when a tooth is too damaged from decay, trauma, or gum disease to be saved. We perform extractions with the utmost care, using local anesthesia to ensure a comfortable experience. We also provide clear aftercare instructions to promote quick healing.",
-    heroImage: "/images/services/tooth-extraction-hero.jpg",
+    heroImage: "/images/services/tooth-extraction-hero-large.jpg",
     infographicImages: "/images/services/tooth-extraction.jpg",
       
     
@@ -663,17 +686,17 @@ export const services: Service[] = [
     beforeAfterCategory: "tooth-extraction",
     features: [
       {
-        icon: "/images/icons/pain-free.svg",
+        icon: "/images/icons/gentle-care.svg",
         title: "Gentle & Pain-Free",
         description: "Local anesthesia for a comfortable procedure"
       },
       {
-        icon: "/images/icons/quick-recovery.svg",
+        icon: "/images/icons/face-star.svg",
         title: "Quick Recovery",
         description: "Clear aftercare instructions for a fast healing process"
       },
       {
-        icon: "/images/icons/safety.svg",
+        icon: "/images/icons/gentle.svg",
         title: "Prioritizing Safety",
         description: "Sterile environment and expert handling of instruments"
       },
@@ -731,7 +754,7 @@ export const services: Service[] = [
     shortDescription: "Straighten your smile with our advanced orthodontic solutions. We offer traditional braces and clear aligners like Invisalign for a confident, perfectly aligned smile.",
     iconPath: "/images/icons/braces-and-invisalign.svg",
     longDescription: "Orthodontics is the branch of dentistry that corrects teeth and jaws that are positioned improperly. We offer a range of solutions, from traditional metal braces to the discreet and modern clear aligners of Invisalign. Our personalized treatment plans are designed to help you achieve a beautiful, functional, and healthy smile at any age.",
-    heroImage: "/images/services/braces-invisalign-hero.jpg",
+    heroImage: "/images/services/clear-aligners.jpg",
     infographicImages: "/images/services/braces-invisalign-info1.png",
       
     
@@ -748,17 +771,17 @@ export const services: Service[] = [
     beforeAfterCategory: "braces-and-invisalign",
     features: [
       {
-        icon: "/images/icons/customized-plan.svg",
+        icon: "/images/icons/face-star.svg",
         title: "Customized Treatment Plan",
         description: "A plan designed to meet your specific orthodontic needs"
       },
       {
-        icon: "/images/icons/discreet-option.svg",
+        icon: "/images/icons/smile-plus.svg",
         title: "Discreet Options",
         description: "Choose clear aligners for an invisible treatment"
       },
       {
-        icon: "/images/icons/comfort.svg",
+        icon: "/images/icons/gentle-care.svg",
         title: "Comfort & Convenience",
         description: "Modern solutions designed for your comfort"
       },
@@ -844,22 +867,22 @@ export const services: Service[] = [
     beforeAfterCategory: "crowns-and-bridges",
     features: [
       {
-        icon: "/images/icons/strength-durability.svg",
+        icon: "/images/icons/strong.svg",
         title: "Strength & Durability",
         description: "Made from strong materials for long-lasting results"
       },
       {
-        icon: "/images/icons/natural-aesthetics.svg",
+        icon: "/images/icons/gentle-care.svg",
         title: "Natural Aesthetics",
         description: "Custom-colored to match your existing teeth perfectly"
       },
       {
-        icon: "/images/icons/restores-function.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Restores Function",
         description: "Improves your ability to chew and speak comfortably"
       },
       {
-        icon: "/images/icons/expert-craftsmanship.svg",
+        icon: "/images/icons/expert-specialist.svg",
         title: "Expert Craftsmanship",
         description: "Precision-made restorations for a perfect fit"
       }
@@ -942,22 +965,22 @@ export const services: Service[] = [
     beforeAfterCategory: "teeth-whitening",
     features: [
       {
-        icon: "/images/icons/instant-results.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Instant Results",
         description: "See a noticeable difference in just one session"
       },
       {
-        icon: "/images/icons/safe.svg",
+        icon: "/images/icons/gentle.svg",
         title: "Safe & Effective",
         description: "Performed by a professional in a controlled environment"
       },
       {
-        icon: "/images/icons/long-lasting.svg",
+        icon: "/images/icons/smile-plus.svg",
         title: "Long-Lasting Brightness",
         description: "Enjoy a radiant smile for a long time with proper care"
       },
       {
-        icon: "/images/icons/customized-treatment.svg",
+        icon: "/images/icons/face-star.svg",
         title: "Customized Treatment",
         description: "Tailored to your desired shade and sensitivity level"
       }
@@ -1022,7 +1045,7 @@ export const services: Service[] = [
     shortDescription: "A professional dental cleaning is the cornerstone of great oral health. Our thorough cleaning and polishing services remove plaque, tartar, and surface stains for a healthier, brighter smile.",
     iconPath: "/images/icons/cleaning-and-polishing.svg",
     longDescription: "Routine dental cleaning, also known as prophylaxis, is essential for preventing cavities, gum disease, and other oral health issues. Our skilled hygienists use specialized tools to remove stubborn plaque and tartar that regular brushing and flossing can't reach. The final polishing step removes surface stains, leaving your teeth feeling smooth and looking brighter.",
-    heroImage: "/images/services/cleaning-and-polishing-hero.jpg",
+    heroImage: "/images/services/cleaning-polishing-hero.jpg",
     infographicImages: "/images/services/cleaning-polishing-info1.png",
       
     seo: {
@@ -1038,22 +1061,22 @@ export const services: Service[] = [
     beforeAfterCategory: "cleaning-and-polishing",
     features: [
       {
-        icon: "/images/icons/plaque-removal.svg",
+        icon: "/images/icons/teeth.svg",
         title: "Plaque & Tartar Removal",
         description: "Thorough cleaning to prevent cavities and gum disease"
       },
       {
-        icon: "/images/icons/stain-free.svg",
+        icon: "/images/icons/smile-plus.svg",
         title: "Brighter Smile",
         description: "Polishing removes surface stains for a whiter look"
       },
       {
-        icon: "/images/icons/fresh-breath.svg",
+        icon: "/images/icons/natural.svg",
         title: "Fresh Breath",
         description: "Eliminates bacteria that cause bad breath"
       },
       {
-        icon: "/images/icons/preventive-care.svg",
+        icon: "/images/icons/tooth-tick.svg",
         title: "Preventive Care",
         description: "A crucial step in maintaining long-term oral health"
       }
@@ -1106,7 +1129,7 @@ export const services: Service[] = [
     shortDescription: "Gentle and compassionate dental care for children. We focus on creating a positive, fun environment to help your child build a foundation for a lifetime of healthy dental habits.",
     iconPath: "/images/icons/kids-dentistry.svg",
     longDescription: "Pediatric dentistry is dedicated to the oral health of children from infancy through the teen years. Our kid-friendly clinic and gentle approach make dental visits a positive experience. We focus on preventive care, including cleanings, fluoride treatments, and sealants, to protect your child's developing teeth from cavities.",
-    heroImage: "/images/services/kids-dentistry-hero.jpg",
+    heroImage: "/images/services/pediatric-dentistry-large.jpg",
     infographicImages: "/images/services/pediatric-dentistry.jpg",
     
     seo: {
@@ -1122,22 +1145,22 @@ export const services: Service[] = [
     beforeAfterCategory: "kids-dentistry",
     features: [
       {
-        icon: "/images/icons/child-friendly.svg",
+        icon: "/images/icons/child.svg",
         title: "Child-Friendly Environment",
         description: "A fun and welcoming clinic designed for kids"
       },
       {
-        icon: "/images/icons/preventive-focus.svg",
+        icon: "/images/icons/gentle.svg",
         title: "Preventive Care",
         description: "Focus on preventing cavities with sealants and fluoride"
       },
       {
-        icon: "/images/icons/gentle-approach.svg",
+        icon: "/images/icons/gentle-care.svg",
         title: "Gentle Approach",
         description: "Our team is trained to be gentle and patient with children"
       },
       {
-        icon: "/images/icons/education.svg",
+        icon: "/images/icons/brush-paste.svg",
         title: "Dental Education",
         description: "Teaching kids and parents about proper oral hygiene"
       }
@@ -1167,7 +1190,7 @@ export const services: Service[] = [
     detailedContent: {
       mainTitle: "Building a Foundation for a Lifetime of Smiles",
       mainDescription: "A child's early experiences at the dentist can shape their attitude towards oral health for life. We aim to make every visit a positive one, building trust and a foundation for lifelong healthy habits.",
-      heroContentImage: "/images/services/subhero-kids-dentistry.jpg",
+      heroContentImage: "/images/services/pediatric-dentistry-subhero.jpg",
       additionalSections: [
         {
           title: "Why Pediatric Dentistry is Important",

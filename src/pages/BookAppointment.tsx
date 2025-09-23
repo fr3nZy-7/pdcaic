@@ -7,6 +7,7 @@ import GlassmorphismCard from '@/components/GlassmorphismCard';
 import { CardHeader, CardContent, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { BookingSuccess } from '@/types/booking';
+import FloatingActionButtons from '@/components/FloatingActionButtons';
 
 const BookAppointment: React.FC = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -18,24 +19,12 @@ const BookAppointment: React.FC = () => {
     setTimeout(() => setShowSuccessMessage(false), 10000);
   };
 
-  // Clinic info for sidebar
-  const clinicInfo = {
-    name: "Dr. Neha Deshpande Tambe",
-    credentials: "BDS, MDS",
-    specialty: "Endodontist",
-    address: "Pathare Wasti, Lohegaon, Pune",
-    phone: "+91 XXXX-XXXX-XX",
-    email: "info@padmanaabhdental.clinic",
-    workingHours: [
-      "Monday - Saturday: 9:00 AM - 7:00 PM",
-      "Sunday: Closed"
-    ]
-  };
+  
 
   // Static services for sidebar display only
   const services = [
     { name: "Consultation", duration: "30 minutes", description: "Initial consultation and dental examination", icon: Stethoscope },
-    { name: "Root Canal Treatment", duration: "60 minutes", description: "Advanced endodontic treatment", icon: Star },
+    { name: "Treatments", duration: "60 minutes", description: "Dental treatment using Advanced treatments", icon: Star },
     { name: "Follow-up Visit", duration: "30 minutes", description: "Post-treatment check-up and care", icon: CheckCircle2 },
     { name: "Video Consultation", duration: "45 minutes", description: "Online consultation and guidance", icon: Calendar }
   ];
@@ -85,50 +74,29 @@ const BookAppointment: React.FC = () => {
       )}
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className="relative bg-gradient-to-br from-[#23AAB9]/20 to-[#0194C1]/40 min-h-[70vh] flex items-center py-20"
+          style={{
+          backgroundImage: `url(/images/common/background.jpg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
+        }}>
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
+          
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Booking Form */}
               <div className="lg:col-span-2">
                 <BookingForm onSuccess={handleBookingSuccess} />
+               
+
+
               </div>
 
               {/* Sidebar Information */}
               <div className="space-y-6">
 
-                <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
-                  <CardHeader className="p-0 mb-4">
-                    <CardTitle className="text-xl font-bold text-shade">Your Doctor</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <div className="text-center mb-4">
-                      <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center">
-                        <span className="text-white font-bold text-2xl">{clinicInfo.name.split(' ').map(n => n[0]).join('')}</span>
-                      </div>
-                      <h3 className="font-semibold text-shade">{clinicInfo.name}</h3>
-                      <p className="text-sm text-black/70">{clinicInfo.credentials}</p>
-                      <p className="text-sm font-medium text-blue-600">{clinicInfo.specialty}</p>
-                    </div>
-
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-start gap-2">
-                        <MapPin className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-black/80">{clinicInfo.address}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-gray-500" />
-                        <span className="text-black/80">{clinicInfo.phone}</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <Clock className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                        <div>{clinicInfo.workingHours.map((hours, i) => <div key={i} className="text-black/80">{hours}</div>)}</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </GlassmorphismCard>
-
-                <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
+              <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
                   <CardHeader className="p-0 mb-4">
                     <CardTitle className="text-xl font-bold text-shade">Available Services</CardTitle>
                   </CardHeader>
@@ -136,11 +104,11 @@ const BookAppointment: React.FC = () => {
                     <div className="space-y-4">
                       {services.map((service, i) => (
                         <div key={i} className="flex items-start gap-3 p-3 bg-white/50 rounded-lg">
-                          <service.icon className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                          <service.icon className="h-5 w-5 text-shade mt-1 flex-shrink-0" />
                           <div className="flex-1">
                             <h4 className="font-medium text-shade text-sm">{service.name}</h4>
                             <p className="text-xs text-black/70 mb-1">{service.description}</p>
-                            <span className="text-xs text-blue-600 font-medium">{service.duration}</span>
+                            <span className="text-xs text-primary font-medium">{service.duration}</span>
                           </div>
                         </div>
                       ))}
@@ -157,19 +125,13 @@ const BookAppointment: React.FC = () => {
                       <li className="flex items-start gap-2"><span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span><span>Please arrive 10 minutes before your appointment</span></li>
                       <li className="flex items-start gap-2"><span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span><span>Bring your previous dental records if available</span></li>
                       <li className="flex items-start gap-2"><span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span><span>Emergency appointments available on call</span></li>
-                      <li className="flex items-start gap-2"><span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span><span>Clinic is closed on Sundays</span></li>
+                      <li className="flex items-start gap-2"><span className="block w-1 h-1 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span><span>Clinic is closed on Sundays. Appointments only</span></li>
                     </ul>
                   </CardContent>
                 </GlassmorphismCard>
 
-                <GlassmorphismCard className="p-6 bg-blue-50/80 backdrop-blur-2xl border-blue-200">
-                  <CardContent className="p-0 text-center">
-                    <Phone className="h-8 w-8 text-blue-600 mx-auto mb-3" />
-                    <h3 className="font-semibold text-blue-900 mb-2">Need Help?</h3>
-                    <p className="text-sm text-blue-800 mb-3">Having trouble booking online? Call us directly for assistance.</p>
-                    <Button variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50">Call Now</Button>
-                  </CardContent>
-                </GlassmorphismCard>
+                
+               
 
               </div>
             </div>
@@ -178,10 +140,10 @@ const BookAppointment: React.FC = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-blue-50 to-pink-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8 text-shade">Why Choose Dr. Neha?</h2>
+            <h2 className="text-3xl font-bold mb-8 text-shade/80">Why Choose Dr. Neha?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { icon: Star, title: "Expert Specialist", description: "MDS in Endodontics with 10+ years of experience in root canal treatments" },
@@ -189,7 +151,7 @@ const BookAppointment: React.FC = () => {
                 { icon: Calendar, title: "Flexible Scheduling", description: "Easy online booking with multiple time slots available daily" }
               ].map((feature, i) => (
                 <GlassmorphismCard key={i} className="p-6 text-center bg-white/80">
-                  <feature.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold text-shade mb-2">{feature.title}</h3>
                   <p className="text-black/70 text-sm">{feature.description}</p>
                 </GlassmorphismCard>
@@ -198,7 +160,7 @@ const BookAppointment: React.FC = () => {
           </div>
         </div>
       </section>
-
+      <FloatingActionButtons />
       <Footer />
     </div>
   );
