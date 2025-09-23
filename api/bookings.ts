@@ -40,10 +40,14 @@ const formatDateTimeForCalcom = (date: string, time: string): string => {
     hour24 = 0;
   }
 
-  const fullDate = new Date(`${datePart}T${hour24.toString().padStart(2, '0')}:${minutes}:00`);
-  return fullDate.toISOString();
+  // Create date string assuming IST timezone (+05:30)
+  const istDateTimeString = `${datePart}T${hour24.toString().padStart(2, '0')}:${minutes}:00+05:30`;
+  
+  // Convert IST to UTC properly
+  const utcDate = new Date(istDateTimeString);
+  
+  return utcDate.toISOString();
 };
-
 // Convert mobile to email if email not provided
 const processEmail = (email?: string, mobile?: string): string => {
   if (email && email.trim()) {
