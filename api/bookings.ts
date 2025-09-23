@@ -63,7 +63,7 @@ const processEmail = (email?: string, mobile?: string): string => {
   throw new Error('Either email or mobile number is required');
 };
 
-// NEW: Check for booking conflicts
+// Check for booking conflicts using existing schema
 const checkBookingConflict = async (supabase: any, eventTypeId: string, date: string, time: string) => {
   const { data: existingBookings, error } = await supabase
     .from('appointments')
@@ -140,7 +140,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-    // NEW: Check for booking conflicts
+    // Check for booking conflicts
     const { hasConflict, conflictDetails } = await checkBookingConflict(
       supabase, 
       event_type_id, 
@@ -197,7 +197,15 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
       // Continue to save in Supabase even if Cal.com fails
     }
 
-    // Save to Supabase database
+    // Prepare admin notes with Cal.com booking ID or error
+    let adminNotes: string | null = null;
+    if (calcomBookingId) {
+      adminNotes = `Cal.com booking ID: ${calcomBookingId}`;
+    } else if (calcomError) {
+      adminNotes = `Cal.com error: ${calcomError}`;
+    }
+
+    // Save to Supabase database using exact schema
     const { data: appointment, error: supabaseError } = await supabase
       .from('appointments')
       .insert({
@@ -210,8 +218,8 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
         event_type_id,
         event_type_name,
         status: calcomBookingId ? 'confirmed' : 'pending',
-        admin_notes: calcomError ? `Cal.com error: ${calcomError}` : null,
-        calcom_booking_id: calcomBookingId
+        admin_notes: adminNotes,
+        assigned_to: null
       })
       .select()
       .single();
@@ -251,7 +259,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
   }
 }
 
-// NEW: Handle booking cancellation
+// Handle booking cancellation
 async function handleCancelBooking(req: VercelRequest, res: VercelResponse) {
   try {
     const { appointmentId } = req.query;
@@ -286,14 +294,21 @@ async function handleCancelBooking(req: VercelRequest, res: VercelResponse) {
       });
     }
 
+    // Extract Cal.com booking ID from admin_notes if exists
+    let calcomBookingId = null;
+    if (appointment.admin_notes && appointment.admin_notes.includes('Cal.com booking ID:')) {
+      const match = appointment.admin_notes.match(/Cal\.com booking ID: (\d+)/);
+      calcomBookingId = match ? match[1] : null;
+    }
+
     // Cancel in Cal.com if booking ID exists
     let calcomCancelError: string | null = null;
-    if (appointment.calcom_booking_id && CALCOM_API_KEY) {
+    if (calcomBookingId && CALCOM_API_KEY) {
       try {
-        await calcomApiCall(`/bookings/${appointment.calcom_booking_id}`, {
+        await calcomApiCall(`/bookings/${calcomBookingId}`, {
           method: 'DELETE',
         });
-        console.log('Cal.com booking cancelled:', appointment.calcom_booking_id);
+        console.log('Cal.com booking cancelled:', calcomBookingId);
       } catch (error) {
         console.error('Cal.com cancellation failed:', error);
         calcomCancelError = error instanceof Error ? error.message : 'Cal.com cancellation failed';
@@ -333,7 +348,7 @@ async function handleCancelBooking(req: VercelRequest, res: VercelResponse) {
   }
 }
 
-// Handle get appointments (for admin dashboard later)
+// Handle get appointments
 async function handleGetAppointments(req: VercelRequest, res: VercelResponse) {
   try {
     if (!supabaseUrl || !supabaseAnonKey) {
