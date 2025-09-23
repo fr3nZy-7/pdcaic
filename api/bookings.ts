@@ -95,7 +95,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
     } = req.body;
 
     // Validate required fields
-    if (!patient_name || !patient_phone || !service_id || !preferred_date || !preferred_time || !event_type_id) {
+    if (!patient_name || !patient_phone || !preferred_date || !preferred_time || !event_type_id) {
       return res.status(400).json({
         success: false,
         error: 'Missing required fields'
