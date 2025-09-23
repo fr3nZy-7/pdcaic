@@ -56,7 +56,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const [loadingEventTypes, setLoadingEventTypes] = useState(true);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'conflict'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
 
   useEffect(() => {
@@ -112,6 +112,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
     if (formErrors[field as keyof FormErrors]) {
       setFormErrors(prev => ({ ...prev, [field]: undefined }));
     }
+    // Clear conflict status when user makes changes
+    if (submitStatus === 'conflict') {
+      setSubmitStatus('idle');
+      setSubmitMessage('');
+    }
   };
 
   const validateForm = (): boolean => {
@@ -154,17 +159,29 @@ const BookingForm: React.FC<BookingFormProps> = ({
         event_type_id: selectedEventType.id,
         event_type_name: selectedEventType.title
       };
+
       const response = await createBooking(bookingData);
+      
       if (response.success && response.data) {
         setSubmitStatus('success');
         setSubmitMessage(response.data.message);
         onSuccess?.(response.data);
         setTimeout(() => { if (!showModal) resetForm(); }, 3000);
       } else {
-        setSubmitStatus('error');
-        setSubmitMessage(response.error || 'Failed to book appointment');
+        // Check for conflict error (409 status)
+        if (response.error?.includes('Time slot no longer available') || response.error?.includes('409')) {
+          setSubmitStatus('conflict');
+          setSubmitMessage('This time slot has been booked by another patient. Please refresh and select a different time.');
+          // Refresh time slots to show updated availability
+          if (selectedEventType) {
+            loadTimeSlots(selectedEventType.id, formData.preferred_date);
+          }
+        } else {
+          setSubmitStatus('error');
+          setSubmitMessage(response.error || 'Failed to book appointment');
+        }
       }
-    } catch {
+    } catch (error) {
       setSubmitStatus('error');
       setSubmitMessage('Network error. Please try again.');
     } finally {
@@ -212,10 +229,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
     <Card className="w-full max-w-2xl mx-auto text-shade">
       <CardHeader className="text-center">
         <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold text-shade">
-          
+          <Stethoscope className="h-6 w-6" />
+          Book Your Appointment
         </CardTitle>
       </CardHeader>
-      <CardContent >
+      <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           {submitStatus === 'error' && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
@@ -223,6 +241,32 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <div>
                 <h4 className="font-medium text-red-800">Booking Failed</h4>
                 <p className="text-red-700 text-sm">{submitMessage}</p>
+              </div>
+            </div>
+          )}
+
+          {submitStatus === 'conflict' && (
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 flex items-start gap-3">
+              <AlertCircle className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-medium text-orange-800">Time Slot Unavailable</h4>
+                <p className="text-orange-700 text-sm">{submitMessage}</p>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  className="mt-2 text-orange-700 border-orange-300"
+                  onClick={() => {
+                    setFormData(prev => ({ ...prev, preferred_time: '' }));
+                    if (selectedEventType) {
+                      loadTimeSlots(selectedEventType.id, formData.preferred_date);
+                    }
+                    setSubmitStatus('idle');
+                    setSubmitMessage('');
+                  }}
+                >
+                  Refresh Available Times
+                </Button>
               </div>
             </div>
           )}

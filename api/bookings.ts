@@ -27,7 +27,7 @@ const calcomApiCall = async (endpoint: string, options: RequestInit = {}) => {
   return response.json();
 };
 
-// Format date and time for Cal.com API
+// FIXED: Proper timezone handling for Cal.com API
 const formatDateTimeForCalcom = (date: string, time: string): string => {
   const [datePart] = date.split('T');
   const [timePart, period] = time.split(' ');
@@ -40,7 +40,7 @@ const formatDateTimeForCalcom = (date: string, time: string): string => {
     hour24 = 0;
   }
 
-  // Create date string assuming IST timezone (+05:30)
+  // Create date string in IST timezone
   const istDateTimeString = `${datePart}T${hour24.toString().padStart(2, '0')}:${minutes}:00+05:30`;
   
   // Convert IST to UTC properly
@@ -48,6 +48,7 @@ const formatDateTimeForCalcom = (date: string, time: string): string => {
   
   return utcDate.toISOString();
 };
+
 // Convert mobile to email if email not provided
 const processEmail = (email?: string, mobile?: string): string => {
   if (email && email.trim()) {
@@ -62,10 +63,31 @@ const processEmail = (email?: string, mobile?: string): string => {
   throw new Error('Either email or mobile number is required');
 };
 
+// NEW: Check for booking conflicts
+const checkBookingConflict = async (supabase: any, eventTypeId: string, date: string, time: string) => {
+  const { data: existingBookings, error } = await supabase
+    .from('appointments')
+    .select('id, patient_name, status')
+    .eq('event_type_id', eventTypeId)
+    .eq('preferred_date', date)
+    .eq('preferred_time', time)
+    .in('status', ['confirmed', 'pending']);
+
+  if (error) {
+    console.error('Error checking booking conflicts:', error);
+    return { hasConflict: false, conflictDetails: null };
+  }
+
+  return {
+    hasConflict: existingBookings && existingBookings.length > 0,
+    conflictDetails: existingBookings?.[0] || null
+  };
+};
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
@@ -80,17 +102,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return handleGetAppointments(req, res);
   }
 
+  if (req.method === 'DELETE') {
+    return handleCancelBooking(req, res);
+  }
+
   return res.status(405).json({ success: false, error: 'Method not allowed' });
 }
 
-// Handle booking creation
+// Handle booking creation with conflict detection
 async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
   try {
     const {
       patient_name,
       patient_email,
       patient_phone,
-      
       preferred_date,
       preferred_time,
       notes,
@@ -115,7 +140,22 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-   
+    // NEW: Check for booking conflicts
+    const { hasConflict, conflictDetails } = await checkBookingConflict(
+      supabase, 
+      event_type_id, 
+      preferred_date, 
+      preferred_time
+    );
+
+    if (hasConflict) {
+      return res.status(409).json({
+        success: false,
+        error: 'Time slot no longer available',
+        message: 'This time slot has been booked by another patient. Please select a different time.',
+        conflictDetails
+      });
+    }
 
     // Process email (use mobile if email not provided)
     const processedEmail = processEmail(patient_email, patient_phone);
@@ -144,7 +184,6 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
             language: 'en',
             metadata: {
               source: 'padmanaabhdental.clinic'
-              
             },
           }),
         });
@@ -165,14 +204,14 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
         patient_name,
         patient_email: processedEmail,
         patient_phone,
-        
         preferred_date,
         preferred_time,
         notes,
         event_type_id,
         event_type_name,
         status: calcomBookingId ? 'confirmed' : 'pending',
-        admin_notes: calcomError ? `Cal.com error: ${calcomError}` : null
+        admin_notes: calcomError ? `Cal.com error: ${calcomError}` : null,
+        calcom_booking_id: calcomBookingId
       })
       .select()
       .single();
@@ -208,6 +247,88 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({
       success: false,
       error: error instanceof Error ? error.message : 'Internal server error'
+    });
+  }
+}
+
+// NEW: Handle booking cancellation
+async function handleCancelBooking(req: VercelRequest, res: VercelResponse) {
+  try {
+    const { appointmentId } = req.query;
+
+    if (!appointmentId || Array.isArray(appointmentId)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid appointment ID'
+      });
+    }
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      return res.status(500).json({
+        success: false,
+        error: 'Supabase configuration missing'
+      });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+    // Get appointment details
+    const { data: appointment, error: fetchError } = await supabase
+      .from('appointments')
+      .select('*')
+      .eq('id', appointmentId)
+      .single();
+
+    if (fetchError || !appointment) {
+      return res.status(404).json({
+        success: false,
+        error: 'Appointment not found'
+      });
+    }
+
+    // Cancel in Cal.com if booking ID exists
+    let calcomCancelError: string | null = null;
+    if (appointment.calcom_booking_id && CALCOM_API_KEY) {
+      try {
+        await calcomApiCall(`/bookings/${appointment.calcom_booking_id}`, {
+          method: 'DELETE',
+        });
+        console.log('Cal.com booking cancelled:', appointment.calcom_booking_id);
+      } catch (error) {
+        console.error('Cal.com cancellation failed:', error);
+        calcomCancelError = error instanceof Error ? error.message : 'Cal.com cancellation failed';
+      }
+    }
+
+    // Update appointment status to cancelled
+    const { error: updateError } = await supabase
+      .from('appointments')
+      .update({
+        status: 'cancelled',
+        admin_notes: calcomCancelError 
+          ? `Cancelled. Cal.com error: ${calcomCancelError}` 
+          : 'Cancelled successfully'
+      })
+      .eq('id', appointmentId);
+
+    if (updateError) {
+      console.error('Supabase update error:', updateError);
+      return res.status(500).json({
+        success: false,
+        error: 'Failed to cancel appointment'
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Appointment cancelled successfully. The time slot is now available for other patients.'
+    });
+
+  } catch (error) {
+    console.error('Cancel booking error:', error);
+    return res.status(500).json({
+      success: false,
+      error: 'Internal server error'
     });
   }
 }

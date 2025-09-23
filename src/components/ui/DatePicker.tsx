@@ -40,8 +40,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
     return days;
   };
 
+  // FIXED: Format date without timezone conversion
   const formatDate = (date: Date): string => {
-    return date.toISOString().split('T')[0]; // YYYY-MM-DD
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   const isDateDisabled = (date: Date): boolean => {
@@ -86,13 +90,18 @@ const DatePicker: React.FC<DatePickerProps> = ({
     "July", "August", "September", "October", "November", "December"
   ];
 
+  // FIXED: Parse selected date without timezone conversion
   const displayDate = selectedDate 
-    ? new Date(selectedDate).toLocaleDateString('en-IN', { 
-        weekday: 'long',
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      })
+    ? (() => {
+        const [year, month, day] = selectedDate.split('-').map(Number);
+        const localDate = new Date(year, month - 1, day);
+        return localDate.toLocaleDateString('en-IN', { 
+          weekday: 'long',
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+      })()
     : "Select a date";
 
   return (
