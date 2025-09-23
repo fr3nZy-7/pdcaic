@@ -9,6 +9,7 @@ import DatePicker from '@/components/ui/DatePicker';
 import TimeSlots from '@/components/ui/TimeSlots';
 import { getEventTypes, getAvailableSlots, createBooking } from '@/lib/booking-api';
 import type { CalcomEventType, TimeSlot, BookingFormData } from '@/types/booking';
+import GlassmorphismCard from './GlassmorphismCard';
 
 interface BookingFormProps {
   showModal?: boolean;
@@ -226,11 +227,12 @@ const BookingForm: React.FC<BookingFormProps> = ({
   }
 
   const formContent = (
-    <Card className="w-full max-w-2xl mx-auto text-shade">
+    <GlassmorphismCard className="bg-primary/20 w-full max-w-2xl mx-auto text-shade ">
+    
       <CardHeader className="text-center">
         <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold text-shade">
-          <Stethoscope className="h-6 w-6" />
-          Book Your Appointment
+          <img src="/images/icons/tooth-tick.svg" alt="Clinic Logo" className="h-10 w-10" />
+          Appointment Form
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -417,7 +419,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         </form>
       </CardContent>
-    </Card>
+    
+    </GlassmorphismCard>
   );
 
   if (showModal) {

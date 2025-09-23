@@ -34,7 +34,9 @@ const BookAppointment: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-pink-50">
+      <section className="relative bg-cover bg-center py-8 md:py-12 lg:py-16" // Adjusted padding for better vertical spacing
+        style={{ backgroundImage: 'url(/images/common/contact-section.jpg)' }}>
+        
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shade">Book Your Appointment</h1>
@@ -46,7 +48,7 @@ const BookAppointment: React.FC = () => {
                 { label: "Success Rate", value: "98%" },
                 { label: "Response Time", value: "< 1hr" }
               ].map((stat, i) => (
-                <GlassmorphismCard key={i} className="p-4 text-center">
+                <GlassmorphismCard key={i} className="p-4 text-center bg-white/20">
                   <div className="text-2xl font-bold text-shade">{stat.value}</div>
                   <div className="text-sm text-black/70">{stat.label}</div>
                 </GlassmorphismCard>
@@ -107,7 +109,7 @@ const BookAppointment: React.FC = () => {
                           <service.icon className="h-5 w-5 text-shade mt-1 flex-shrink-0" />
                           <div className="flex-1">
                             <h4 className="font-medium text-shade text-sm">{service.name}</h4>
-                            <p className="text-xs text-black/70 mb-1">{service.description}</p>
+                            <p className="text-xs text-black/80 mb-1">{service.description}</p>
                             <span className="text-xs text-primary font-medium">{service.duration}</span>
                           </div>
                         </div>
@@ -116,7 +118,7 @@ const BookAppointment: React.FC = () => {
                   </CardContent>
                 </GlassmorphismCard>
 
-                <GlassmorphismCard className="p-6 bg-yellow-50/80 backdrop-blur-2xl border-yellow-200">
+                <GlassmorphismCard className="p-6 bg-yellow-50/80 backdrop-blur-3xl border-yellow-200">
                   <CardHeader className="p-0 mb-3">
                     <CardTitle className="text-lg font-bold text-yellow-800">Important Notes</CardTitle>
                   </CardHeader>
