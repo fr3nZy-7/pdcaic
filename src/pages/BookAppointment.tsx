@@ -117,7 +117,7 @@ const BookAppointment: React.FC = () => {
                           <service.icon className="h-5 w-5 text-shade mt-1 flex-shrink-0" />
                           <div className="flex-1">
                             <h4 className="font-medium text-shade text-sm">{service.name}</h4>
-                            <p className="text-xs text-black/80 mb-1">{service.description}</p>
+                            <p className="text-xs text-black/90 mb-1">{service.description}</p>
                             <span className="text-xs text-primary font-medium">{service.duration}</span>
                           </div>
                         </div>
