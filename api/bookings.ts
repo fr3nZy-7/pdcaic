@@ -139,7 +139,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
             timeZone: 'Asia/Kolkata',
             language: 'en',
             metadata: {
-              source: 'padmanaabhdental.clinic',
+              source: 'padmanaabhdental.clinic'
               
             },
           }),
