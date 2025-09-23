@@ -86,7 +86,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
       patient_name,
       patient_email,
       patient_phone,
-      service_id,
+      
       preferred_date,
       preferred_time,
       notes,
@@ -111,8 +111,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-    // Convert empty string service_id to null to avoid UUID error
-    const safeServiceId = service_id && service_id.trim() !== '' ? service_id : null;
+   
 
     // Process email (use mobile if email not provided)
     const processedEmail = processEmail(patient_email, patient_phone);
@@ -141,7 +140,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
             language: 'en',
             metadata: {
               source: 'padmanaabhdental.clinic',
-              service_id: safeServiceId
+              
             },
           }),
         });
@@ -162,7 +161,7 @@ async function handleCreateBooking(req: VercelRequest, res: VercelResponse) {
         patient_name,
         patient_email: processedEmail,
         patient_phone,
-        service_id: safeServiceId,
+        
         preferred_date,
         preferred_time,
         notes,
