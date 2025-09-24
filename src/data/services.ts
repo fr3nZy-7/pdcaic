@@ -76,19 +76,22 @@ export const services: Service[] = [
   {
     slug: "root-canal",
     title: "Root Canal Treatment",
-    shortDescription: "Advanced endodontic therapy to save infected or damaged teeth while eliminating pain and preserving natural teeth.",
-    iconPath:"/images/icons/root-canal.svg",
-    longDescription: "Root Canal Treatment (RCT) is a highly effective way to save a natural tooth that has been infected or damaged. At our clinic, we use modern techniques and advanced technology to make the procedure as pain-free and efficient as possible. Whether it's a single-visit RCT or a retreatment, our focus is always on patient comfort and preserving natural teeth.",
+    shortDescription:
+      "Relieve pain, save your natural tooth, and restore function with advanced root canal therapy in a single or minimal visits.",
+    iconPath: "/images/icons/root-canal.svg",
+    longDescription:
+      "Root canal treatment (RCT) saves badly infected or decayed teeth, preventing extraction and restoring health. Our clinic uses rotary endodontics, digital imaging, and advanced anesthesia for painless, efficient, and predictable results. With modern techniques, most RCTs are completed in a single sitting, helping you return to comfort quickly.",
     heroImage: "/images/services/root-canal-large.jpg",
-    infographicImages: "/images/services/root-canal.jpg",
-    
+    infographicImages: "/images/services/root-canal-info1.png",
     seo: {
-      title: "Root Canal Treatment in Pune | Pain-Free RCT by Expert Dentist",
-      description: "Get advanced, pain-free Root Canal Treatment (RCT) in Pune. Save your natural tooth with single-visit and modern endodontic care.",
+      title: "Root Canal Treatment in Pune | Painless & Efficient",
+      description:
+        "Painless root canal in Pune — advanced rotary endodontics, digital imaging, and single-visit RCTs to save natural teeth with precision.",
       keywords: [
-        "root canal treatment Pune",
-        "pain free RCT",
-        "single visit RCT",
+        "root canal Pune",
+        "RCT Pune",
+        "painless root canal Pune",
+        "single sitting root canal Pune",
         "endodontist Pune",
       ],
     },
@@ -96,1112 +99,861 @@ export const services: Service[] = [
     features: [
       {
         icon: "/images/icons/pain-free-treatment.svg",
-        title: "Pain Free Procedure",
-        description: "Advanced anesthesia techniques ensure comfortable treatment"
+        title: "Pain-Free Treatment",
+        description: "Advanced anesthesia ensures comfort",
       },
       {
-        icon: "/images/icons/single-visit.svg",
-        title: "Single Visit Possible",
-        description: "Complete treatment in one appointment when possible"
+        icon: "/images/icons/clinic.svg",
+        title: "Single-Sitting RCT",
+        description: "Many cases finished in one visit",
       },
       {
-        icon: "/images/icons/latest-tech.svg",
-        title: "Latest Technology",
-        description: "State-of-the-art equipment for precise treatment"
+        icon: "/images/icons/gentle-care.svg",
+        title: "Tooth Preservation",
+        description: "Saves your natural tooth structure",
       },
       {
-        icon: "/images/icons/expert-specialist.svg",
-        title: "Expert Specialist",
-        description: "Experienced endodontist with proven track record"
-      }
+        icon: "/images/icons/gentle.svg",
+        title: "Durable Results",
+        description: "Long-term restoration and protection",
+      },
     ],
     processSteps: [
       {
         stepNumber: 1,
-        title: "Examination and Diagnosis",
-        description: "Complete dental examination with X-rays to assess the damage"
+        title: "Diagnosis & Imaging",
+        description: "X-rays confirm infection and treatment plan",
       },
       {
         stepNumber: 2,
-        title: "Treatment Procedure",
-        description: "Removal of infected pulp and careful cleaning of root canals"
+        title: "Cleaning & Shaping",
+        description: "Infected pulp removed, canals disinfected",
       },
       {
         stepNumber: 3,
-        title: "Final restoration and instructions for proper dental care",
-        description: "Recovery & Aftercare"
-      }
+        title: "Filling & Restoration",
+        description:
+          "Root canals sealed and tooth restored with filling/crown",
+      },
     ],
     mockBeforeAfterImages: [
       {
-        before: "/images/before-after/rct-before-1.jpg",
-        after: "/images/before-after/rct-after-1.jpg",
-        description: "Successful root canal treatment with excellent results"
+        before: "/images/dummy-before.jpg",
+        after: "/images/dummy-after.jpg",
+        description: "Infected molar saved with root canal",
       },
-      {
-        before: "/images/before-after/rct-before-2.jpg", 
-        after: "/images/before-after/rct-after-2.jpg",
-        description: "Complete restoration preserving natural tooth"
-      },
-      {
-        before: "/images/before-after/rct-before-3.jpg",
-        after: "/images/before-after/rct-after-3.jpg", 
-        description: "Pain-free treatment with lasting results"
-      }
     ],
     detailedContent: {
-      mainTitle: "Save Your Natural Tooth!",
-      mainDescription: "Our state-of-the-art root canal therapy saves your natural tooth and eliminates pain. Using advanced technology and techniques, we ensure a comfortable, efficient procedure with lasting results.",
-      heroContentImage: "/images/services/rct-subhero.jpg",
+      mainTitle: "Save Your Tooth with Modern Root Canal",
+      mainDescription:
+        "Root canal treatment is safe, comfortable, and highly effective in stopping infection while preserving your natural tooth.",
+      heroContentImage: "/images/services/subhero-root-canal.jpg",
       additionalSections: [
         {
-          title: "What is Root Canal?",
-          content: "Root canal treatment is a dental procedure used to treat infected or severely decayed teeth. During the procedure, the infected or damaged pulp inside the tooth is removed, the root canals are cleaned and disinfected, and then sealed to prevent further infection.",
-          image: "/images/services/rct.jpg",
+          title: "Why Choose RCT?",
+          content:
+            "Root canal eliminates pain, infection, and prevents tooth loss. With modern methods, it’s no longer the dreaded procedure of the past.",
+          image: "/images/services/root-canal-benefits.jpg",
           subsections: [
             {
-              subtitle: "Common Symptoms",
-              text: "Severe toothache when chewing or applying pressure, prolonged sensitivity to hot or cold temperatures, discoloration of the tooth, swelling and tenderness in nearby gums, or a persistent or recurring pimple on the gums.",
-              image: "/images/services/rct-patient.jpg"
-            }
-          ]
-        }
-      ]
-    }
+              subtitle: "Quick Relief",
+              text: "Stops pain and infection, saving your tooth.",
+              image: "/images/services/root-canal-relief.jpg",
+            },
+            {
+              subtitle: "Modern Equipment",
+              text: "Rotary files and apex locators for precision.",
+              image: "/images/services/root-canal-modern.jpg",
+            },
+          ],
+        },
+        {
+          title: "Myth vs Reality",
+          content:
+            "Myth: Root canals are extremely painful. Reality: With modern anesthesia, most patients feel little to no pain during the procedure.",
+          image: "/images/services/root-canal-myth.jpg",
+          subsections: [],
+        },
+      ],
+    },
   },
   {
     slug: "dental-implants",
     title: "Dental Implants",
-    shortDescription: "Regain your confidence with permanent tooth replacements. Dental implants are the gold standard for restoring missing teeth and providing a stable, natural-looking smile.",
-    iconPath: "/images/icons/implants.svg",
-    longDescription: "Dental implants are a long-term solution for missing teeth. An implant is a small post, usually made of titanium, that is surgically placed into the jawbone to act as a replacement for the tooth's root. A crown is then placed on top, providing a durable and aesthetically pleasing restoration that looks and feels like a natural tooth.",
+    shortDescription:
+      "Permanent replacement for missing teeth — natural look, strong function, and long-lasting results with advanced implant technology.",
+    iconPath: "/images/icons/dental-implants.svg",
+    longDescription:
+      "Dental implants are the gold standard for replacing missing teeth. They restore both function and aesthetics by integrating with your jawbone, offering unmatched stability and a natural appearance. Our clinic uses advanced 3D imaging, premium implant systems, and guided surgery to ensure precise placement, faster healing, and lifelong confidence in your smile.",
     heroImage: "/images/services/dental-implants-hero-large.jpg",
-    infographicImages: "/images/services/dental-implants.jpg",
-    
+    infographicImages: "/images/services/dental-implants-info1.png",
     seo: {
-      title: "Dental Implants in Pune | Permanent Tooth Replacement Solutions",
-      description: "Explore our state-of-the-art dental implants in Pune. Get a permanent, natural-looking solution for missing teeth and restore your smile's function and aesthetics.",
+      title: "Dental Implants in Pune | Permanent Teeth Replacement",
+      description:
+        "Expert dental implants in Pune — restore missing teeth with advanced implant systems, 3D-guided surgery, and natural-looking results.",
       keywords: [
         "dental implants Pune",
-        "tooth replacement",
-        "permanent teeth",
-        "implantology",
+        "teeth replacement Pune",
+        "tooth implant Pune",
+        "full mouth dental implants Pune",
+        "implant dentist Pune",
       ],
     },
-    beforeAfterCategory: "implants",
+    beforeAfterCategory: "dental-implants",
     features: [
       {
-        icon: "/images/icons/natural.svg",
-        title: "Natural Look & Feel",
-        description: "Implants blend seamlessly with your natural teeth"
-      },
-      {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Long-Lasting Solution",
-        description: "A permanent fix that can last a lifetime with proper care"
-      },
-      {
-        icon: "/images/icons/strong.svg",
-        title: "Bone Preservation",
-        description: "Prevents jawbone deterioration and maintains facial structure"
-      },
-      {
         icon: "/images/icons/expert-specialist.svg",
-        title: "Experienced Implantologist",
-        description: "Precision surgery by a certified dental implant specialist"
-      }
+        title: "Natural Look & Feel",
+        description: "Implants blend seamlessly with natural teeth",
+      },
+      {
+        icon: "/images/icons/clinic.svg",
+        title: "Strong & Durable",
+        description: "Restores chewing strength and bite function",
+      },
+      {
+        icon: "/images/icons/gentle-care.svg",
+        title: "Bone Health",
+        description: "Prevents jawbone loss after tooth loss",
+      },
+      {
+        icon: "/images/icons/gentle.svg",
+        title: "Lifetime Solution",
+        description: "Long-lasting with proper care and checkups",
+      },
     ],
     processSteps: [
       {
         stepNumber: 1,
-        title: "Initial Assessment",
-        description: "Comprehensive exam to determine suitability for implants"
+        title: "Consultation & Imaging",
+        description:
+          "3D scans and planning for precise implant placement",
       },
       {
         stepNumber: 2,
         title: "Implant Placement",
-        description: "Surgical placement of the titanium post into the jawbone"
+        description:
+          "Titanium post placed safely into the jawbone under anesthesia",
       },
       {
         stepNumber: 3,
-        title: "Restoration",
-        description: "Attaching the final custom-made crown to the implant"
-      }
+        title: "Healing & Crown Placement",
+        description:
+          "Custom crown fixed after integration for a natural smile",
+      },
     ],
     mockBeforeAfterImages: [
       {
-        before: "/images/before-after/implants-before-1.jpg",
-        after: "/images/before-after/implants-after-1.jpg",
-        description: "Single tooth replacement with an implant"
+        before: "/images/dummy-before.jpg",
+        after: "/images/dummy-after.jpg",
+        description: "Single missing tooth replaced with implant",
       },
       {
-        before: "/images/before-after/implants-before-2.jpg",
-        after: "/images/before-after/implants-after-2.jpg",
-        description: "Restoring a missing molar with a dental implant"
+        before: "/images/dummy-before.jpg",
+        after: "/images/dummy-after.jpg",
+        description: "Full arch implant-supported bridge",
       },
-      {
-        before: "/images/before-after/implants-before-3.jpg",
-        after: "/images/before-after/implants-after-3.jpg",
-        description: "Full arch reconstruction using multiple implants"
-      }
     ],
     detailedContent: {
-      mainTitle: "The Gold Standard in Tooth Replacement",
-      mainDescription: "Dental implants are a revolutionary solution for missing teeth, offering unparalleled stability, function, and aesthetics. Unlike bridges or dentures, implants fuse with your jawbone, providing a foundation that can last a lifetime.",
-      heroContentImage: "/images/services/subhero-implants.jpg",
+      mainTitle: "Restore Your Smile with Dental Implants",
+      mainDescription:
+        "Implants are the closest replacement to natural teeth — giving you strength, confidence, and a healthy smile that lasts a lifetime.",
+      heroContentImage: "/images/services/subhero-dental-implants.jpg",
       additionalSections: [
         {
-          title: "Why Choose Dental Implants?",
-          content: "Implants prevent bone loss, maintain the health of adjacent teeth, and feel more comfortable and secure than other tooth replacement options. They allow you to eat, speak, and smile with confidence.",
-          image: "/images/services/dental-implants.jpg",
+          title: "Benefits of Implants",
+          content:
+            "Unlike dentures or bridges, implants don’t slip or affect nearby teeth. They provide stability, protect bone health, and look indistinguishable from real teeth.",
+          image: "/images/services/dental-implants-benefits.jpg",
           subsections: [
             {
-              subtitle: "Who is a Candidate?",
-              text: "Most people with good general and oral health are excellent candidates for dental implants. Factors like jawbone density and overall health are assessed during the initial consultation.",
-              image: "/images/services/implants-patient.jpg"
-            }
-          ]
-        }
-      ]
-    }
+              subtitle: "Strong & Secure",
+              text: "Eat, chew, and smile without worry of slipping dentures.",
+              image: "/images/services/dental-implants-strong.jpg",
+            },
+            {
+              subtitle: "Bone Preservation",
+              text: "Implants stimulate jawbone and prevent bone resorption.",
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+          ],
+        },
+        {
+          title: "Comfort & Safety",
+          content:
+            "Modern anesthesia and minimally invasive techniques make implant placement safe and comfortable. Healing is quick and predictable with proper care.",
+          image: "/images/services/dental-implants-safety.jpg",
+          subsections: [
+            {
+              subtitle: "Myth vs Reality",
+              text: "Myth: Implants are painful and risky. Reality: With modern methods, most patients report minimal discomfort and excellent outcomes.",
+              image: "/images/services/dental-implants-myth.jpg",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "full-mouth-rehab",
-    title: "Full Mouth Rehab",
-    shortDescription: "Comprehensive treatment to restore the health, function, and appearance of your entire mouth, combining multiple procedures for a complete smile transformation.",
+    title: "Full Mouth Rehabilitation",
+    shortDescription: "Comprehensive treatment combining multiple procedures to restore function, health, and aesthetics of your entire mouth.",
     iconPath: "/images/icons/full-mouth-rehab.svg",
-    longDescription: "Full mouth rehabilitation is a customized treatment plan designed to correct extensive dental problems. It is a combination of restorative and cosmetic procedures, such as implants, crowns, bridges, and veneers, to rebuild your smile. We work closely with you to understand your goals and create a plan that fits your needs.",
+    longDescription: "Full mouth rehabilitation (FMR) is a customized treatment plan that restores and rebuilds all teeth in both upper and lower jaws. It combines restorative, cosmetic, and functional dentistry to address worn, missing, or damaged teeth, bite issues, and aesthetics. At our clinic, we design FMR using crowns, bridges, implants, veneers, and sometimes orthodontics — tailored to your unique needs. The result is a healthier bite, improved function, and a beautiful, confident smile.",
     heroImage: "/images/services/full-mouth-rehab-hero.jpg",
-    infographicImages: "/images/services/full-mouth-rehab.jpg",
-      
-    
+    infographicImages: "/images/services/full-mouth-rehab-info.png",
     seo: {
-      title: "Full Mouth Rehabilitation in Pune | Complete Smile Makeover",
-      description: "Get a complete smile makeover with our full mouth rehabilitation services in Pune. We combine multiple dental procedures to restore your oral health and aesthetics.",
+      title: "Full Mouth Rehabilitation in Pune | Smile & Bite Restoration",
+      description: "Transform your oral health with full mouth rehabilitation in Pune. Customized treatment combining crowns, implants, veneers, and orthodontics for function and aesthetics.",
       keywords: [
-        "full mouth rehab",
-        "full mouth reconstruction",
-        "smile makeover",
-        "dental reconstruction",
+        "full mouth rehabilitation Pune",
+        "full mouth reconstruction Pune",
+        "smile restoration Pune",
+        "bite correction Pune",
+        "dental makeover Pune"
       ],
     },
-    beforeAfterCategory: "full-mouth-rehab",
+    beforeAfterCategory: "full-mouth-rehabilitation",
     features: [
-      {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Comprehensive Plan",
-        description: "A single, coordinated plan for all your dental needs"
-      },
-      {
-        icon: "/images/icons/face-star.svg",
-        title: "Customized Results",
-        description: "Tailored treatment to meet your unique goals"
-      },
-      {
-        icon: "/images/icons/smile-plus.svg",
-        title: "Functional Aesthetics",
-        description: "Restores both function and beauty to your smile"
-      },
-      {
-        icon: "/images/icons/family.svg",
-        title: "Multidisciplinary Approach",
-        description: "Coordinated care from multiple dental specialists"
-      }
+      { icon: "/images/icons/pain-free-treatment.svg", title: "Comprehensive Care", description: "Combines multiple treatments for complete oral health" },
+      { icon: "/images/icons/face-star.svg", title: "Tailored Plans", description: "Every rehabilitation is personalized to patient needs" },
+      { icon: "/images/icons/tooth-tick.svg", title: "Restored Function", description: "Improved chewing, speech, and jaw comfort" },
+      { icon: "/images/icons/smile-plus.svg", title: "Smile Transformation", description: "Aesthetic results for confidence and beauty" }
     ],
     processSteps: [
-      {
-        stepNumber: 1,
-        title: "Detailed Consultation",
-        description: "Thorough examination and digital smile design consultation"
-      },
-      {
-        stepNumber: 2,
-        title: "Phased Treatment",
-        description: "Execution of the treatment plan in a comfortable, phased manner"
-      },
-      {
-        stepNumber: 3,
-        title: "Final Smile Delivery",
-        description: "Achieving your new, healthy, and beautiful smile"
-      }
+      { stepNumber: 1, title: "Detailed Consultation", description: "Exams, scans, and discussion of concerns and goals" },
+      { stepNumber: 2, title: "Customized Treatment Plan", description: "Combination of crowns, implants, veneers, or orthodontics designed" },
+      { stepNumber: 3, title: "Phased Treatment & Completion", description: "Step-by-step execution ensuring comfort and long-lasting results" }
     ],
     mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/full-mouth-rehab-before-1.jpg",
-        after: "/images/before-after/full-mouth-rehab-after-1.jpg",
-        description: "Complete restoration of worn and damaged teeth"
-      },
-      {
-        before: "/images/before-after/full-mouth-rehab-before-2.jpg",
-        after: "/images/before-after/full-mouth-rehab-after-2.jpg",
-        description: "Rebuilding a smile with multiple missing teeth"
-      },
-      {
-        before: "/images/before-after/full-mouth-rehab-before-3.jpg",
-        after: "/images/before-after/full-mouth-rehab-after-3.jpg",
-        description: "Transforming a smile with complex dental issues"
-      }
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Full mouth crowns for worn teeth" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Implants + crowns for complete restoration" }
     ],
     detailedContent: {
-      mainTitle: "A New Beginning for Your Smile",
-      mainDescription: "Full mouth rehab is a life-changing treatment for patients with multiple missing or damaged teeth. We restore every aspect of your smile, from correcting bite issues to restoring aesthetics, so you can eat, speak, and live with confidence.",
+      mainTitle: "A Complete Transformation for Health & Confidence",
+      mainDescription: "Full mouth rehabilitation goes beyond fixing teeth — it rebuilds your oral foundation, enhances your smile, and restores overall confidence.",
       heroContentImage: "/images/services/subhero-full-mouth-rehab.jpg",
       additionalSections: [
         {
-          title: "Who Needs Full Mouth Rehab?",
-          content: "Patients who have lost multiple teeth due to decay, trauma, or gum disease, as well as those with severely worn-down teeth, chronic jaw pain, or extensive dental work that has failed over time, are ideal candidates for full mouth rehabilitation.",
-          image: "/images/services/full-mouth-rehab-info.jpg",
+          title: "Who Needs FMR?",
+          content: "Patients with severely worn teeth, multiple missing teeth, chronic jaw pain, bite problems, or those seeking a complete smile transformation are ideal candidates.",
+          image: "/images/services/fmr-candidates.jpg",
           subsections: [
-            {
-              subtitle: "The Rehabilitation Process",
-              text: "The process begins with a detailed diagnostic phase, followed by a phased treatment plan that may include a combination of implants, crowns, veneers, and other restorative procedures. We use digital technology to ensure precise and predictable results.",
-              image: "/images/services/full-mouth-rehab-patient.jpg"
-            }
+            { subtitle: "Worn or Damaged Teeth", text: "Grinding, trauma, or decay can damage teeth requiring comprehensive restoration.", image: "/images/services/worn-teeth.jpg" },
+            { subtitle: "Multiple Missing Teeth", text: "Implants and bridges restore gaps for function and aesthetics.", image: "/images/services/missing-teeth.jpg" },
+            { subtitle: "Jaw Pain & Bite Issues", text: "Correcting bite alignment relieves strain and improves comfort.", image: "/images/services/bite-issues.jpg" }
+          ]
+        },
+        {
+          title: "Care & Myths",
+          content: "Though FMR may sound overwhelming, it’s carried out in phases for comfort and lasting results.",
+          image: "/images/services/fmr-care.jpg",
+          subsections: [
+            { subtitle: "Myth vs Reality", text: "Myth: Full mouth rehab means removing all natural teeth. Reality: Wherever possible, natural teeth are preserved and integrated into the plan.", image: "/images/services/fmr-myth.jpg" }
           ]
         }
       ]
     }
   },
+  
   {
     slug: "teeth-restoration",
     title: "Teeth Restoration",
-    shortDescription: "Repairing and restoring damaged teeth to their original function and beauty. Our services include fillings, inlays, onlays, and crowns to ensure a healthy, long-lasting smile.",
+    shortDescription: "Repair damaged, decayed, or broken teeth with advanced restorative techniques for natural appearance and function.",
     iconPath: "/images/icons/teeth-restoration.svg",
-    longDescription: "Teeth restoration is a crucial part of general dentistry that aims to repair teeth damaged by decay, trauma, or wear. We use high-quality materials, such as tooth-colored composite resins and durable ceramics, to restore your teeth seamlessly. Our goal is to provide restorations that are not only functional but also aesthetically pleasing, preserving your natural smile.",
+    longDescription: "Teeth restoration involves repairing teeth affected by cavities, fractures, or wear using modern dental materials and techniques. Our clinic provides fillings, inlays, onlays, and bonding to restore teeth to their natural form and function. With tooth-colored composite and ceramic options, restorations are strong, long-lasting, and blend seamlessly with your smile.",
     heroImage: "/images/services/teeth-restoration-hero.jpg",
-    infographicImages: "/images/services/teeth-restoration-info1.png",
-      
-    
+    infographicImages: "/images/services/teeth-restoration-info.png",
     seo: {
-      title: "Teeth Restoration in Pune | Fillings, Crowns & Inlays",
-      description: "Restore your damaged teeth with our advanced teeth restoration services in Pune. We provide fillings, crowns, and other restorative treatments for a healthy smile.",
+      title: "Teeth Restoration in Pune | Fillings, Bonding & More",
+      description: "Fix decayed, cracked, or broken teeth with advanced dental restorations in Pune. Tooth-colored fillings, inlays, onlays, and bonding available.",
       keywords: [
-        "teeth restoration",
-        "dental fillings",
-        "inlays and onlays",
-        "dental crowns",
+        "teeth restoration Pune",
+        "tooth filling Pune",
+        "dental bonding Pune",
+        "inlay onlay Pune",
+        "restorative dentistry Pune"
       ],
     },
     beforeAfterCategory: "teeth-restoration",
     features: [
-      {
-        icon: "/images/icons/natural.svg",
-        title: "Natural-Looking Materials",
-        description: "Tooth-colored fillings and crowns for a seamless smile"
-      },
-      {
-        icon: "/images/icons/strong.svg",
-        title: "Durable & Strong",
-        description: "Long-lasting restorations that can withstand daily use"
-      },
-      {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Preserves Tooth Structure",
-        description: "Minimally invasive techniques to save your natural teeth"
-      },
-      {
-        icon: "/images/icons/gentle.svg",
-        title: "Efficient Procedures",
-        description: "Get your teeth restored quickly and comfortably"
-      }
+      { icon: "/images/icons/tooth-tick.svg", title: "Tooth-Colored Options", description: "Composite and ceramic restorations for natural look" },
+      { icon: "/images/icons/strong.svg", title: "Strong & Durable", description: "Restorations designed to withstand chewing forces" },
+      { icon: "/images/icons/gentle-care.svg", title: "Quick & Painless", description: "Most procedures completed in a single visit" },
+      { icon: "/images/icons/gentle.svg", title: "Minimally Invasive", description: "Maximum tooth preservation with modern methods" }
     ],
     processSteps: [
-      {
-        stepNumber: 1,
-        title: "Diagnosis and Planning",
-        description: "Identifying the extent of damage and planning the restoration"
-      },
-      {
-        stepNumber: 2,
-        title: "Preparing the Tooth",
-        description: "Gently removing decayed or damaged portions of the tooth"
-      },
-      {
-        stepNumber: 3,
-        title: "Placing the Restoration",
-        description: "Applying the filling, inlay, onlay, or crown for a perfect fit"
-      }
+      { stepNumber: 1, title: "Assessment & X-rays", description: "Identify extent of decay or damage" },
+      { stepNumber: 2, title: "Tooth Preparation", description: "Decay removal and surface shaping" },
+      { stepNumber: 3, title: "Restoration Placement", description: "Composite, ceramic, or bonding applied and polished" }
     ],
     mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/restoration-before-1.jpg",
-        after: "/images/before-after/restoration-after-1.jpg",
-        description: "Composite filling on a decayed molar"
-      },
-      {
-        before: "/images/before-after/restoration-before-2.jpg",
-        after: "/images/before-after/restoration-after-2.jpg",
-        description: "Crown placement on a chipped front tooth"
-      },
-      {
-        before: "/images/before-after/restoration-before-3.jpg",
-        after: "/images/before-after/restoration-after-3.jpg",
-        description: "Inlay to restore a large cavity"
-      }
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Cavity filled with tooth-colored composite" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Fractured tooth restored with bonding" }
     ],
     detailedContent: {
-      mainTitle: "Restore Your Smile's Health & Beauty",
-      mainDescription: "Whether it's a small cavity or a large fracture, our restorative treatments bring your teeth back to life. We use advanced techniques and materials to ensure your restoration is both strong and visually indistinguishable from your natural teeth.",
-      heroContentImage: "/images/services/subhero-restoration.jpg",
+      mainTitle: "Repair & Protect Your Teeth",
+      mainDescription: "Restorative dentistry not only fixes problems but also prevents future damage. Our focus is on preserving natural teeth with minimally invasive methods.",
+      heroContentImage: "/images/services/subhero-teeth-restoration.jpg",
       additionalSections: [
         {
-          title: "Types of Restorative Procedures",
-          content: "We offer a full range of restorative options, from simple composite fillings for minor decay to more extensive crowns and bridges for severely damaged or missing teeth. Each procedure is performed with precision and an eye for detail.",
+          title: "Types of Restorations",
+          content: "Depending on the extent of damage, we use different approaches — from simple fillings to advanced onlays and inlays.",
           image: "/images/services/restoration-types.jpg",
           subsections: [
-            {
-              subtitle: "Benefits of Restoring Damaged Teeth",
-              text: "Restoring damaged teeth prevents further decay, alleviates pain, and improves your ability to chew and speak. It also helps maintain your facial structure and boosts your self-confidence.",
-              image: "/images/services/restoration-benefits.jpg"
-            }
+            { subtitle: "Composite Fillings", text: "Aesthetic tooth-colored fillings for small to medium cavities.", image: "/images/services/composite-filling.jpg" },
+            { subtitle: "Inlays & Onlays", text: "Stronger alternatives for larger cavities, crafted in ceramic or composite.", image: "/images/services/inlay-onlay.jpg" },
+            { subtitle: "Bonding", text: "Quick repair for chips, cracks, and worn edges.", image: "/images/services/dental-bonding.jpg" }
+          ]
+        },
+        {
+          title: "Care & Myths",
+          content: "Modern restorations are durable and blend naturally, but they still require good oral hygiene.",
+          image: "/images/services/restoration-care.jpg",
+          subsections: [
+            { subtitle: "Myth vs Reality", text: "Myth: Fillings don’t last long. Reality: With proper care, modern restorations can last over a decade.", image: "/images/services/restoration-myth.jpg" }
           ]
         }
       ]
     }
   },
+  
   {
-    "slug": "oral-surgery",
-    "title": "Oral Surgery",
-    "shortDescription": "Our expert oral surgery services cover a range of procedures, from routine extractions to complex surgical treatments, ensuring your oral health and comfort.",
-    "iconPath": "/images/icons/oral-surgery.svg",
-    "longDescription": "Oral surgery involves a variety of surgical procedures to treat injuries, diseases, and defects in the head, neck, face, jaws, and hard and soft tissues of the oral cavity. Our experienced team performs a wide range of procedures, including wisdom tooth extractions, surgical teeth extractions, sinus lifts, and oral cancer screenings, all with a focus on patient comfort and optimal outcomes.",
-    "heroImage": "/images/services/oral-surgery-hero.jpg",
-    "infographicImages": "/images/services/oral-surgery-info.jpg",
-    "seo": {
-        "title": "Oral Surgery in Pune | Wisdom Tooth Extraction & Sinus Lifts",
-        "description": "Comprehensive oral surgery services in Pune. We specialize in wisdom tooth extractions, surgical extractions, sinus lifts, and oral cancer screenings for your complete oral health.",
-        "keywords": [
-            "oral surgery",
-            "wisdom tooth extraction",
-            "surgical teeth extraction",
-            "sinus lift",
-            "oral cancer screening",
-            "oral surgeon pune"
-        ]
-    },
-    "beforeAfterCategory": "oral-surgery",
-    "features": [
-        {
-            "icon": "/images/icons/expert-specialist.svg",
-            "title": "Experienced Surgeons",
-            "description": "Procedures performed by highly trained and experienced oral surgeons"
-        },
-        {
-            "icon": "/images/icons/clinic.svg",
-            "title": "Advanced Techniques",
-            "description": "We use modern surgical methods for precision and minimal discomfort"
-        },
-        {
-            "icon": "/images/icons/gentle-care.svg",
-            "title": "Effective Pain Management",
-            "description": "A focus on patient comfort through local anesthesia and sedation options"
-        },
-        {
-            "icon": "/images/icons/gentle.svg",
-            "title": "Comprehensive Solutions",
-            "description": "Covering a wide range of surgical needs, from simple to complex"
-        }
-    ],
-    "processSteps": [
-        {
-            "stepNumber": 1,
-            "title": "Initial Consultation & Diagnosis",
-            "description": "We perform a thorough examination and use diagnostic imaging to create a precise treatment plan"
-        },
-        {
-            "stepNumber": 2,
-            "title": "The Surgical Procedure",
-            "description": "The surgery is performed with a focus on safety, efficiency, and patient comfort"
-        },
-        {
-            "stepNumber": 3,
-            "title": "Post-Operative Care",
-            "description": "We provide detailed aftercare instructions and support for a smooth recovery"
-        }
-    ],
-    "mockBeforeAfterImages": [
-        {
-            "before": "/images/dummy-before.jpg",
-            "after": "/images/dummy-after.jpg",
-            "description": "This is a dummy image for a wisdom tooth extraction"
-        },
-        {
-            "before": "/images/dummy-before.jpg",
-            "after": "/images/dummy-after.jpg",
-            "description": "This is a dummy image for a surgical extraction"
-        },
-        {
-            "before": "/images/dummy-before.jpg",
-            "after": "/images/dummy-after.jpg",
-            "description": "This is a dummy image for a sinus lift procedure"
-        }
-    ],
-    "detailedContent": {
-        "mainTitle": "Expert Care for Your Surgical Needs",
-        "mainDescription": "Oral surgery can be necessary for a variety of conditions, including impacted teeth, jaw problems, and oral diseases. Our clinic offers a comprehensive range of surgical services designed to improve your oral health and restore function and aesthetics with precision and care.",
-        "heroContentImage": "/images/services/subhero-oral-surgery.jpg",
-        "additionalSections": [
-            {
-                "title": "Common Oral Surgery Procedures",
-                "content": "Our practice is equipped to handle a variety of procedures. This includes the removal of impacted wisdom teeth and other difficult extractions. We also perform advanced procedures like sinus lifts to prepare for dental implants and diagnose and treat oral pathologies, including oral cancer.",
-                "image": "/images/services/oral-surgery-procedures.jpg",
-                "subsections": [
-                    {
-                        "subtitle": "Wisdom Tooth & Surgical Extractions",
-                        "text": "Wisdom teeth often require surgical removal due to impaction or improper growth. Surgical extractions are performed when a tooth is not easily accessible, ensuring a safe and effective removal.",
-                        "image": "/images/services/wisdom-tooth-extraction.jpg"
-                    },
-                    {
-                        "subtitle": "Sinus Lift",
-                        "text": "A sinus lift is a surgical procedure that adds bone to your upper jaw in the area of your molars and premolars. This is often necessary when there is not enough bone height to place a dental implant.",
-                        "image": "/images/services/sinus-lift.jpg"
-                    },
-                    {
-                        "subtitle": "Oral Cancer Screening",
-                        "text": "As a key part of our oral surgery practice, we conduct routine oral cancer screenings. This simple, non-invasive examination is crucial for the early detection of any precancerous or cancerous lesions.",
-                        "image": "/images/services/oral-cancer-screening-detail.jpg"
-                    }
-                ]
-            }
-        ]
-    }
-},
-  {
-    slug: "smile-designing",
-    title: "Smile Designing",
-    shortDescription: "A custom-tailored cosmetic procedure to redesign your smile. From veneers to teeth whitening, we combine multiple treatments to create your perfect smile.",
-    iconPath: "/images/icons/smile-designing.svg",
-    longDescription: "Smile designing is a process that takes into account your unique facial features, personality, and desires to create a beautiful, harmonious smile. It can involve a combination of cosmetic procedures, such as veneers, crowns, gum contouring, and teeth whitening. Our team uses digital smile design technology to give you a preview of your new smile before the treatment begins.",
-    heroImage: "/images/services/smile-designing-hero.jpg",
-    infographicImages: "/images/services/smile-designing-info1.png",
-      
-    
+    slug: "oral-surgery",
+    title: "Oral Surgery",
+    shortDescription: "Expert oral surgical care — from wisdom tooth removal to jaw surgeries — with advanced technology, comfort options, and personalized aftercare.",
+    iconPath: "/images/icons/oral-surgery.svg",
+    longDescription: "Oral surgery covers a wide range of procedures that restore health, comfort, and confidence. At our clinic, we specialize in safe and precise surgeries including wisdom tooth extractions, jaw surgery, sinus lifts for implants, cyst and tumor removal, trauma repair, and oral cancer screenings. Every treatment is carried out with modern technology, skilled expertise, and complete focus on patient comfort — including anesthesia and sedation options. Our approach ensures minimal discomfort, faster recovery, and long-lasting oral health.",
+    heroImage: "/images/services/oral-surgery-hero.jpg",
+    infographicImages: "/images/services/oral-surgery-info1.png",
     seo: {
-      title: "Smile Designing in Pune | Custom Smile Makeover",
-      description: "Get a custom smile design in Pune. Our cosmetic dentistry services, including veneers and teeth whitening, are tailored to create your perfect smile.",
+      title: "Oral Surgery in Pune | Wisdom Tooth, Jaw Surgery & More",
+      description: "Advanced oral surgery in Pune — wisdom tooth extractions, jaw surgery, sinus lifts, cyst removal, trauma care, and oral cancer screenings with expert surgeons.",
       keywords: [
-        "smile designing Pune",
-        "smile makeover",
-        "cosmetic dentistry",
-        "digital smile design",
+        "oral surgery Pune",
+        "wisdom tooth extraction Pune",
+        "jaw surgery Pune",
+        "oral surgeon Pune",
+        "sinus lift Pune",
+        "oral cancer screening Pune",
+        "dental cyst removal Pune",
+        "trauma repair oral surgery"
       ],
     },
-    beforeAfterCategory: "smile-designing",
+    beforeAfterCategory: "oral-surgery",
     features: [
-      {
-        icon: "/images/icons/face-star.svg",
-        title: "Personalized Treatment Plan",
-        description: "A unique plan designed just for you"
-      },
-      {
-        icon: "/images/icons/teeth.svg",
-        title: "Digital Smile Preview",
-        description: "See your new smile before any work begins"
-      },
-      {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Aesthetic Excellence",
-        description: "Focus on creating a beautiful and harmonious smile"
-      },
-      {
-        icon: "/images/icons/expert-specialist.svg",
-        title: "Cosmetic Dentistry Expert",
-        description: "Led by a specialist in cosmetic dental procedures"
-      }
+      { icon: "/images/icons/expert-specialist.svg", title: "Experienced Surgeons", description: "Performed by skilled oral surgery specialists" },
+      { icon: "/images/icons/clinic.svg", title: "Advanced Techniques", description: "Precision methods with modern equipment" },
+      { icon: "/images/icons/gentle-care.svg", title: "Comfort & Safety", description: "Local anesthesia and sedation options available" },
+      { icon: "/images/icons/gentle.svg", title: "Wide Scope", description: "From simple extractions to complex jaw surgeries" }
     ],
     processSteps: [
-      {
-        stepNumber: 1,
-        title: "Consultation & Analysis",
-        description: "Discussing your goals and digitally analyzing your smile"
-      },
-      {
-        stepNumber: 2,
-        title: "Treatment Planning",
-        description: "Creating a comprehensive plan with a detailed timeline"
-      },
-      {
-        stepNumber: 3,
-        title: "Smile Transformation",
-        description: "Executing the plan and unveiling your new smile"
-      }
+      { stepNumber: 1, title: "Consultation & Imaging", description: "Detailed exam with X-rays/3D scans for accurate planning" },
+      { stepNumber: 2, title: "Surgical Procedure", description: "Performed with precision and focus on patient comfort" },
+      { stepNumber: 3, title: "Recovery & Aftercare", description: "Post-op guidance, follow-up support, and quick healing" }
     ],
     mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/smile-design-before-1.jpg",
-        after: "/images/before-after/smile-design-after-1.jpg",
-        description: "Smile transformation with veneers and whitening"
-      },
-      {
-        before: "/images/before-after/smile-design-before-2.jpg",
-        after: "/images/before-after/smile-design-after-2.jpg",
-        description: "Correcting misalignment and discoloration"
-      },
-      {
-        before: "/images/before-after/smile-design-before-3.jpg",
-        after: "/images/before-after/smile-design-after-3.jpg",
-        description: "Complete smile makeover using multiple cosmetic treatments"
-      }
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Impacted wisdom tooth extraction" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Sinus lift procedure for implant placement" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Jaw cyst removal and healing" }
     ],
     detailedContent: {
-      mainTitle: "Your Dream Smile, Designed by Experts",
-      mainDescription: "A confident smile can change your life. Our smile designing service is more than just a dental procedure; it’s a form of art that combines aesthetics, science, and technology to create a smile that is perfect for you.",
-      heroContentImage: "/images/services/subhero-smile-design.jpg",
+      mainTitle: "Expert Surgical Care for Every Need",
+      mainDescription: "From routine extractions to complex corrective surgeries, our oral surgery services are designed to restore health, function, and confidence — with your comfort as our top priority.",
+      heroContentImage: "/images/services/subhero-oral-surgery.jpg",
       additionalSections: [
         {
-          title: "What Does Smile Designing Involve?",
-          content: "Smile designing is a holistic approach to improving your smile. It can include teeth whitening, veneers, dental bonding, crowns, or orthodontic treatment to address issues like discoloration, chipping, misalignment, or gaps between teeth.",
-          image: "/images/services/smile-design-info.jpg",
+          title: "Types of Oral Surgery",
+          content: "Our oral surgery services cover a broad spectrum of treatments — including impacted wisdom tooth removal, sinus lifts for implants, corrective jaw surgery, cyst and tumor removal, trauma repair, and oral cancer screenings for early detection.",
+          image: "/images/services/oral-surgery-procedures.jpg",
           subsections: [
-            {
-              subtitle: "The Digital Advantage",
-              text: "Our use of digital smile design software allows you to be an active participant in the process. We can show you exactly what your smile will look like and make adjustments before the treatment even begins, ensuring your complete satisfaction.",
-              image: "/images/services/smile-design-digital.jpg"
-            }
+            { subtitle: "Wisdom Teeth & Extractions", text: "Safe removal of impacted or infected teeth prevents pain, crowding, and infections.", image: "/images/services/wisdom-tooth-extraction.jpg" },
+            { subtitle: "Jaw Surgery & Sinus Lifts", text: "Corrective jaw surgery improves bite and function, while sinus lifts enable successful dental implant placement.", image: "/images/services/sinus-lift.jpg" },
+            { subtitle: "Pathology & Cancer Screening", text: "We manage cysts, tumors, and perform early screenings for oral cancer — improving chances of timely treatment.", image: "/images/services/oral-cancer-screening-detail.jpg" },
+            { subtitle: "Trauma & Emergency Care", text: "From fractures to soft tissue injuries, our surgeons restore both function and aesthetics with precision.", image: "/images/services/oral-trauma.jpg" }
+          ]
+        },
+        {
+          title: "Comfort, Safety & Aftercare",
+          content: "Your comfort matters to us. We provide local anesthesia and sedation options to ease anxiety and ensure painless treatment. Our strict sterilization protocols guarantee safety at every step. After surgery, you’ll receive personalized recovery instructions, dietary guidance, and follow-up appointments to ensure smooth healing.",
+          image: "/images/services/oral-surgery-comfort.jpg",
+          subsections: [
+            { subtitle: "Myth vs Reality", text: "Myth: Oral surgery is always very painful. Reality: With modern anesthesia and sedation, most patients experience little to no pain during and after the procedure.", image: "/images/services/oral-surgery-myth.jpg" }
           ]
         }
       ]
     }
+  }
+  ,
+  {
+    slug: "smile-designing",
+    title: "Smile Designing",
+    shortDescription:
+      "Transform your smile with a customized blend of cosmetic treatments — designed to boost confidence and aesthetics.",
+    iconPath: "/images/icons/smile-makeover.svg",
+    longDescription:
+      "A smile makeover combines treatments like veneers, whitening, bonding, crowns, and orthodontics to enhance your smile’s beauty and harmony. At our clinic, every makeover is personalized after a detailed consultation and digital smile design. Our goal is not only to improve aesthetics but also ensure balance, comfort, and natural appeal.",
+    heroImage: "/images/services/smile-makeover-hero.jpg",
+    infographicImages: "/images/services/smile-makeover-info1.png",
+    seo: {
+      title: "Smile Makeover in Pune | Cosmetic Dentistry Experts",
+      description:
+        "Personalized smile makeovers in Pune — veneers, whitening, crowns, and digital smile design for a confident and natural-looking smile.",
+      keywords: [
+        "smile makeover Pune",
+        "cosmetic dentist Pune",
+        "veneers Pune",
+        "teeth whitening Pune",
+        "digital smile design Pune",
+      ],
+    },
+    beforeAfterCategory: "smile-makeover",
+    features: [
+      {
+        icon: "/images/icons/expert-specialist.svg",
+        title: "Customized Plans",
+        description: "Tailored treatments for your goals",
+      },
+      {
+        icon: "/images/icons/clinic.svg",
+        title: "Digital Smile Design",
+        description: "Preview results before treatment",
+      },
+      {
+        icon: "/images/icons/gentle-care.svg",
+        title: "Multi-Treatment Approach",
+        description: "Whitening, veneers, crowns & more",
+      },
+      {
+        icon: "/images/icons/gentle.svg",
+        title: "Natural Results",
+        description: "Enhances smile without looking artificial",
+      },
+    ],
+    processSteps: [
+      {
+        stepNumber: 1,
+        title: "Consultation & Planning",
+        description: "Smile goals discussed with digital previews",
+      },
+      {
+        stepNumber: 2,
+        title: "Treatment Execution",
+        description: "Combination of cosmetic procedures as per plan",
+      },
+      {
+        stepNumber: 3,
+        title: "Final Reveal",
+        description: "Balanced, aesthetic smile transformation",
+      },
+    ],
+    mockBeforeAfterImages: [
+      {
+        before: "/images/dummy-before.jpg",
+        after: "/images/dummy-after.jpg",
+        description: "Smile makeover with veneers and whitening",
+      },
+    ],
+    detailedContent: {
+      mainTitle: "Redesign Your Smile with Confidence",
+      mainDescription:
+        "A smile makeover is more than cosmetic — it’s about confidence, self-expression, and creating harmony between teeth, gums, and face.",
+      heroContentImage: "/images/services/subhero-smile-makeover.jpg",
+      additionalSections: [
+        {
+          title: "What’s in a Smile Makeover?",
+          content:
+            "We use a mix of treatments like veneers, whitening, bonding, and crowns to deliver your dream smile. Each plan is unique and based on your needs.",
+          image: "/images/services/smile-makeover-options.jpg",
+          subsections: [
+            {
+              subtitle: "Veneers",
+              text: "Thin porcelain shells to cover imperfections.",
+              image: "/images/services/veneers-detail.jpg",
+            },
+            {
+              subtitle: "Whitening",
+              text: "Safe, effective in-clinic and at-home options.",
+              image: "/images/services/whitening-detail.jpg",
+            },
+          ],
+        },
+        {
+          title: "Myth vs Reality",
+          content:
+            "Myth: Smile makeovers always look fake. Reality: With modern techniques and natural design principles, results are aesthetic and realistic.",
+          image: "/images/services/smile-makeover-myth.jpg",
+          subsections: [],
+        },
+      ],
+    },
   },
   {
     slug: "tooth-extraction",
     title: "Tooth Extraction",
-    shortDescription: "Expert and gentle tooth extraction services. We prioritize your comfort and safety, ensuring a smooth and pain-free procedure when a tooth cannot be saved.",
+    shortDescription: "Safe, painless removal of damaged, infected, or problematic teeth with expert care and gentle techniques.",
     iconPath: "/images/icons/tooth-extraction.svg",
-    longDescription: "Tooth extraction is the removal of a tooth from its socket in the bone. It's often a last resort when a tooth is too damaged from decay, trauma, or gum disease to be saved. We perform extractions with the utmost care, using local anesthesia to ensure a comfortable experience. We also provide clear aftercare instructions to promote quick healing.",
-    heroImage: "/images/services/tooth-extraction-hero-large.jpg",
-    infographicImages: "/images/services/tooth-extraction.jpg",
-      
-    
+    longDescription: "Sometimes, removing a tooth is the best solution for long-term oral health. Extractions are recommended for severely decayed, damaged, or infected teeth, as well as for orthodontic or wisdom tooth-related reasons. Our clinic ensures a painless, stress-free experience with local anesthesia and, when needed, sedation options. With modern tools and techniques, healing is faster and complications are minimized.",
+    heroImage: "/images/services/tooth-extraction-hero.jpg",
+    infographicImages: "/images/services/tooth-extraction-info.png",
     seo: {
-      title: "Tooth Extraction in Pune | Gentle & Safe Procedures",
-      description: "Need a tooth extraction in Pune? We provide gentle, professional, and pain-free tooth removal services, including wisdom tooth extractions, with a focus on patient comfort.",
+      title: "Tooth Extraction in Pune | Safe & Gentle Dental Care",
+      description: "Expert tooth extraction in Pune — painless, safe, and gentle removal of decayed, infected, or problematic teeth with quick recovery.",
       keywords: [
         "tooth extraction Pune",
-        "wisdom tooth removal",
-        "dental surgery",
-        "painless extraction",
+        "dental extraction Pune",
+        "tooth removal Pune",
+        "wisdom tooth removal Pune",
+        "painless extraction Pune"
       ],
     },
     beforeAfterCategory: "tooth-extraction",
     features: [
-      {
-        icon: "/images/icons/gentle-care.svg",
-        title: "Gentle & Pain-Free",
-        description: "Local anesthesia for a comfortable procedure"
-      },
-      {
-        icon: "/images/icons/face-star.svg",
-        title: "Quick Recovery",
-        description: "Clear aftercare instructions for a fast healing process"
-      },
-      {
-        icon: "/images/icons/gentle.svg",
-        title: "Prioritizing Safety",
-        description: "Sterile environment and expert handling of instruments"
-      },
-      {
-        icon: "/images/icons/expert-specialist.svg",
-        title: "Expert Oral Surgeon",
-        description: "Performed by an experienced dental professional"
-      }
+      { icon: "/images/icons/gentle-care.svg", title: "Painless Procedure", description: "Local anesthesia and sedation for comfort" },
+      { icon: "/images/icons/expert-specialist.svg", title: "Expert Techniques", description: "Handled by skilled dentists with precision" },
+      { icon: "/images/icons/smile-plus.svg", title: "Quick Healing", description: "Guided aftercare for smooth recovery" },
+      { icon: "/images/icons/gentle.svg", title: "Safe & Hygienic", description: "Strict sterilization and safety standards" }
     ],
     processSteps: [
-      {
-        stepNumber: 1,
-        title: "Diagnosis",
-        description: "Assessing the tooth and determining if extraction is necessary"
-      },
-      {
-        stepNumber: 2,
-        title: "The Procedure",
-        description: "Administering anesthesia and carefully removing the tooth"
-      },
-      {
-        stepNumber: 3,
-        title: "Aftercare",
-        description: "Providing post-operative care instructions to prevent complications"
-      }
+      { stepNumber: 1, title: "Consultation & X-rays", description: "Evaluate tooth condition and treatment need" },
+      { stepNumber: 2, title: "Extraction Procedure", description: "Tooth removed gently with minimal trauma" },
+      { stepNumber: 3, title: "Aftercare & Healing", description: "Post-op instructions for recovery and comfort" }
     ],
     mockBeforeAfterImages: [
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "Tooth extraction results are typically not shown with before-and-after images." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "Tooth extraction results are typically not shown with before-and-after images." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "Tooth extraction results are typically not shown with before-and-after images." }
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Severely decayed tooth extraction and healing" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Orthodontic extraction before braces" }
     ],
     detailedContent: {
-      mainTitle: "Safe & Comfortable Tooth Extractions",
-      mainDescription: "While our goal is always to save your natural teeth, sometimes extraction is the best option for your oral health. We ensure the procedure is as quick, comfortable, and stress-free as possible.",
-      heroContentImage: "/images/services/subhero-extraction.jpg",
+      mainTitle: "Safe & Stress-Free Extractions",
+      mainDescription: "Our priority is your comfort and health. Extractions are performed with utmost care, followed by clear aftercare guidance to ensure fast healing.",
+      heroContentImage: "/images/services/subhero-tooth-extraction.jpg",
       additionalSections: [
         {
-          title: "When is an Extraction Necessary?",
-          content: "Extractions are performed for severely decayed teeth, advanced periodontal disease, impacted wisdom teeth, or to prepare for orthodontic treatment. We will always discuss all options with you before recommending an extraction.",
-          image: "/images/services/extraction-info.jpg",
+          title: "When Is Extraction Needed?",
+          content: "Extractions are recommended only when teeth cannot be saved or are causing complications. This includes severe decay, advanced gum disease, trauma, or orthodontic planning.",
+          image: "/images/services/extraction-cases.jpg",
           subsections: [
-            {
-              subtitle: "Post-Operative Care",
-              text: "Proper aftercare is crucial for a smooth recovery. We will give you detailed instructions on how to manage swelling, pain, and diet to ensure the extraction site heals quickly and without complications.",
-              image: "/images/services/extraction-aftercare.jpg"
-            }
+            { subtitle: "Severe Decay", text: "When a tooth is beyond repair and causes pain or infection.", image: "/images/services/decayed-tooth.jpg" },
+            { subtitle: "Orthodontic Needs", text: "Some cases require extractions to align teeth properly.", image: "/images/services/orthodontic-extraction.jpg" },
+            { subtitle: "Impacted Teeth", text: "Wisdom teeth or other impacted teeth may need surgical removal.", image: "/images/services/impacted-tooth.jpg" }
+          ]
+        },
+        {
+          title: "Care & Myths",
+          content: "Post-extraction care ensures smooth healing. Many patients worry unnecessarily due to common myths.",
+          image: "/images/services/extraction-care.jpg",
+          subsections: [
+            { subtitle: "Myth vs Reality", text: "Myth: Extraction always causes severe pain. Reality: With anesthesia and modern tools, discomfort is minimal and recovery is quick.", image: "/images/services/extraction-myth.jpg" }
           ]
         }
       ]
     }
-  },
+  }
+  ,
   {
     slug: "braces-and-invisalign",
-    title: "Braces and Invisalign",
-    shortDescription: "Straighten your smile with our advanced orthodontic solutions. We offer traditional braces and clear aligners like Invisalign for a confident, perfectly aligned smile.",
-    iconPath: "/images/icons/braces-and-invisalign.svg",
-    longDescription: "Orthodontics is the branch of dentistry that corrects teeth and jaws that are positioned improperly. We offer a range of solutions, from traditional metal braces to the discreet and modern clear aligners of Invisalign. Our personalized treatment plans are designed to help you achieve a beautiful, functional, and healthy smile at any age.",
+    title: "Braces & Aligners",
+    shortDescription: "Straighten your teeth and improve bite with modern orthodontic options — from traditional braces to invisible aligners.",
+    iconPath: "/images/icons/braces-aligners.svg",
+    longDescription: "Orthodontic treatment aligns teeth and jaws for a healthier bite, improved function, and a beautiful smile. We provide a range of options including metal braces, ceramic braces, and clear aligners like Invisalign. Each plan is customized to your age, dental condition, and lifestyle. Whether you want the reliability of braces or the convenience of nearly invisible aligners, our orthodontists ensure precise, comfortable, and effective care.",
     heroImage: "/images/services/clear-aligners.jpg",
-    infographicImages: "/images/services/braces-invisalign-info1.png",
-      
-    
+    infographicImages: "/images/services/braces-aligners-info.png",
     seo: {
-      title: "Braces & Invisalign in Pune | Top Orthodontic Solutions",
-      description: "Get a straight smile with our top-rated orthodontic services in Pune. We provide both traditional braces and clear, discreet Invisalign aligners for all ages.",
+      title: "Braces & Aligners in Pune | Invisible Aligners & Orthodontics",
+      description: "Expert orthodontic care in Pune — metal braces, ceramic braces, and invisible aligners for straighter teeth and improved bite.",
       keywords: [
         "braces Pune",
+        "aligners Pune",
+        "invisible aligners Pune",
         "Invisalign Pune",
-        "orthodontics",
-        "straight teeth",
+        "orthodontist Pune",
+        "ceramic braces Pune"
       ],
     },
-    beforeAfterCategory: "braces-and-invisalign",
+    beforeAfterCategory: "braces-aligners",
     features: [
-      {
-        icon: "/images/icons/face-star.svg",
-        title: "Customized Treatment Plan",
-        description: "A plan designed to meet your specific orthodontic needs"
-      },
-      {
-        icon: "/images/icons/smile-plus.svg",
-        title: "Discreet Options",
-        description: "Choose clear aligners for an invisible treatment"
-      },
-      {
-        icon: "/images/icons/gentle-care.svg",
-        title: "Comfort & Convenience",
-        description: "Modern solutions designed for your comfort"
-      },
-      {
-        icon: "/images/icons/expert-specialist.svg",
-        title: "Expert Orthodontist",
-        description: "Treatment overseen by a certified orthodontic specialist"
-      }
+      { icon: "/images/icons/expert-specialist.svg", title: "Expert Orthodontists", description: "Treatment designed and supervised by specialists" },
+      { icon: "/images/icons/tooth-tick.svg", title: "Modern Options", description: "Metal, ceramic, and clear aligner solutions" },
+      { icon: "/images/icons/gentle.svg", title: "Customized Plans", description: "Treatment tailored to each patient’s needs" },
+      { icon: "/images/icons/smile-plus.svg", title: "Improved Function & Smile", description: "Better bite, healthier gums, and a confident smile" }
     ],
     processSteps: [
-      {
-        stepNumber: 1,
-        title: "Consultation",
-        description: "Digital scanning and a full evaluation of your bite"
-      },
-      {
-        stepNumber: 2,
-        title: "Treatment Begins",
-        description: "Placement of braces or delivery of your first set of aligners"
-      },
-      {
-        stepNumber: 3,
-        title: "Maintenance & Follow-up",
-        description: "Regular check-ups to monitor progress and adjust treatment"
-      }
+      { stepNumber: 1, title: "Consultation & Planning", description: "Examination, X-rays, and digital scans for treatment design" },
+      { stepNumber: 2, title: "Appliance Placement", description: "Braces or aligners fitted for gradual teeth movement" },
+      { stepNumber: 3, title: "Adjustments & Follow-up", description: "Regular check-ups to track progress and refine movement" }
     ],
     mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/braces-before-1.jpg",
-        after: "/images/before-after/braces-after-1.jpg",
-        description: "Correcting severe crowding with braces"
-      },
-      {
-        before: "/images/before-after/invisalign-before-1.jpg",
-        after: "/images/before-after/invisalign-after-1.jpg",
-        description: "Transforming a smile with Invisalign aligners"
-      },
-      {
-        before: "/images/before-after/braces-before-2.jpg",
-        after: "/images/before-after/braces-after-2.jpg",
-        description: "Closing gaps and aligning teeth"
-      }
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Crowded teeth aligned with braces" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Gapped teeth corrected with aligners" }
     ],
     detailedContent: {
-      mainTitle: "Achieve the Straight Smile You've Always Wanted",
-      mainDescription: "Whether you choose traditional braces or the clear, removable convenience of Invisalign, we can help you achieve a perfectly aligned smile. Orthodontic treatment not only improves aesthetics but also enhances your oral health.",
-      heroContentImage: "/images/services/subhero-braces.jpg",
+      mainTitle: "Straight Teeth, Healthy Smile",
+      mainDescription: "Orthodontics is not just about looks — it improves oral health, bite function, and long-term stability. We offer both traditional and advanced solutions to make your journey smooth and effective.",
+      heroContentImage: "/images/services/subhero-braces-aligners.jpg",
       additionalSections: [
         {
-          title: "Braces vs. Invisalign",
-          content: "Traditional braces are a time-tested solution for a wide range of orthodontic issues. Invisalign offers a nearly invisible alternative, using a series of custom-made clear aligners that are comfortable and easy to remove. We will help you determine the best option for your needs and lifestyle.",
-          image: "/images/services/braces-invisalign-compare.jpg",
+          title: "Treatment Options",
+          content: "We provide a full spectrum of orthodontic care for children, teens, and adults. Options include metal braces for reliability, ceramic braces for aesthetics, and clear aligners for invisible correction.",
+          image: "/images/services/braces-aligners-types.jpg",
           subsections: [
-            {
-              subtitle: "The Importance of Orthodontics",
-              text: "Properly aligned teeth are easier to clean, reducing the risk of cavities and gum disease. They also improve your bite, which can prevent problems like TMJ disorders and excessive wear on your teeth.",
-              image: "/images/services/braces-importance.jpg"
-            }
+            { subtitle: "Metal Braces", text: "Tried-and-tested option with high effectiveness for all cases.", image: "/images/services/metal-braces.jpg" },
+            { subtitle: "Ceramic Braces", text: "Tooth-colored brackets for less visibility while correcting alignment.", image: "/images/services/ceramic-braces.jpg" },
+            { subtitle: "Clear Aligners", text: "Removable, comfortable, and nearly invisible trays for modern orthodontics.", image: "/images/services/clear-aligner.jpg" }
+          ]
+        },
+        {
+          title: "Care & Myths",
+          content: "Orthodontic treatment requires consistent care and follow-up. Patients often believe braces are only for teenagers, but that’s a myth.",
+          image: "/images/services/braces-aligners-care.jpg",
+          subsections: [
+            { subtitle: "Myth vs Reality", text: "Myth: Braces are only for kids. Reality: Adults of all ages can successfully undergo orthodontic treatment.", image: "/images/services/braces-aligners-myth.jpg" }
           ]
         }
       ]
     }
-  },
+  }
+,  
   {
-    slug: "crowns-and-bridges",
-    title: "Crowns and Bridges",
-    shortDescription: "Restore damaged or missing teeth with custom-made crowns and bridges. These durable solutions improve function, aesthetics, and overall oral health.",
-    iconPath: "/images/icons/crowns-bridges.svg",
-    longDescription: "Dental crowns are caps that are placed over a damaged tooth to restore its shape, size, strength, and appearance. Dental bridges are used to replace one or more missing teeth by anchoring to the teeth on either side of the gap. Both are custom-made to blend seamlessly with your natural teeth and are a reliable solution for a strong, beautiful smile.",
-    heroImage: "/images/services/crowns-bridges-hero.jpg",
-    infographicImages: "/images/services/crowns-bridges.jpg",
-        
-    seo: {
-      title: "Dental Crowns & Bridges in Pune | Tooth Restoration",
-      description: "Get high-quality dental crowns and bridges in Pune to restore damaged or missing teeth. Our custom restorations are durable and blend with your natural smile.",
-      keywords: [
-        "dental crowns Pune",
-        "dental bridges Pune",
-        "tooth restoration",
-        "tooth replacement",
-      ],
-    },
-    beforeAfterCategory: "crowns-and-bridges",
-    features: [
-      {
-        icon: "/images/icons/strong.svg",
-        title: "Strength & Durability",
-        description: "Made from strong materials for long-lasting results"
-      },
-      {
-        icon: "/images/icons/gentle-care.svg",
-        title: "Natural Aesthetics",
-        description: "Custom-colored to match your existing teeth perfectly"
-      },
-      {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Restores Function",
-        description: "Improves your ability to chew and speak comfortably"
-      },
-      {
-        icon: "/images/icons/expert-specialist.svg",
-        title: "Expert Craftsmanship",
-        description: "Precision-made restorations for a perfect fit"
-      }
+  slug: "crowns-and-bridges",
+  title: "Crowns & Bridges",
+  shortDescription: "Restore strength, function, and beauty to damaged or missing teeth with custom crowns and bridges designed for a natural smile.",
+  iconPath: "/images/icons/crowns-bridges.svg",
+  longDescription: "Crowns and bridges are proven dental solutions to restore damaged, weakened, or missing teeth. Crowns act like protective caps, strengthening teeth while enhancing aesthetics, and bridges replace missing teeth by anchoring artificial teeth to adjacent healthy ones. At our clinic, we use advanced materials like zirconia, porcelain-fused-to-metal, and all-ceramic options for durability and a natural appearance. Every restoration is crafted for precision fit, long-term comfort, and confidence in your smile.",
+  heroImage: "/images/services/crowns-bridges-hero.jpg",
+  infographicImages: "/images/services/crowns-bridges-info.png",
+  seo: {
+    title: "Dental Crowns & Bridges in Pune | Tooth Restoration Experts",
+    description: "Restore damaged or missing teeth with natural-looking dental crowns and bridges in Pune. Zirconia, ceramic, and PFM options available for strength and beauty.",
+    keywords: [
+      "dental crowns Pune",
+      "dental bridges Pune",
+      "tooth cap Pune",
+      "zirconia crown Pune",
+      "ceramic crown Pune",
+      "tooth replacement Pune"
     ],
-    processSteps: [
-      {
-        stepNumber: 1,
-        title: "Preparation",
-        description: "Preparing the tooth and taking an impression for the crown or bridge"
-      },
-      {
-        stepNumber: 2,
-        title: "Fabrication",
-        description: "The custom crown or bridge is created in a lab"
-      },
-      {
-        stepNumber: 3,
-        title: "Placement",
-        description: "The final restoration is bonded securely to your teeth"
-      }
-    ],
-    mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/crown-before-1.jpg",
-        after: "/images/before-after/crown-after-1.jpg",
-        description: "Crown placement on a broken front tooth"
-      },
-      {
-        before: "/images/before-after/bridge-before-1.jpg",
-        after: "/images/before-after/bridge-after-1.jpg",
-        description: "Replacing a missing tooth with a dental bridge"
-      },
-      {
-        before: "/images/before-after/crown-before-2.jpg",
-        after: "/images/before-after/crown-after-2.jpg",
-        description: "Restoring a worn-down molar with a crown"
-      }
-    ],
-    detailedContent: {
-      mainTitle: "Complete Your Smile with Crowns & Bridges",
-      mainDescription: "Crowns and bridges are essential tools in restorative dentistry. They not only fill gaps and protect weak teeth but also improve your overall oral health by preventing shifting teeth and stabilizing your bite. Our high-quality, custom-made restorations are designed to last.",
-      heroContentImage: "/images/services/subhero-crowns-bridges.jpg",
-      additionalSections: [
-        {
-          title: "The Difference Between Crowns and Bridges",
-          content: "A crown is used to cap or cover a single damaged tooth. A bridge, on the other hand, is a series of crowns used to span a gap where teeth are missing. Both are fixed solutions, meaning they are cemented onto existing teeth or implants and are not removable.",
-          image: "/images/services/crowns-bridges-info.jpg",
-          subsections: [
-            {
-              subtitle: "The Fabrication Process",
-              text: "Our restorations are created using high-quality materials such as ceramic and porcelain, ensuring a perfect color match and a natural feel. We use precise digital impressions to ensure an exact fit and a comfortable, beautiful result.",
-              image: "/images/services/crowns-bridges-lab.jpg"
-            }
-          ]
-        }
-      ]
-    }
   },
-  {
-    slug: "teeth-whitening",
-    title: "Teeth Whitening",
-    shortDescription: "Brighten your smile with our safe and effective professional teeth whitening services. Achieve a dazzling, confident smile in just one visit.",
-    iconPath: "/images/icons/teeth-whitening.svg",
-    longDescription: "Professional teeth whitening is a popular cosmetic dental procedure that can significantly lighten the shade of your teeth. Unlike over-the-counter products, our in-office treatment provides dramatic, long-lasting results in a single appointment. We use a high-concentration whitening gel, activated by a special light, for a quick and safe procedure.",
-    heroImage: "/images/services/teeth-whitening-hero.jpg",
-    infographicImages: 
-      "/images/services/teeth-whitening-info1.png",
-      
-    
-    seo: {
-      title: "Teeth Whitening in Pune | Professional & Safe Whitening",
-      description: "Get a brighter smile with our professional teeth whitening services in Pune. Our safe, in-office treatments provide dramatic and long-lasting results in a single visit.",
-      keywords: [
-        "teeth whitening Pune",
-        "professional whitening",
-        "brighten teeth",
-        "bleaching",
-      ],
-    },
-    beforeAfterCategory: "teeth-whitening",
-    features: [
+  beforeAfterCategory: "crowns-bridges",
+  features: [
+    { icon: "/images/icons/strong.svg", title: "Durable Materials", description: "Zirconia, ceramic, and porcelain-fused options" },
+    { icon: "/images/icons/natural.svg", title: "Natural Aesthetics", description: "Designed to match your natural teeth" },
+    { icon: "/images/icons/tooth-tick.svg", title: "Perfect Fit", description: "Custom-made for comfort and function" },
+    { icon: "/images/icons/smile-plus.svg", title: "Long-Lasting Solution", description: "Strong restorations with proper care" }
+  ],
+  processSteps: [
+    { stepNumber: 1, title: "Consultation & Exam", description: "Assessment of damaged or missing teeth with X-rays and scans" },
+    { stepNumber: 2, title: "Tooth Preparation", description: "Shaping of teeth and impressions for a custom fit" },
+    { stepNumber: 3, title: "Crown/Bridge Placement", description: "Final restoration fitted and cemented for durability" }
+  ],
+  mockBeforeAfterImages: [
+    { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Front tooth crown for aesthetics" },
+    { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Bridge replacing missing molar" }
+  ],
+  detailedContent: {
+    mainTitle: "Strong, Functional & Beautiful Restorations",
+    mainDescription: "Crowns and bridges not only restore function but also enhance the beauty of your smile. Whether it’s strengthening a weak tooth or replacing a missing one, our solutions are designed for comfort, strength, and confidence.",
+    heroContentImage: "/images/services/subhero-crowns-bridges.jpg",
+    additionalSections: [
       {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Instant Results",
-        description: "See a noticeable difference in just one session"
+        title: "Types of Crowns & Bridges",
+        content: "We offer a range of options to suit different needs and budgets — from metal-ceramic crowns for durability to zirconia crowns for premium aesthetics. Our bridges restore multiple missing teeth with seamless integration.",
+        image: "/images/services/crowns-bridges-types.jpg",
+        subsections: [
+          { subtitle: "Zirconia Crowns", text: "Highly aesthetic, durable, and metal-free option for front and back teeth.", image: "/images/services/zirconia-crown.jpg" },
+          { subtitle: "Porcelain-Fused-to-Metal (PFM)", text: "Cost-effective and strong crowns with a balance of durability and aesthetics.", image: "/images/services/pfm-crown.jpg" },
+          { subtitle: "All-Ceramic Crowns", text: "Ideal for visible teeth — lifelike translucency and natural appearance.", image: "/images/services/ceramic-crown.jpg" }
+        ]
       },
       {
-        icon: "/images/icons/gentle.svg",
-        title: "Safe & Effective",
-        description: "Performed by a professional in a controlled environment"
-      },
-      {
-        icon: "/images/icons/smile-plus.svg",
-        title: "Long-Lasting Brightness",
-        description: "Enjoy a radiant smile for a long time with proper care"
-      },
-      {
-        icon: "/images/icons/face-star.svg",
-        title: "Customized Treatment",
-        description: "Tailored to your desired shade and sensitivity level"
+        title: "Care & Maintenance",
+        content: "With proper oral hygiene and routine check-ups, crowns and bridges can last 10–15 years or longer. Avoid chewing hard objects and maintain regular cleaning to ensure longevity.",
+        image: "/images/services/crowns-bridges-care.jpg",
+        subsections: [
+          { subtitle: "Myth vs Reality", text: "Myth: Bridges damage adjacent teeth permanently. Reality: With modern bonding techniques, minimal preparation preserves maximum tooth structure.", image: "/images/services/crowns-bridges-myth.jpg" }
+        ]
       }
+    ]
+  }
+},
+{
+  slug: "teeth-whitening",
+  title: "Teeth Whitening",
+  shortDescription: "Brighten your smile safely and effectively with professional whitening treatments tailored to your needs.",
+  iconPath: "/images/icons/teeth-whitening.svg",
+  longDescription: "Teeth whitening is one of the quickest ways to enhance your smile. Unlike over-the-counter kits, professional whitening delivers safe, effective, and long-lasting results without damaging enamel. We offer in-office whitening for instant brightness and take-home kits for gradual whitening under professional guidance. Say goodbye to stains from coffee, tea, or aging, and hello to a confident, radiant smile.",
+  heroImage: "/images/services/teeth-whitening-hero.jpg",
+  infographicImages: "/images/services/teeth-whitening-info.png",
+  seo: {
+    title: "Teeth Whitening in Pune | Safe & Effective Smile Brightening",
+    description: "Professional teeth whitening in Pune — safe, painless, and effective solutions to remove stains and brighten your smile instantly.",
+    keywords: [
+      "teeth whitening Pune",
+      "professional whitening Pune",
+      "laser teeth whitening Pune",
+      "teeth bleaching Pune",
+      "cosmetic dentistry Pune"
     ],
-    processSteps: [
-      {
-        stepNumber: 1,
-        title: "Consultation",
-        description: "Assessing your oral health and discussing whitening goals"
-      },
-      {
-        stepNumber: 2,
-        title: "Preparation",
-        description: "Protecting your gums and lips before applying the gel"
-      },
-      {
-        stepNumber: 3,
-        title: "Whitening Procedure",
-        description: "Applying the professional-grade gel and activating with light"
-      }
-    ],
-    mockBeforeAfterImages: [
-      {
-        before: "/images/before-after/whitening-before-1.jpg",
-        after: "/images/before-after/whitening-after-1.jpg",
-        description: "Removing stains for a visibly brighter smile"
-      },
-      {
-        before: "/images/before-after/whitening-before-2.jpg",
-        after: "/images/before-after/whitening-after-2.jpg",
-        description: "Achieving a radiant, confident smile"
-      },
-      {
-        before: "/images/before-after/whitening-before-3.jpg",
-        after: "/images/before-after/whitening-after-3.jpg",
-        description: "Dramatic whitening results in a single session"
-      }
-    ],
-    detailedContent: {
-      mainTitle: "Unleash the Radiance of Your Smile",
-      mainDescription: "A bright, white smile can significantly boost your confidence. Our professional teeth whitening service effectively removes stains from coffee, tea, and other foods, giving you a brilliant, youthful smile that you'll be proud to show off.",
-      heroContentImage: "/images/services/subhero-whitening.jpg",
-      additionalSections: [
-        {
-          title: "How Professional Whitening Works",
-          content: "We use a powerful, yet safe, hydrogen peroxide-based gel that penetrates the enamel to break down and lift stains. This process is much more effective and safer than using over-the-counter whitening kits, which can cause sensitivity and uneven results.",
-          image: "/images/services/whitening-info.jpg",
-          subsections: [
-            {
-              subtitle: "Maintaining Your Results",
-              text: "To maintain your bright smile, we recommend avoiding stain-causing foods and drinks, practicing good oral hygiene, and scheduling regular professional cleanings.",
-              image: "/images/services/whitening-maintenance.jpg"
-            }
-          ]
-        }
-      ]
-    }
   },
-  {
-    slug: "cleaning-and-polishing",
-    title: "Cleaning and Polishing",
-    shortDescription: "A professional dental cleaning is the cornerstone of great oral health. Our thorough cleaning and polishing services remove plaque, tartar, and surface stains for a healthier, brighter smile.",
-    iconPath: "/images/icons/cleaning-and-polishing.svg",
-    longDescription: "Routine dental cleaning, also known as prophylaxis, is essential for preventing cavities, gum disease, and other oral health issues. Our skilled hygienists use specialized tools to remove stubborn plaque and tartar that regular brushing and flossing can't reach. The final polishing step removes surface stains, leaving your teeth feeling smooth and looking brighter.",
-    heroImage: "/images/services/cleaning-polishing-hero.jpg",
-    infographicImages: "/images/services/cleaning-polishing-info1.png",
-      
-    seo: {
-      title: "Dental Cleaning & Polishing in Pune | Professional Teeth Cleaning",
-      description: "Keep your smile healthy and sparkling with our professional dental cleaning and polishing services in Pune. We remove plaque and tartar for a fresh, clean feeling.",
-      keywords: [
-        "dental cleaning Pune",
-        "teeth polishing",
-        "oral hygiene",
-        "plaque removal",
-      ],
-    },
-    beforeAfterCategory: "cleaning-and-polishing",
-    features: [
+  beforeAfterCategory: "teeth-whitening",
+  features: [
+    { icon: "/images/icons/smile-plus.svg", title: "Quick Results", description: "Whiter teeth in just one session" },
+    { icon: "/images/icons/gentle-care.svg", title: "Safe & Gentle", description: "Does not damage enamel when done professionally" },
+    { icon: "/images/icons/gentle.svg", title: "Personalized Options", description: "In-office and take-home whitening kits" },
+    { icon: "/images/icons/face-star.svg", title: "Boosts Confidence", description: "Enhance your smile and self-esteem" }
+  ],
+  processSteps: [
+    { stepNumber: 1, title: "Smile Assessment", description: "Evaluation of stains and shade selection" },
+    { stepNumber: 2, title: "Whitening Treatment", description: "Application of whitening gel with/without laser activation" },
+    { stepNumber: 3, title: "Post-Care Guidance", description: "Dietary advice and maintenance instructions for longer results" }
+  ],
+  mockBeforeAfterImages: [
+    { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Whitening after coffee stains removal" },
+    { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Improved shade after one session" }
+  ],
+  detailedContent: {
+    mainTitle: "Brighter Smiles, the Healthy Way",
+    mainDescription: "Our whitening treatments are designed to give you noticeable results safely. Whether you choose instant in-office whitening or a professional take-home kit, we ensure a natural, radiant glow without harming your enamel.",
+    heroContentImage: "/images/services/subhero-teeth-whitening.jpg",
+    additionalSections: [
       {
-        icon: "/images/icons/teeth.svg",
-        title: "Plaque & Tartar Removal",
-        description: "Thorough cleaning to prevent cavities and gum disease"
+        title: "Types of Whitening",
+        content: "We provide two main options: quick in-office whitening for immediate results and custom take-home trays for gradual brightening under supervision.",
+        image: "/images/services/teeth-whitening-types.jpg",
+        subsections: [
+          { subtitle: "In-Office Whitening", text: "Professional-grade whitening gel with laser/light activation for instant brightness.", image: "/images/services/in-office-whitening.jpg" },
+          { subtitle: "Take-Home Kits", text: "Custom-fitted trays with safe whitening gel for gradual, controlled results.", image: "/images/services/take-home-kit.jpg" }
+        ]
       },
       {
-        icon: "/images/icons/smile-plus.svg",
-        title: "Brighter Smile",
-        description: "Polishing removes surface stains for a whiter look"
-      },
-      {
-        icon: "/images/icons/natural.svg",
-        title: "Fresh Breath",
-        description: "Eliminates bacteria that cause bad breath"
-      },
-      {
-        icon: "/images/icons/tooth-tick.svg",
-        title: "Preventive Care",
-        description: "A crucial step in maintaining long-term oral health"
+        title: "Whitening Safety & Myths",
+        content: "Professional whitening is enamel-safe and approved by dental associations. Common myths can mislead patients, so here’s the truth:",
+        image: "/images/services/teeth-whitening-safety.jpg",
+        subsections: [
+          { subtitle: "Myth vs Reality", text: "Myth: Whitening damages enamel. Reality: Professional whitening only removes stains and does not harm enamel structure.", image: "/images/services/teeth-whitening-myth.jpg" }
+        ]
       }
+    ]
+  }
+},
+  
+
+
+{
+  slug: "cleaning-and-polishing",
+  title: "Cleaning & Polishing",
+  shortDescription: "Professional dental cleaning to remove plaque, tartar, and stains — leaving your teeth fresh, smooth, and healthy.",
+  iconPath: "/images/icons/cleaning.svg",
+  longDescription: "Daily brushing is essential, but even the best oral care routines can’t reach every spot. Professional cleaning and polishing remove plaque, tartar, and stains that cause gum disease, cavities, and bad breath. With gentle ultrasonic scalers and polishing tools, our treatment restores oral freshness and gives your teeth a naturally brighter look. Regular cleaning not only enhances appearance but also prevents serious dental problems in the long run.",
+  heroImage: "/images/services/cleaning-hero.jpg",
+  infographicImages: "/images/services/cleaning-info1.png",
+  seo: {
+    title: "Dental Cleaning & Polishing in Pune | Preventive Care",
+    description: "Gentle and thorough dental cleaning in Pune — remove plaque, tartar, and stains with safe ultrasonic scaling and polishing.",
+    keywords: [
+      "dental cleaning Pune",
+      "scaling and polishing Pune",
+      "teeth cleaning dentist Pune",
+      "remove plaque tartar Pune",
+      "gum disease prevention Pune",
+      "professional teeth cleaning Pune"
     ],
-    processSteps: [
-      {
-        stepNumber: 1,
-        title: "Examination",
-        description: "A visual check for any signs of dental issues"
-      },
-      {
-        stepNumber: 2,
-        title: "Scaling",
-        description: "Using an ultrasonic scaler to remove plaque and tartar"
-      },
-      {
-        stepNumber: 3,
-        title: "Polishing",
-        description: "Smoothing the tooth surface to prevent future plaque buildup"
-      }
-    ],
-    mockBeforeAfterImages: [
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "While cleaning improves appearance, before-and-after images are not standard." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "While cleaning improves appearance, before-and-after images are not standard." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "While cleaning improves appearance, before-and-after images are not standard." }
-    ],
-    detailedContent: {
-      mainTitle: "The Foundation of a Healthy Smile",
-      mainDescription: "Regular dental cleanings are the most effective way to maintain a healthy mouth. They help prevent the buildup of plaque and tartar, which are the main culprits behind gum disease and cavities. A clean mouth is a healthy mouth!",
-      heroContentImage: "/images/services/subhero-cleaning.jpg",
-      additionalSections: [
-        {
-          title: "The Importance of Regular Cleanings",
-          content: "Even with excellent home care, some plaque and tartar buildup is inevitable. Professional cleanings can reach areas that you can't, helping to prevent more serious issues and giving you an opportunity for a complete check-up with your dentist.",
-          image: "/images/services/cleaning-info.jpg",
-          subsections: [
-            {
-              subtitle: "Polishing for a Brighter Smile",
-              text: "The polishing step not only leaves your teeth feeling incredibly smooth but also removes many of the stains caused by coffee, tea, and other foods, giving you a naturally brighter smile without a full whitening procedure.",
-              image: "/images/services/cleaning-polishing-info.jpg"
-            }
-          ]
-        }
-      ]
-    }
   },
+  beforeAfterCategory: "cleaning-polishing",
+  features: [
+    { icon: "/images/icons/natural.svg", title: "Fresher Breath", description: "Removes bacteria that cause odor" },
+    { icon: "/images/icons/face-star.svg", title: "Brighter Smile", description: "Eliminates stains and dullness" },
+    { icon: "/images/icons/teeth.svg", title: "Healthy Gums", description: "Prevents gum disease and bleeding" },
+    { icon: "/images/icons/gentle-care.svg", title: "Gentle & Safe", description: "Painless ultrasonic technology" }
+  ],
+  processSteps: [
+    { stepNumber: 1, title: "Initial Checkup", description: "Evaluate gums and teeth condition" },
+    { stepNumber: 2, title: "Scaling", description: "Ultrasonic cleaning removes tartar and plaque" },
+    { stepNumber: 3, title: "Polishing", description: "Smooth finish for stain-free, shiny teeth" }
+  ],
+  mockBeforeAfterImages: [
+    { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Plaque and stain removal" }
+  ],
+  detailedContent: {
+    mainTitle: "Simple Care, Big Difference",
+    mainDescription: "Cleaning & polishing not only give you a fresh smile but also help prevent gum disease, cavities, and long-term dental issues.",
+    heroContentImage: "/images/services/subhero-cleaning.jpg",
+    additionalSections: [
+      {
+        title: "Why Regular Cleaning Matters",
+        content: "Even with daily brushing and flossing, plaque and tartar can build up in hard-to-reach areas. Professional scaling and polishing ensure complete cleanliness and gum protection.",
+        image: "/images/services/cleaning-detail.jpg",
+        subsections: [
+          { subtitle: "Stain Removal", text: "Coffee, tea, and tobacco stains can be polished away safely.", image: "/images/services/cleaning-stains.jpg" }
+        ]
+      },
+      {
+        title: "Comfort & Myths",
+        content: "Our cleaning procedures are gentle and safe, performed with modern ultrasonic tools. Myths like 'scaling loosens teeth' are false — in reality, it strengthens gums by removing harmful deposits.",
+        image: "/images/services/cleaning-myth.jpg",
+        subsections: [
+          { subtitle: "Myth vs Reality", text: "Myth: Cleaning damages enamel. Reality: Professional cleaning is completely safe and actually protects enamel by preventing decay.", image: "/images/services/cleaning-vs.jpg" }
+        ]
+      }
+    ]
+  }
+}
+,
   {
     slug: "kids-dentistry",
     title: "Kids Dentistry",
-    shortDescription: "Gentle and compassionate dental care for children. We focus on creating a positive, fun environment to help your child build a foundation for a lifetime of healthy dental habits.",
+    shortDescription: "Gentle, fun, and stress-free dental care for children — preventive treatments, cavity protection, and habit guidance for healthy little smiles.",
     iconPath: "/images/icons/kids-dentistry.svg",
-    longDescription: "Pediatric dentistry is dedicated to the oral health of children from infancy through the teen years. Our kid-friendly clinic and gentle approach make dental visits a positive experience. We focus on preventive care, including cleanings, fluoride treatments, and sealants, to protect your child's developing teeth from cavities.",
+    longDescription: "Children require special care, attention, and patience at the dentist. Our Kids Dentistry services are designed to make dental visits positive, comfortable, and even enjoyable for your child. From cavity prevention to habit correction, we focus on building a strong foundation for lifelong oral health. With a child-friendly environment, advanced technology, and compassionate care, we help kids overcome dental anxiety and look forward to their visits.",
     heroImage: "/images/services/pediatric-dentistry-large.jpg",
-    infographicImages: "/images/services/pediatric-dentistry.jpg",
-    
+    infographicImages: "/images/services/kids-dentistry-info1.png",
     seo: {
-      title: "Kids Dentistry in Pune | Gentle Pediatric Dental Care",
-      description: "We offer specialized kids dentistry in Pune. Our friendly team provides gentle care, from first visits to braces, in a fun and welcoming environment.",
+      title: "Kids Dentistry in Pune | Pediatric Dentist for Healthy Smiles",
+      description: "Specialized kids dentistry in Pune — cavity prevention, fluoride treatment, braces for kids, and habit correction with gentle and fun care.",
       keywords: [
         "kids dentist Pune",
-        "pediatric dentistry",
-        "children's dental care",
-        "first dental visit",
+        "pediatric dentist Pune",
+        "children dental clinic Pune",
+        "cavity prevention kids Pune",
+        "habit correction dentist Pune",
+        "dental care for children Pune"
       ],
     },
     beforeAfterCategory: "kids-dentistry",
     features: [
-      {
-        icon: "/images/icons/child.svg",
-        title: "Child-Friendly Environment",
-        description: "A fun and welcoming clinic designed for kids"
-      },
-      {
-        icon: "/images/icons/gentle.svg",
-        title: "Preventive Care",
-        description: "Focus on preventing cavities with sealants and fluoride"
-      },
-      {
-        icon: "/images/icons/gentle-care.svg",
-        title: "Gentle Approach",
-        description: "Our team is trained to be gentle and patient with children"
-      },
-      {
-        icon: "/images/icons/brush-paste.svg",
-        title: "Dental Education",
-        description: "Teaching kids and parents about proper oral hygiene"
-      }
+      { icon: "/images/icons/dental-edu.svg", title: "Child-Friendly Space", description: "Fun and stress-free environment for kids" },
+      { icon: "/images/icons/gentle.svg", title: "Preventive Care", description: "Fluoride, sealants, and regular checkups to stop cavities early" },
+      { icon: "/images/icons/dental-braces.svg", title: "Early Orthodontics", description: "Monitor and guide jaw and teeth development" },
+      { icon: "/images/icons/brush-paste.svg", title: "Habit Guidance", description: "Thumb sucking, mouth breathing, and other corrections" }
     ],
     processSteps: [
-      {
-        stepNumber: 1,
-        title: "The First Visit",
-        description: "A positive introduction to the dental office for your child"
-      },
-      {
-        stepNumber: 2,
-        title: "Check-up & Cleaning",
-        description: "A gentle cleaning, fluoride treatment, and oral health check"
-      },
-      {
-        stepNumber: 3,
-        title: "Ongoing Care",
-        description: "Monitoring dental development and providing continued care"
-      }
+      { stepNumber: 1, title: "Friendly Introduction", description: "A playful orientation helps kids relax and trust the dentist" },
+      { stepNumber: 2, title: "Examination & Preventive Care", description: "Check teeth, apply fluoride/sealants, and clean gently" },
+      { stepNumber: 3, title: "Treatment if Needed", description: "Fillings, braces, or other procedures with gentle techniques" }
     ],
     mockBeforeAfterImages: [
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "This service does not typically have before-and-after images." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "This service does not typically have before-and-after images." },
-      { before: "/images/dummy.jpg", after: "/images/dummy.jpg", description: "This service does not typically have before-and-after images." }
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Cavity filled in baby tooth" },
+      { before: "/images/dummy-before.jpg", after: "/images/dummy-after.jpg", description: "Early orthodontic correction" }
     ],
     detailedContent: {
-      mainTitle: "Building a Foundation for a Lifetime of Smiles",
-      mainDescription: "A child's early experiences at the dentist can shape their attitude towards oral health for life. We aim to make every visit a positive one, building trust and a foundation for lifelong healthy habits.",
-      heroContentImage: "/images/services/pediatric-dentistry-subhero.jpg",
+      mainTitle: "Building Healthy Habits Early",
+      mainDescription: "Our goal is not just treatment — but teaching kids and parents how to maintain oral hygiene habits that last a lifetime.",
+      heroContentImage: "/images/services/subhero-kids-dentistry.jpg",
       additionalSections: [
         {
-          title: "Why Pediatric Dentistry is Important",
-          content: "Children's teeth require specialized care to ensure proper development. Our pediatric dental services address issues unique to children, such as teething, thumb-sucking, and baby tooth decay, to ensure a healthy transition to permanent teeth.",
-          image: "/images/services/pediatric-dentistry1.jpg",
+          title: "Preventive & Corrective Care",
+          content: "We provide fluoride treatments, sealants, cavity fillings, and habit correction counseling to protect young smiles from problems. Early orthodontic guidance ensures teeth and jaw grow in the right direction.",
+          image: "/images/services/kids-preventive.jpg",
           subsections: [
-            {
-              subtitle: "Preventive Treatments",
-              text: "We offer preventive treatments like dental sealants, which act as a barrier to protect molars from decay, and fluoride applications to strengthen enamel and make teeth more resistant to cavities.",
-              image: "/images/services/kids-dentistry-preventive.jpg"
-            }
+            { subtitle: "Fluoride & Sealants", text: "Simple, painless procedures that protect against cavities.", image: "/images/services/kids-fluoride.jpg" },
+            { subtitle: "Early Braces Monitoring", text: "Spotting crowding or bite issues early saves future complex treatments.", image: "/images/services/kids-braces.jpg" }
+          ]
+        },
+        {
+          title: "Comfort & Education",
+          content: "Every visit is made child-friendly, with gentle handling and clear communication. We educate parents and children on diet, brushing, and healthy oral habits.",
+          image: "/images/services/kids-dental-education.jpg",
+          subsections: [
+            { subtitle: "Myth vs Reality", text: "Myth: Baby teeth don’t matter since they fall out. Reality: Healthy baby teeth are crucial for speech, chewing, and guiding permanent teeth properly.", image: "/images/services/kids-myth.jpg" }
           ]
         }
       ]
