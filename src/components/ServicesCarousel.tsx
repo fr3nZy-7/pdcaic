@@ -50,35 +50,31 @@ const ServicesCarousel = ({ services }: CarouselProps) => {
   const showNextButton = currentIndex < services.length - slidesPerPage;
 
   return (
-    <div className="relative">
-      {/* Carousel */}
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / slidesPerPage)}%)`,
-            width: `${(100 / slidesPerPage) * services.length}%`,
-          }}
-        >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              style={{ width: `${100 / slidesPerPage}%` }}
-              className="px-4 box-border"
-            >
-              <GlassmorphismCard className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow">
-                <ServiceCard
-                  title={service.title}
-                  description={service.shortDescription}
-                  iconPath={service.iconPath}
-                  features={service.features}
-                  path={`/services/${service.slug}`}
-                />
-              </GlassmorphismCard>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div
+  className="flex transition-transform duration-500 ease-in-out"
+  style={{
+    transform: `translateX(-${currentIndex * (100 / slidesPerPage)}%)`,
+    width: `${services.length * (100 / slidesPerPage)}%`,
+  }}
+>
+  {services.map((service, index) => (
+    <div
+      key={index}
+      style={{ width: `${100 / slidesPerPage}%` }}
+      className="px-4 box-border"
+    >
+      <GlassmorphismCard className="bg-white/40 backdrop-blur-3xl shadow-lg hover:shadow-xl transition-shadow">
+        <ServiceCard
+          title={service.title}
+          description={service.shortDescription}
+          iconPath={service.iconPath}
+          features={service.features}
+          path={`/services/${service.slug}`}
+        />
+      </GlassmorphismCard>
+    </div>
+  ))}
+
 
       {/* Navigation */}
       {showPrevButton && (
