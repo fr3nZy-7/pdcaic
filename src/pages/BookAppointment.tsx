@@ -106,7 +106,7 @@ const BookAppointment: React.FC = () => {
               {/* Sidebar Information */}
               <div className="space-y-6">
 
-                <GlassmorphismCard className="p-6 bg-primary/20 backdrop-blur-2xl">
+                <GlassmorphismCard className="p-6 bg-primary/30 backdrop-blur-2xl">
                   <CardHeader className="p-0 mb-4">
                     <CardTitle className="text-xl font-bold text-shade">Available Services</CardTitle>
                   </CardHeader>

@@ -215,7 +215,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   // REMOVED: Success modal component entirely
 
   const formContent = (
-    <GlassmorphismCard className="w-full max-w-2xl mx-auto text-shade bg-primary/20 backdrop-blur-3xl border border-white/30 shadow-lg">
+    <GlassmorphismCard className="w-full max-w-2xl mx-auto text-shade bg-primary/30 backdrop-blur-3xl border border-white/30 shadow-lg">
       <CardHeader className="text-center">
         <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold text-shade">
           <img src="/images/icons/tooth-tick.svg" className="h-8 w-8" alt="Tooth Icon" />
