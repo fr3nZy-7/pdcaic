@@ -183,7 +183,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
           {/* Footer note */}
           <div className="mt-3 text-xs text-gray-500 text-center">
-            Clinic closed on Sundays
+            Clinic closed on Thursdays
           </div>
         </div>
       )}
