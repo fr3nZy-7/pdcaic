@@ -287,7 +287,7 @@ const Index = () => {
                   >
                     <div className="flex items-center">
                       <span className="text-primary-dark mr-2">Top rated in Pune</span>
-                      <span className="font-bold text-primary-dark mr-2">4.9/5</span>
+                      <span className="font-bold text-primary-dark mr-2">5/5</span>
                       <div className="flex text-yellow-400">{"★★★★★".split("").map((star, i) => (<span key={i}>{star}</span>))}</div>
                     </div>
                   </a>

@@ -48,9 +48,9 @@ const FooterCTA: React.FC<Props> = ({ headingOverride }) => {
                 Open today 10:00 am – 08:00 pm
               </div>
               <ul className="mt-2 space-y-0.5">
-                <li>Monday to Friday – 9:00am to 9:00pm</li>
-                <li>Saturday – 10:00am to 08:00pm</li>
-                <li>Sunday – By Appointments Only</li>
+                <li>Monday to Friday – 10:00am to 08:00pm</li>
+                <li>Saturday & Sunday – 10:00am to 07:00pm</li>
+                <li>Thursday Closed – By Appointments Only</li>
               </ul>
             </div>
           </div>

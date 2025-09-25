@@ -316,10 +316,10 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({
           <GlassmorphismCard className="inline-block p-6 bg-primary/30 backdrop-blur-2xl shadow-lg">
             <CardContent className="flex items-center space-x-4 p-0">
               <div className="text-center">
-                <div className="text-3xl font-bold text-shade">4.9</div>
+                <div className="text-3xl font-bold text-shade">5</div>
                 <div className="flex justify-center mt-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-4 w-4 text-yellow-500/90 fill-current" />
                   ))}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">Google Rating</div>

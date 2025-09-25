@@ -209,9 +209,9 @@ const Contact = () => {
                         <CardTitle className="text-lg text-shade">Email</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-2">
-                        <p className="text-black/90 text-lg">
-                            nehaendo2019@gmail.com
-                        </p>
+                        <span className="text-black/90 text-md justify-center">
+                            drneha@padmanaabhdental.clinic
+                        </span>
                     </CardContent>
                 </GlassmorphismCard>
 
@@ -229,12 +229,13 @@ const Contact = () => {
                                 <span>10:00 AM - 8:00 PM</span>
                             </div>
                             <div className="flex justify-between">
-                                <span>Saturday:</span>
-                                <span>10:00 AM - 8:00 PM</span>
+                                <span>Sat-Sun:</span>
+                                <span>10:00 AM - 7:00 PM</span>
                             </div>
-                            <div className="flex justify-between">
-                                <span>Sunday:</span>
-                                <span>By Appointment</span>
+                           
+                            <div className="flex justify-between text-orange-500/80 font-semibold">
+                                <span>Closed on Thursday</span>
+                                
                             </div>
                         </div>
                     </CardContent>
