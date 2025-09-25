@@ -82,7 +82,7 @@ export const services: Service[] = [
     longDescription:
       "Root canal treatment (RCT) saves badly infected or decayed teeth, preventing extraction and restoring health. Our clinic uses rotary endodontics, digital imaging, and advanced anesthesia for painless, efficient, and predictable results. With modern techniques, most RCTs are completed in a single sitting, helping you return to comfort quickly.",
     heroImage: "/images/services/root-canal-large.jpg",
-    infographicImages: "/images/services/root-canal-info1.png",
+    infographicImages: "/images/services/rct.jpg",
     seo: {
       title: "Root Canal Treatment in Pune | Painless & Efficient",
       description:
@@ -147,13 +147,13 @@ export const services: Service[] = [
       mainTitle: "Save Your Tooth with Modern Root Canal",
       mainDescription:
         "Root canal treatment is safe, comfortable, and highly effective in stopping infection while preserving your natural tooth.",
-      heroContentImage: "/images/services/subhero-root-canal.jpg",
+      heroContentImage: "/images/services/rct-subhero.jpg",
       additionalSections: [
         {
           title: "Why Choose RCT?",
           content:
             "Root canal eliminates pain, infection, and prevents tooth loss. With modern methods, it’s no longer the dreaded procedure of the past.",
-          image: "/images/services/root-canal-benefits.jpg",
+          image: "/images/services/rct-info-1.jpg",
           subsections: [
             {
               subtitle: "Quick Relief",
@@ -171,7 +171,7 @@ export const services: Service[] = [
           title: "Myth vs Reality",
           content:
             "Myth: Root canals are extremely painful. Reality: With modern anesthesia, most patients feel little to no pain during the procedure.",
-          image: "/images/services/root-canal-myth.jpg",
+          image: "/images/services/rct-patient.jpg",
           subsections: [],
         },
       ],
@@ -258,7 +258,7 @@ export const services: Service[] = [
       mainTitle: "Restore Your Smile with Dental Implants",
       mainDescription:
         "Implants are the closest replacement to natural teeth — giving you strength, confidence, and a healthy smile that lasts a lifetime.",
-      heroContentImage: "/images/services/subhero-dental-implants.jpg",
+      heroContentImage: "/images/services/implant-subhero.jpg",
       additionalSections: [
         {
           title: "Benefits of Implants",
@@ -332,12 +332,12 @@ export const services: Service[] = [
     detailedContent: {
       mainTitle: "A Complete Transformation for Health & Confidence",
       mainDescription: "Full mouth rehabilitation goes beyond fixing teeth — it rebuilds your oral foundation, enhances your smile, and restores overall confidence.",
-      heroContentImage: "/images/services/subhero-full-mouth-rehab.jpg",
+      heroContentImage: "/images/services/full-mouth-rehab-subhero.jpg",
       additionalSections: [
         {
           title: "Who Needs FMR?",
           content: "Patients with severely worn teeth, multiple missing teeth, chronic jaw pain, bite problems, or those seeking a complete smile transformation are ideal candidates.",
-          image: "/images/services/fmr-candidates.jpg",
+          image: "/images/services/full-mouth-rehab.jpg",
           subsections: [
             { subtitle: "Worn or Damaged Teeth", text: "Grinding, trauma, or decay can damage teeth requiring comprehensive restoration.", image: "/images/services/worn-teeth.jpg" },
             { subtitle: "Multiple Missing Teeth", text: "Implants and bridges restore gaps for function and aesthetics.", image: "/images/services/missing-teeth.jpg" },
@@ -347,7 +347,7 @@ export const services: Service[] = [
         {
           title: "Care & Myths",
           content: "Though FMR may sound overwhelming, it’s carried out in phases for comfort and lasting results.",
-          image: "/images/services/fmr-care.jpg",
+          image: "/images/services/full-mouth-rehab-2.jpg",
           subsections: [
             { subtitle: "Myth vs Reality", text: "Myth: Full mouth rehab means removing all natural teeth. Reality: Wherever possible, natural teeth are preserved and integrated into the plan.", image: "/images/services/fmr-myth.jpg" }
           ]
