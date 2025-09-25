@@ -42,7 +42,7 @@ const BookAppointment: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {[
                 { label: "Years Experience", value: "10+" },
-                { label: "Happy Patients", value: "5000+" },
+                { label: "Happy Patients", value: "3000+" },
                 { label: "Success Rate", value: "98%" },
                 { label: "Response Time", value: "< 1hr" }
               ].map((stat, i) => (

@@ -55,12 +55,12 @@ const About = () => {
   const achievements = [
     {
       icon: <Users className="h-8 w-8" />,
-      number: "5000+",
+      number: "3000+",
       label: "Happy Patients",
     },
     {
       icon: <Award className="h-8 w-8" />,
-      number: "15+",
+      number: "10+",
       label: "Years Experience",
     },
     {
@@ -70,7 +70,7 @@ const About = () => {
     },
     {
       icon: <Star className="h-8 w-8" />,
-      number: "4.9",
+      number: "5",
       label: "Patient Rating",
     },
   ];
