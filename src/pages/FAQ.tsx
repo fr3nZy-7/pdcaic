@@ -13,6 +13,7 @@ import BookAppointmentButton from '@/components/BookAppointmentButton';
 import FloatingActionButtons from '@/components/FloatingActionButtons';
 import FooterCTA from '@/components/FooterCTA';
 import HeroSection from '@/components/HeroSection';
+import { Helmet } from "react-helmet-async";
 
 const faqHeroData = {
   title: "Frequently Asked Questions",
@@ -112,6 +113,37 @@ const FAQ = () => {
   );
 
   return (
+
+<>
+<Helmet>
+  <title>Frequently Asked Questions | Padmanaabh Dental Clinic Pune</title>
+  <meta
+    name="description"
+    content="Find answers to common dental questions: root canals, implants, costs, recovery, and more. Learn what to expect at Padmanaabh Dental Clinic."
+  />
+  <link rel="canonical" href="https://padmanaabhdental.clinic/faq" />
+  <meta property="og:title" content="Dental FAQs | Padmanaabh Dental Clinic" />
+  <meta property="og:description" content="Your dental questions answered: treatments, costs, recovery times, and preventive care tips." />
+  <meta property="og:url" content="https://padmanaabhdental.clinic/faq" />
+  <meta property="og:image" content="https://padmanaabhdental.clinic/images/common/og-faq.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://padmanaabhdental.clinic/faq#page",
+        "mainEntity": { "@id": "https://padmanaabhdental.clinic/#dentist" }
+      }),
+    }}
+  />
+</Helmet>
+
+
+
+
     <div className="min-h-screen bg-background bg-gradient-to-r from-pink-50 to-blue-50">
       <Header />
       
@@ -187,6 +219,7 @@ const FAQ = () => {
       <FooterCTA/>
       <Footer />
     </div>
+    </>
   );
 };
 

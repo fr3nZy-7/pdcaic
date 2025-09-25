@@ -14,6 +14,7 @@ import FooterCTA from "@/components/FooterCTA";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 interface BlogPost {
@@ -138,6 +139,7 @@ const Blog = () => {
 
   if (loading) {
     return (
+      
       <div className="min-h-screen bg-background">
         <Header />
         <div className="flex items-center justify-center py-20">
@@ -164,6 +166,38 @@ const Blog = () => {
   }
 
   return (
+
+<>
+
+<Helmet>
+  <title>Dental Blog | Padmanaabh Dental Clinic Pune</title>
+  <meta
+    name="description"
+    content="Read expert dental blogs by Dr. Neha Deshpande. Topics include root canals, oral hygiene, dental tourism, cosmetic dentistry, and preventive care."
+  />
+  <link rel="canonical" href="https://padmanaabhdental.clinic/blog" />
+  <meta property="og:title" content="Dental Blog | Padmanaabh Dental Clinic" />
+  <meta property="og:description" content="Latest updates, tips, and insights on dental treatments and oral health from Pune’s leading dentists." />
+  <meta property="og:url" content="https://padmanaabhdental.clinic/blog" />
+  <meta property="og:image" content="https://padmanaabhdental.clinic/images/common/og-blog.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": "https://padmanaabhdental.clinic/blog#page",
+        "mainEntityOfPage": "https://padmanaabhdental.clinic/blog",
+        "publisher": { "@id": "https://padmanaabhdental.clinic/#dentist" }
+      }),
+    }}
+  />
+</Helmet>
+
+
+
     <div className="min-h-screen bg-background">
       <Header />
       
@@ -344,6 +378,7 @@ const Blog = () => {
       <FooterCTA />
       <Footer />
     </div>
+    </>
   );
 };
 

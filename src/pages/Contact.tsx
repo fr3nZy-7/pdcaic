@@ -23,6 +23,7 @@ import BookAppointmentButton from '@/components/BookAppointmentButton';
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import HeroSection from "@/components/HeroSection";
 import { supabase } from "@/integrations/supabase/client"; 
+import { Helmet } from "react-helmet-async";
 
 const contactHeroData = {
   title: "Contact Us",
@@ -102,6 +103,39 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <Helmet>
+  <title>Contact Padmanaabh Dental Clinic and Implant Centre | Pune</title>
+  <meta
+    name="description"
+    content="Get in touch with Padmanaabh Dental Clinic and Implant Centre in Pune. Call, WhatsApp, or visit us at Lohegaon for expert dental care."
+  />
+  <link rel="canonical" href="https://padmanaabhdental.clinic/contact" />
+  <meta property="og:title" content="Contact Padmanaabh Dental Clinic | Pune" />
+  <meta property="og:description" content="Reach Padmanaabh Dental Clinic in Pune for appointments, directions, and patient support." />
+  <meta property="og:url" content="https://padmanaabhdental.clinic/contact" />
+  <meta property="og:image" content="https://padmanaabhdental.clinic/images/common/og-contact.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "@id": "https://padmanaabhdental.clinic/contact#page",
+        "mainEntity": { "@id": "https://padmanaabhdental.clinic/#dentist" }
+      }),
+    }}
+  />
+</Helmet>
+
+
+
+
+
+
+
     <div className="min-h-screen bg-background">
       <Header />
       
@@ -396,6 +430,7 @@ const Contact = () => {
 
       <FloatingActionButtons />
     </div>
+    </>
   );
 };
 

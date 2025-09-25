@@ -23,11 +23,13 @@ import BookingTest from "./pages/BookingTest";
 import ManageGallery from "./pages/ManageGallery";
 import BookAppointment from "./pages/BookAppointment";
 import ManageBlogs from "./pages/ManageBlogs";
+import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <HelmetProvider>
     <div className="scroll-smooth">
     <TooltipProvider>
       <Toaster />
@@ -59,6 +61,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
     </div>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 

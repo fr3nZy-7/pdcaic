@@ -12,6 +12,7 @@ import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import BookAppointmentButton from "@/components/BookAppointmentButton";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { supabase } from "@/integrations/supabase/client";
+import { Helmet } from "react-helmet-async";
 
 interface GalleryItem {
   id: string;
@@ -191,6 +192,35 @@ const Gallery = () => {
   }
 
   return (
+    <> 
+    <Helmet>
+  <title>Smile Gallery | Padmanaabh Dental Clinic Pune</title>
+  <meta
+    name="description"
+    content="View our smile gallery showcasing real patient results from dental implants, braces, smile makeovers, and cosmetic dentistry in Pune."
+  />
+  <link rel="canonical" href="https://padmanaabhdental.clinic/gallery" />
+  <meta property="og:title" content="Smile Gallery | Padmanaabh Dental Clinic" />
+  <meta property="og:description" content="See before-and-after photos from happy patients at Padmanaabh Dental Clinic in Pune." />
+  <meta property="og:url" content="https://padmanaabhdental.clinic/gallery" />
+  <meta property="og:image" content="https://padmanaabhdental.clinic/images/common/og-gallery.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://padmanaabhdental.clinic/gallery#page",
+        "name": "Gallery | Padmanaabh Dental Clinic",
+        "mainEntity": { "@id": "https://padmanaabhdental.clinic/#dentist" }
+      }),
+    }}
+  />
+</Helmet>
+
+
     <div className="min-h-screen bg-background">
       <Header />
       
@@ -426,6 +456,7 @@ const Gallery = () => {
       <FloatingActionButtons />
       <Footer />
     </div>
+    </>
   );
 };
 

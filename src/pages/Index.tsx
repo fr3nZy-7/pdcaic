@@ -35,6 +35,7 @@ import FooterCTA from "@/components/FooterCTA";
 import { services } from "@/data/services";
 import ReviewsSection from "@/components/ReviewsSection";
 import { scrollToId } from "@/lib/ScrollToId";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   // ---------- Helpers for carousel responsiveness ----------
@@ -88,6 +89,12 @@ const Index = () => {
     }, [maxIndex]);
 
     return (
+
+
+      
+      
+
+      
       <div className="relative">
         {/* Prev / Next controls */}
         {showControls && (
@@ -169,6 +176,66 @@ const Index = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+        <title>Padmanaabh Dental Clinic & Implant Centre | Best Dentist in Pune</title>
+        <meta name="description" content="Padmanaabh Dental Clinic offers expert dental care in Pune. Specializing in dental implants, root canals, cosmetic dentistry, and smile makeovers." />
+        <meta name="keywords" content="Dentist in Pune, Dental Clinic Pune, Dental Implants, Root Canal, Cosmetic Dentistry, Smile Makeover" />
+        <link rel="canonical" href="https://padmanaabhdental.com/" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Padmanaabh Dental Clinic & Implant Centre | Best Dentist in Pune" />
+        <meta property="og:description" content="Trusted dental care in Pune — implants, smile makeover, crowns, and more." />
+        <meta property="og:url" content="https://padmanaabhdental.com/" />
+        <meta property="og:image" content="https://padmanaabhdental.com/images/clinic.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Padmanaabh Dental Clinic & Implant Centre | Best Dentist in Pune" />
+        <meta name="twitter:description" content="Trusted dental care in Pune — implants, smile makeover, crowns, and more." />
+        <meta name="twitter:image" content="https://padmanaabhdental.com/images/clinic.jpg" />
+
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Dentist",
+            "@id": "https://padmanaabhdental.com/#dentist",
+            name: "Padmanaabh Dental Clinic & Implant Centre",
+            url: "https://padmanaabhdental.com",
+            telephone: "+91-XXXXXXXXXX",
+            logo: "https://padmanaabhdental.com/images/logo.png",
+            image: "https://padmanaabhdental.com/images/clinic.jpg",
+            description:
+              "Padmanaabh Dental Clinic offers expert dental care in Pune. Specializing in dental implants, root canals, cosmetic dentistry, and smile makeovers.",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "123 Clinic Street",
+              addressLocality: "Pune",
+              addressRegion: "Maharashtra",
+              postalCode: "411001",
+              addressCountry: "IN"
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: "18.5204",
+              longitude: "73.8567"
+            },
+            hasMap: "https://maps.google.com/?q=Padmanaabh+Dental+Clinic+Pune",
+            openingHours: [
+              "Mo-We 10:00-20:00",
+              "Fr-Sa 10:00-20:00",
+              "Su 10:00-14:00"
+            ],
+            sameAs: [
+              "https://www.facebook.com/yourclinic",
+              "https://www.instagram.com/yourclinic",
+              "https://www.youtube.com/@yourclinic"
+            ]
+          })}
+        </script>
+      </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
 
@@ -343,6 +410,7 @@ const Index = () => {
       <Footer />
       <FloatingActionButtons />
     </div>
+    </>
   );
 };
 

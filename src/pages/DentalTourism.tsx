@@ -31,6 +31,7 @@ import FloatingActionButtons from "@/components/FloatingActionButtons";
 import { features } from "process";
 import FooterCTA from "@/components/FooterCTA";
 import HeroSection from "@/components/HeroSection";
+import { Helmet } from "react-helmet-async";
 
 
 const dentalTourismHeroData = {
@@ -133,6 +134,36 @@ const treatmentJourneySteps = [
 
 const DentalTourism = () => {
     return (
+      <>
+<Helmet>
+  <title>Dental Tourism in Pune | Padmanaabh Dental Clinic and Implant Centre</title>
+  <meta
+    name="description"
+    content="Affordable dental tourism in Pune, India. Padmanaabh Dental Clinic offers world-class care in implants, smile design, and root canals at a fraction of global costs."
+  />
+  <link rel="canonical" href="https://padmanaabhdental.clinic/dental-tourism" />
+  <meta property="og:title" content="Dental Tourism in Pune | Padmanaabh Dental Clinic" />
+  <meta property="og:description" content="Travel to Pune for high-quality dental treatment at affordable prices. Implants, crowns, root canals, and cosmetic dentistry for international patients." />
+  <meta property="og:url" content="https://padmanaabhdental.clinic/dental-tourism" />
+  <meta property="og:image" content="https://padmanaabhdental.clinic/images/common/og-dental-tourism.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://padmanaabhdental.clinic/dental-tourism#page",
+        "name": "Dental Tourism | Padmanaabh Dental Clinic",
+        "mainEntity": { "@id": "https://padmanaabhdental.clinic/#dentist" }
+      }),
+    }}
+  />
+</Helmet>
+
+
+
         <div className="min-h-screen bg-background">
           <Header />
           
@@ -351,6 +382,7 @@ const DentalTourism = () => {
           <FooterCTA/>
           <Footer />
         </div>
+        </>
     );
 };
 

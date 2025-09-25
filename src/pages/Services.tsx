@@ -26,6 +26,7 @@ import BookAppointmentButton from "@/components/BookAppointmentButton";
 import FooterCTA from "@/components/FooterCTA";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import HeroSection from "@/components/HeroSection";
+import { Helmet } from "react-helmet-async";
 
 const servicesHeroData = {
   title: "Comprehensive Dental Services",
@@ -61,7 +62,83 @@ const Services = () => {
   ];
 
   return (
+<>
+<Helmet>
+  <title>Dental Services in Pune | Padmanaabh Dental Clinic and Implant Centre</title>
+  <meta
+    name="description"
+    content="Explore a wide range of dental services in Pune at Padmanaabh Dental Clinic and Implant Centre. From root canals to implants and smile makeovers, we offer complete oral care."
+  />
+  <link rel="canonical" href="https://padmanaabhdental.clinic/services" />
+  <meta property="og:title" content="Dental Services in Pune | Padmanaabh Dental Clinic" />
+  <meta property="og:description" content="Comprehensive dental services in Pune: root canals, implants, braces, whitening, smile makeovers and more." />
+  <meta property="og:url" content="https://padmanaabhdental.clinic/services" />
+  <meta property="og:image" content="https://padmanaabhdental.clinic/images/common/og-services.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://padmanaabhdental.clinic/services#page",
+        "name": "Services | Padmanaabh Dental Clinic",
+        "mainEntity": {
+          "@type": "Dentist",
+          "@id": "https://padmanaabhdental.clinic/#dentist",
+          "name": "Padmanaabh Dental Clinic and Implant Centre",
+          "url": "https://padmanaabhdental.clinic",
+          "telephone": "+91-7507325539",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Lane 1 Sainik Colony, Pathare Wasti, Off Wadgaon Shinde Road, Lohegaon",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "postalCode": "411047",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 18.602248513878692,
+            "longitude": 73.93357515658218
+          },
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Friday","Saturday","Sunday"],
+            "opens": "10:00",
+            "closes": "20:00"
+          }],
+          "sameAs": [
+            "https://www.instagram.com/dr.nehadeshpandetambe/",
+            "https://www.facebook.com/DrNehaDeshpande",
+            "https://www.linkedin.com/in/dr-neha-deshpande/",
+            "https://www.youtube.com/@Padmanaabh_Dental_Clinic"
+          ],
+          "logo": "https://padmanaabhdental.clinic/images/common/logo.png",
+          "image": "https://padmanaabhdental.clinic/images/common/dr-neha.jpg"
+        }
+      }),
+    }}
+  />
+</Helmet>
     <div className="min-h-screen bg-background">
+    <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+                "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://padmanaabhdental.clinic/services#webpage",
+            "url": "https://padmanaabhdental.clinic/services",
+            "name": "Dental Services at Padmanaabh Dental Clinic | Pune",
+            "description": "Explore our dental treatments including root canals, implants, smile makeovers, teeth whitening, braces, and more at Padmanaabh Dental Clinic, Lohegaon.",
+            "about": {
+              "@id": "https://padmanaabhdental.clinic/about#dentist"
+            }
+          }),
+          }}
+        />
       <Header />
       
         <HeroSection
@@ -161,6 +238,7 @@ const Services = () => {
       <FooterCTA />
       <Footer />
     </div>
+    </>
   );
 };
 
