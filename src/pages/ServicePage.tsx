@@ -363,7 +363,7 @@ const ServicePage = () => {
 
       {/* Treatment Results with alt tags */}
       {beforeAfterImages.length > 0 && (
-        <section className="py-16 bg-gradient-to-b from-[#E0F7FA] to-white relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-b from-blue-50 to-pink-50 relative overflow-hidden">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -437,7 +437,7 @@ const ServicePage = () => {
       )}
 
       {/* Related Services for internal linking */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
             Other Dental Services in Pune
@@ -465,7 +465,7 @@ const ServicePage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <FloatingActionButtons />
       <FooterCTA/>
