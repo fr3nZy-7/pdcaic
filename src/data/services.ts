@@ -186,7 +186,7 @@ export const services: Service[] = [
     longDescription:
       "Dental implants are the gold standard for replacing missing teeth. They restore both function and aesthetics by integrating with your jawbone, offering unmatched stability and a natural appearance. Our clinic uses advanced 3D imaging, premium implant systems, and guided surgery to ensure precise placement, faster healing, and lifelong confidence in your smile.",
     heroImage: "/images/services/dental-implants-hero-large.jpg",
-    infographicImages: "/images/services/dental-implants-info1.png",
+    infographicImages: "/images/services/implant-2.jpg",
     seo: {
       title: "Dental Implants in Pune | Permanent Teeth Replacement",
       description:
@@ -282,12 +282,12 @@ export const services: Service[] = [
           title: "Comfort & Safety",
           content:
             "Modern anesthesia and minimally invasive techniques make implant placement safe and comfortable. Healing is quick and predictable with proper care.",
-          image: "/images/services/dental-implants-safety.jpg",
+          image: "/images/services/implant-2.jpg",
           subsections: [
             {
               subtitle: "Myth vs Reality",
               text: "Myth: Implants are painful and risky. Reality: With modern methods, most patients report minimal discomfort and excellent outcomes.",
-              image: "/images/services/dental-implants-myth.jpg",
+              image: "/images/services/implant-2.jpg",
             },
           ],
         },
@@ -300,8 +300,8 @@ export const services: Service[] = [
     shortDescription: "Comprehensive treatment combining multiple procedures to restore function, health, and aesthetics of your entire mouth.",
     iconPath: "/images/icons/full-mouth-rehab.svg",
     longDescription: "Full mouth rehabilitation (FMR) is a customized treatment plan that restores and rebuilds all teeth in both upper and lower jaws. It combines restorative, cosmetic, and functional dentistry to address worn, missing, or damaged teeth, bite issues, and aesthetics. At our clinic, we design FMR using crowns, bridges, implants, veneers, and sometimes orthodontics — tailored to your unique needs. The result is a healthier bite, improved function, and a beautiful, confident smile.",
-    heroImage: "/images/services/full-mouth-rehab-hero.jpg",
-    infographicImages: "/images/services/full-mouth-rehab-info.png",
+    heroImage: "/images/services/FMR-hero.jpg",
+    infographicImages: "/images/services/full-mouth-rehab-2.jpg",
     seo: {
       title: "Full Mouth Rehabilitation in Pune | Smile & Bite Restoration",
       description: "Transform your oral health with full mouth rehabilitation in Pune. Customized treatment combining crowns, implants, veneers, and orthodontics for function and aesthetics.",
@@ -564,7 +564,7 @@ export const services: Service[] = [
           title: "What’s in a Smile Makeover?",
           content:
             "We use a mix of treatments like veneers, whitening, bonding, and crowns to deliver your dream smile. Each plan is unique and based on your needs.",
-          image: "/images/services/smile-makeover-options.jpg",
+          image: "/images/services/smile-makeover-1.jpg",
           subsections: [
             {
               subtitle: "Veneers",
