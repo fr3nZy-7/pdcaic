@@ -258,13 +258,13 @@ export const services: Service[] = [
       mainTitle: "Restore Your Smile with Dental Implants",
       mainDescription:
         "Implants are the closest replacement to natural teeth — giving you strength, confidence, and a healthy smile that lasts a lifetime.",
-      heroContentImage: "/images/services/implant-subhero.jpg",
+      heroContentImage: "/images/services/single-implant-case.jpg",
       additionalSections: [
         {
           title: "Benefits of Implants",
           content:
             "Unlike dentures or bridges, implants don’t slip or affect nearby teeth. They provide stability, protect bone health, and look indistinguishable from real teeth.",
-          image: "/images/services/dental-implants-benefits.jpg",
+          image: "/images/services/implant-1.jpg",
           subsections: [
             {
               subtitle: "Strong & Secure",
@@ -937,7 +937,7 @@ export const services: Service[] = [
     detailedContent: {
       mainTitle: "Building Healthy Habits Early",
       mainDescription: "Our goal is not just treatment — but teaching kids and parents how to maintain oral hygiene habits that last a lifetime.",
-      heroContentImage: "/images/services/subhero-kids-dentistry.jpg",
+      heroContentImage: "/images/services/happy-kid.jpg",
       additionalSections: [
         {
           title: "Preventive & Corrective Care",
