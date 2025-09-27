@@ -80,7 +80,7 @@ export const services: Service[] = [
       "Relieve pain, save your natural tooth, and restore function with advanced root canal therapy in a single or minimal visits.",
     iconPath: "/images/icons/root-canal.svg",
     longDescription:
-      "Root canal treatment (RCT) saves badly infected or decayed teeth, preventing extraction and restoring health. Our clinic uses rotary endodontics, digital imaging, and advanced anesthesia for painless, efficient, and predictable results. With modern techniques, most RCTs are completed in a single sitting, helping you return to comfort quickly.",
+      "Root canal treatment is a highly effective procedure that can save your natural tooth when the inner pulp becomes infected or severely damaged. At our clinic, we use state-of-the-art technology and gentle techniques to make this essential treatment as comfortable and successful as possible.",
     heroImage: "/images/services/root-canal-large.jpg",
     infographicImages: "/images/services/rct.jpg",
     seo: {
@@ -150,27 +150,110 @@ export const services: Service[] = [
       heroContentImage: "/images/services/rct-subhero.jpg",
       additionalSections: [
         {
-          title: "Why Choose RCT?",
+          title: "What is Root Canal Treatment?",
+          content:
+            "Root canal therapy removes infected or inflamed tissue from inside your tooth's root canals, eliminating pain and preventing the spread of infection. This procedure allows you to keep your natural tooth rather than having it extracted, preserving your smile and bite function.",
+          image: "/images/services/rct-info-1.jpg",
+          subsections: [
+            {
+              subtitle: "Save Your Natural Tooth with Advanced Endodontic Care",
+              text: "Root canal treatment is a highly effective procedure that can save your natural tooth when the inner pulp becomes infected or severely damaged. At our clinic, we use **state-of-the-art technology** and gentle techniques to make this essential treatment as comfortable and successful as possible.",
+              image: "/images/services/root-canal-relief.jpg",
+            },
+           
+          ],
+        },
+
+        {
+          title: "Why Choose Our Clinic for Root Canal Treatment?",
           content:
             "Root canal eliminates pain, infection, and prevents tooth loss. With modern methods, it’s no longer the dreaded procedure of the past.",
           image: "/images/services/rct-info-1.jpg",
           subsections: [
             {
-              subtitle: "Quick Relief",
-              text: "Stops pain and infection, saving your tooth.",
+              subtitle: "Advanced Technology & Techniques",
+              text: `**1. Digital X-rays** for precise diagnosis and treatment planning, 
+              **2. Rotary endodontic instruments** for thorough yet gentle cleaning 
+              **3. Electronic apex locators** to ensure complete treatment of all canals 
+              **4. Enhanced precision** with all root canals performed under magnification`,
               image: "/images/services/root-canal-relief.jpg",
             },
             {
-              subtitle: "Modern Equipment",
-              text: "Rotary files and apex locators for precision.",
+              subtitle: "Comfort-Focused Care",
+              text: `**1. Local anesthesia** to ensure you feel no pain during treatment 
+              **2. Sedation options** available for anxious patients 
+              **3. Comfortable treatment environment** designed to put you at ease 
+              **4. Pain management protocols** for post-treatment comfort`,
+              image: "/images/services/root-canal-modern.jpg",
+            },
+            {
+              subtitle: "Expert Experience",
+              text: `**1. Experienced endodontic specialists** with extensive training
+              **2. High success rates** with proven treatment outcomes
+              **3. Comprehensive follow-up care** to monitor healing
+              **4. Emergency availability** for urgent cases`,
               image: "/images/services/root-canal-modern.jpg",
             },
           ],
         },
         {
-          title: "Myth vs Reality",
+          title: "Comprehensive Endodontic Services",
           content:
-            "Myth: Root canals are extremely painful. Reality: With modern anesthesia, most patients feel little to no pain during the procedure.",
+            "Beyond standard root canal treatment, we offer a full range of specialized endodontic procedures:",
+          image: "/images/services/rct-info-1.jpg",
+          subsections: [
+            {
+              subtitle: "Root Canal Retreatment",
+              text: "When a previously treated tooth develops new problems or fails to heal properly, retreatment can often save the tooth.",
+              image: "/images/services/1.jpg",
+            },
+            {
+              subtitle: "Endodontic Surgery (Apicoectomy)",
+              text: "Surgical procedure to remove infected tissue and seal the root tip when conventional treatment isn't sufficient.",
+              image: "/images/services/root-canal-modern.jpg",
+            },
+            {
+              subtitle: "Post and Core Placement",
+              text: "Strengthening treatment for extensively damaged teeth that require additional internal support before crown placement.",
+              image: "/images/services/root-canal-modern.jpg",
+            },
+            {
+              subtitle: "Traumatic Injury Treatment",
+              text: "Emergency care for teeth damaged by sports injuries, accidents, or trauma.",
+              image: "/images/services/root-canal-modern.jpg",
+            },
+            {
+              subtitle: "Internal Bleaching",
+              text: "Specialized whitening treatment for discolored teeth following root canal therapy.",
+              image: "/images/services/root-canal-modern.jpg",
+            },
+          ],
+        },
+        {
+          title: "Key Benefits of Root Canal Treatment",
+          content:
+            `**Preserve Your Natural Tooth**: Keep your original tooth structure and avoid the need for extraction and replacement options. 
+            **Eliminate Pain**: Remove the source of infection that's causing severe toothache and sensitivity.
+            **Prevent Further Complications**: Stop the spread of infection to surrounding teeth and tissues. 
+            **Cost-Effective Solution**: More affordable than tooth extraction followed by implant or bridge placement. 
+            **Quick Recovery**: Most patients return to normal activities within 1-2 days.`,
+          image: "/images/services/rct-patient.jpg",
+          subsections: [],
+        },
+        {
+          title: "Myth vs Reality",
+          content:`**1. Myth**: Root canals are extremely painful. 
+          **Reality**: With modern anesthesia and techniques, root canal treatment is no more uncomfortable than getting a large filling. Most patients experience little to no pain during the procedure.
+          **2. Myth**: It's better to extract the tooth. 
+          **Reality**: Saving your natural tooth is almost always the best option. Root canal treatment has a 85-97% success rate and allows you to keep your original tooth structure.
+          **3. Myth**: Root canals cause illness. 
+          **Reality**: This outdated myth has been thoroughly debunked by scientific research. Root canal treatment actually eliminates infection and promotes healing.
+          **4. Myth**: Treatment takes many appointments. 
+          **Reality**: Most root canals can be completed in 1-2 visits, depending on the complexity of the case.
+          **5. Myth**: Root canals always fail. 
+          **Reality**: When performed properly, root canal treatments have excellent long-term success rates, often lasting a lifetime with proper care.
+          **6. Myth**: Pregnant women can't have root canals. 
+          **Reality**: Root canal treatment is safe during pregnancy and may be necessary to eliminate dangerous infections, offcourse safest in the 2nd trimester, and with physician's consent only`,
           image: "/images/services/rct-patient.jpg",
           subsections: [],
         },
@@ -181,14 +264,14 @@ export const services: Service[] = [
     slug: "dental-implants",
     title: "Dental Implants",
     shortDescription:
-      "Permanent replacement for missing teeth — natural look, strong function, and long-lasting results with advanced implant technology.",
+      "Permanent replacement for missing teeth. Natural look, strong function, and long-lasting results with advanced implant technology.",
     iconPath: "/images/icons/dental-implants.svg",
     longDescription:
       "Dental implants are the gold standard for replacing missing teeth. They restore both function and aesthetics by integrating with your jawbone, offering unmatched stability and a natural appearance. Our clinic uses advanced 3D imaging, premium implant systems, and guided surgery to ensure precise placement, faster healing, and lifelong confidence in your smile.",
     heroImage: "/images/services/dental-implants-hero-large.jpg",
     infographicImages: "/images/services/implant-2.jpg",
     seo: {
-      title: "Dental Implants in Pune | Permanent Teeth Replacement",
+      title: "Dental Implants in Pune, Lohegaon | Permanent Teeth Replacement",
       description:
         "Expert dental implants in Pune — restore missing teeth with advanced implant systems, 3D-guided surgery, and natural-looking results.",
       keywords: [
@@ -261,36 +344,127 @@ export const services: Service[] = [
       heroContentImage: "/images/services/single-implant-case.jpg",
       additionalSections: [
         {
-          title: "Benefits of Implants",
+          title: "What are Dental Implants?",
           content:
-            "Unlike dentures or bridges, implants don’t slip or affect nearby teeth. They provide stability, protect bone health, and look indistinguishable from real teeth.",
+            "Dental implants are titanium posts surgically placed into the jawbone to replace the root of a missing tooth. Once integrated with the bone, they provide a stable foundation for crowns, bridges, or dentures, offering superior stability and longevity compared to traditional tooth replacement options.",
           image: "/images/services/implant-1.jpg",
           subsections: [
             {
-              subtitle: "Strong & Secure",
-              text: "Eat, chew, and smile without worry of slipping dentures.",
+              subtitle: "Permanent Solution for Missing Teeth with Natural Look and Feel",
+              text: `Dental implants are the gold standard for replacing missing teeth, offering a permanent, natural-looking solution that restores both function and confidence. At our clinic, we use advanced implant technology and precision techniques to give you a smile that looks, feels, and functions just like your natural teeth.`,
+              image: "/images/services/dental-implants-strong.jpg",
+            },
+           
+            
+          ],
+        },
+        {
+          title: "Why Choose Our Clinic for Dental Implants?",
+          content:
+            "We offer a complete range of implant solutions to meet every patient's needs:",
+          image: "/images/services/implant-1.jpg",
+          subsections: [
+            {
+              subtitle: "Advanced Technology & Precision",
+              text: `**1.** 3D CT scanning for precise treatment planning and implant placement
+              **2.** Computer-guided surgery for optimal accuracy and minimal invasiveness
+              **3.** Digital impressions for perfect-fitting restorations
+              **4.** Premium implant systems from leading manufacturers
+              **5.** All procedures performed under magnification for enhanced precision`,
               image: "/images/services/dental-implants-strong.jpg",
             },
             {
-              subtitle: "Bone Preservation",
-              text: "Implants stimulate jawbone and prevent bone resorption.",
+              subtitle: "Comprehensive Care",
+              text: `**1. In-house oral surgery** - no need for referrals to other specialists
+              **2. Custom prosthetics** designed and crafted for natural appearance
+              **3.** Sedation options available for anxious patients
+              **4.** Full-service approach from consultation through final restoration
+`,
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            {
+              subtitle: "Expertise & Experience",
+              text: `**1.** Extensive implant training with proven surgical outcomes
+              **2. High success** rates backed by years of experience
+              **3.** Comprehensive follow-up care to ensure long-term success
+              **4. Emergency support** for any post-surgical concerns`,
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            
+          ],
+        },
+        {
+          title: "Comprehensive Implant Services",
+          content:
+            "We offer a complete range of implant solutions to meet every patient's needs:",
+          image: "/images/services/implant-1.jpg",
+          subsections: [
+            {
+              subtitle: "Single Tooth Implants:",
+              text: "Replace individual missing teeth without affecting adjacent healthy teeth.",
+              image: "/images/services/dental-implants-strong.jpg",
+            },
+            {
+              subtitle: "Multiple Tooth Implants:",
+              text: "Restore several missing teeth with implant-supported bridges.",
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            {
+              subtitle: "All-on-4/All-on-6:",
+              text: "Full arch restoration using strategically placed implants to support a complete set of teeth.",
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            {
+              subtitle: "Implant-Supported Dentures:",
+              text: "Secure, stable dentures that won't slip or move.",
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            {
+              subtitle: "Immediate Load Implants:",
+              text: "Same-day teeth replacement in suitable cases.",
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            {
+              subtitle: "Bone Grafting:",
+              text: "Procedures to build adequate bone support when needed.",
+              image: "/images/services/dental-implants-bone.jpg",
+            },
+            {
+              subtitle: "Sinus Lift Surgery:",
+              text: "Specialized technique to create space for upper jaw implants.",
               image: "/images/services/dental-implants-bone.jpg",
             },
           ],
         },
         {
-          title: "Comfort & Safety",
-          content:
-            "Modern anesthesia and minimally invasive techniques make implant placement safe and comfortable. Healing is quick and predictable with proper care.",
+          title: "Key Benefits of Dental Implants",
+          content:`**Permanent Solution**: Implants are designed to last a lifetime with proper care, unlike bridges or dentures that need replacement.
+**Natural Function**: Bite and chew with confidence - implants function just like natural teeth with full chewing power.
+**Preserve Facial Structure**: Prevent bone loss and maintain your natural facial appearance.
+**No Impact on Adjacent Teeth**: Unlike bridges, implants don't require grinding down healthy neighboring teeth.
+**Easy Maintenance**: Care for implants just like natural teeth with regular brushing and flossing.
+**Improved Confidence**: Smile, speak, and eat without worry about loose or uncomfortable prosthetics.`,
           image: "/images/services/implant-2.jpg",
-          subsections: [
-            {
-              subtitle: "Myth vs Reality",
-              text: "Myth: Implants are painful and risky. Reality: With modern methods, most patients report minimal discomfort and excellent outcomes.",
-              image: "/images/services/implant-2.jpg",
-            },
-          ],
+          subsections: [],
         },
+        {
+          title: "Myth vs Reality",
+          content:`**1. Myth**:Implant surgery is very painful. 
+          **Reality**: Most patients report minimal discomfort. Local anesthesia and sedation options ensure a comfortable experience, with most patients taking only over-the-counter pain medication afterward.
+**2. Myth**: Implants are only for older people. 
+**Reality**: Age is not a limiting factor. Anyone with adequate bone structure and good oral health can be a candidate for implants, regardless of age.
+**3. Myth**: The process takes too long. 
+**Reality**: While healing takes time, many patients can have temporary teeth the same day. The investment in proper healing ensures long-term success.
+**4. Myth**: Implants are too expensive. 
+**Reality**: While initial cost is higher, implants often prove more economical long-term since they don't need replacement like other options.
+**5. Myth**: Implants can be rejected by the body. 
+**Reality**: True rejection is extremely rare. Titanium is biocompatible and integrates naturally with bone tissue.
+**6. Myth**: You can't eat normally with implants. 
+**Reality**: Once healed, implants restore full chewing function. You can eat all your favorite foods without restriction.`,
+          image: "/images/services/implant-2.jpg",
+          subsections: [],
+        },
+        
       ],
     },
   },
@@ -335,21 +509,92 @@ export const services: Service[] = [
       heroContentImage: "/images/services/full-mouth-rehab-subhero.jpg",
       additionalSections: [
         {
-          title: "Who Needs FMR?",
-          content: "Patients with severely worn teeth, multiple missing teeth, chronic jaw pain, bite problems, or those seeking a complete smile transformation are ideal candidates.",
+          title: "What is Full Mouth Rehabilitation?",
+          content: "Full mouth rehabilitation, also known as full mouth reconstruction, is a comprehensive treatment plan that addresses all dental problems affecting your bite, jaw function, and smile aesthetics. This complex procedure combines multiple dental specialties to restore your entire mouth to optimal health and function.",
           image: "/images/services/full-mouth-rehab.jpg",
           subsections: [
-            { subtitle: "Worn or Damaged Teeth", text: "Grinding, trauma, or decay can damage teeth requiring comprehensive restoration.", image: "/images/services/worn-teeth.jpg" },
-            { subtitle: "Multiple Missing Teeth", text: "Implants and bridges restore gaps for function and aesthetics.", image: "/images/services/missing-teeth.jpg" },
-            { subtitle: "Jaw Pain & Bite Issues", text: "Correcting bite alignment relieves strain and improves comfort.", image: "/images/services/bite-issues.jpg" }
+            { subtitle: "Complete Oral Health Transformation for Complex Dental Cases", text: "Full mouth rehabilitation is a comprehensive treatment approach that addresses multiple dental issues simultaneously to restore optimal oral health, function, and aesthetics. At our clinic, we combine advanced technology with artistic expertise to give you a completely transformed smile and renewed confidence.", image: "/images/services/worn-teeth.jpg" },
+            
+            
           ]
         },
         {
-          title: "Care & Myths",
-          content: "Though FMR may sound overwhelming, it’s carried out in phases for comfort and lasting results.",
+          title: "Why Choose Our Clinic for Full Mouth Rehabilitation?",
+          content: "We offer comprehensive solutions to meet every patient's needs:",
+          image: "/images/services/full-mouth-rehab.jpg",
+          subsections: [
+            { subtitle: "Advanced Diagnostic Technology", 
+              text: `**1.** 3D CT imaging for comprehensive anatomical assessment
+              **2.** Digital smile design to preview your transformation
+              **3.** Bite analysis technology for optimal jaw function
+              **4.** Intraoral cameras for detailed documentation
+              **5.** All procedures performed under magnification for precision`, 
+              image: "/images/services/worn-teeth.jpg" },
+            { subtitle: "Comprehensive Treatment Planning", 
+              text:`**1.** Interdisciplinary approach combining multiple specialties
+              **2.** Phased treatment plans to manage complex cases systematically
+              **3.** Computer-guided procedures for predictable outcomes
+              **4.** Custom treatment protocols tailored to your specific needs`, 
+              image: "/images/services/missing-teeth.jpg" },
+            { subtitle: "Expert Care Team", 
+              text: `**1.** Extensive rehabilitation experience with complex cases
+              **2.** Advanced training in multiple dental disciplines
+              **3.** Proven track record of successful transformations
+              **4.** Ongoing education in latest techniques and materials`, 
+              image: "/images/services/bite-issues.jpg" },
+              { subtitle: "Comfort & Convenience", 
+              text: `**1.** Sedation options for anxious patients
+              **2. Single-location care** - no referrals to multiple offices
+              **3.** Flexible scheduling to accommodate extensive treatment
+              **4.** Comprehensive support throughout your journey`, 
+              image: "/images/services/bite-issues.jpg" }
+          ]
+        },
+        {
+          title: "Comprehensive Rehabilitation Services",
+          content: "Our full mouth rehabilitation encompasses a wide range of specialized treatments:",
+          image: "/images/services/full-mouth-rehab.jpg",
+          subsections: [
+            { subtitle: "Restorative Dentistry:", text: "Crowns, bridges, veneers, and onlays to restore damaged teeth.", image: "/images/services/worn-teeth.jpg" },
+            { subtitle: "Dental Implants:", text: "Single implants, multiple implants, and full arch replacements for missing teeth.", image: "/images/services/missing-teeth.jpg" },
+            { subtitle: "Orthodontic Correction:", text: "Alignment of teeth and bite correction when needed.", image: "/images/services/bite-issues.jpg" },
+            { subtitle: "Endodontic Treatment:", text: "Root canal therapy performed under magnification for infected teeth.", image: "/images/services/bite-issues.jpg" },
+            { subtitle: "Oral Surgery:", text: "Extractions, bone grafting, and surgical preparation procedures.", image: "/images/services/bite-issues.jpg" },
+            { subtitle: "TMJ Treatment:", text: "Addressing jaw joint disorders and bite dysfunction.", image: "/images/services/bite-issues.jpg" },
+            { subtitle: "Cosmetic Enhancement:", text: "Teeth whitening, smile design, and aesthetic improvements.", image: "/images/services/bite-issues.jpg" },
+            { subtitle: "Occlusal Therapy:", text: "Bite adjustment and equilibration for proper jaw function.", image: "/images/services/bite-issues.jpg" }
+          ]
+        },
+        {
+          title: "Key Benefits of Full Mouth Rehabilitation",
+          content: `**Complete Oral Health Restoration**: Address all dental problems in a coordinated treatment plan rather than piecemeal solutions.
+          **Improved Function**: Restore proper chewing, speaking, and jaw function for better quality of life.
+          **Enhanced Aesthetics**: Achieve a beautiful, natural-looking smile that complements your facial features.
+          **Long-term Stability**: Comprehensive approach ensures lasting results and prevents future problems.
+          **Increased Confidence**: Transform not just your smile but your self-esteem and social interactions.
+          **Better Overall Health**: Improved oral health contributes to better systemic health and well-being.
+`,
+          image: "/images/services/full-mouth-rehab.jpg",
+          subsections: [
+          ]
+        },
+        {
+          title: "Myths vs Reality",
+          content: `**1. Myth**: Treatment takes years to complete. 
+          **Reality**: Most full mouth rehabilitations are completed in 6-18 months with proper planning. Some cases can be finished even faster with immediate solutions.
+**2. Myth**: It's only for severely damaged mouths. 
+**Reality**: While it addresses complex cases, full mouth rehabilitation can benefit anyone wanting comprehensive oral health improvement and smile enhancement.
+**3. Myth**: The process is too painful. 
+**Reality**: Modern techniques and sedation options make treatment comfortable. Most patients report minimal discomfort throughout the process.
+**4. Myth**: Results don't look natural. 
+**Reality**: Advanced materials and digital design create incredibly natural-looking results that are customized to your facial features and preferences.
+**5. Myth**: It's too expensive. 
+**Reality**: While comprehensive, the coordinated approach often costs less than treating problems separately over time, and provides superior long-term value.
+**6. Myth**: You can't function normally during treatment. 
+**Reality**: Temporary restorations maintain function and aesthetics throughout treatment, so you can continue normal activities. `,
           image: "/images/services/full-mouth-rehab-2.jpg",
           subsections: [
-            { subtitle: "Myth vs Reality", text: "Myth: Full mouth rehab means removing all natural teeth. Reality: Wherever possible, natural teeth are preserved and integrated into the plan.", image: "/images/services/fmr-myth.jpg" }
+            
           ]
         }
       ]
@@ -397,21 +642,89 @@ export const services: Service[] = [
       heroContentImage: "/images/services/subhero-teeth-restoration.jpg",
       additionalSections: [
         {
-          title: "Types of Restorations",
-          content: "Depending on the extent of damage, we use different approaches — from simple fillings to advanced onlays and inlays.",
+          title: "What are Direct Composite Restorations?",
+          content: "Direct composite restorations are tooth-colored materials that are applied, shaped, and hardened directly on your tooth during your visit. These mercury-free, aesthetic restorations bond chemically to your tooth structure, providing excellent strength while preserving maximum natural tooth material.",
           image: "/images/services/restoration-types.jpg",
           subsections: [
-            { subtitle: "Composite Fillings", text: "Aesthetic tooth-colored fillings for small to medium cavities.", image: "/images/services/composite-filling.jpg" },
-            { subtitle: "Inlays & Onlays", text: "Stronger alternatives for larger cavities, crafted in ceramic or composite.", image: "/images/services/inlay-onlay.jpg" },
-            { subtitle: "Bonding", text: "Quick repair for chips, cracks, and worn edges.", image: "/images/services/dental-bonding.jpg" }
+            { subtitle: "Direct Composite Restorations", text: "Natural-Looking, Same-Day Tooth Repairs with Advanced Composite Materials. Direct composite restorations are tooth-colored fillings and repairs that are sculpted and cured directly in your mouth during a single appointment. At our clinic, we use the finest composite materials and artistic techniques to create restorations that are virtually indistinguishable from your natural teeth.", image: "/images/services/composite-filling.jpg" },
+           
           ]
         },
         {
-          title: "Care & Myths",
-          content: "Modern restorations are durable and blend naturally, but they still require good oral hygiene.",
+          title: "Why Choose Our Clinic for Direct Composite Restorations?",
+          content: "Depending on the extent of damage, we use different approaches — from simple fillings to advanced onlays and inlays.",
+          image: "/images/services/restoration-types.jpg",
+          subsections: [
+            { subtitle: "Advanced Composite Technology", text: `**1.** High-quality nano-hybrid composites with superior strength and polish retention
+              **2.** Multiple shade options for perfect color matching to your natural teeth
+              **3.** Advanced bonding agents for long-lasting adhesion
+              **4.** Light-curing technology for optimal polymerization and durability
+              **5.** All procedures performed under magnification for exceptional precision and detail`, image: "/images/services/composite-filling.jpg" },
+            { subtitle: "Artistic Excellence", text: `**1.** Layering techniques to mimic natural tooth translucency and depth
+              **2.** Custom shade blending for seamless integration with surrounding teeth
+              **3.** Anatomical sculpting to restore natural tooth contours and function
+              **4.** Surface texturing to match the natural characteristics of your teeth`, image: "/images/services/inlay-onlay.jpg" },
+            { subtitle: "Conservative Approach", text: `**1.** Minimal tooth preparation preserving maximum natural tooth structure
+              **2.** Biomimetic materials that flex and function like natural enamel
+              **3.** Same-day completion with no need for temporary restorations
+              **4.** Immediate function - eat and drink normally right after treatment`, image: "/images/services/dental-bonding.jpg" },
+              { subtitle: "Quality & Comfort", text: `**1.** Pain-free procedures with gentle techniques and effective anesthesia
+              **2.** Smooth, comfortable surfaces that feel natural
+              **3.** Long-lasting results with proper care and maintenance
+              **4.** Comprehensive aftercare instructions and support`, image: "/images/services/dental-bonding.jpg" }
+          ]
+        },
+        {
+          title: "Comprehensive Direct Composite Services",
+          content: "We offer a complete range of direct composite treatments:",
+          image: "/images/services/restoration-types.jpg",
+          subsections: [
+            { subtitle: "Composite Fillings:", text: "Mercury-free, tooth-colored fillings for cavities in both front and back teeth.", image: "/images/services/composite-filling.jpg" },
+            { subtitle: "Dental Bonding:", text: "Sculpted composite to repair chips, close gaps, reshape teeth, and improve appearance.", image: "/images/services/inlay-onlay.jpg" },
+            { subtitle: "Cosmetic Contouring:", text: "Minor reshaping and smoothing of tooth irregularities.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "Enamel Repair:", text: "Restoration of worn or damaged enamel surfaces.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "Cosmetic Contouring:", text: "Minor reshaping and smoothing of tooth irregularities.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "Gap Closure:", text: "Closing small spaces between teeth without orthodontics.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "Chip and Fracture Repair:", text: "Immediate restoration of broken or damaged tooth edges.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "Smile Enhancement:", text: "Improving tooth shape, size, and color in a single visit.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "White Spot Treatment:", text: "Covering discolored areas and white spots on teeth.", image: "/images/services/dental-bonding.jpg" },
+            { subtitle: "Emergency Repairs:", text: "Same-day treatment for damaged teeth.", image: "/images/services/dental-bonding.jpg" },
+
+          ],
+          
+        },
+        {
+          title: "Key Benefits of Direct Composite Restorations",
+          content: `**Same-Day Results**: Complete treatment in a single appointment with immediate results.
+          **Natural Appearance**: Advanced composites blend seamlessly with your natural tooth color and translucency.
+          **Conservative Treatment**: Minimal tooth removal preserves healthy tooth structure.
+          **Strong Bond**: Chemical bonding to tooth structure often strengthens the remaining tooth.
+          **Mercury-Free**: Safe, biocompatible materials with no metal content.
+          **Versatile**: Can address both functional and cosmetic concerns simultaneously.
+          **Cost-Effective**: More affordable than indirect restorations like crowns or veneers.
+          **Repairable**: Easy to adjust, repair, or enhance if needed in the future.`,
+          image: "/images/services/restoration-types.jpg",
+          subsections: [
+           
+          ]
+        },
+        {
+          title: "Myth vs Reality",
+          content: `**1. Myth**: Composite fillings don't last as long as amalgam. 
+          **Reality**: Modern composites can last 10-15 years or more with proper care, often outlasting amalgam fillings.
+          **2. Myth**: White fillings stain easily. 
+          **Reality**: Today's advanced composites are highly stain-resistant and maintain their color with proper oral hygiene.
+          **3. Myth**: Composite restorations are weaker. 
+          **Reality**: Modern nano-hybrid composites are extremely strong and actually bond to teeth, often making them stronger than amalgam.
+          **4. Myth**: The procedure is more painful. 
+          **Reality**: Composite procedures often require less tooth removal and cause less post-treatment sensitivity than traditional fillings.
+          **5. Myth**: They're only good for front teeth. 
+          **Reality**: Advanced composites are strong enough for back teeth and can withstand normal chewing forces.
+          **6. Myth**: Composites shrink and fall out. 
+          **Reality**: Proper layering techniques and curing protocols minimize shrinkage and ensure long-lasting restorations.`,
           image: "/images/services/restoration-care.jpg",
           subsections: [
-            { subtitle: "Myth vs Reality", text: "Myth: Fillings don’t last long. Reality: With proper care, modern restorations can last over a decade.", image: "/images/services/restoration-myth.jpg" }
+            
           ]
         }
       ]
@@ -463,24 +776,90 @@ export const services: Service[] = [
       heroContentImage: "/images/services/subhero-oral-surgery.jpg",
       additionalSections: [
         {
-          title: "Types of Oral Surgery",
-          content: "Our oral surgery services cover a broad spectrum of treatments — including impacted wisdom tooth removal, sinus lifts for implants, corrective jaw surgery, cyst and tumor removal, trauma repair, and oral cancer screenings for early detection.",
+          title: "What is Oral Surgery?",
+          content: "Oral surgery involves surgical procedures performed in and around the mouth to address various dental and medical conditions. From simple extractions to complex reconstructive procedures, oral surgery can resolve problems, alleviate pain, and restore optimal oral health and function.",
           image: "/images/services/oral-surgery-procedures.jpg",
           subsections: [
-            { subtitle: "Wisdom Teeth & Extractions", text: "Safe removal of impacted or infected teeth prevents pain, crowding, and infections.", image: "/images/services/wisdom-tooth-extraction.jpg" },
-            { subtitle: "Jaw Surgery & Sinus Lifts", text: "Corrective jaw surgery improves bite and function, while sinus lifts enable successful dental implant placement.", image: "/images/services/sinus-lift.jpg" },
-            { subtitle: "Pathology & Cancer Screening", text: "We manage cysts, tumors, and perform early screenings for oral cancer — improving chances of timely treatment.", image: "/images/services/oral-cancer-screening-detail.jpg" },
-            { subtitle: "Trauma & Emergency Care", text: "From fractures to soft tissue injuries, our surgeons restore both function and aesthetics with precision.", image: "/images/services/oral-trauma.jpg" }
+            
+            { subtitle: "Advanced Surgical Solutions for Complex Dental and Oral Health Issues", text: "Oral surgery encompasses a wide range of procedures designed to treat conditions affecting the mouth, teeth, jaws, and surrounding structures. At our clinic, we combine surgical expertise with advanced technology and compassionate care to provide safe, effective treatment in a comfortable environment.", image: "/images/services/oral-trauma.jpg" }
           ]
         },
         {
-          title: "Comfort, Safety & Aftercare",
+          title: "Why Choose Our Clinic for Oral Surgery?",
           content: "Your comfort matters to us. We provide local anesthesia and sedation options to ease anxiety and ensure painless treatment. Our strict sterilization protocols guarantee safety at every step. After surgery, you’ll receive personalized recovery instructions, dietary guidance, and follow-up appointments to ensure smooth healing.",
           image: "/images/services/oral-surgery-comfort.jpg",
           subsections: [
-            { subtitle: "Myth vs Reality", text: "Myth: Oral surgery is always very painful. Reality: With modern anesthesia and sedation, most patients experience little to no pain during and after the procedure.", image: "/images/services/oral-surgery-myth.jpg" }
+            { subtitle: "Advanced Surgical Technology", text: `**1.** 3D CT imaging for precise surgical planning and guidance
+              **2.** Computer-guided surgery for optimal accuracy and minimal invasiveness
+              **3.** Piezoelectric instruments for gentle bone surgery with minimal trauma
+              **4.** Advanced anesthesia techniques including IV sedation options
+              **5.** All procedures performed under magnification for enhanced precision`, image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Comprehensive Surgical Expertise", text: `**1.** Extensive surgical training with proven experience in complex cases
+              **2.** In-house capability - no need for referrals to other specialists
+              **3.** Emergency surgical services available for urgent cases
+              **4.** Collaborative approach with other dental specialists when needed`, image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Patient Comfort & Safety", text: `**1.** Multiple sedation options to ensure patient comfort and anxiety control
+              **2.** Pain management protocols for optimal post-operative comfort
+              **3.** Sterile surgical environment meeting highest safety standards
+              **4.** Pre and post-operative care with detailed instructions and support`, image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "State-of-the-Art Facility", text: `**1.** Modern surgical suite equipped with latest technology
+              **2.** Digital imaging systems for accurate diagnosis and planning
+              **3.** Emergency equipment and protocols for patient safety
+              **4.** Comfortable recovery areas for post-procedure monitoring`, image: "/images/services/oral-surgery-myth.jpg" }
           ]
-        }
+        },
+        {
+          title: "Comprehensive Oral Surgery Services",
+          content: "We offer a complete range of surgical procedures to meet all your oral health needs:",
+          image: "/images/services/oral-surgery-comfort.jpg",
+          subsections: [
+            { subtitle: "Tooth Extractions:", text: "Simple and surgical removal of damaged, impacted, or problematic teeth.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Wisdom Tooth Removal:", text: "Extraction of third molars that are impacted, crowded, or causing problems.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Dental Implant Placement: ", text: "Surgical placement of titanium implants to replace missing teeth.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Bone Grafting:", text: "Procedures to rebuild and strengthen jawbone for implant placement or structural support.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Sinus Lift Surgery:", text: "Specialized technique to create adequate bone height in the upper jaw for implants.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Apicoectomy:", text: "Root-end surgery to save teeth when conventional root canal treatment isn't sufficient.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Soft Tissue Surgery:", text: "Procedures involving gums and oral tissues for health and aesthetic improvement.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Biopsy Procedures:", text: "Removal and examination of suspicious tissue for diagnostic purposes.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Cyst and Tumor Removal:", text: "Surgical treatment of benign growths and lesions in the mouth.", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Corrective Jaw Surgery:", text: "Treatment of jaw alignment and bite problems (in coordination with orthodontists).", image: "/images/services/oral-surgery-myth.jpg" },
+            { subtitle: "Trauma and Injury Repair:", text: "Emergency treatment of facial and dental injuries.", image: "/images/services/oral-surgery-myth.jpg" }
+          ]
+        },
+        {
+          title: "Key Benefits of Our Oral Surgery",
+          content: `**Expert Care**: Specialized training and extensive experience in complex surgical procedures.
+          **Advanced Technology**: State-of-the-art equipment for precise, minimally invasive surgery.
+          **Comprehensive Service**: Full range of procedures available in one convenient location.
+          **Comfort Options**: Multiple sedation levels to ensure patient comfort and anxiety control.
+          **Faster Healing**: Modern techniques promote quicker recovery with less discomfort.
+          **Safety First**: Rigorous safety protocols and emergency preparedness.
+          **Coordinated Care**: Seamless integration with other dental treatments and specialists.
+        `,
+          image: "/images/services/oral-surgery-comfort.jpg",
+          subsections: [
+           
+          ]
+        },
+        {
+          title: "Myths vs Reality",
+          content: `**1. Myth**: Oral surgery is extremely painful. 
+          **Reality**: Modern anesthesia and pain management techniques make procedures comfortable. Most patients report minimal post-operative discomfort.
+          **2. Myth**: Recovery takes weeks. 
+          **Reality**: Many procedures have quick healing times. Simple extractions often heal within days, while complex surgeries typically heal within 1-2 weeks.
+          **3. Myth**: Oral surgery is dangerous. 
+          **Reality**: When performed by trained professionals with proper equipment, oral surgery is very safe with low complication rates.
+          **4. Myth**: You'll be awake and aware during surgery. 
+          **Reality**: Various sedation options are available, from local anesthesia to IV sedation, ensuring patient comfort throughout the procedure.
+          **5. Myth**: Oral surgery always requires hospitalization. 
+          **Reality**: Most oral surgeries are outpatient procedures performed safely in the dental office.
+          **6. Myth**: Complications are common. 
+          **Reality**: Serious complications are rare when procedures are performed by experienced surgeons following proper protocols.`,
+          image: "/images/services/oral-surgery-comfort.jpg",
+          subsections: [
+            
+          ]
+        },
       ]
     }
   }

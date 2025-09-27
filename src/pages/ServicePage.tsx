@@ -19,6 +19,7 @@ import WhatsAppUsButton from "@/components/WhatsAppUsButton";
 import FloatingActionButtons from "@/components/FloatingActionButtons";
 import FooterCTA from "@/components/FooterCTA";
 import HeroSection from "@/components/HeroSection";
+import ReactMarkdown from "react-markdown";
 
 const ServicePage = () => {
   const { slug } = useParams();
@@ -289,7 +290,7 @@ const ServicePage = () => {
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {service.title} Treatment Process in Pune
+              {service.title} Treatment Process
             </h2>
             <p className="text-lg text-white/90">
               Step-by-step {service.title.toLowerCase()} procedure at our clinic
@@ -327,21 +328,25 @@ const ServicePage = () => {
               <article key={index} className="mb-16 last:mb-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold text-shade mb-6">
                       {section.title}
                     </h2>
-                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <div className="text-lg  text-shade mb-8 leading-relaxed whitespace-pre-line">
+                      <ReactMarkdown>
                       {section.content}
-                    </p>
+                      </ReactMarkdown>
+                    </div>
 
                     {section.subsections?.map((subsection, subIndex) => (
                       <div key={subIndex} className="mb-6">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                        <h3 className="text-xl font-semibold text-shade mb-3">
                           {subsection.subtitle}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <div className="text-shade leading-relaxed whitespace-pre-line">
+                          <ReactMarkdown>                          
                           {subsection.text}
-                        </p>
+                          </ReactMarkdown>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -362,7 +367,7 @@ const ServicePage = () => {
       )}
 
       {/* Treatment Results with alt tags */}
-      {beforeAfterImages.length > 0 && (
+      {/* {beforeAfterImages.length > 0 && (
         <section className="py-16 bg-gradient-to-b from-blue-50 to-pink-50 relative overflow-hidden">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
@@ -434,7 +439,7 @@ const ServicePage = () => {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* Related Services for internal linking */}
       {/* <section className="py-16 bg-white">
